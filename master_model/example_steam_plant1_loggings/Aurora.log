@@ -1,0 +1,984 @@
+2025-11-26 01:18:43,769 - INFO - logger - Path for logging: example_steam_plant1_loggings\Aurora.log
+2025-11-26 01:18:43,771 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-26 01:18:43,773 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference above boiling point: K
+temperature difference under boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-26 01:18:43,773 - DEBUG - network - Default mass flow limits
+min: 1e-05 kg / s
+max: 1000000000000.0 kg / s
+2025-11-26 01:18:43,773 - DEBUG - network - Default pressure limits
+min: 100000.0 Pa
+max: 30000000.0 Pa
+2025-11-26 01:18:43,785 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-26 01:18:43,785 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-26 01:18:43,785 - DEBUG - network - Setting pressure unit: bar.
+2025-11-26 01:18:43,785 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-26 01:18:43,785 - DEBUG - network - Setting temperature unit: C.
+2025-11-26 01:18:43,787 - DEBUG - connection - Created connection from steam generator (out1) to cycle closer (in1).
+2025-11-26 01:18:43,787 - DEBUG - connection - Created connection from cycle closer (out1) to high pressure turbine (in1).
+2025-11-26 01:18:43,787 - DEBUG - connection - Created connection from high pressure turbine (out1) to splitter 1 (in1).
+2025-11-26 01:18:43,788 - DEBUG - connection - Created connection from splitter 1 (out1) to mid pressure turbine (in1).
+2025-11-26 01:18:43,788 - DEBUG - connection - Created connection from mid pressure turbine (out1) to splitter 2 (in1).
+2025-11-26 01:18:43,788 - DEBUG - connection - Created connection from splitter 2 (out1) to low pressure turbine (in1).
+2025-11-26 01:18:43,789 - DEBUG - connection - Created connection from low pressure turbine (out1) to condenser (in1).
+2025-11-26 01:18:43,789 - DEBUG - connection - Created connection from condenser (out1) to feed water pump (in1).
+2025-11-26 01:18:43,789 - DEBUG - connection - Created connection from feed water pump (out1) to feed water preheater 1 (in2).
+2025-11-26 01:18:43,789 - DEBUG - connection - Created connection from feed water preheater 1 (out2) to merge (in1).
+2025-11-26 01:18:43,790 - DEBUG - connection - Created connection from merge (out1) to feed water preheater 2 (in2).
+2025-11-26 01:18:43,790 - DEBUG - connection - Created connection from feed water preheater 2 (out2) to desuperheater (in2).
+2025-11-26 01:18:43,790 - DEBUG - connection - Created connection from desuperheater (out2) to merge2 (in1).
+2025-11-26 01:18:43,791 - DEBUG - connection - Created connection from merge2 (out1) to steam generator (in1).
+2025-11-26 01:18:43,791 - DEBUG - network - Added connection 0 to network.
+2025-11-26 01:18:43,792 - DEBUG - network - Added connection 1 to network.
+2025-11-26 01:18:43,792 - DEBUG - network - Added connection 2 to network.
+2025-11-26 01:18:43,792 - DEBUG - network - Added connection 3 to network.
+2025-11-26 01:18:43,793 - DEBUG - network - Added connection 4 to network.
+2025-11-26 01:18:43,793 - DEBUG - network - Added connection 5 to network.
+2025-11-26 01:18:43,794 - DEBUG - network - Added connection 6 to network.
+2025-11-26 01:18:43,794 - DEBUG - network - Added connection 7 to network.
+2025-11-26 01:18:43,795 - DEBUG - network - Added connection 8 to network.
+2025-11-26 01:18:43,795 - DEBUG - network - Added connection 9 to network.
+2025-11-26 01:18:43,795 - DEBUG - network - Added connection 10 to network.
+2025-11-26 01:18:43,796 - DEBUG - network - Added connection 11 to network.
+2025-11-26 01:18:43,796 - DEBUG - network - Added connection 12 to network.
+2025-11-26 01:18:43,796 - DEBUG - network - Added connection 13 to network.
+2025-11-26 01:18:43,800 - DEBUG - connection - Created connection from splitter 1 (out2) to desuperheater (in1).
+2025-11-26 01:18:43,801 - DEBUG - connection - Created connection from desuperheater (out1) to feed water preheater 2 (in1).
+2025-11-26 01:18:43,801 - DEBUG - connection - Created connection from feed water preheater 2 (out1) to feed water pump 2 (in1).
+2025-11-26 01:18:43,801 - DEBUG - connection - Created connection from feed water pump 2 (out1) to merge2 (in2).
+2025-11-26 01:18:43,802 - DEBUG - connection - Created connection from splitter 2 (out2) to feed water preheater 1 (in1).
+2025-11-26 01:18:43,802 - DEBUG - connection - Created connection from feed water preheater 1 (out1) to feed water pump 3 (in1).
+2025-11-26 01:18:43,802 - DEBUG - connection - Created connection from feed water pump 3 (out1) to merge (in2).
+2025-11-26 01:18:43,803 - DEBUG - network - Added connection 21 to network.
+2025-11-26 01:18:43,803 - DEBUG - network - Added connection 22 to network.
+2025-11-26 01:18:43,804 - DEBUG - network - Added connection 23 to network.
+2025-11-26 01:18:43,804 - DEBUG - network - Added connection 24 to network.
+2025-11-26 01:18:43,804 - DEBUG - network - Added connection 31 to network.
+2025-11-26 01:18:43,805 - DEBUG - network - Added connection 32 to network.
+2025-11-26 01:18:43,805 - DEBUG - network - Added connection 33 to network.
+2025-11-26 01:18:43,806 - DEBUG - connection - Created connection from cooling water source (out1) to condenser (in2).
+2025-11-26 01:18:43,806 - DEBUG - connection - Created connection from condenser (out2) to cooling water sink (in1).
+2025-11-26 01:18:43,807 - DEBUG - network - Added connection 41 to network.
+2025-11-26 01:18:43,807 - DEBUG - network - Added connection 42 to network.
+2025-11-26 01:18:43,836 - DEBUG - network - Removing 1 mass flow variables from ['13', '0'] from system variables.
+2025-11-26 01:18:43,838 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-26 01:18:43,838 - INFO - network - ########----Network check successful----########
+2025-11-26 01:18:43,838 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: example_steam_plant1_design
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-26 01:18:43,838 - DEBUG - network - Network information:
+ - Number of components: 18
+ - Number of connections: 23
+ - Number of busses: 0
+2025-11-26 01:18:43,845 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2025-11-26 01:18:43,845 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2025-11-26 01:18:43,846 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2025-11-26 01:18:43,848 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-26 01:18:43,851 - INFO - network - ########-----Initializing variables bounds-----########
+2025-11-26 01:18:43,852 - DEBUG - connection - The connection: 0 has 0 equations.
+2025-11-26 01:18:43,852 - DEBUG - connection - The connection: 1 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 10 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 11 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 12 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 13 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 2 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 21 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 22 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 23 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 24 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 3 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 31 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 32 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 33 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 4 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 41 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 42 has 1 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 5 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 6 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 7 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 8 has 0 equations.
+2025-11-26 01:18:43,853 - DEBUG - connection - The connection: 9 has 0 equations.
+2025-11-26 01:18:43,854 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,854 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,854 - DEBUG - component - The component: condenser of type Condenser has 3 equations.
+2025-11-26 01:18:43,854 - DEBUG - component - The component: cooling water sink of type Sink has 0 equations.
+2025-11-26 01:18:43,854 - DEBUG - component - The component: cooling water source of type Source has 0 equations.
+2025-11-26 01:18:43,854 - DEBUG - component - The component: cycle closer of type CycleCloser has 0 equations.
+2025-11-26 01:18:43,854 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,855 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,855 - DEBUG - component - The component: desuperheater of type Desuperheater has 2 equations.
+2025-11-26 01:18:43,855 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,855 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,855 - DEBUG - component - The component: feed water preheater 1 of type Condenser has 3 equations.
+2025-11-26 01:18:43,855 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,856 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,856 - DEBUG - component - The component: feed water preheater 2 of type Condenser has 3 equations.
+2025-11-26 01:18:43,856 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,856 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,856 - DEBUG - component - The component: feed water pump of type Pump has 1 equations.
+2025-11-26 01:18:43,857 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,857 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,857 - DEBUG - component - The component: feed water pump 2 of type Pump has 1 equations.
+2025-11-26 01:18:43,857 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,857 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,858 - DEBUG - component - The component: feed water pump 3 of type Pump has 1 equations.
+2025-11-26 01:18:43,858 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,858 - DEBUG - component - The component: high pressure turbine of type Turbine has 1 equations.
+2025-11-26 01:18:43,858 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,858 - DEBUG - component - The component: low pressure turbine of type Turbine has 1 equations.
+2025-11-26 01:18:43,858 - DEBUG - component - The component: merge of type Merge has 2 equations.
+2025-11-26 01:18:43,858 - DEBUG - component - The component: merge2 of type Merge has 2 equations.
+2025-11-26 01:18:43,858 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,859 - DEBUG - component - The component: mid pressure turbine of type Turbine has 1 equations.
+2025-11-26 01:18:43,859 - DEBUG - component - The component: splitter 1 of type Splitter has 1 equations.
+2025-11-26 01:18:43,859 - DEBUG - component - The component: splitter 2 of type Splitter has 1 equations.
+2025-11-26 01:18:43,859 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:18:43,859 - DEBUG - component - The component: steam generator of type SimpleHeatExchanger has 0 equations.
+2025-11-26 01:18:43,859 - DEBUG - network - ------presolve_batch: 1------
+2025-11-26 01:18:43,859 - DEBUG - network - Has pre_solved equation: <connection property>: T of 42
+2025-11-26 01:18:43,859 - DEBUG - network - Has pre_solved equation: <component parameter>: ttd_u of Condenser: condenser
+2025-11-26 01:18:43,859 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: feed water preheater 1
+2025-11-26 01:18:43,860 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: feed water preheater 2
+2025-11-26 01:18:43,860 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Pump: feed water pump 2
+2025-11-26 01:18:43,860 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Turbine: high pressure turbine
+2025-11-26 01:18:43,861 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Turbine: mid pressure turbine
+2025-11-26 01:18:43,861 - DEBUG - network - ------presolve_batch: 2------
+2025-11-26 01:18:43,861 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: condenser
+2025-11-26 01:18:43,861 - DEBUG - network - Has pre_solved equation: <component parameter>: ttd_u of Condenser: feed water preheater 1
+2025-11-26 01:18:43,862 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Pump: feed water pump
+2025-11-26 01:18:43,862 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Turbine: low pressure turbine
+2025-11-26 01:18:43,862 - DEBUG - network - ------presolve_batch: 3------
+2025-11-26 01:18:43,862 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Pump: feed water pump 3
+2025-11-26 01:18:43,862 - DEBUG - network - ------presolve_batch: 4------
+2025-11-26 01:18:43,862 - DEBUG - network - Has removed 12 pre_solved equations totally.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: condenser of type Condenser has 0 variables.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: cooling water sink of type Sink has 0 variables.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: cooling water source of type Source has 0 variables.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: cycle closer of type CycleCloser has 0 variables.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: desuperheater of type Desuperheater has 0 variables.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: feed water preheater 1 of type Condenser has 0 variables.
+2025-11-26 01:18:43,862 - DEBUG - component - The component: feed water preheater 2 of type Condenser has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: feed water pump of type Pump has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: feed water pump 2 of type Pump has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: feed water pump 3 of type Pump has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: high pressure turbine of type Turbine has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: low pressure turbine of type Turbine has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: merge of type Merge has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: merge2 of type Merge has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: mid pressure turbine of type Turbine has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: splitter 1 of type Splitter has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: splitter 2 of type Splitter has 0 variables.
+2025-11-26 01:18:43,863 - DEBUG - component - The component: steam generator of type SimpleHeatExchanger has 0 variables.
+2025-11-26 01:18:43,896 - INFO - network - ########----Network initialised----########
+2025-11-26 01:18:43,896 - DEBUG - network - ------Equation Summarization------
+2025-11-26 01:18:43,896 - DEBUG - network - Total number of equations: 12
+2025-11-26 01:18:43,896 - DEBUG - network - Number of connection equations: 1.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of component equations: 23.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of bus equations: 0.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of user defined equations: 0.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of presolved equations: 12.
+2025-11-26 01:18:43,896 - DEBUG - network - ------Variable Summarization------
+2025-11-26 01:18:43,896 - DEBUG - network - Total number of variables: 12.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of component variables: 0.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of connection variables: 12.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of mass flow variables: 7.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of pressure variables: 0.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of enthalpy variables: 5.
+2025-11-26 01:18:43,896 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-26 01:18:43,896 - DEBUG - network - Number of fluid composition equations: 0.
+2025-11-26 01:18:43,896 - DEBUG - network - Number of fluid variables: 0.
+2025-11-26 01:18:43,897 - DEBUG - network - the variables list is:
+ [
+  0: <mass flow objective> in connection: 1,
+  1: <mass flow objective> in connection: 10,
+  2: <mass flow objective> in connection: 21,
+  3: <mass flow objective> in connection: 3,
+  4: <mass flow objective> in connection: 31,
+  5: <mass flow objective> in connection: 41,
+  6: <mass flow objective> in connection: 5,
+  7: <enthalpy objective> in connection: 10,
+  8: <enthalpy objective> in connection: 11,
+  9: <enthalpy objective> in connection: 12,
+  10: <enthalpy objective> in connection: 13,
+  11: <enthalpy objective> in connection: 22
+]
+the variables scale is:
+ [1.e+00 1.e+00 1.e+00 1.e+00 1.e+00 1.e+00 1.e+00 1.e+05 1.e+05 1.e+05
+ 1.e+05 1.e+05]
+the equations list is:
+ [
+  0: <component constraint>: energy_balance_constraints of Condenser: condenser
+  1: <component constraint>: energy_balance_constraints of Desuperheater: desuperheater
+  2: <component constraint>: saturated_gas_constraints of Desuperheater: desuperheater
+  3: <component constraint>: energy_balance_constraints of Condenser: feed water preheater 1
+  4: <component constraint>: energy_balance_constraints of Condenser: feed water preheater 2
+  5: <component parameter>: ttd_u of Condenser: feed water preheater 2
+  6: <component constraint>: mass_flow_constraints of Merge: merge
+  7: <component constraint>: energy_balance_constraints of Merge: merge
+  8: <component constraint>: mass_flow_constraints of Merge: merge2
+  9: <component constraint>: energy_balance_constraints of Merge: merge2
+  10: <component constraint>: mass_flow_constraints of Splitter: splitter 1
+  11: <component constraint>: mass_flow_constraints of Splitter: splitter 2
+]
+the residual scale:
+ [1.e+05 1.e+05 1.e+05 1.e+05 1.e+05 1.e+01 1.e+00 1.e+05 1.e+00 1.e+05
+ 1.e+00 1.e+00]
+the fluid variables list is:
+ [
+  
+]
+the fluid equations list is:
+ [
+  
+]
+2025-11-26 01:18:43,897 - DEBUG - network - has no linear dependence in network topology
+2025-11-26 01:18:43,897 - DEBUG - network - T range of some connections are: [
+  10------[275.89160000000004, 1980.0] K,
+  11------[275.89160000000004, 1980.0] K,
+  12------[275.89160000000004, 1980.0] K,
+  13------[275.89160000000004, 1980.0] K,
+  22------[275.89160000000004, 1980.0] K
+]
+2025-11-26 01:18:43,897 - DEBUG - network - The range of variables are: [
+  0: <mass flow objective> in connection: 1------[1e-05, 1000000000000.0] kg / s,
+  1: <mass flow objective> in connection: 10------[1e-05, 1000000000000.0] kg / s,
+  2: <mass flow objective> in connection: 21------[1e-05, 1000000000000.0] kg / s,
+  3: <mass flow objective> in connection: 3------[1e-05, 1000000000000.0] kg / s,
+  4: <mass flow objective> in connection: 31------[1e-05, 1000000000000.0] kg / s,
+  5: <mass flow objective> in connection: 41------[1e-05, 1000000000000.0] kg / s,
+  6: <mass flow objective> in connection: 5------[1e-05, 1000000000000.0] kg / s,
+  7: <enthalpy objective> in connection: 10------[26744.881741572983, 6521979.907965349] J / kg,
+  8: <enthalpy objective> in connection: 11------[26635.495242265275, 6522048.018918271] J / kg,
+  9: <enthalpy objective> in connection: 12------[26527.18676852037, 6522115.463042785] J / kg,
+  10: <enthalpy objective> in connection: 13------[26527.18676852037, 6522115.463042785] J / kg,
+  11: <enthalpy objective> in connection: 22------[17704.65262118992, 6527618.044349995] J / kg
+]
+2025-11-26 01:18:43,897 - INFO - network - Starting solver.
+2025-11-26 01:18:43,898 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-26 01:18:43,898 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-26 01:18:43,898 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,899 - DEBUG - network - matrix value: 2045687692.5774581
+2025-11-26 01:18:43,960 - PROGRESS - network -  1     | 1.36e+03   | 31 %       | 4.02e+00   | 0.00e+00   | 4.69e+00   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,960 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,961 - DEBUG - network - matrix value: 2971109090.097508
+2025-11-26 01:18:43,962 - PROGRESS - network -  2     | 2.54e+01   | 51 %       | 1.42e+00   | 0.00e+00   | 2.51e-01   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,962 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,963 - DEBUG - network - matrix value: 2970843825.3380513
+2025-11-26 01:18:43,964 - PROGRESS - network -  3     | 2.41e+00   | 62 %       | 3.32e-01   | 0.00e+00   | 7.00e-02   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,964 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,965 - DEBUG - network - matrix value: 2972545423.656249
+2025-11-26 01:18:43,966 - PROGRESS - network -  4     | 1.42e+00   | 64 %       | 1.88e-01   | 0.00e+00   | 2.84e-02   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,966 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,967 - DEBUG - network - matrix value: 2971670184.441674
+2025-11-26 01:18:43,968 - PROGRESS - network -  5     | 4.64e-01   | 70 %       | 4.23e-02   | 0.00e+00   | 8.19e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,968 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,969 - DEBUG - network - matrix value: 2972155064.134113
+2025-11-26 01:18:43,970 - PROGRESS - network -  6     | 2.87e-01   | 72 %       | 4.32e-02   | 0.00e+00   | 6.41e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,970 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,972 - DEBUG - network - matrix value: 2972702295.0571656
+2025-11-26 01:18:43,972 - PROGRESS - network -  7     | 1.11e-01   | 77 %       | 1.94e-03   | 0.00e+00   | 2.86e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,972 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,973 - DEBUG - network - matrix value: 2972337226.0481462
+2025-11-26 01:18:43,974 - PROGRESS - network -  8     | 7.89e-03   | 90 %       | 7.71e-04   | 0.00e+00   | 2.75e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,974 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,976 - DEBUG - network - matrix value: 2972744484.3013077
+2025-11-26 01:18:43,976 - PROGRESS - network -  9     | 9.69e-03   | 89 %       | 1.30e-03   | 0.00e+00   | 2.77e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,977 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,978 - DEBUG - network - matrix value: 2972344354.785553
+2025-11-26 01:18:43,978 - PROGRESS - network -  10    | 8.40e-03   | 89 %       | 1.69e-03   | 0.00e+00   | 2.70e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,978 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,980 - DEBUG - network - matrix value: 2972730600.178034
+2025-11-26 01:18:43,980 - PROGRESS - network -  11    | 1.11e-02   | 88 %       | 1.59e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,980 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,982 - DEBUG - network - matrix value: 2972344584.284029
+2025-11-26 01:18:43,982 - PROGRESS - network -  12    | 9.19e-03   | 89 %       | 1.56e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,982 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,984 - DEBUG - network - matrix value: 2972731690.1938334
+2025-11-26 01:18:43,985 - PROGRESS - network -  13    | 1.08e-02   | 88 %       | 1.57e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,985 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,987 - DEBUG - network - matrix value: 2972344530.5056076
+2025-11-26 01:18:43,987 - PROGRESS - network -  14    | 9.18e-03   | 89 %       | 1.57e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,987 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,989 - DEBUG - network - matrix value: 2972731971.369719
+2025-11-26 01:18:43,989 - PROGRESS - network -  15    | 1.08e-02   | 88 %       | 1.57e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,989 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,991 - DEBUG - network - matrix value: 2972344536.1813474
+2025-11-26 01:18:43,991 - PROGRESS - network -  16    | 9.15e-03   | 89 %       | 1.58e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,991 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,993 - DEBUG - network - matrix value: 2972731621.729338
+2025-11-26 01:18:43,993 - PROGRESS - network -  17    | 1.08e-02   | 88 %       | 1.57e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,993 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,995 - DEBUG - network - matrix value: 2972344476.3355103
+2025-11-26 01:18:43,995 - PROGRESS - network -  18    | 9.18e-03   | 89 %       | 1.56e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,995 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,997 - DEBUG - network - matrix value: 2972731988.436154
+2025-11-26 01:18:43,997 - PROGRESS - network -  19    | 1.08e-02   | 88 %       | 1.56e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,998 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:43,999 - DEBUG - network - matrix value: 2972344622.839621
+2025-11-26 01:18:43,999 - PROGRESS - network -  20    | 9.14e-03   | 89 %       | 1.58e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:43,999 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,001 - DEBUG - network - matrix value: 2972731338.630871
+2025-11-26 01:18:44,001 - PROGRESS - network -  21    | 1.08e-02   | 88 %       | 1.57e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,001 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,003 - DEBUG - network - matrix value: 2972344298.240202
+2025-11-26 01:18:44,004 - PROGRESS - network -  22    | 9.19e-03   | 89 %       | 1.56e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,004 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,005 - DEBUG - network - matrix value: 2972732136.9720254
+2025-11-26 01:18:44,006 - PROGRESS - network -  23    | 1.08e-02   | 88 %       | 1.56e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,006 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,007 - DEBUG - network - matrix value: 2972344679.228375
+2025-11-26 01:18:44,008 - PROGRESS - network -  24    | 9.12e-03   | 89 %       | 1.59e-03   | 0.00e+00   | 2.69e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,008 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,009 - DEBUG - network - matrix value: 2972731100.562548
+2025-11-26 01:18:44,011 - PROGRESS - network -  25    | 1.08e-02   | 88 %       | 1.58e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,011 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,012 - DEBUG - network - matrix value: 2972344199.9107904
+2025-11-26 01:18:44,013 - PROGRESS - network -  26    | 9.22e-03   | 89 %       | 1.53e-03   | 0.00e+00   | 2.70e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,013 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,015 - DEBUG - network - matrix value: 2972732790.84599
+2025-11-26 01:18:44,016 - PROGRESS - network -  27    | 1.07e-02   | 88 %       | 1.54e-03   | 0.00e+00   | 2.70e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,016 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,017 - DEBUG - network - matrix value: 2972344919.7750773
+2025-11-26 01:18:44,017 - PROGRESS - network -  28    | 9.06e-03   | 89 %       | 1.62e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,018 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,019 - DEBUG - network - matrix value: 2972730308.754381
+2025-11-26 01:18:44,019 - PROGRESS - network -  29    | 1.09e-02   | 88 %       | 1.59e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,020 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,021 - DEBUG - network - matrix value: 2972343606.505468
+2025-11-26 01:18:44,021 - PROGRESS - network -  30    | 9.30e-03   | 89 %       | 1.48e-03   | 0.00e+00   | 2.71e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,021 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,023 - DEBUG - network - matrix value: 2972734592.788709
+2025-11-26 01:18:44,024 - PROGRESS - network -  31    | 1.06e-02   | 88 %       | 1.51e-03   | 0.00e+00   | 2.71e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,024 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,025 - DEBUG - network - matrix value: 2972345304.669413
+2025-11-26 01:18:44,026 - PROGRESS - network -  32    | 8.95e-03   | 89 %       | 1.65e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,026 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,027 - DEBUG - network - matrix value: 2972730024.562463
+2025-11-26 01:18:44,028 - PROGRESS - network -  33    | 1.10e-02   | 88 %       | 1.60e-03   | 0.00e+00   | 2.67e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,028 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,029 - DEBUG - network - matrix value: 2972342637.8782744
+2025-11-26 01:18:44,030 - PROGRESS - network -  34    | 9.43e-03   | 89 %       | 1.38e-03   | 0.00e+00   | 2.73e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,030 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,031 - DEBUG - network - matrix value: 2972738331.988729
+2025-11-26 01:18:44,032 - PROGRESS - network -  35    | 1.04e-02   | 88 %       | 1.45e-03   | 0.00e+00   | 2.73e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,032 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,033 - DEBUG - network - matrix value: 2972345470.689587
+2025-11-26 01:18:44,033 - PROGRESS - network -  36    | 8.77e-03   | 89 %       | 1.68e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,033 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,035 - DEBUG - network - matrix value: 2972730242.4342866
+2025-11-26 01:18:44,035 - PROGRESS - network -  37    | 1.11e-02   | 88 %       | 1.60e-03   | 0.00e+00   | 2.67e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,036 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,037 - DEBUG - network - matrix value: 2972341962.8599315
+2025-11-26 01:18:44,037 - PROGRESS - network -  38    | 9.51e-03   | 89 %       | 1.31e-03   | 0.00e+00   | 2.74e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,037 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,039 - DEBUG - network - matrix value: 2972740831.1650133
+2025-11-26 01:18:44,039 - PROGRESS - network -  39    | 1.03e-02   | 88 %       | 1.41e-03   | 0.00e+00   | 2.75e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,039 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,041 - DEBUG - network - matrix value: 2972345320.531881
+2025-11-26 01:18:44,041 - PROGRESS - network -  40    | 8.68e-03   | 89 %       | 1.70e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,041 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,043 - DEBUG - network - matrix value: 2972729903.474023
+2025-11-26 01:18:44,043 - PROGRESS - network -  41    | 1.11e-02   | 88 %       | 1.60e-03   | 0.00e+00   | 2.67e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,043 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,045 - DEBUG - network - matrix value: 2972342034.7438655
+2025-11-26 01:18:44,045 - PROGRESS - network -  42    | 9.50e-03   | 89 %       | 1.32e-03   | 0.00e+00   | 2.74e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,045 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,047 - DEBUG - network - matrix value: 2972740203.990261
+2025-11-26 01:18:44,047 - PROGRESS - network -  43    | 1.03e-02   | 88 %       | 1.42e-03   | 0.00e+00   | 2.75e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,047 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,049 - DEBUG - network - matrix value: 2972345343.063913
+2025-11-26 01:18:44,049 - PROGRESS - network -  44    | 8.69e-03   | 89 %       | 1.69e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,049 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,051 - DEBUG - network - matrix value: 2972729981.850832
+2025-11-26 01:18:44,051 - PROGRESS - network -  45    | 1.11e-02   | 88 %       | 1.60e-03   | 0.00e+00   | 2.67e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,051 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,053 - DEBUG - network - matrix value: 2972341907.299789
+2025-11-26 01:18:44,053 - PROGRESS - network -  46    | 9.50e-03   | 89 %       | 1.32e-03   | 0.00e+00   | 2.74e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,053 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,055 - DEBUG - network - matrix value: 2972740299.0683084
+2025-11-26 01:18:44,055 - PROGRESS - network -  47    | 1.03e-02   | 88 %       | 1.41e-03   | 0.00e+00   | 2.75e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,055 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,056 - DEBUG - network - matrix value: 2972345204.57823
+2025-11-26 01:18:44,057 - PROGRESS - network -  48    | 8.68e-03   | 89 %       | 1.69e-03   | 0.00e+00   | 2.68e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,057 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,058 - DEBUG - network - matrix value: 2972729798.83875
+2025-11-26 01:18:44,059 - PROGRESS - network -  49    | 1.11e-02   | 88 %       | 1.60e-03   | 0.00e+00   | 2.67e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,059 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:18:44,060 - DEBUG - network - matrix value: 2972341907.6761007
+2025-11-26 01:18:44,061 - PROGRESS - network -  50    | 9.50e-03   | 89 %       | 1.32e-03   | 0.00e+00   | 2.74e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:18:44,061 - WARNING - network - the max iteration: 50 has reached, solution failed
+2025-11-26 01:18:44,061 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-26 01:18:44,061 - DEBUG - network - Total iterations: 50, Calculation time: 0.16 s, Iterations per second: 307.78
+2025-11-26 01:18:44,109 - WARNING - component - Invalid value for mass_deviation: mass_deviation = 0.0016835097862042403 above maximum value (0.001) at component cycle closer.
+2025-11-26 01:18:44,117 - INFO - network - Postprocessing complete.
+2025-11-26 01:18:44,117 - INFO - network - Calculation complete.
+2025-11-26 01:18:44,137 - RESULT - network - 
+##### RESULTS (Condenser) #####
++------------------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+-------------------+
+|                        |         Q |       kA |   mid_delta_T |   td_log |    ttd_u |    ttd_l |   ttd_min |      pr1 |      pr2 |      dp1 |      dp2 |    zeta1 |    zeta2 |   eff_cold |   eff_hot |   eff_max |   supercooling_dT |
+|------------------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+-------------------|
+| condenser              | -3.51e+08 | 4.22e+07 |           nan | 8.33e+00 | 5.00e+00 | 1.29e+01 |  5.00e+00 | 1.00e+00 | 9.90e-01 | 0.00e+00 | 3.00e-02 | 0.00e+00 | 3.35e-02 |   6.15e-01 |  9.78e-01 |  9.78e-01 |          0.00e+00 |
+| feed water preheater 1 | -8.71e+07 | 2.75e+06 |           nan | 3.16e+01 | 5.00e+00 | 9.97e+01 |  5.00e+00 | 1.00e+00 | 9.90e-01 | 0.00e+00 | 1.12e+00 | 0.00e+00 | 6.22e+03 |   9.65e-01 |  8.44e-01 |  9.65e-01 |          0.00e+00 |
+| feed water preheater 2 | -3.14e+07 | 1.74e+06 |           nan | 1.80e+01 | [94m5.08e+00[0m | 4.40e+01 |  5.08e+00 | 1.00e+00 | 9.90e-01 | 0.00e+00 | 1.11e+00 | 0.00e+00 | 3.60e+03 |   8.82e-01 |  9.06e-01 |  9.06e-01 |          0.00e+00 |
++------------------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+-------------------+
+##### RESULTS (CycleCloser) #####
++--------------+------------------+-------------------+
+|              |   mass_deviation |   fluid_deviation |
+|--------------+------------------+-------------------|
+| cycle closer |         [31m1.68e-03[0m |          0.00e+00 |
++--------------+------------------+-------------------+
+##### RESULTS (Desuperheater) #####
++---------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+
+|               |         Q |       kA |   mid_delta_T |   td_log |    ttd_u |    ttd_l |   ttd_min |      pr1 |      pr2 |      dp1 |      dp2 |    zeta1 |    zeta2 |   eff_cold |   eff_hot |   eff_max |
+|---------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------|
+| desuperheater | -7.43e+06 | 1.50e+05 |           nan | 4.97e+01 | 1.83e+02 | 5.08e+00 |  5.08e+00 | 9.90e-01 | 9.90e-01 | 2.00e-01 | 1.10e+00 | 7.13e+02 | 3.46e+03 |   1.85e-02 |  1.89e-01 |  1.89e-01 |
++---------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+
+##### RESULTS (Pump) #####
++-------------------+----------+----------+-----------+----------+
+|                   |        P |       pr |        dp |    eta_s |
+|-------------------+----------+----------+-----------+----------|
+| feed water pump   | 2.04e+06 | 2.24e+03 | -1.12e+02 | 8.00e-01 |
+| feed water pump 2 | 2.16e+05 | 5.49e+00 | -8.89e+01 | 8.00e-01 |
+| feed water pump 3 | 5.55e+05 | 3.70e+01 | -1.08e+02 | 8.00e-01 |
++-------------------+----------+----------+-----------+----------+
+##### RESULTS (Turbine) #####
++-----------------------+-----------+----------+----------+----------+
+|                       |         P |       pr |       dp |    eta_s |
+|-----------------------+-----------+----------+----------+----------|
+| high pressure turbine | -1.00e+08 | 2.00e-01 | 8.00e+01 | 9.00e-01 |
+| low pressure turbine  | -3.86e+07 | 1.67e-02 | 2.95e+00 | 4.28e-01 |
+| mid pressure turbine  | -7.67e+07 | 1.50e-01 | 1.70e+01 | 9.00e-01 |
++-----------------------+-----------+----------+----------+----------+
+##### RESULTS (SimpleHeatExchanger) #####
++-----------------+----------+----------+----------+----------+-----+-----+------+---------+------+--------+
+|                 |        Q |       pr |       dp |     zeta |   D |   L |   ks |   ks_HW |   kA |   Tamb |
+|-----------------+----------+----------+----------+----------+-----+-----+------+---------+------+--------|
+| steam generator | 5.64e+08 | 9.20e-01 | 8.70e+00 | 1.27e+03 | nan | nan |  nan |     nan |  nan |    nan |
++-----------------+----------+----------+----------+----------+-----+-----+------+---------+------+--------+
+##### RESULTS (Connection) #####
++----+-----------+-----------+-----------+-----------+------------+----------------------+
+|    |         m |         p |         h |         T |          x | phase                |
+|----+-----------+-----------+-----------+-----------+------------+----------------------|
+|  0 | [94m2.000e+02[0m | [94m1.000e+02[0m | [94m3.748e+03[0m | 6.500e+02 | -1.000e+00 | state not recognised |
+|  1 | 2.000e+02 | [94m1.000e+02[0m | [94m3.748e+03[0m | 6.500e+02 | -1.000e+00 | state not recognised |
+| 10 | 1.834e+02 | [94m1.109e+02[0m | 7.155e+02 | 1.678e+02 |  0.000e+00 | l                    |
+| 11 | 1.834e+02 | [94m1.098e+02[0m | 8.866e+02 | 2.068e+02 |  0.000e+00 | l                    |
+| 12 | 1.834e+02 | [94m1.087e+02[0m | 9.271e+02 | 2.158e+02 |  0.000e+00 | l                    |
+| 13 | [94m2.000e+02[0m | [94m1.087e+02[0m | 9.265e+02 | 2.157e+02 |  0.000e+00 | l                    |
+|  2 | 2.000e+02 | [94m2.000e+01[0m | [94m3.246e+03[0m | 3.989e+02 | -1.000e+00 | state not recognised |
+| 21 | 1.659e+01 | [94m2.000e+01[0m | [94m3.246e+03[0m | 3.989e+02 | -1.000e+00 | state not recognised |
+| 22 | 1.659e+01 | [94m1.980e+01[0m | 2.798e+03 | 2.119e+02 |  1.000e+00 | g                    |
+| 23 | 1.659e+01 | [94m1.980e+01[0m | [94m9.062e+02[0m | 2.119e+02 |  0.000e+00 | tp                   |
+| 24 | 1.659e+01 | [94m1.087e+02[0m | [94m9.192e+02[0m | 2.141e+02 |  0.000e+00 | l                    |
+|  3 | 1.834e+02 | [94m2.000e+01[0m | [94m3.246e+03[0m | 3.989e+02 | -1.000e+00 | state not recognised |
+| 31 | 3.843e+01 | [94m3.000e+00[0m | [94m2.827e+03[0m | 1.814e+02 |  1.000e+00 | g                    |
+| 32 | 3.843e+01 | [94m3.000e+00[0m | [94m5.614e+02[0m | 1.335e+02 |  4.667e-17 | tp                   |
+| 33 | 3.843e+01 | [94m1.109e+02[0m | [94m5.759e+02[0m | 1.352e+02 |  0.000e+00 | l                    |
+|  4 | 1.834e+02 | [94m3.000e+00[0m | [94m2.827e+03[0m | 1.814e+02 |  1.000e+00 | g                    |
+| 41 | 1.050e+04 | [94m3.000e+00[0m | [94m8.419e+01[0m | 2.000e+01 |  0.000e+00 | l                    |
+| 42 | 1.050e+04 | [94m2.970e+00[0m | [94m1.176e+02[0m | 2.800e+01 |  0.000e+00 | l                    |
+|  5 | 1.450e+02 | [94m3.000e+00[0m | [94m2.827e+03[0m | 1.814e+02 |  1.000e+00 | g                    |
+|  6 | 1.450e+02 | [94m5.000e-02[0m | [94m2.561e+03[0m | 3.300e+01 |  1.000e+00 | g                    |
+|  7 | 1.450e+02 | [94m5.000e-02[0m | [94m1.377e+02[0m | 3.287e+01 |  0.000e+00 | tp                   |
+|  8 | 1.450e+02 | [94m1.120e+02[0m | [94m1.518e+02[0m | 3.383e+01 |  0.000e+00 | l                    |
+|  9 | 1.450e+02 | [94m1.109e+02[0m | [94m7.525e+02[0m | 1.764e+02 |  0.000e+00 | l                    |
++----+-----------+-----------+-----------+-----------+------------+----------------------+
+2025-11-26 01:19:38,948 - INFO - logger - Path for logging: example_steam_plant1_loggings\Aurora.log
+2025-11-26 01:19:38,949 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-26 01:19:38,952 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference above boiling point: K
+temperature difference under boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-26 01:19:38,952 - DEBUG - network - Default mass flow limits
+min: 1e-05 kg / s
+max: 1000000000000.0 kg / s
+2025-11-26 01:19:38,952 - DEBUG - network - Default pressure limits
+min: 100000.0 Pa
+max: 30000000.0 Pa
+2025-11-26 01:19:38,952 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-26 01:19:38,952 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-26 01:19:38,952 - DEBUG - network - Setting pressure unit: bar.
+2025-11-26 01:19:38,952 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-26 01:19:38,952 - DEBUG - network - Setting temperature unit: C.
+2025-11-26 01:19:38,955 - DEBUG - connection - Created connection from steam generator (out1) to cycle closer (in1).
+2025-11-26 01:19:38,955 - DEBUG - connection - Created connection from cycle closer (out1) to high pressure turbine (in1).
+2025-11-26 01:19:38,955 - DEBUG - connection - Created connection from high pressure turbine (out1) to splitter 1 (in1).
+2025-11-26 01:19:38,956 - DEBUG - connection - Created connection from splitter 1 (out1) to mid pressure turbine (in1).
+2025-11-26 01:19:38,956 - DEBUG - connection - Created connection from mid pressure turbine (out1) to splitter 2 (in1).
+2025-11-26 01:19:38,956 - DEBUG - connection - Created connection from splitter 2 (out1) to low pressure turbine (in1).
+2025-11-26 01:19:38,956 - DEBUG - connection - Created connection from low pressure turbine (out1) to condenser (in1).
+2025-11-26 01:19:38,957 - DEBUG - connection - Created connection from condenser (out1) to feed water pump (in1).
+2025-11-26 01:19:38,957 - DEBUG - connection - Created connection from feed water pump (out1) to feed water preheater 1 (in2).
+2025-11-26 01:19:38,957 - DEBUG - connection - Created connection from feed water preheater 1 (out2) to merge (in1).
+2025-11-26 01:19:38,958 - DEBUG - connection - Created connection from merge (out1) to feed water preheater 2 (in2).
+2025-11-26 01:19:38,958 - DEBUG - connection - Created connection from feed water preheater 2 (out2) to desuperheater (in2).
+2025-11-26 01:19:38,958 - DEBUG - connection - Created connection from desuperheater (out2) to merge2 (in1).
+2025-11-26 01:19:38,958 - DEBUG - connection - Created connection from merge2 (out1) to steam generator (in1).
+2025-11-26 01:19:38,959 - DEBUG - network - Added connection 0 to network.
+2025-11-26 01:19:38,959 - DEBUG - network - Added connection 1 to network.
+2025-11-26 01:19:38,960 - DEBUG - network - Added connection 2 to network.
+2025-11-26 01:19:38,960 - DEBUG - network - Added connection 3 to network.
+2025-11-26 01:19:38,961 - DEBUG - network - Added connection 4 to network.
+2025-11-26 01:19:38,961 - DEBUG - network - Added connection 5 to network.
+2025-11-26 01:19:38,962 - DEBUG - network - Added connection 6 to network.
+2025-11-26 01:19:38,962 - DEBUG - network - Added connection 7 to network.
+2025-11-26 01:19:38,963 - DEBUG - network - Added connection 8 to network.
+2025-11-26 01:19:38,964 - DEBUG - network - Added connection 9 to network.
+2025-11-26 01:19:38,964 - DEBUG - network - Added connection 10 to network.
+2025-11-26 01:19:38,965 - DEBUG - network - Added connection 11 to network.
+2025-11-26 01:19:38,965 - DEBUG - network - Added connection 12 to network.
+2025-11-26 01:19:38,966 - DEBUG - network - Added connection 13 to network.
+2025-11-26 01:19:38,971 - DEBUG - connection - Created connection from splitter 1 (out2) to desuperheater (in1).
+2025-11-26 01:19:38,971 - DEBUG - connection - Created connection from desuperheater (out1) to feed water preheater 2 (in1).
+2025-11-26 01:19:38,972 - DEBUG - connection - Created connection from feed water preheater 2 (out1) to feed water pump 2 (in1).
+2025-11-26 01:19:38,972 - DEBUG - connection - Created connection from feed water pump 2 (out1) to merge2 (in2).
+2025-11-26 01:19:38,972 - DEBUG - connection - Created connection from splitter 2 (out2) to feed water preheater 1 (in1).
+2025-11-26 01:19:38,973 - DEBUG - connection - Created connection from feed water preheater 1 (out1) to feed water pump 3 (in1).
+2025-11-26 01:19:38,973 - DEBUG - connection - Created connection from feed water pump 3 (out1) to merge (in2).
+2025-11-26 01:19:38,974 - DEBUG - network - Added connection 21 to network.
+2025-11-26 01:19:38,974 - DEBUG - network - Added connection 22 to network.
+2025-11-26 01:19:38,975 - DEBUG - network - Added connection 23 to network.
+2025-11-26 01:19:38,975 - DEBUG - network - Added connection 24 to network.
+2025-11-26 01:19:38,976 - DEBUG - network - Added connection 31 to network.
+2025-11-26 01:19:38,976 - DEBUG - network - Added connection 32 to network.
+2025-11-26 01:19:38,977 - DEBUG - network - Added connection 33 to network.
+2025-11-26 01:19:38,978 - DEBUG - connection - Created connection from cooling water source (out1) to condenser (in2).
+2025-11-26 01:19:38,978 - DEBUG - connection - Created connection from condenser (out2) to cooling water sink (in1).
+2025-11-26 01:19:38,979 - DEBUG - network - Added connection 41 to network.
+2025-11-26 01:19:38,979 - DEBUG - network - Added connection 42 to network.
+2025-11-26 01:19:39,013 - DEBUG - network - Removing 1 mass flow variables from ['13', '0'] from system variables.
+2025-11-26 01:19:39,014 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-26 01:19:39,015 - INFO - network - ########----Network check successful----########
+2025-11-26 01:19:39,015 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: example_steam_plant1_design
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-26 01:19:39,015 - DEBUG - network - Network information:
+ - Number of components: 18
+ - Number of connections: 23
+ - Number of busses: 0
+2025-11-26 01:19:39,019 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2025-11-26 01:19:39,019 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2025-11-26 01:19:39,020 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2025-11-26 01:19:39,022 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-26 01:19:39,026 - INFO - network - ########-----Initializing variables bounds-----########
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 0 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 1 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 10 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 11 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 12 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 13 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 2 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 21 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 22 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 23 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 24 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 3 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 31 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 32 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 33 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 4 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 41 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 42 has 1 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 5 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 6 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 7 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 8 has 0 equations.
+2025-11-26 01:19:39,027 - DEBUG - connection - The connection: 9 has 0 equations.
+2025-11-26 01:19:39,028 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,028 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,028 - DEBUG - component - The component: condenser of type Condenser has 3 equations.
+2025-11-26 01:19:39,028 - DEBUG - component - The component: cooling water sink of type Sink has 0 equations.
+2025-11-26 01:19:39,028 - DEBUG - component - The component: cooling water source of type Source has 0 equations.
+2025-11-26 01:19:39,028 - DEBUG - component - The component: cycle closer of type CycleCloser has 0 equations.
+2025-11-26 01:19:39,028 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,029 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,029 - DEBUG - component - The component: desuperheater of type Desuperheater has 2 equations.
+2025-11-26 01:19:39,029 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,029 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,029 - DEBUG - component - The component: feed water preheater 1 of type Condenser has 3 equations.
+2025-11-26 01:19:39,030 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,030 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,030 - DEBUG - component - The component: feed water preheater 2 of type Condenser has 3 equations.
+2025-11-26 01:19:39,030 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,030 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,031 - DEBUG - component - The component: feed water pump of type Pump has 1 equations.
+2025-11-26 01:19:39,031 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,031 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,031 - DEBUG - component - The component: feed water pump 2 of type Pump has 1 equations.
+2025-11-26 01:19:39,031 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,032 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,032 - DEBUG - component - The component: feed water pump 3 of type Pump has 1 equations.
+2025-11-26 01:19:39,032 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,032 - DEBUG - component - The component: high pressure turbine of type Turbine has 1 equations.
+2025-11-26 01:19:39,032 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,032 - DEBUG - component - The component: low pressure turbine of type Turbine has 1 equations.
+2025-11-26 01:19:39,032 - DEBUG - component - The component: merge of type Merge has 2 equations.
+2025-11-26 01:19:39,032 - DEBUG - component - The component: merge2 of type Merge has 2 equations.
+2025-11-26 01:19:39,034 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,034 - DEBUG - component - The component: mid pressure turbine of type Turbine has 1 equations.
+2025-11-26 01:19:39,034 - DEBUG - component - The component: splitter 1 of type Splitter has 1 equations.
+2025-11-26 01:19:39,034 - DEBUG - component - The component: splitter 2 of type Splitter has 1 equations.
+2025-11-26 01:19:39,034 - DEBUG - characteristics - Created characteristic line function.
+2025-11-26 01:19:39,034 - DEBUG - component - The component: steam generator of type SimpleHeatExchanger has 0 equations.
+2025-11-26 01:19:39,034 - DEBUG - network - ------presolve_batch: 1------
+2025-11-26 01:19:39,034 - DEBUG - network - Has pre_solved equation: <connection property>: T of 42
+2025-11-26 01:19:39,034 - DEBUG - network - Has pre_solved equation: <component parameter>: ttd_u of Condenser: condenser
+2025-11-26 01:19:39,035 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: feed water preheater 1
+2025-11-26 01:19:39,035 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: feed water preheater 2
+2025-11-26 01:19:39,035 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Pump: feed water pump 2
+2025-11-26 01:19:39,035 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Turbine: high pressure turbine
+2025-11-26 01:19:39,036 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Turbine: mid pressure turbine
+2025-11-26 01:19:39,036 - DEBUG - network - ------presolve_batch: 2------
+2025-11-26 01:19:39,036 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: condenser
+2025-11-26 01:19:39,036 - DEBUG - network - Has pre_solved equation: <component parameter>: ttd_u of Condenser: feed water preheater 1
+2025-11-26 01:19:39,037 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Pump: feed water pump
+2025-11-26 01:19:39,037 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Turbine: low pressure turbine
+2025-11-26 01:19:39,037 - DEBUG - network - ------presolve_batch: 3------
+2025-11-26 01:19:39,037 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Pump: feed water pump 3
+2025-11-26 01:19:39,037 - DEBUG - network - ------presolve_batch: 4------
+2025-11-26 01:19:39,037 - DEBUG - network - Has removed 12 pre_solved equations totally.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: condenser of type Condenser has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: cooling water sink of type Sink has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: cooling water source of type Source has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: cycle closer of type CycleCloser has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: desuperheater of type Desuperheater has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: feed water preheater 1 of type Condenser has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: feed water preheater 2 of type Condenser has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: feed water pump of type Pump has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: feed water pump 2 of type Pump has 0 variables.
+2025-11-26 01:19:39,037 - DEBUG - component - The component: feed water pump 3 of type Pump has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: high pressure turbine of type Turbine has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: low pressure turbine of type Turbine has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: merge of type Merge has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: merge2 of type Merge has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: mid pressure turbine of type Turbine has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: splitter 1 of type Splitter has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: splitter 2 of type Splitter has 0 variables.
+2025-11-26 01:19:39,038 - DEBUG - component - The component: steam generator of type SimpleHeatExchanger has 0 variables.
+2025-11-26 01:19:39,071 - INFO - network - ########----Network initialised----########
+2025-11-26 01:19:39,071 - DEBUG - network - ------Equation Summarization------
+2025-11-26 01:19:39,071 - DEBUG - network - Total number of equations: 12
+2025-11-26 01:19:39,071 - DEBUG - network - Number of connection equations: 1.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of component equations: 23.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of bus equations: 0.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of user defined equations: 0.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of presolved equations: 12.
+2025-11-26 01:19:39,071 - DEBUG - network - ------Variable Summarization------
+2025-11-26 01:19:39,071 - DEBUG - network - Total number of variables: 12.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of component variables: 0.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of connection variables: 12.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of mass flow variables: 7.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of pressure variables: 0.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of enthalpy variables: 5.
+2025-11-26 01:19:39,071 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-26 01:19:39,071 - DEBUG - network - Number of fluid composition equations: 0.
+2025-11-26 01:19:39,071 - DEBUG - network - Number of fluid variables: 0.
+2025-11-26 01:19:39,072 - DEBUG - network - the variables list is:
+ [
+  0: <mass flow objective> in connection: 1,
+  1: <mass flow objective> in connection: 10,
+  2: <mass flow objective> in connection: 21,
+  3: <mass flow objective> in connection: 3,
+  4: <mass flow objective> in connection: 31,
+  5: <mass flow objective> in connection: 41,
+  6: <mass flow objective> in connection: 5,
+  7: <enthalpy objective> in connection: 10,
+  8: <enthalpy objective> in connection: 11,
+  9: <enthalpy objective> in connection: 12,
+  10: <enthalpy objective> in connection: 13,
+  11: <enthalpy objective> in connection: 22
+]
+the variables scale is:
+ [1.e+00 1.e+00 1.e+00 1.e+00 1.e+00 1.e+00 1.e+00 1.e+05 1.e+05 1.e+05
+ 1.e+05 1.e+05]
+the equations list is:
+ [
+  0: <component constraint>: energy_balance_constraints of Condenser: condenser
+  1: <component constraint>: energy_balance_constraints of Desuperheater: desuperheater
+  2: <component constraint>: saturated_gas_constraints of Desuperheater: desuperheater
+  3: <component constraint>: energy_balance_constraints of Condenser: feed water preheater 1
+  4: <component constraint>: energy_balance_constraints of Condenser: feed water preheater 2
+  5: <component parameter>: ttd_u of Condenser: feed water preheater 2
+  6: <component constraint>: mass_flow_constraints of Merge: merge
+  7: <component constraint>: energy_balance_constraints of Merge: merge
+  8: <component constraint>: mass_flow_constraints of Merge: merge2
+  9: <component constraint>: energy_balance_constraints of Merge: merge2
+  10: <component constraint>: mass_flow_constraints of Splitter: splitter 1
+  11: <component constraint>: mass_flow_constraints of Splitter: splitter 2
+]
+the residual scale:
+ [1.e+05 1.e+05 1.e+05 1.e+05 1.e+05 1.e+01 1.e+00 1.e+05 1.e+00 1.e+05
+ 1.e+00 1.e+00]
+the fluid variables list is:
+ [
+  
+]
+the fluid equations list is:
+ [
+  
+]
+2025-11-26 01:19:39,072 - DEBUG - network - has no linear dependence in network topology
+2025-11-26 01:19:39,072 - DEBUG - network - T range of some connections are: [
+  10------[275.89160000000004, 1980.0] K,
+  11------[275.89160000000004, 1980.0] K,
+  12------[275.89160000000004, 1980.0] K,
+  13------[275.89160000000004, 1980.0] K,
+  22------[275.89160000000004, 1980.0] K
+]
+2025-11-26 01:19:39,072 - DEBUG - network - The range of variables are: [
+  0: <mass flow objective> in connection: 1------[1e-05, 1000000000000.0] kg / s,
+  1: <mass flow objective> in connection: 10------[1e-05, 1000000000000.0] kg / s,
+  2: <mass flow objective> in connection: 21------[1e-05, 1000000000000.0] kg / s,
+  3: <mass flow objective> in connection: 3------[1e-05, 1000000000000.0] kg / s,
+  4: <mass flow objective> in connection: 31------[1e-05, 1000000000000.0] kg / s,
+  5: <mass flow objective> in connection: 41------[1e-05, 1000000000000.0] kg / s,
+  6: <mass flow objective> in connection: 5------[1e-05, 1000000000000.0] kg / s,
+  7: <enthalpy objective> in connection: 10------[26744.881741572983, 6521979.907965349] J / kg,
+  8: <enthalpy objective> in connection: 11------[26635.495242265275, 6522048.018918271] J / kg,
+  9: <enthalpy objective> in connection: 12------[26527.18676852037, 6522115.463042785] J / kg,
+  10: <enthalpy objective> in connection: 13------[26527.18676852037, 6522115.463042785] J / kg,
+  11: <enthalpy objective> in connection: 22------[17704.65262118992, 6527618.044349995] J / kg
+]
+2025-11-26 01:19:39,072 - INFO - network - Starting solver.
+2025-11-26 01:19:39,072 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-26 01:19:39,072 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-26 01:19:39,073 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,074 - DEBUG - network - matrix value: 2912915552.5494404
+2025-11-26 01:19:39,082 - PROGRESS - network -  1     | 5.97e+02   | 35 %       | 5.44e+00   | 0.00e+00   | 5.56e+00   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,082 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,084 - DEBUG - network - matrix value: 2997172167.8999677
+2025-11-26 01:19:39,084 - PROGRESS - network -  2     | 2.10e+01   | 51 %       | 1.72e+00   | 0.00e+00   | 6.20e-01   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,084 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,086 - DEBUG - network - matrix value: 2973676756.3431315
+2025-11-26 01:19:39,086 - PROGRESS - network -  3     | 7.24e+00   | 57 %       | 9.32e-01   | 0.00e+00   | 8.84e-02   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,086 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,087 - DEBUG - network - matrix value: 2972220906.5735593
+2025-11-26 01:19:39,088 - PROGRESS - network -  4     | 4.99e-01   | 70 %       | 4.24e-01   | 0.00e+00   | 7.82e-02   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,088 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,089 - DEBUG - network - matrix value: 2970676893.397426
+2025-11-26 01:19:39,090 - PROGRESS - network -  5     | 1.91e+00   | 63 %       | 2.31e-01   | 0.00e+00   | 1.88e-02   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,090 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,091 - DEBUG - network - matrix value: 2971952977.935111
+2025-11-26 01:19:39,092 - PROGRESS - network -  6     | 3.93e-01   | 71 %       | 1.13e-01   | 0.00e+00   | 2.30e-02   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,092 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,093 - DEBUG - network - matrix value: 2970686380.4816527
+2025-11-26 01:19:39,093 - PROGRESS - network -  7     | 5.43e-01   | 69 %       | 5.72e-02   | 0.00e+00   | 6.23e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,093 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,095 - DEBUG - network - matrix value: 2971643182.520402
+2025-11-26 01:19:39,095 - PROGRESS - network -  8     | 7.34e-02   | 79 %       | 2.47e-02   | 0.00e+00   | 4.83e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,095 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,097 - DEBUG - network - matrix value: 2971418821.2103615
+2025-11-26 01:19:39,097 - PROGRESS - network -  9     | 1.34e-01   | 76 %       | 2.00e-02   | 0.00e+00   | 1.71e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,097 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,099 - DEBUG - network - matrix value: 2971611575.119423
+2025-11-26 01:19:39,099 - PROGRESS - network -  10    | 3.40e-02   | 82 %       | 5.15e-03   | 0.00e+00   | 1.51e-03   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,099 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,100 - DEBUG - network - matrix value: 2971540160.5857067
+2025-11-26 01:19:39,101 - PROGRESS - network -  11    | 2.17e-02   | 85 %       | 1.12e-03   | 0.00e+00   | 2.86e-04   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,101 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,102 - DEBUG - network - matrix value: 2971521649.5105085
+2025-11-26 01:19:39,103 - PROGRESS - network -  12    | 7.01e-03   | 90 %       | 7.66e-04   | 0.00e+00   | 9.29e-05   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,103 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,104 - DEBUG - network - matrix value: 2971526780.2919436
+2025-11-26 01:19:39,104 - PROGRESS - network -  13    | 4.25e-03   | 93 %       | 3.11e-04   | 0.00e+00   | 5.80e-05   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,104 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,106 - DEBUG - network - matrix value: 2971520419.132093
+2025-11-26 01:19:39,106 - PROGRESS - network -  14    | 3.84e-03   | 93 %       | 2.58e-04   | 0.00e+00   | 2.98e-05   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,106 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,108 - DEBUG - network - matrix value: 2971522444.427491
+2025-11-26 01:19:39,108 - PROGRESS - network -  15    | 3.28e-03   | 94 %       | 1.00e-04   | 0.00e+00   | 1.97e-05   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,108 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,109 - DEBUG - network - matrix value: 2971520170.47631
+2025-11-26 01:19:39,110 - PROGRESS - network -  16    | 3.24e-03   | 94 %       | 9.24e-05   | 0.00e+00   | 1.04e-05   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,110 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,111 - DEBUG - network - matrix value: 2971520947.3631454
+2025-11-26 01:19:39,112 - PROGRESS - network -  17    | 3.16e-03   | 94 %       | 3.53e-05   | 0.00e+00   | 6.92e-06   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,112 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,113 - DEBUG - network - matrix value: 2971520223.4041376
+2025-11-26 01:19:39,113 - PROGRESS - network -  18    | 3.16e-03   | 94 %       | 3.75e-05   | 0.00e+00   | 3.74e-06   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,113 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,115 - DEBUG - network - matrix value: 2971520477.147357
+2025-11-26 01:19:39,115 - PROGRESS - network -  19    | 3.15e-03   | 94 %       | 1.60e-05   | 0.00e+00   | 2.62e-06   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,115 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,117 - DEBUG - network - matrix value: 2971520026.1402845
+2025-11-26 01:19:39,117 - PROGRESS - network -  20    | 3.15e-03   | 94 %       | 2.36e-05   | 0.00e+00   | 1.38e-06   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,117 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,119 - DEBUG - network - matrix value: 2971520327.5043325
+2025-11-26 01:19:39,119 - PROGRESS - network -  21    | 3.14e-03   | 94 %       | 1.26e-05   | 0.00e+00   | 1.16e-06   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,119 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,121 - DEBUG - network - matrix value: 2971520098.1150618
+2025-11-26 01:19:39,121 - PROGRESS - network -  22    | 3.14e-03   | 94 %       | 2.15e-05   | 0.00e+00   | 4.99e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,121 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,123 - DEBUG - network - matrix value: 2971520299.748805
+2025-11-26 01:19:39,123 - PROGRESS - network -  23    | 3.14e-03   | 94 %       | 1.22e-05   | 0.00e+00   | 7.92e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,123 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,124 - DEBUG - network - matrix value: 2971520050.568203
+2025-11-26 01:19:39,125 - PROGRESS - network -  24    | 3.14e-03   | 94 %       | 2.15e-05   | 0.00e+00   | 5.88e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,125 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,126 - DEBUG - network - matrix value: 2971520327.3182235
+2025-11-26 01:19:39,127 - PROGRESS - network -  25    | 3.14e-03   | 94 %       | 1.19e-05   | 0.00e+00   | 7.38e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,127 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,128 - DEBUG - network - matrix value: 2971520032.8915977
+2025-11-26 01:19:39,129 - PROGRESS - network -  26    | 3.14e-03   | 94 %       | 2.17e-05   | 0.00e+00   | 6.41e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,129 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,130 - DEBUG - network - matrix value: 2971520344.219422
+2025-11-26 01:19:39,130 - PROGRESS - network -  27    | 3.14e-03   | 94 %       | 1.18e-05   | 0.00e+00   | 7.43e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,130 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,132 - DEBUG - network - matrix value: 2971520118.159752
+2025-11-26 01:19:39,132 - PROGRESS - network -  28    | 3.14e-03   | 94 %       | 2.18e-05   | 0.00e+00   | 6.67e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,132 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,134 - DEBUG - network - matrix value: 2971520336.678553
+2025-11-26 01:19:39,134 - PROGRESS - network -  29    | 3.14e-03   | 94 %       | 1.16e-05   | 0.00e+00   | 7.59e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,134 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,135 - DEBUG - network - matrix value: 2971520125.1767206
+2025-11-26 01:19:39,136 - PROGRESS - network -  30    | 3.14e-03   | 94 %       | 2.20e-05   | 0.00e+00   | 6.87e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,136 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,137 - DEBUG - network - matrix value: 2971520420.447923
+2025-11-26 01:19:39,138 - PROGRESS - network -  31    | 3.14e-03   | 94 %       | 1.14e-05   | 0.00e+00   | 7.78e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,138 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,139 - DEBUG - network - matrix value: 2971520079.5727434
+2025-11-26 01:19:39,139 - PROGRESS - network -  32    | 3.14e-03   | 94 %       | 2.22e-05   | 0.00e+00   | 7.06e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,139 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,141 - DEBUG - network - matrix value: 2971520402.301109
+2025-11-26 01:19:39,141 - PROGRESS - network -  33    | 3.14e-03   | 94 %       | 1.13e-05   | 0.00e+00   | 7.97e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,141 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,143 - DEBUG - network - matrix value: 2971520139.9998436
+2025-11-26 01:19:39,143 - PROGRESS - network -  34    | 3.14e-03   | 94 %       | 2.24e-05   | 0.00e+00   | 7.25e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,143 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,145 - DEBUG - network - matrix value: 2971520365.4046774
+2025-11-26 01:19:39,145 - PROGRESS - network -  35    | 3.14e-03   | 94 %       | 1.12e-05   | 0.00e+00   | 8.17e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,145 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,147 - DEBUG - network - matrix value: 2971520136.2308187
+2025-11-26 01:19:39,147 - PROGRESS - network -  36    | 3.14e-03   | 94 %       | 2.27e-05   | 0.00e+00   | 7.44e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,147 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,148 - DEBUG - network - matrix value: 2971520343.777888
+2025-11-26 01:19:39,149 - PROGRESS - network -  37    | 3.14e-03   | 94 %       | 1.10e-05   | 0.00e+00   | 8.37e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,149 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,150 - DEBUG - network - matrix value: 2971520056.904406
+2025-11-26 01:19:39,151 - PROGRESS - network -  38    | 3.14e-03   | 94 %       | 2.30e-05   | 0.00e+00   | 7.63e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,151 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,152 - DEBUG - network - matrix value: 2971520443.328627
+2025-11-26 01:19:39,153 - PROGRESS - network -  39    | 3.14e-03   | 94 %       | 1.09e-05   | 0.00e+00   | 8.58e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,153 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,154 - DEBUG - network - matrix value: 2971520132.7117085
+2025-11-26 01:19:39,154 - PROGRESS - network -  40    | 3.14e-03   | 94 %       | 2.33e-05   | 0.00e+00   | 7.83e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,154 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,156 - DEBUG - network - matrix value: 2971520403.1270328
+2025-11-26 01:19:39,156 - PROGRESS - network -  41    | 3.14e-03   | 94 %       | 1.09e-05   | 0.00e+00   | 8.79e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,156 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-26 01:19:39,158 - DEBUG - network - matrix value: 2971520087.573747
+2025-11-26 01:19:39,158 - PROGRESS - network -  42    | 3.14e-03   | 94 %       | 2.36e-05   | 0.00e+00   | 8.03e-07   | 0.00e+00   | 0.00e+00   
+2025-11-26 01:19:39,158 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-26 01:19:39,158 - DEBUG - network - Total iterations: 42, Calculation time: 0.09 s, Iterations per second: 487.01
+2025-11-26 01:19:39,158 - WARNING - network - the un_converged functions are:[
+  2: <component constraint>: saturated_gas_constraints of Desuperheater: desuperheater--residual: 0.002957910596369766,
+  5: <component parameter>: ttd_u of Condenser: feed water preheater 2--residual: 0.001005257336265686,
+  7: <component constraint>: energy_balance_constraints of Merge: merge--residual: 5.824451271444559e-05,
+  11: <component constraint>: mass_flow_constraints of Splitter: splitter 2--residual: 1.7580382021264995e-06,
+  10: <component constraint>: mass_flow_constraints of Splitter: splitter 1--residual: -3.4403083333245377e-06
+]the un_converged variables are:[
+  5: <mass flow objective> in connection: 41--increment: 2.234505148242272e-05,
+  1: <mass flow objective> in connection: 10--increment: 6.860229340145391e-06,
+  0: <mass flow objective> in connection: 1--increment: 1.6200802467250505e-06,
+  2: <mass flow objective> in connection: 21--increment: 1.4761089282976884e-06,
+  3: <mass flow objective> in connection: 3--increment: -2.826838114548236e-06
+]
+2025-11-26 01:19:39,158 - WARNING - network - The solver does not seem to make any progress, aborting calculation. Residual value is 3.14e-03. This frequently happens, if the solver pushes the fluid properties out of their feasible range.
+2025-11-26 01:19:39,217 - INFO - network - Postprocessing complete.
+2025-11-26 01:19:39,217 - INFO - network - Calculation complete.
+2025-11-26 01:19:39,238 - RESULT - network - 
+##### RESULTS (Condenser) #####
++------------------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+-------------------+
+|                        |         Q |       kA |   mid_delta_T |   td_log |    ttd_u |    ttd_l |   ttd_min |      pr1 |      pr2 |      dp1 |      dp2 |    zeta1 |    zeta2 |   eff_cold |   eff_hot |   eff_max |   supercooling_dT |
+|------------------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+-------------------|
+| condenser              | -3.51e+08 | 4.22e+07 |           nan | 8.33e+00 | 5.00e+00 | 1.29e+01 |  5.00e+00 | 1.00e+00 | 9.90e-01 | 0.00e+00 | 3.00e-02 | 0.00e+00 | 3.35e-02 |   6.15e-01 |  9.78e-01 |  9.78e-01 |          0.00e+00 |
+| feed water preheater 1 | -8.71e+07 | 2.75e+06 |           nan | 3.16e+01 | 5.00e+00 | 9.97e+01 |  5.00e+00 | 1.00e+00 | 9.90e-01 | 0.00e+00 | 1.12e+00 | 0.00e+00 | 6.22e+03 |   9.65e-01 |  8.44e-01 |  9.65e-01 |          0.00e+00 |
+| feed water preheater 2 | -3.15e+07 | 1.76e+06 |           nan | 1.79e+01 | [94m4.99e+00[0m | 4.40e+01 |  4.99e+00 | 1.00e+00 | 9.90e-01 | 0.00e+00 | 1.11e+00 | 0.00e+00 | 3.60e+03 |   8.85e-01 |  9.06e-01 |  9.06e-01 |          0.00e+00 |
++------------------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+-------------------+
+##### RESULTS (CycleCloser) #####
++--------------+------------------+-------------------+
+|              |   mass_deviation |   fluid_deviation |
+|--------------+------------------+-------------------|
+| cycle closer |         4.84e-04 |          0.00e+00 |
++--------------+------------------+-------------------+
+##### RESULTS (Desuperheater) #####
++---------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+
+|               |         Q |       kA |   mid_delta_T |   td_log |    ttd_u |    ttd_l |   ttd_min |      pr1 |      pr2 |      dp1 |      dp2 |    zeta1 |    zeta2 |   eff_cold |   eff_hot |   eff_max |
+|---------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------|
+| desuperheater | -7.45e+06 | 1.51e+05 |           nan | 4.94e+01 | 1.83e+02 | 4.99e+00 |  4.99e+00 | 9.90e-01 | 9.90e-01 | 2.00e-01 | 1.10e+00 | 7.08e+02 | 3.46e+03 |   1.86e-02 |  1.89e-01 |  1.89e-01 |
++---------------+-----------+----------+---------------+----------+----------+----------+-----------+----------+----------+----------+----------+----------+----------+------------+-----------+-----------+
+##### RESULTS (Pump) #####
++-------------------+----------+----------+-----------+----------+
+|                   |        P |       pr |        dp |    eta_s |
+|-------------------+----------+----------+-----------+----------|
+| feed water pump   | 2.03e+06 | 2.24e+03 | -1.12e+02 | 8.00e-01 |
+| feed water pump 2 | 2.17e+05 | 5.49e+00 | -8.89e+01 | 8.00e-01 |
+| feed water pump 3 | 5.55e+05 | 3.70e+01 | -1.08e+02 | 8.00e-01 |
++-------------------+----------+----------+-----------+----------+
+##### RESULTS (Turbine) #####
++-----------------------+-----------+----------+----------+----------+
+|                       |         P |       pr |       dp |    eta_s |
+|-----------------------+-----------+----------+----------+----------|
+| high pressure turbine | -1.00e+08 | 2.00e-01 | 8.00e+01 | 9.00e-01 |
+| low pressure turbine  | -3.86e+07 | 1.67e-02 | 2.95e+00 | 4.28e-01 |
+| mid pressure turbine  | -7.67e+07 | 1.50e-01 | 1.70e+01 | 9.00e-01 |
++-----------------------+-----------+----------+----------+----------+
+##### RESULTS (SimpleHeatExchanger) #####
++-----------------+----------+----------+----------+----------+-----+-----+------+---------+------+--------+
+|                 |        Q |       pr |       dp |     zeta |   D |   L |   ks |   ks_HW |   kA |   Tamb |
+|-----------------+----------+----------+----------+----------+-----+-----+------+---------+------+--------|
+| steam generator | 5.64e+08 | 9.20e-01 | 8.70e+00 | 1.27e+03 | nan | nan |  nan |     nan |  nan |    nan |
++-----------------+----------+----------+----------+----------+-----+-----+------+---------+------+--------+
+##### RESULTS (Connection) #####
++----+-----------+-----------+-----------+-----------+------------+----------------------+
+|    |         m |         p |         h |         T |          x | phase                |
+|----+-----------+-----------+-----------+-----------+------------+----------------------|
+|  0 | [94m2.000e+02[0m | [94m1.000e+02[0m | [94m3.748e+03[0m | 6.500e+02 | -1.000e+00 | state not recognised |
+|  1 | 2.000e+02 | [94m1.000e+02[0m | [94m3.748e+03[0m | 6.500e+02 | -1.000e+00 | state not recognised |
+| 10 | 1.833e+02 | [94m1.109e+02[0m | 7.155e+02 | 1.678e+02 |  0.000e+00 | l                    |
+| 11 | 1.833e+02 | [94m1.098e+02[0m | 8.873e+02 | 2.070e+02 |  0.000e+00 | l                    |
+| 12 | 1.833e+02 | [94m1.087e+02[0m | 9.280e+02 | 2.160e+02 |  0.000e+00 | l                    |
+| 13 | [94m2.000e+02[0m | [94m1.087e+02[0m | 9.272e+02 | 2.158e+02 |  0.000e+00 | l                    |
+|  2 | 2.000e+02 | [94m2.000e+01[0m | [94m3.246e+03[0m | 3.989e+02 | -1.000e+00 | state not recognised |
+| 21 | 1.665e+01 | [94m2.000e+01[0m | [94m3.246e+03[0m | 3.989e+02 | -1.000e+00 | state not recognised |
+| 22 | 1.665e+01 | [94m1.980e+01[0m | 2.798e+03 | 2.120e+02 |  1.000e+00 | g                    |
+| 23 | 1.665e+01 | [94m1.980e+01[0m | [94m9.062e+02[0m | 2.119e+02 |  0.000e+00 | tp                   |
+| 24 | 1.665e+01 | [94m1.087e+02[0m | [94m9.192e+02[0m | 2.141e+02 |  0.000e+00 | l                    |
+|  3 | 1.833e+02 | [94m2.000e+01[0m | [94m3.246e+03[0m | 3.989e+02 | -1.000e+00 | state not recognised |
+| 31 | 3.842e+01 | [94m3.000e+00[0m | [94m2.827e+03[0m | 1.814e+02 |  1.000e+00 | g                    |
+| 32 | 3.842e+01 | [94m3.000e+00[0m | [94m5.614e+02[0m | 1.335e+02 |  4.667e-17 | tp                   |
+| 33 | 3.842e+01 | [94m1.109e+02[0m | [94m5.759e+02[0m | 1.352e+02 |  0.000e+00 | l                    |
+|  4 | 1.833e+02 | [94m3.000e+00[0m | [94m2.827e+03[0m | 1.814e+02 |  1.000e+00 | g                    |
+| 41 | 1.050e+04 | [94m3.000e+00[0m | [94m8.419e+01[0m | 2.000e+01 |  0.000e+00 | l                    |
+| 42 | 1.050e+04 | [94m2.970e+00[0m | [94m1.176e+02[0m | 2.800e+01 |  0.000e+00 | l                    |
+|  5 | 1.449e+02 | [94m3.000e+00[0m | [94m2.827e+03[0m | 1.814e+02 |  1.000e+00 | g                    |
+|  6 | 1.449e+02 | [94m5.000e-02[0m | [94m2.561e+03[0m | 3.300e+01 |  1.000e+00 | g                    |
+|  7 | 1.449e+02 | [94m5.000e-02[0m | [94m1.377e+02[0m | 3.287e+01 |  0.000e+00 | tp                   |
+|  8 | 1.449e+02 | [94m1.120e+02[0m | [94m1.518e+02[0m | 3.383e+01 |  0.000e+00 | l                    |
+|  9 | 1.449e+02 | [94m1.109e+02[0m | [94m7.525e+02[0m | 1.764e+02 |  0.000e+00 | l                    |
++----+-----------+-----------+-----------+-----------+------------+----------------------+

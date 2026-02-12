@@ -1,0 +1,944 @@
+2026-01-21 17:44:18,181 - INFO - logger - Path for logging: combine_plant_model1_loggings\Aurora.log
+2026-01-21 17:44:18,184 - INFO - logger - Used AURORA version: 0.1.1 - GCC's Nature
+2026-01-21 17:44:18,193 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference above boiling point: K
+temperature difference under boiling point: K
+volumetric flow: m^3 / s
+specific volume: m^3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+voltage: V
+electricity: A
+electric phase: rad
+frequency: Hz
+spatial size: m
+time size: s
+2026-01-21 17:44:18,193 - DEBUG - network - Default mass flow limits
+min: 1e-05 kg / s
+max: 1000000000000.0 kg / s
+2026-01-21 17:44:18,193 - DEBUG - network - Default pressure limits
+min: 100000.0 Pa
+max: 30000000.0 Pa
+2026-01-21 17:44:18,193 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2026-01-21 17:44:18,193 - DEBUG - network - Default voltage limits
+min: -1000000000000.0 V
+max: 1000000000000.0 V
+2026-01-21 17:44:18,194 - DEBUG - network - Default electricity limits
+min: -1000000000000.0 A
+max: 1000000000000.0 A
+2026-01-21 17:44:18,194 - DEBUG - network - Default frequency limits
+min: 1e-05 Hz
+max: 1000000000000.0 Hz
+2026-01-21 17:44:18,194 - DEBUG - network - Setting fluid property pressure unit: bar.
+2026-01-21 17:44:18,194 - DEBUG - network - Setting fluid property temperature unit: C.
+2026-01-21 17:44:18,194 - DEBUG - network - Setting fluid property enthalpy unit: kJ / kg.
+2026-01-21 17:44:18,194 - DEBUG - network - Setting fluid property mass flow unit: kg / s.
+2026-01-21 17:44:18,207 - DEBUG - connection - Created connection from fuel_source (out1) to fuel_splitter (in1).
+2026-01-21 17:44:18,207 - DEBUG - connection - Created connection from fuel_splitter (out1) to fuel_compressor (in1).
+2026-01-21 17:44:18,208 - DEBUG - connection - Created connection from fuel_compressor (out1) to fuel_combustion (in2).
+2026-01-21 17:44:18,208 - DEBUG - connection - Created connection from air_source (out1) to air_compressor (in1).
+2026-01-21 17:44:18,208 - DEBUG - connection - Created connection from air_compressor (out1) to fuel_combustion (in1).
+2026-01-21 17:44:18,209 - DEBUG - connection - Created connection from fuel_combustion (out1) to gas_turbine (in1).
+2026-01-21 17:44:18,209 - DEBUG - connection - Created connection from gas_turbine (out1) to gas_re_combustion (in1).
+2026-01-21 17:44:18,209 - DEBUG - connection - Created connection from fuel_splitter (out2) to fuel_add_valve (in1).
+2026-01-21 17:44:18,209 - DEBUG - connection - Created connection from fuel_add_valve (out1) to gas_re_combustion (in2).
+2026-01-21 17:44:18,210 - DEBUG - network - Added connection fuel_source_splitter to network.
+2026-01-21 17:44:18,211 - DEBUG - network - Added connection fuel1_splitter_compressor to network.
+2026-01-21 17:44:18,211 - DEBUG - network - Added connection fuel1_compressor_combustion to network.
+2026-01-21 17:44:18,211 - DEBUG - network - Added connection fuel1_air_source_compressor to network.
+2026-01-21 17:44:18,212 - DEBUG - network - Added connection fuel1_air_compressor_combustion to network.
+2026-01-21 17:44:18,212 - DEBUG - network - Added connection gas_turbine_in to network.
+2026-01-21 17:44:18,213 - DEBUG - network - Added connection gas_turbine_out to network.
+2026-01-21 17:44:18,213 - DEBUG - network - Added connection fuel2_splitter_valve to network.
+2026-01-21 17:44:18,213 - DEBUG - network - Added connection fuel2_valve_combustion to network.
+2026-01-21 17:44:18,220 - DEBUG - connection - Created connection from gas_re_combustion (out1) to main_heat_exchanger1 (in1).
+2026-01-21 17:44:18,220 - DEBUG - connection - Created connection from main_heat_exchanger1 (out1) to evaporator1 (in1).
+2026-01-21 17:44:18,221 - DEBUG - connection - Created connection from evaporator1 (out1) to main_heat_exchanger2 (in1).
+2026-01-21 17:44:18,221 - DEBUG - connection - Created connection from recycle_pump21 (out1) to main_heat_exchanger2 (in2).
+2026-01-21 17:44:18,221 - DEBUG - connection - Created connection from main_heat_exchanger2 (out2) to evaporate_tank1 (in1).
+2026-01-21 17:44:18,222 - DEBUG - connection - Created connection from evaporate_tank1 (out1) to evaporate_pump1 (in1).
+2026-01-21 17:44:18,222 - DEBUG - connection - Created connection from evaporate_pump1 (out1) to evaporator1 (in2).
+2026-01-21 17:44:18,222 - DEBUG - connection - Created connection from evaporator1 (out2) to evaporate_tank1 (in2).
+2026-01-21 17:44:18,222 - DEBUG - connection - Created connection from evaporate_tank1 (out2) to main_heat_exchanger1 (in2).
+2026-01-21 17:44:18,223 - DEBUG - connection - Created connection from main_heat_exchanger2 (out1) to evaporator2 (in1).
+2026-01-21 17:44:18,223 - DEBUG - connection - Created connection from evaporator2 (out1) to main_heat_exchanger3 (in1).
+2026-01-21 17:44:18,223 - DEBUG - connection - Created connection from main_heat_exchanger3 (out1) to gas_sink (in1).
+2026-01-21 17:44:18,224 - DEBUG - connection - Created connection from recycle_pump22 (out1) to main_heat_exchanger3 (in2).
+2026-01-21 17:44:18,224 - DEBUG - connection - Created connection from main_heat_exchanger3 (out2) to evaporate_tank2 (in1).
+2026-01-21 17:44:18,224 - DEBUG - connection - Created connection from evaporate_tank2 (out1) to evaporate_pump2 (in1).
+2026-01-21 17:44:18,225 - DEBUG - connection - Created connection from evaporate_pump2 (out1) to evaporator2 (in2).
+2026-01-21 17:44:18,225 - DEBUG - connection - Created connection from evaporator2 (out2) to evaporate_tank2 (in2).
+2026-01-21 17:44:18,225 - DEBUG - connection - Created connection from evaporate_tank2 (out2) to main_steam_merge (in2).
+2026-01-21 17:44:18,226 - DEBUG - network - Added connection gas_deliver to network.
+2026-01-21 17:44:18,226 - DEBUG - network - Added connection evaporator1_gas_in to network.
+2026-01-21 17:44:18,226 - DEBUG - network - Added connection evaporator1_gas_out to network.
+2026-01-21 17:44:18,227 - DEBUG - network - Added connection main_steam1_recycle to network.
+2026-01-21 17:44:18,227 - DEBUG - network - Added connection evaporate_tank1_wator_in to network.
+2026-01-21 17:44:18,228 - DEBUG - network - Added connection evaporate_tank1_wator_out to network.
+2026-01-21 17:44:18,228 - DEBUG - network - Added connection evaporator1_steam_in to network.
+2026-01-21 17:44:18,228 - DEBUG - network - Added connection evaporator1_steam_out to network.
+2026-01-21 17:44:18,229 - DEBUG - network - Added connection evaporate_tank1_vapour_out to network.
+2026-01-21 17:44:18,229 - DEBUG - network - Added connection evaporator2_gas_in to network.
+2026-01-21 17:44:18,229 - DEBUG - network - Added connection evaporator2_gas_out to network.
+2026-01-21 17:44:18,230 - DEBUG - network - Added connection gas_out to network.
+2026-01-21 17:44:18,230 - DEBUG - network - Added connection main_steam2_recycle to network.
+2026-01-21 17:44:18,230 - DEBUG - network - Added connection evaporate_tank2_wator_in to network.
+2026-01-21 17:44:18,231 - DEBUG - network - Added connection evaporate_tank2_wator_out to network.
+2026-01-21 17:44:18,231 - DEBUG - network - Added connection evaporator2_steam_in to network.
+2026-01-21 17:44:18,231 - DEBUG - network - Added connection evaporator2_steam_out to network.
+2026-01-21 17:44:18,232 - DEBUG - network - Added connection evaporate_tank2_vapour_out to network.
+2026-01-21 17:44:18,235 - DEBUG - connection - Created connection from main_heat_exchanger1 (out2) to main_steam1_valve (in1).
+2026-01-21 17:44:18,235 - DEBUG - connection - Created connection from main_steam1_valve (out1) to turbine1 (in1).
+2026-01-21 17:44:18,236 - DEBUG - connection - Created connection from turbine1 (out1) to main_steam_merge (in1).
+2026-01-21 17:44:18,236 - DEBUG - connection - Created connection from main_steam_merge (out1) to turbine2 (in1).
+2026-01-21 17:44:18,236 - DEBUG - connection - Created connection from turbine2 (out1) to extract_splitter_turbine2 (in1).
+2026-01-21 17:44:18,237 - DEBUG - connection - Created connection from extract_splitter_turbine2 (out1) to turbine3 (in1).
+2026-01-21 17:44:18,237 - DEBUG - connection - Created connection from turbine3 (out1) to extract_splitter_turbine3 (in1).
+2026-01-21 17:44:18,238 - DEBUG - connection - Created connection from extract_splitter_turbine3 (out1) to turbine4 (in1).
+2026-01-21 17:44:18,238 - DEBUG - connection - Created connection from turbine4 (out1) to extract_splitter_turbine4 (in1).
+2026-01-21 17:44:18,238 - DEBUG - connection - Created connection from extract_splitter_turbine4 (out1) to turbine5 (in1).
+2026-01-21 17:44:18,238 - DEBUG - connection - Created connection from turbine5 (out1) to condenser (in1).
+2026-01-21 17:44:18,239 - DEBUG - network - Added connection main_steam1_deliver to network.
+2026-01-21 17:44:18,239 - DEBUG - network - Added connection main_steam_turbine1 to network.
+2026-01-21 17:44:18,240 - DEBUG - network - Added connection turbine1_steam_out to network.
+2026-01-21 17:44:18,240 - DEBUG - network - Added connection turbine2_steam_in to network.
+2026-01-21 17:44:18,241 - DEBUG - network - Added connection turbine2_steam_out to network.
+2026-01-21 17:44:18,241 - DEBUG - network - Added connection turbine3_steam_in to network.
+2026-01-21 17:44:18,241 - DEBUG - network - Added connection turbine3_steam_out to network.
+2026-01-21 17:44:18,242 - DEBUG - network - Added connection turbine4_steam_in to network.
+2026-01-21 17:44:18,242 - DEBUG - network - Added connection turbine4_steam_out to network.
+2026-01-21 17:44:18,242 - DEBUG - network - Added connection turbine5_steam_in to network.
+2026-01-21 17:44:18,243 - DEBUG - network - Added connection turbine5_steam_out to network.
+2026-01-21 17:44:18,245 - DEBUG - connection - Created connection from cooling_water_source (out1) to condenser (in2).
+2026-01-21 17:44:18,246 - DEBUG - connection - Created connection from condenser (out2) to cooling_water_sink (in1).
+2026-01-21 17:44:18,246 - DEBUG - connection - Created connection from condenser (out1) to cycle_closer (in1).
+2026-01-21 17:44:18,246 - DEBUG - connection - Created connection from cycle_closer (out1) to recycle_pump1 (in1).
+2026-01-21 17:44:18,247 - DEBUG - network - Added connection cooling_water_in to network.
+2026-01-21 17:44:18,247 - DEBUG - network - Added connection cooling_water_out to network.
+2026-01-21 17:44:18,248 - DEBUG - network - Added connection condenser_recycle to network.
+2026-01-21 17:44:18,248 - DEBUG - network - Added connection recycle_pump to network.
+2026-01-21 17:44:18,250 - DEBUG - connection - Created connection from recycle_pump1 (out1) to extract_merge_turbine4 (in1).
+2026-01-21 17:44:18,250 - DEBUG - connection - Created connection from extract_merge_turbine4 (out1) to extract_heat_exchanger2_turbine4 (in2).
+2026-01-21 17:44:18,250 - DEBUG - connection - Created connection from extract_heat_exchanger2_turbine4 (out2) to extract_heat_exchanger1_turbine4 (in2).
+2026-01-21 17:44:18,251 - DEBUG - connection - Created connection from extract_heat_exchanger1_turbine4 (out2) to extract_merge_turbine3 (in1).
+2026-01-21 17:44:18,251 - DEBUG - connection - Created connection from extract_splitter_turbine4 (out2) to extract_heat_exchanger1_turbine4 (in1).
+2026-01-21 17:44:18,251 - DEBUG - connection - Created connection from extract_heat_exchanger1_turbine4 (out1) to extract_heat_exchanger2_turbine4 (in1).
+2026-01-21 17:44:18,251 - DEBUG - connection - Created connection from extract_heat_exchanger2_turbine4 (out1) to extract_pump_turbine4 (in1).
+2026-01-21 17:44:18,252 - DEBUG - connection - Created connection from extract_pump_turbine4 (out1) to extract_merge_turbine4 (in2).
+2026-01-21 17:44:18,252 - DEBUG - network - Added connection recycle_merge_extract_tb4 to network.
+2026-01-21 17:44:18,253 - DEBUG - network - Added connection exchanger2_ex_tb4_main_steam_in to network.
+2026-01-21 17:44:18,253 - DEBUG - network - Added connection exchanger2_1_ex_tb4_main_steam to network.
+2026-01-21 17:44:18,253 - DEBUG - network - Added connection exchanger1_ex_tb4_main_steam_out to network.
+2026-01-21 17:44:18,254 - DEBUG - network - Added connection exchanger1_ex_tb4_extract_steam_in to network.
+2026-01-21 17:44:18,254 - DEBUG - network - Added connection exchanger1_2_ex_tb4_extract_steam to network.
+2026-01-21 17:44:18,254 - DEBUG - network - Added connection exchanger2_ex_tb4_extract_steam_out to network.
+2026-01-21 17:44:18,255 - DEBUG - network - Added connection extract_main_steam_tb4 to network.
+2026-01-21 17:44:18,256 - DEBUG - connection - Created connection from extract_merge_turbine3 (out1) to extract_heat_exchanger2_turbine3 (in2).
+2026-01-21 17:44:18,257 - DEBUG - connection - Created connection from extract_heat_exchanger2_turbine3 (out2) to extract_heat_exchanger1_turbine3 (in2).
+2026-01-21 17:44:18,257 - DEBUG - connection - Created connection from extract_heat_exchanger1_turbine3 (out2) to deaerator (in1).
+2026-01-21 17:44:18,257 - DEBUG - connection - Created connection from extract_splitter_turbine3 (out2) to extract_heat_exchanger1_turbine3 (in1).
+2026-01-21 17:44:18,258 - DEBUG - connection - Created connection from extract_heat_exchanger1_turbine3 (out1) to extract_heat_exchanger2_turbine3 (in1).
+2026-01-21 17:44:18,258 - DEBUG - connection - Created connection from extract_heat_exchanger2_turbine3 (out1) to extract_pump_turbine3 (in1).
+2026-01-21 17:44:18,258 - DEBUG - connection - Created connection from extract_pump_turbine3 (out1) to extract_merge_turbine3 (in2).
+2026-01-21 17:44:18,259 - DEBUG - network - Added connection exchanger2_ex_tb3_main_steam_in to network.
+2026-01-21 17:44:18,259 - DEBUG - network - Added connection exchanger2_1_ex_tb3_main_steam to network.
+2026-01-21 17:44:18,259 - DEBUG - network - Added connection exchanger1_ex_tb3_main_steam_out to network.
+2026-01-21 17:44:18,260 - DEBUG - network - Added connection exchanger1_ex_tb3_extract_steam_in to network.
+2026-01-21 17:44:18,260 - DEBUG - network - Added connection exchanger1_2_ex_tb3_extract_steam to network.
+2026-01-21 17:44:18,260 - DEBUG - network - Added connection exchanger2_ex_tb3_extract_steam_out to network.
+2026-01-21 17:44:18,261 - DEBUG - network - Added connection extract_main_steam_tb3 to network.
+2026-01-21 17:44:18,262 - DEBUG - connection - Created connection from extract_splitter_turbine2 (out2) to extract_valve_turbine2 (in1).
+2026-01-21 17:44:18,262 - DEBUG - connection - Created connection from extract_valve_turbine2 (out1) to deaerator (in2).
+2026-01-21 17:44:18,263 - DEBUG - connection - Created connection from deaerator (out1) to main_steam_splitter (in1).
+2026-01-21 17:44:18,263 - DEBUG - connection - Created connection from main_steam_splitter (out1) to recycle_pump21 (in1).
+2026-01-21 17:44:18,263 - DEBUG - connection - Created connection from main_steam_splitter (out2) to recycle_pump22 (in1).
+2026-01-21 17:44:18,264 - DEBUG - network - Added connection extract_valve to network.
+2026-01-21 17:44:18,264 - DEBUG - network - Added connection extract_deaerator to network.
+2026-01-21 17:44:18,265 - DEBUG - network - Added connection extract_deaerator_splitter to network.
+2026-01-21 17:44:18,265 - DEBUG - network - Added connection main_steam1_splitter to network.
+2026-01-21 17:44:18,265 - DEBUG - network - Added connection main_steam2_splitter to network.
+2026-01-21 17:44:18,403 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_air_source_compressor', 'fuel1_air_compressor_combustion'] from system variables.
+2026-01-21 17:44:18,403 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_splitter_compressor', 'fuel1_compressor_combustion'] from system variables.
+2026-01-21 17:44:18,403 - DEBUG - network - Removing 1 mass flow variables from ['fuel2_splitter_valve', 'fuel2_valve_combustion'] from system variables.
+2026-01-21 17:44:18,404 - INFO - network - ########----Simplify Fluid System Successful----########
+2026-01-21 17:44:18,409 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2026-01-21 17:44:18,415 - INFO - network - ########----Network check successful----########
+2026-01-21 17:44:18,415 - DEBUG - network - Solver properties:
+ - mode: offdesign
+ - init_path: combine_plant_model1_design_
+ - design_path: combine_plant_model1_design_
+ - min_iter: 4
+ - max_iter: 150
+2026-01-21 17:44:18,415 - DEBUG - network - Network information:
+ - Number of components: 47
+ - Number of fluid components: 47
+ - Number of electric components: 0
+ - Number of connections: 62
+ - Number of fluid connections: 62
+ - Number of electric connections: 0
+ - Number of busses: 0
+2026-01-21 17:44:18,420 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,421 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,424 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,425 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,427 - DEBUG - network - Could not find component 'deaerator' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,429 - DEBUG - network - Could not find component 'extract_merge_turbine3' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,429 - DEBUG - network - Could not find component 'extract_merge_turbine4' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,429 - DEBUG - network - Could not find component 'extract_splitter_turbine2' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,429 - DEBUG - network - Could not find component 'extract_splitter_turbine3' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,429 - DEBUG - network - Could not find component 'extract_splitter_turbine4' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,430 - DEBUG - network - Could not find component 'fuel_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,430 - DEBUG - network - Could not find component 'main_steam_merge' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,430 - DEBUG - network - Could not find component 'main_steam_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-01-21 17:44:18,431 - DEBUG - network - Done reading design point information for components.
+2026-01-21 17:44:18,435 - DEBUG - network - Done reading design point information for connections.
+2026-01-21 17:44:18,435 - DEBUG - network - Switched connections from design to offdesign.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component condenser.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component evaporator1.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component evaporator2.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component extract_heat_exchanger1_turbine3.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component extract_heat_exchanger1_turbine4.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component extract_heat_exchanger2_turbine3.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component extract_heat_exchanger2_turbine4.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component main_heat_exchanger1.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component main_heat_exchanger2.
+2026-01-21 17:44:18,435 - DEBUG - network - Set component attributes KDTA to design value at component main_heat_exchanger3.
+2026-01-21 17:44:18,435 - DEBUG - network - Switched components from design to offdesign.
+2026-01-21 17:44:18,445 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,446 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,449 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,450 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-01-21 17:44:18,454 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2026-01-21 17:44:18,456 - DEBUG - base - The fuels for component fuel_combustion of type diabatic combustion chamber are: CH4.
+2026-01-21 17:44:18,457 - DEBUG - base - The fuels for component gas_re_combustion of type diabatic combustion chamber are: CH4.
+2026-01-21 17:44:18,457 - INFO - network - ########-----Initializing variables bounds-----########
+2026-01-21 17:44:18,459 - DEBUG - connection - The connection: condenser_recycle has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: cooling_water_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: cooling_water_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporate_tank1_vapour_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporate_tank1_wator_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporate_tank1_wator_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporate_tank2_vapour_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporate_tank2_wator_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporate_tank2_wator_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator1_gas_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator1_gas_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator1_steam_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator1_steam_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator2_gas_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator2_gas_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator2_steam_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: evaporator2_steam_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger1_2_ex_tb3_extract_steam has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger1_2_ex_tb4_extract_steam has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger1_ex_tb3_extract_steam_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger1_ex_tb3_main_steam_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger1_ex_tb4_extract_steam_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger1_ex_tb4_main_steam_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger2_1_ex_tb3_main_steam has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger2_1_ex_tb4_main_steam has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger2_ex_tb3_extract_steam_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger2_ex_tb3_main_steam_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger2_ex_tb4_extract_steam_out has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: exchanger2_ex_tb4_main_steam_in has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: extract_deaerator has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: extract_deaerator_splitter has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: extract_main_steam_tb3 has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: extract_main_steam_tb4 has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: extract_valve has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: fuel1_air_compressor_combustion has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: fuel1_air_source_compressor has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: fuel1_compressor_combustion has 0 equations.
+2026-01-21 17:44:18,461 - DEBUG - connection - The connection: fuel1_splitter_compressor has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: fuel2_splitter_valve has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: fuel2_valve_combustion has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: fuel_source_splitter has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: gas_deliver has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: gas_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: gas_turbine_in has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: gas_turbine_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: main_steam1_deliver has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: main_steam1_recycle has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: main_steam1_splitter has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: main_steam2_recycle has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: main_steam2_splitter has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: main_steam_turbine1 has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: recycle_merge_extract_tb4 has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: recycle_pump has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine1_steam_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine2_steam_in has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine2_steam_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine3_steam_in has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine3_steam_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine4_steam_in has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine4_steam_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine5_steam_in has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - connection - The connection: turbine5_steam_out has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: air_compressor of type Compressor has 1 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: air_source of type Source has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: condenser of type Condenser has 3 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: cooling_water_sink of type Sink has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: cooling_water_source of type Source has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: cycle_closer of type CycleCloser has 0 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: deaerator of type DeaeratorSimple has 3 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: evaporate_pump1 of type Pump has 1 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: evaporate_pump2 of type Pump has 1 equations.
+2026-01-21 17:44:18,462 - DEBUG - component - The component: evaporate_tank1 of type Drum has 4 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: evaporate_tank2 of type Drum has 4 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: evaporator1 of type Evaporator has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: evaporator2 of type Evaporator has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_heat_exchanger1_turbine3 of type ExtractHeatExchanger has 3 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_heat_exchanger1_turbine4 of type ExtractHeatExchanger has 3 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_heat_exchanger2_turbine3 of type HeatExchanger has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_heat_exchanger2_turbine4 of type HeatExchanger has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_merge_turbine3 of type Merge has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_merge_turbine4 of type Merge has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_pump_turbine3 of type Pump has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_pump_turbine4 of type Pump has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_splitter_turbine2 of type Splitter has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_splitter_turbine3 of type Splitter has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_splitter_turbine4 of type Splitter has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: extract_valve_turbine2 of type Valve has 0 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: fuel_compressor of type Compressor has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: fuel_source of type Source has 0 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: fuel_splitter of type Splitter has 1 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 2 equations.
+2026-01-21 17:44:18,463 - DEBUG - component - The component: gas_sink of type Sink has 0 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: gas_turbine of type Turbine has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: main_heat_exchanger1 of type HeatExchanger has 2 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: main_heat_exchanger2 of type HeatExchanger has 2 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: main_heat_exchanger3 of type HeatExchanger has 2 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: main_steam1_valve of type Valve has 0 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: main_steam_merge of type Merge has 2 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: main_steam_splitter of type Splitter has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: recycle_pump1 of type Pump has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: recycle_pump21 of type Pump has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: recycle_pump22 of type Pump has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: turbine1 of type Turbine has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: turbine2 of type Turbine has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: turbine3 of type Turbine has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: turbine4 of type Turbine has 1 equations.
+2026-01-21 17:44:18,464 - DEBUG - component - The component: turbine5 of type Turbine has 1 equations.
+2026-01-21 17:44:18,489 - DEBUG - network - ------presolve_batch: 1------
+2026-01-21 17:44:18,489 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: condenser
+2026-01-21 17:44:18,489 - DEBUG - network - Has pre_solved equation: <component constraint>: saturated_liquid_constraints of DeaeratorSimple: deaerator
+2026-01-21 17:44:18,490 - DEBUG - network - Has pre_solved equation: <component constraint>: outlet_constraints1 of Drum: evaporate_tank1
+2026-01-21 17:44:18,490 - DEBUG - network - Has pre_solved equation: <component constraint>: outlet_constraints1 of Drum: evaporate_tank2
+2026-01-21 17:44:18,490 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: extract_heat_exchanger1_turbine3
+2026-01-21 17:44:18,490 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: extract_heat_exchanger1_turbine4
+2026-01-21 17:44:18,490 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: fuel_combustion
+2026-01-21 17:44:18,490 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: fuel_splitter
+2026-01-21 17:44:18,490 - DEBUG - network - ------presolve_batch: 2------
+2026-01-21 17:44:18,491 - DEBUG - network - Has pre_solved equation: <component constraint>: outlet_constraints2 of Drum: evaporate_tank1
+2026-01-21 17:44:18,491 - DEBUG - network - Has pre_solved equation: <component constraint>: outlet_constraints2 of Drum: evaporate_tank2
+2026-01-21 17:44:18,491 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: gas_re_combustion
+2026-01-21 17:44:18,491 - DEBUG - network - ------presolve_batch: 3------
+2026-01-21 17:44:18,491 - DEBUG - network - Has removed 11 pre_solved equations totally.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: air_compressor of type Compressor has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: air_source of type Source has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: condenser of type Condenser has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: cooling_water_sink of type Sink has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: cooling_water_source of type Source has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: cycle_closer of type CycleCloser has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: deaerator of type DeaeratorSimple has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: evaporate_pump1 of type Pump has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: evaporate_pump2 of type Pump has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: evaporate_tank1 of type Drum has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: evaporate_tank2 of type Drum has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: evaporator1 of type Evaporator has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: evaporator2 of type Evaporator has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: extract_heat_exchanger1_turbine3 of type ExtractHeatExchanger has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: extract_heat_exchanger1_turbine4 of type ExtractHeatExchanger has 0 variables.
+2026-01-21 17:44:18,491 - DEBUG - component - The component: extract_heat_exchanger2_turbine3 of type HeatExchanger has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_heat_exchanger2_turbine4 of type HeatExchanger has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_merge_turbine3 of type Merge has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_merge_turbine4 of type Merge has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_pump_turbine3 of type Pump has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_pump_turbine4 of type Pump has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_splitter_turbine2 of type Splitter has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_splitter_turbine3 of type Splitter has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_splitter_turbine4 of type Splitter has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: extract_valve_turbine2 of type Valve has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: fuel_compressor of type Compressor has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: fuel_source of type Source has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: fuel_splitter of type Splitter has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: gas_sink of type Sink has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: gas_turbine of type Turbine has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: main_heat_exchanger1 of type HeatExchanger has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: main_heat_exchanger2 of type HeatExchanger has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: main_heat_exchanger3 of type HeatExchanger has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: main_steam1_valve of type Valve has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: main_steam_merge of type Merge has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: main_steam_splitter of type Splitter has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: recycle_pump1 of type Pump has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: recycle_pump21 of type Pump has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: recycle_pump22 of type Pump has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: turbine1 of type Turbine has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: turbine2 of type Turbine has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: turbine3 of type Turbine has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: turbine4 of type Turbine has 0 variables.
+2026-01-21 17:44:18,492 - DEBUG - component - The component: turbine5 of type Turbine has 0 variables.
+2026-01-21 17:44:18,547 - INFO - network - ########----Network initialised----########
+2026-01-21 17:44:18,547 - DEBUG - network - ------Equation Summarization------
+2026-01-21 17:44:18,547 - DEBUG - network - Total number of equations: 53
+2026-01-21 17:44:18,547 - DEBUG - network - Number of connection equations: 0.
+2026-01-21 17:44:18,547 - DEBUG - network - Number of component equations: 64.
+2026-01-21 17:44:18,547 - DEBUG - network - Number of bus equations: 0.
+2026-01-21 17:44:18,547 - DEBUG - network - Number of user defined equations: 0.
+2026-01-21 17:44:18,547 - DEBUG - network - Number of presolved equations: 11.
+2026-01-21 17:44:18,547 - DEBUG - network - ------Variable Summarization------
+2026-01-21 17:44:18,547 - DEBUG - network - Total number of variables: 53.
+2026-01-21 17:44:18,547 - DEBUG - network - Number of component variables: 0.
+2026-01-21 17:44:18,547 - DEBUG - network - Number of connection variables: 53.
+2026-01-21 17:44:18,548 - DEBUG - network - Number of mass flow variables: 16.
+2026-01-21 17:44:18,548 - DEBUG - network - Number of pressure variables: 0.
+2026-01-21 17:44:18,548 - DEBUG - network - Number of enthalpy variables: 37.
+2026-01-21 17:44:18,548 - DEBUG - network - ------Fluid Module Summarization------
+2026-01-21 17:44:18,548 - DEBUG - network - Number of fluid composition equations: 12.
+2026-01-21 17:44:18,548 - DEBUG - network - Number of fluid variables: 12.
+2026-01-21 17:44:18,590 - DEBUG - network - 
+##### VARIABLES #####
++----+-------------------------------------------------------------------------+-------------+-------------+---------+-----------+
+|    | label                                                                   |   min value |   max value | unit    |     scale |
+|----+-------------------------------------------------------------------------+-------------+-------------+---------+-----------|
+|  0 | <mass flow objective> of connection: condenser_recycle                  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  1 | <mass flow objective> of connection: cooling_water_in                   |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  2 | <mass flow objective> of connection: evaporate_tank1_vapour_out         |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  3 | <mass flow objective> of connection: evaporate_tank1_wator_out          |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  4 | <mass flow objective> of connection: evaporate_tank2_vapour_out         |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  5 | <mass flow objective> of connection: evaporate_tank2_wator_out          |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  6 | <mass flow objective> of connection: exchanger1_2_ex_tb3_extract_steam  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  7 | <mass flow objective> of connection: exchanger1_2_ex_tb4_extract_steam  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  8 | <mass flow objective> of connection: exchanger1_ex_tb3_main_steam_out   |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+|  9 | <mass flow objective> of connection: exchanger1_ex_tb4_main_steam_out   |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 10 | <mass flow objective> of connection: extract_deaerator                  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 11 | <mass flow objective> of connection: extract_deaerator_splitter         |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 12 | <mass flow objective> of connection: recycle_merge_extract_tb4          |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 13 | <mass flow objective> of connection: turbine2_steam_in                  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 14 | <mass flow objective> of connection: turbine3_steam_in                  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 15 | <mass flow objective> of connection: turbine4_steam_in                  |   1.000e-05 |   1.000e+12 | kg / s  | 1.000e+00 |
+| 16 | <enthalpy objective> of connection: cooling_water_out                   |   1.602e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 17 | <enthalpy objective> of connection: evaporate_tank1_wator_in            |   2.053e+01 |   6.526e+03 | kJ / kg | 1.000e+05 |
+| 18 | <enthalpy objective> of connection: evaporate_tank2_wator_in            |   1.663e+01 |   6.528e+03 | kJ / kg | 1.000e+05 |
+| 19 | <enthalpy objective> of connection: evaporator1_gas_in                  |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 20 | <enthalpy objective> of connection: evaporator1_gas_out                 |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 21 | <enthalpy objective> of connection: evaporator1_steam_in                |   2.053e+01 |   6.526e+03 | kJ / kg | 1.000e+05 |
+| 22 | <enthalpy objective> of connection: evaporator1_steam_out               |   1.143e+03 |   2.935e+03 | kJ / kg | 1.000e+05 |
+| 23 | <enthalpy objective> of connection: evaporator2_gas_in                  |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 24 | <enthalpy objective> of connection: evaporator2_gas_out                 |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 25 | <enthalpy objective> of connection: evaporator2_steam_in                |   1.663e+01 |   6.528e+03 | kJ / kg | 1.000e+05 |
+| 26 | <enthalpy objective> of connection: evaporator2_steam_out               |   7.426e+02 |   2.912e+03 | kJ / kg | 1.000e+05 |
+| 27 | <enthalpy objective> of connection: exchanger1_ex_tb3_extract_steam_in  |   1.588e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 28 | <enthalpy objective> of connection: exchanger1_ex_tb3_main_steam_out    |   1.588e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 29 | <enthalpy objective> of connection: exchanger1_ex_tb4_extract_steam_in  |   1.578e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 30 | <enthalpy objective> of connection: exchanger1_ex_tb4_main_steam_out    |   1.590e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 31 | <enthalpy objective> of connection: exchanger2_1_ex_tb3_main_steam      |   1.590e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 32 | <enthalpy objective> of connection: exchanger2_1_ex_tb4_main_steam      |   1.592e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 33 | <enthalpy objective> of connection: exchanger2_ex_tb3_extract_steam_out |   1.588e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 34 | <enthalpy objective> of connection: exchanger2_ex_tb3_main_steam_in     |   1.590e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 35 | <enthalpy objective> of connection: exchanger2_ex_tb4_extract_steam_out |   1.578e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 36 | <enthalpy objective> of connection: exchanger2_ex_tb4_main_steam_in     |   1.593e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 37 | <enthalpy objective> of connection: extract_deaerator                   |   1.613e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 38 | <enthalpy objective> of connection: extract_main_steam_tb3              |   1.590e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 39 | <enthalpy objective> of connection: extract_main_steam_tb4              |   1.593e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 40 | <enthalpy objective> of connection: fuel1_air_compressor_combustion     |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 41 | <enthalpy objective> of connection: fuel1_compressor_combustion         |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 42 | <enthalpy objective> of connection: gas_deliver                         |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 43 | <enthalpy objective> of connection: gas_out                             |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 44 | <enthalpy objective> of connection: gas_turbine_in                      |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 45 | <enthalpy objective> of connection: gas_turbine_out                     |   1.000e+00 |   7.000e+03 | kJ / kg | 1.000e+05 |
+| 46 | <enthalpy objective> of connection: main_steam1_deliver                 |   2.047e+01 |   6.526e+03 | kJ / kg | 1.000e+05 |
+| 47 | <enthalpy objective> of connection: main_steam1_recycle                 |   2.055e+01 |   6.526e+03 | kJ / kg | 1.000e+05 |
+| 48 | <enthalpy objective> of connection: main_steam2_recycle                 |   1.664e+01 |   6.528e+03 | kJ / kg | 1.000e+05 |
+| 49 | <enthalpy objective> of connection: recycle_merge_extract_tb4           |   1.593e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
+| 50 | <enthalpy objective> of connection: turbine1_steam_out                  |   1.663e+01 |   6.528e+03 | kJ / kg | 1.000e+05 |
+| 51 | <enthalpy objective> of connection: turbine2_steam_in                   |   1.663e+01 |   6.528e+03 | kJ / kg | 1.000e+05 |
+| 52 | <enthalpy objective> of connection: turbine5_steam_out                  |   1.573e+01 |   6.529e+03 | kJ / kg | 1.000e+05 |
++----+-------------------------------------------------------------------------+-------------+-------------+---------+-----------+
+##### EQUATIONS #####
++----+---------------------------------------------------------------------------------------+-----------+
+|    | label                                                                                 |     scale |
+|----+---------------------------------------------------------------------------------------+-----------|
+|  0 | <component parameter>: eta_s of Compressor: air_compressor                            | 1.000e+05 |
+|  1 | <component parameter>: KDTA of Condenser: condenser                                   | 1.000e+05 |
+|  2 | <component parameter>: KDTA of Condenser: condenser                                   | 1.000e+05 |
+|  3 | <component constraint>: mass_flow_constraints of DeaeratorSimple: deaerator           | 1.000e+00 |
+|  4 | <component constraint>: energy_balance_constraints of DeaeratorSimple: deaerator      | 1.000e+05 |
+|  5 | <component parameter>: eta_s of Pump: evaporate_pump1                                 | 1.000e+05 |
+|  6 | <component parameter>: eta_s of Pump: evaporate_pump2                                 | 1.000e+05 |
+|  7 | <component constraint>: energy_balance_constraints of Drum: evaporate_tank1           | 1.000e+05 |
+|  8 | <component parameter>: Ki of Drum: evaporate_tank1                                    | 1.000e+00 |
+|  9 | <component constraint>: energy_balance_constraints of Drum: evaporate_tank2           | 1.000e+05 |
+| 10 | <component parameter>: Ki of Drum: evaporate_tank2                                    | 1.000e+00 |
+| 11 | <component parameter>: KDTA of Evaporator: evaporator1                                | 1.000e+05 |
+| 12 | <component parameter>: KDTA of Evaporator: evaporator1                                | 1.000e+05 |
+| 13 | <component parameter>: KDTA of Evaporator: evaporator2                                | 1.000e+05 |
+| 14 | <component parameter>: KDTA of Evaporator: evaporator2                                | 1.000e+05 |
+| 15 | <component parameter>: KDTA of ExtractHeatExchanger: extract_heat_exchanger1_turbine3 | 1.000e+05 |
+| 16 | <component parameter>: KDTA of ExtractHeatExchanger: extract_heat_exchanger1_turbine3 | 1.000e+05 |
+| 17 | <component parameter>: KDTA of ExtractHeatExchanger: extract_heat_exchanger1_turbine4 | 1.000e+05 |
+| 18 | <component parameter>: KDTA of ExtractHeatExchanger: extract_heat_exchanger1_turbine4 | 1.000e+05 |
+| 19 | <component parameter>: KDTA of HeatExchanger: extract_heat_exchanger2_turbine3        | 1.000e+05 |
+| 20 | <component parameter>: KDTA of HeatExchanger: extract_heat_exchanger2_turbine3        | 1.000e+05 |
+| 21 | <component parameter>: KDTA of HeatExchanger: extract_heat_exchanger2_turbine4        | 1.000e+05 |
+| 22 | <component parameter>: KDTA of HeatExchanger: extract_heat_exchanger2_turbine4        | 1.000e+05 |
+| 23 | <component constraint>: mass_flow_constraints of Merge: extract_merge_turbine3        | 1.000e+00 |
+| 24 | <component constraint>: energy_balance_constraints of Merge: extract_merge_turbine3   | 1.000e+05 |
+| 25 | <component constraint>: mass_flow_constraints of Merge: extract_merge_turbine4        | 1.000e+00 |
+| 26 | <component constraint>: energy_balance_constraints of Merge: extract_merge_turbine4   | 1.000e+05 |
+| 27 | <component parameter>: eta_s of Pump: extract_pump_turbine3                           | 1.000e+05 |
+| 28 | <component parameter>: eta_s of Pump: extract_pump_turbine4                           | 1.000e+05 |
+| 29 | <component constraint>: mass_flow_constraints of Splitter: extract_splitter_turbine2  | 1.000e+00 |
+| 30 | <component constraint>: mass_flow_constraints of Splitter: extract_splitter_turbine3  | 1.000e+00 |
+| 31 | <component constraint>: mass_flow_constraints of Splitter: extract_splitter_turbine4  | 1.000e+00 |
+| 32 | <component parameter>: eta of DiabaticCombustionChamber: fuel_combustion              | 1.000e+05 |
+| 33 | <component parameter>: eta_s of Compressor: fuel_compressor                           | 1.000e+05 |
+| 34 | <component parameter>: eta of DiabaticCombustionChamber: gas_re_combustion            | 1.000e+05 |
+| 35 | <component parameter>: eta_s of Turbine: gas_turbine                                  | 1.000e+05 |
+| 36 | <component parameter>: KDTA of HeatExchanger: main_heat_exchanger1                    | 1.000e+05 |
+| 37 | <component parameter>: KDTA of HeatExchanger: main_heat_exchanger1                    | 1.000e+05 |
+| 38 | <component parameter>: KDTA of HeatExchanger: main_heat_exchanger2                    | 1.000e+05 |
+| 39 | <component parameter>: KDTA of HeatExchanger: main_heat_exchanger2                    | 1.000e+05 |
+| 40 | <component parameter>: KDTA of HeatExchanger: main_heat_exchanger3                    | 1.000e+05 |
+| 41 | <component parameter>: KDTA of HeatExchanger: main_heat_exchanger3                    | 1.000e+05 |
+| 42 | <component constraint>: mass_flow_constraints of Merge: main_steam_merge              | 1.000e+00 |
+| 43 | <component constraint>: energy_balance_constraints of Merge: main_steam_merge         | 1.000e+05 |
+| 44 | <component constraint>: mass_flow_constraints of Splitter: main_steam_splitter        | 1.000e+00 |
+| 45 | <component parameter>: eta_s of Pump: recycle_pump1                                   | 1.000e+05 |
+| 46 | <component parameter>: eta_s of Pump: recycle_pump21                                  | 1.000e+05 |
+| 47 | <component parameter>: eta_s of Pump: recycle_pump22                                  | 1.000e+05 |
+| 48 | <component parameter>: eta_s of Turbine: turbine1                                     | 1.000e+05 |
+| 49 | <component parameter>: eta_s of Turbine: turbine2                                     | 1.000e+05 |
+| 50 | <component parameter>: eta_s of Turbine: turbine3                                     | 1.000e+05 |
+| 51 | <component parameter>: eta_s of Turbine: turbine4                                     | 1.000e+05 |
+| 52 | <component parameter>: eta_s of Turbine: turbine5                                     | 1.000e+05 |
++----+---------------------------------------------------------------------------------------+-----------+
+##### FLUID VARIABLES #####
++----+-----------------------------------------------------+---------------------+
+|    | label                                               | fluid composition   |
+|----+-----------------------------------------------------+---------------------|
+|  0 | <fluid objective> of connection: evaporator1_gas_in | O2                  |
+|  1 | <fluid objective> of connection: evaporator1_gas_in | N2                  |
+|  2 | <fluid objective> of connection: evaporator1_gas_in | CO2                 |
+|  3 | <fluid objective> of connection: evaporator1_gas_in | Ar                  |
+|  4 | <fluid objective> of connection: evaporator1_gas_in | CH4                 |
+|  5 | <fluid objective> of connection: evaporator1_gas_in | H2O                 |
+|  6 | <fluid objective> of connection: gas_turbine_in     | O2                  |
+|  7 | <fluid objective> of connection: gas_turbine_in     | N2                  |
+|  8 | <fluid objective> of connection: gas_turbine_in     | CO2                 |
+|  9 | <fluid objective> of connection: gas_turbine_in     | Ar                  |
+| 10 | <fluid objective> of connection: gas_turbine_in     | CH4                 |
+| 11 | <fluid objective> of connection: gas_turbine_in     | H2O                 |
++----+-----------------------------------------------------+---------------------+
+##### FLUID EQUATIONS #####
++----+-------------------------------------------------------------------------------------------------------+---------------------+
+|    | label                                                                                                 | fluid composition   |
+|----+-------------------------------------------------------------------------------------------------------+---------------------|
+|  0 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion   | O2                  |
+|  1 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion   | N2                  |
+|  2 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion   | CO2                 |
+|  3 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion   | Ar                  |
+|  4 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion   | CH4                 |
+|  5 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion   | H2O                 |
+|  6 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion | O2                  |
+|  7 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion | N2                  |
+|  8 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion | CO2                 |
+|  9 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion | Ar                  |
+| 10 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion | CH4                 |
+| 11 | fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion | H2O                 |
++----+-------------------------------------------------------------------------------------------------------+---------------------+
+2026-01-21 17:44:18,603 - DEBUG - network - 
+##### TEMPERATURE BOUNDS #####
++-------------------------------------+-------------+-------------+--------+
+|                                     |   min value |   max value | unit   |
+|-------------------------------------+-------------+-------------+--------|
+| cooling_water_out                   |   2.742e+00 |   1.707e+03 | C      |
+| evaporate_tank1_wator_in            |   2.742e+00 |   1.707e+03 | C      |
+| evaporate_tank2_wator_in            |   2.742e+00 |   1.707e+03 | C      |
+| evaporator1_gas_in                  |   2.850e+00 |   1.707e+03 | C      |
+| evaporator1_gas_out                 |   2.850e+00 |   1.707e+03 | C      |
+| evaporator1_steam_in                |   2.742e+00 |   1.707e+03 | C      |
+| evaporator1_steam_out               |   2.742e+00 |   1.707e+03 | C      |
+| evaporator2_gas_in                  |   2.850e+00 |   1.707e+03 | C      |
+| evaporator2_gas_out                 |   2.850e+00 |   1.707e+03 | C      |
+| evaporator2_steam_in                |   2.742e+00 |   1.707e+03 | C      |
+| evaporator2_steam_out               |   2.742e+00 |   1.707e+03 | C      |
+| exchanger1_ex_tb3_extract_steam_in  |   2.742e+00 |   1.707e+03 | C      |
+| exchanger1_ex_tb3_main_steam_out    |   2.742e+00 |   1.707e+03 | C      |
+| exchanger1_ex_tb4_extract_steam_in  |   2.742e+00 |   1.707e+03 | C      |
+| exchanger1_ex_tb4_main_steam_out    |   2.742e+00 |   1.707e+03 | C      |
+| exchanger2_1_ex_tb3_main_steam      |   2.742e+00 |   1.707e+03 | C      |
+| exchanger2_1_ex_tb4_main_steam      |   2.742e+00 |   1.707e+03 | C      |
+| exchanger2_ex_tb3_extract_steam_out |   2.742e+00 |   1.707e+03 | C      |
+| exchanger2_ex_tb3_main_steam_in     |   2.742e+00 |   1.707e+03 | C      |
+| exchanger2_ex_tb4_extract_steam_out |   2.742e+00 |   1.707e+03 | C      |
+| exchanger2_ex_tb4_main_steam_in     |   2.742e+00 |   1.707e+03 | C      |
+| extract_deaerator                   |   2.742e+00 |   1.707e+03 | C      |
+| extract_main_steam_tb3              |   2.742e+00 |   1.707e+03 | C      |
+| extract_main_steam_tb4              |   2.742e+00 |   1.707e+03 | C      |
+| extract_valve                       |   2.742e+00 |   1.707e+03 | C      |
+| fuel1_air_compressor_combustion     |   2.850e+00 |   1.707e+03 | C      |
+| fuel1_compressor_combustion         |   2.850e+00 |   3.456e+02 | C      |
+| gas_deliver                         |   2.850e+00 |   1.707e+03 | C      |
+| gas_out                             |   2.850e+00 |   1.707e+03 | C      |
+| gas_turbine_in                      |   2.850e+00 |   1.707e+03 | C      |
+| gas_turbine_out                     |   2.850e+00 |   1.707e+03 | C      |
+| main_steam1_deliver                 |   2.742e+00 |   1.707e+03 | C      |
+| main_steam1_recycle                 |   2.742e+00 |   1.707e+03 | C      |
+| main_steam2_recycle                 |   2.742e+00 |   1.707e+03 | C      |
+| main_steam_turbine1                 |   2.742e+00 |   1.707e+03 | C      |
+| recycle_merge_extract_tb4           |   2.742e+00 |   1.707e+03 | C      |
+| turbine1_steam_out                  |   2.742e+00 |   1.707e+03 | C      |
+| turbine2_steam_in                   |   2.742e+00 |   1.707e+03 | C      |
+| turbine2_steam_out                  |   2.742e+00 |   1.707e+03 | C      |
+| turbine3_steam_in                   |   2.742e+00 |   1.707e+03 | C      |
+| turbine3_steam_out                  |   2.742e+00 |   1.707e+03 | C      |
+| turbine4_steam_in                   |   2.742e+00 |   1.707e+03 | C      |
+| turbine4_steam_out                  |   2.742e+00 |   1.707e+03 | C      |
+| turbine5_steam_in                   |   2.742e+00 |   1.707e+03 | C      |
+| turbine5_steam_out                  |   2.742e+00 |   1.707e+03 | C      |
++-------------------------------------+-------------+-------------+--------+
+2026-01-21 17:44:18,605 - DEBUG - network - has no linear dependence in network topology
+2026-01-21 17:44:18,605 - INFO - network - Starting solver.
+2026-01-21 17:44:18,607 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | voltage    | electricity | frequency  | fluid      | component  
+2026-01-21 17:44:18,608 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------
+2026-01-21 17:44:18,611 - DEBUG - network - the fluid calculation done in 0th iteration
+2026-01-21 17:44:18,619 - ERROR - fluid_node - node enthalpy: -54.171093909593765 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-0.975907 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,628 - ERROR - fluid_node - node enthalpy: -2236.9205901740934 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-40.2987 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,633 - ERROR - fluid_node - node enthalpy: -46.09771641821135 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-0.830463 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,638 - ERROR - fluid_node - node enthalpy: -62.24476478865836 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-1.12136 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,642 - ERROR - fluid_node - node enthalpy: -54.07109390950063 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-0.974105 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,647 - ERROR - fluid_node - node enthalpy: -54.2710939096869 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-0.977708 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,651 - ERROR - fluid_node - node enthalpy: -50.48175326484488 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-0.909442 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:18,656 - ERROR - fluid_node - node enthalpy: -57.860432153218426 < min_enthalpy: 11521.989310150948--unable to solve 1phase PY flash with Tmin=273.159, Tmax=312.026 due to error: HSU_P_flash_singlephase_Brent could not find a solution because Hmolar [-1.04237 J/mol] is below the minimum value of 0.0155448633557 J/mol
+2026-01-21 17:44:20,464 - DEBUG - network - matrix value: -2.626392373288694e+16
+2026-01-21 17:44:20,475 - PROGRESS - network -  1     | 2.57e+01   | 51 %       | 4.85e+02   | 0.00e+00   | 1.22e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 3.46e+00   | 0.00e+00   
+2026-01-21 17:44:20,476 - DEBUG - network - the fluid calculation done in 0th iteration
+2026-01-21 17:44:22,317 - DEBUG - network - matrix value: -4.7958843006699834e+17
+2026-01-21 17:44:22,320 - PROGRESS - network -  2     | 1.34e+01   | 54 %       | 1.43e+02   | 0.00e+00   | 3.30e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 3.46e+00   | 0.00e+00   
+2026-01-21 17:44:22,321 - DEBUG - network - the fluid calculation done in 0th iteration
+2026-01-21 17:44:24,166 - DEBUG - network - matrix value: -1.2973281897294064e+17
+2026-01-21 17:44:24,168 - PROGRESS - network -  3     | 5.45e+00   | 58 %       | 1.63e+01   | 0.00e+00   | 1.26e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 3.46e+00   | 0.00e+00   
+2026-01-21 17:44:24,170 - DEBUG - network - the fluid calculation done in 0th iteration
+2026-01-21 17:44:25,996 - DEBUG - network - matrix value: -1.7818005430897837e+17
+2026-01-21 17:44:25,999 - PROGRESS - network -  4     | 1.64e-01   | 75 %       | 3.12e+00   | 0.00e+00   | 4.85e-03   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 3.46e+00   | 0.00e+00   
+2026-01-21 17:44:26,000 - DEBUG - network - the fluid calculation done in 0th iteration
+2026-01-21 17:44:27,829 - DEBUG - network - matrix value: -1.725051361928528e+17
+2026-01-21 17:44:27,832 - PROGRESS - network -  5     | 1.05e-03   | 99 %       | 4.92e-02   | 0.00e+00   | 4.54e-05   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 3.46e+00   | 0.00e+00   
+2026-01-21 17:44:27,833 - DEBUG - network - the fluid calculation done in 0th iteration
+2026-01-21 17:44:29,653 - DEBUG - network - matrix value: -1.7242542386466355e+17
+2026-01-21 17:44:29,655 - PROGRESS - network -  6     | 1.05e-07   | 100 %      | 9.72e-06   | 0.00e+00   | 6.81e-09   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 3.46e+00   | 0.00e+00   
+2026-01-21 17:44:29,655 - DEBUG - network - has found the solution in 0th iteration
+2026-01-21 17:44:29,655 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------
+2026-01-21 17:44:29,655 - DEBUG - network - Total iterations: 6, Calculation time: 11.05 s, Iterations per second: 0.54
+2026-01-21 17:44:30,028 - DEBUG - base - the mid point above range of HeatExchanger: main_heat_exchanger1
+2026-01-21 17:44:30,067 - DEBUG - base - the mid point above range of HeatExchanger: main_heat_exchanger2
+2026-01-21 17:44:30,117 - DEBUG - base - the mid point above range of HeatExchanger: main_heat_exchanger3
+2026-01-21 17:44:30,303 - INFO - network - Postprocessing complete.
+2026-01-21 17:44:30,303 - INFO - network - Calculation complete.
+2026-01-21 17:44:30,304 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.85 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,306 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 2627875.4576214845 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,309 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.85 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,311 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 9.999999999999998 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,312 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 331120.8849277571 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,316 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 36455.35960165262 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,319 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 4908.457314320439 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,324 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.9989999999999999 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,325 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.85 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-01-21 17:44:30,365 - RESULT - network - 
+##### RESULTS (Compressor) #####
++-----------------+----------+----------+----------+-----------+-----------+-----------+----------+--------------+----------+-------------+
+|                 |        P | P_unit   |       pr | pr_unit   |        dp | dp_unit   |    eta_s | eta_s_unit   |     igva | igva_unit   |
+|-----------------+----------+----------+----------+-----------+-----------+-----------+----------+--------------+----------+-------------|
+| air_compressor  | 3.21e+07 | W        | 1.53e+01 | -         | -1.40e+01 | bar       | 8.50e-01 | -            | 0.00e+00 | deg         |
+| fuel_compressor | 3.38e+05 | W        | 3.33e+00 | -         | -1.05e+01 | bar       | 8.50e-01 | -            | 0.00e+00 | deg         |
++-----------------+----------+----------+----------+-----------+-----------+-----------+----------+--------------+----------+-------------+
+##### RESULTS (Condenser) #####
++-----------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+-------------------+------------------------+
+|           |         Q | Q_unit   |       kA | kA_unit   |     KDTA | KDTA_unit   |   DTM | DTM_unit   |   DT_log | DT_log_unit   |      DTU | DTU_unit   |      DTL | DTL_unit   |   DTN_min | DTN_min_unit   |      pr1 | pr1_unit   |      pr2 | pr2_unit   |      dp1 | dp1_unit   |      dp2 | dp2_unit   |      hf1 | hf1_unit   |      hf2 | hf2_unit   |       fA | fA_unit   |     exm1 | exm1_unit   |     exm2 | exm2_unit   |    zeta1 | zeta1_unit     |    zeta2 | zeta2_unit     |   eff_cold | eff_cold_unit   |   eff_hot | eff_hot_unit   |   eff_max | eff_max_unit   |   supercooling_dT | supercooling_dT_unit   |
+|-----------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+-------------------+------------------------|
+| condenser | -2.36e+07 | W        | 2.67e+06 | W/K       | 2.63e+06 | W/K         |   nan | C          | 8.85e+00 | C             | 2.02e+00 | C          | 2.39e+01 | C          |  2.02e+00 | C              | 1.00e+00 | -          | 9.83e-01 | -          | 0.00e+00 | bar        | 5.00e-02 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 5.26e+03 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 9.21e+01 | (Pa*s)/(m^3*s) |   9.15e-01 | -               |  9.57e-01 | -              |  9.57e-01 | -              |          0.00e+00 | C                      |
++-----------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+-------------------+------------------------+
+##### RESULTS (CycleCloser) #####
++--------------+------------------+-----------------------+-------------------+------------------------+
+|              |   mass_deviation | mass_deviation_unit   |   fluid_deviation | fluid_deviation_unit   |
+|--------------+------------------+-----------------------+-------------------+------------------------|
+| cycle_closer |         1.78e-15 | kg / s                |          0.00e+00 | -                      |
++--------------+------------------+-----------------------+-------------------+------------------------+
+##### RESULTS (Pump) #####
++-----------------------+----------+----------+----------+-----------+-----------+-----------+----------+--------------+
+|                       |        P | P_unit   |       pr | pr_unit   |        dp | dp_unit   |    eta_s | eta_s_unit   |
+|-----------------------+----------+----------+----------+-----------+-----------+-----------+----------+--------------|
+| evaporate_pump1       | 0.00e+00 | W        | 1.00e+00 | -         |  0.00e+00 | bar       | 8.50e-01 | -            |
+| evaporate_pump2       | 0.00e+00 | W        | 1.00e+00 | -         |  0.00e+00 | bar       | 8.50e-01 | -            |
+| extract_pump_turbine3 | 1.65e+01 | W        | 1.17e+00 | -         | -2.50e-01 | bar       | 8.50e-01 | -            |
+| extract_pump_turbine4 | 8.83e+01 | W        | 4.00e+00 | -         | -1.50e+00 | bar       | 8.50e-01 | -            |
+| recycle_pump1         | 2.45e+03 | W        | 2.88e+01 | -         | -1.93e+00 | bar       | 8.50e-01 | -            |
+| recycle_pump21        | 6.70e+04 | W        | 3.23e+01 | -         | -4.69e+01 | bar       | 8.50e-01 | -            |
+| recycle_pump22        | 5.45e+02 | W        | 6.07e+00 | -         | -7.60e+00 | bar       | 8.50e-01 | -            |
++-----------------------+----------+----------+----------+-----------+-----------+-----------+----------+--------------+
+##### RESULTS (Drum) #####
++-----------------+----------+-----------+
+|                 |       Ki | Ki_unit   |
+|-----------------+----------+-----------|
+| evaporate_tank1 | 1.00e+01 | -         |
+| evaporate_tank2 | 1.00e+01 | -         |
++-----------------+----------+-----------+
+##### RESULTS (Evaporator) #####
++-------------+-----------+----------+----------+-----------+----------+-------------+----------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+----------------+---------------------+
+|             |         Q | Q_unit   |       kA | kA_unit   |     KDTA | KDTA_unit   |      DTM | DTM_unit   |   DT_log | DT_log_unit   |      DTU | DTU_unit   |      DTL | DTL_unit   |   DTN_min | DTN_min_unit   |      pr1 | pr1_unit   |      pr2 | pr2_unit   |      dp1 | dp1_unit   |      dp2 | dp2_unit   |      hf1 | hf1_unit   |      hf2 | hf2_unit   |       fA | fA_unit   |     exm1 | exm1_unit   |     exm2 | exm2_unit   |    zeta1 | zeta1_unit     |    zeta2 | zeta2_unit     |   eff_cold | eff_cold_unit   |   eff_hot | eff_hot_unit   |   eff_max | eff_max_unit   |   superheat_dT | superheat_dT_unit   |
+|-------------+-----------+----------+----------+-----------+----------+-------------+----------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+----------------+---------------------|
+| evaporator1 | -2.05e+07 | W        | 3.47e+05 | W/K       | 3.31e+05 | W/K         | 5.00e+00 | C          | 5.91e+01 | C             | 2.32e+02 | C          | 5.00e+00 | C          |  5.00e+00 | C              | 1.00e+00 | -          | 1.00e+00 | -          | 0.00e+00 | bar        | 0.00e+00 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 6.62e+03 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 0.00e+00 | (Pa*s)/(m^3*s) |   7.78e-02 | -               |  9.79e-01 | -              |  9.79e-01 | -              |       0.00e+00 | C                   |
+| evaporator2 | -1.18e+06 | W        | 1.14e+05 | W/K       | 1.13e+05 | W/K         | 4.99e+00 | C          | 1.04e+01 | C             | 1.86e+01 | C          | 4.99e+00 | C          |  4.99e+00 | C              | 1.00e+00 | -          | 1.00e+00 | -          | 0.00e+00 | bar        | 0.00e+00 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 2.27e+03 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 0.00e+00 | (Pa*s)/(m^3*s) |   9.82e-02 | -               |  7.32e-01 | -              |  7.32e-01 | -              |       0.00e+00 | C                   |
++-------------+-----------+----------+----------+-----------+----------+-------------+----------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+----------------+---------------------+
+##### RESULTS (ExtractHeatExchanger) #####
++----------------------------------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+----------+---------------+-------------------+------------------------+
+|                                  |         Q | Q_unit   |       kA | kA_unit   |     KDTA | KDTA_unit   |   DTM | DTM_unit   |   DT_log | DT_log_unit   |      DTU | DTU_unit   |      DTL | DTL_unit   |   DTN_min | DTN_min_unit   |      pr1 | pr1_unit   |      pr2 | pr2_unit   |      dp1 | dp1_unit   |      dp2 | dp2_unit   |      hf1 | hf1_unit   |      hf2 | hf2_unit   |       fA | fA_unit   |     exm1 | exm1_unit   |     exm2 | exm2_unit   |    zeta1 | zeta1_unit     |    zeta2 | zeta2_unit     |   eff_cold | eff_cold_unit   |   eff_hot | eff_hot_unit   |   eff_max | eff_max_unit   |   DTU_sh | DTU_sh_unit   |   supercooling_dT | supercooling_dT_unit   |
+|----------------------------------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+----------+---------------+-------------------+------------------------|
+| extract_heat_exchanger1_turbine3 | -1.27e+06 | W        | 2.38e+04 | W/K       | 3.65e+04 | W/K         |   nan | C          | 5.36e+01 | C             | 6.42e+01 | C          | 4.43e+01 | C          |  4.43e+01 | C              | 1.00e+00 | -          | 8.82e-01 | -          | 0.00e+00 | bar        | 2.00e-01 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 8.02e+02 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 1.73e+05 | (Pa*s)/(m^3*s) |   4.32e-02 | -               |  9.26e-01 | -              |  9.26e-01 | -              | 1.85e+01 | C             |          0.00e+00 | C                      |
+| extract_heat_exchanger1_turbine4 | -1.13e+06 | W        | 4.23e+04 | W/K       | 4.22e+04 | W/K         |   nan | C          | 2.67e+01 | C             | 1.65e+01 | C          | 4.06e+01 | C          |  1.65e+01 | C              | 1.00e+00 | -          | 8.97e-01 | -          | 0.00e+00 | bar        | 2.00e-01 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 9.28e+02 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 1.93e+05 | (Pa*s)/(m^3*s) |   5.93e-01 | -               |  9.31e-01 | -              |  9.31e-01 | -              | 1.65e+01 | C             |          0.00e+00 | C                      |
++----------------------------------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+----------+---------------+-------------------+------------------------+
+##### RESULTS (HeatExchanger) #####
++----------------------------------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+
+|                                  |         Q | Q_unit   |       kA | kA_unit   |     KDTA | KDTA_unit   |   DTM | DTM_unit   |   DT_log | DT_log_unit   |      DTU | DTU_unit   |      DTL | DTL_unit   |   DTN_min | DTN_min_unit   |      pr1 | pr1_unit   |      pr2 | pr2_unit   |      dp1 | dp1_unit   |      dp2 | dp2_unit   |      hf1 | hf1_unit   |      hf2 | hf2_unit   |       fA | fA_unit   |     exm1 | exm1_unit   |     exm2 | exm2_unit   |    zeta1 | zeta1_unit     |    zeta2 | zeta2_unit     |   eff_cold | eff_cold_unit   |   eff_hot | eff_hot_unit   |   eff_max | eff_max_unit   |
+|----------------------------------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------|
+| extract_heat_exchanger2_turbine3 | -9.36e+04 | W        | 4.96e+03 | W/K       | 4.91e+03 | W/K         |   nan | C          | 1.89e+01 | C             | 4.43e+01 | C          | 5.72e+00 | C          |  5.72e+00 | C              | 1.00e+00 | -          | 9.71e-01 | -          | 0.00e+00 | bar        | 5.00e-02 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 1.08e+02 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 4.37e+04 | (Pa*s)/(m^3*s) |   4.09e-02 | -               |  8.77e-01 | -              |  8.77e-01 | -              |
+| extract_heat_exchanger2_turbine4 | -8.02e+04 | W        | 5.25e+03 | W/K       | 5.18e+03 | W/K         |   nan | C          | 1.53e+01 | C             | 4.06e+01 | C          | 3.61e+00 | C          |  3.61e+00 | C              | 1.00e+00 | -          | 9.75e-01 | -          | 0.00e+00 | bar        | 5.00e-02 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 1.14e+02 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 4.86e+04 | (Pa*s)/(m^3*s) |   4.04e-02 | -               |  9.15e-01 | -              |  9.15e-01 | -              |
+| main_heat_exchanger1             | -9.93e+06 | W        | 1.68e+05 | W/K       | 1.47e+05 | W/K         |   nan | C          | 5.91e+01 | C             | 5.00e+00 | C          | 2.32e+02 | C          |  5.00e+00 | C              | 1.00e+00 | -          | 9.96e-01 | -          | 0.00e+00 | bar        | 2.00e-01 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 3.23e+03 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 3.02e+03 | (Pa*s)/(m^3*s) |   9.87e-01 | -               |  3.22e-01 | -              |  9.87e-01 | -              |
+| main_heat_exchanger2             | -6.34e+06 | W        | 1.23e+05 | W/K       | 1.25e+05 | W/K         |   nan | C          | 5.17e+01 | C             | 3.00e+01 | C          | 8.21e+01 | C          |  3.00e+01 | C              | 1.00e+00 | -          | 9.96e-01 | -          | 0.00e+00 | bar        | 2.00e-01 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 2.74e+03 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 1.63e+05 | (Pa*s)/(m^3*s) |   2.34e-01 | -               |  4.73e-01 | -              |  4.73e-01 | -              |
+| main_heat_exchanger3             | -1.54e+05 | W        | 5.78e+03 | W/K       | 5.75e+03 | W/K         |   nan | C          | 2.66e+01 | C             | 7.00e+00 | C          | 6.71e+01 | C          |  7.00e+00 | C              | 1.00e+00 | -          | 9.89e-01 | -          | 0.00e+00 | bar        | 1.00e-01 | bar        | 5.00e+01 | W/m^2*K    | 5.00e+02 | W/m^2*K    | 1.26e+02 | m^2       | 6.10e-01 | -           | 7.84e-01 | -           | 0.00e+00 | (Pa*s)/(m^3*s) | 3.39e+07 | (Pa*s)/(m^3*s) |   1.15e-01 | -               |  2.60e-02 | -              |  1.15e-01 | -              |
++----------------------------------+-----------+----------+----------+-----------+----------+-------------+-------+------------+----------+---------------+----------+------------+----------+------------+-----------+----------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+------------+----------+-----------+----------+-------------+----------+-------------+----------+----------------+----------+----------------+------------+-----------------+-----------+----------------+-----------+----------------+
+##### RESULTS (Valve) #####
++------------------------+----------+-----------+----------+-----------+----------+----------------+
+|                        |       pr | pr_unit   |       dp | dp_unit   |     zeta | zeta_unit      |
+|------------------------+----------+-----------+----------+-----------+----------+----------------|
+| extract_valve_turbine2 | 3.75e-01 | -         | 2.50e+00 | bar       | 2.08e+06 | (Pa*s)/(m^3*s) |
+| fuel_add_valve         | 8.89e-01 | -         | 5.00e-01 | bar       | 1.70e+07 | (Pa*s)/(m^3*s) |
+| main_steam1_valve      | 9.90e-01 | -         | 5.00e-01 | bar       | 5.64e+03 | (Pa*s)/(m^3*s) |
++------------------------+----------+-----------+----------+-----------+----------+----------------+
+##### RESULTS (DiabaticCombustionChamber) #####
++-------------------+----------+-------------+----------+-----------+----------+-----------+----------+-----------+----------+------------+-----------+---------------+
+|                   |     lamb | lamb_unit   |       ti | ti_unit   |       pr | pr_unit   |       dp | dp_unit   |      eta | eta_unit   |    Q_loss | Q_loss_unit   |
+|-------------------+----------+-------------+----------+-----------+----------+-----------+----------+-----------+----------+------------+-----------+---------------|
+| fuel_combustion   | 3.31e+00 | -           | 7.01e+07 | W         | 1.00e+00 | -         | 0.00e+00 | bar       | 9.99e-01 | -          | -7.01e+04 | W             |
+| gas_re_combustion | 3.17e+01 | -           | 5.10e+06 | W         | 1.00e+00 | -         | 0.00e+00 | bar       | 9.99e-01 | -          | -5.10e+03 | W             |
++-------------------+----------+-------------+----------+-----------+----------+-----------+----------+-----------+----------+------------+-----------+---------------+
+##### RESULTS (Turbine) #####
++-------------+-----------+----------+----------+-----------+----------+-----------+----------+--------------+
+|             |         P | P_unit   |       pr | pr_unit   |       dp | dp_unit   |    eta_s | eta_s_unit   |
+|-------------+-----------+----------+----------+-----------+----------+-----------+----------+--------------|
+| gas_turbine | -5.55e+07 | W        | 6.69e-02 | -         | 1.40e+01 | bar       | 8.50e-01 | -            |
+| turbine1    | -5.55e+06 | W        | 1.89e-01 | -         | 3.85e+01 | bar       | 8.80e-01 | -            |
+| turbine2    | -2.23e+06 | W        | 4.44e-01 | -         | 5.00e+00 | bar       | 8.80e-01 | -            |
+| turbine3    | -2.17e+06 | W        | 3.75e-01 | -         | 2.50e+00 | bar       | 8.80e-01 | -            |
+| turbine4    | -1.89e+06 | W        | 3.33e-01 | -         | 1.00e+00 | bar       | 8.80e-01 | -            |
+| turbine5    | -2.74e+06 | W        | 1.39e-01 | -         | 4.30e-01 | bar       | 9.00e-01 | -            |
++-------------+-----------+----------+----------+-----------+----------+-----------+----------+--------------+
+##### RESULTS (FluidConnection) #####
++-------------------------------------+-----------+----------+-----------+----------+-----------+----------+-----------+----------+------------+--------------+------------+---------------+-----------+----------+-----------+------------+------------+----------+-----------+----------+----------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                                     |         m | m_unit   |         p | p_unit   |         h | h_unit   |         T | T_unit   |      Td_bp | Td_bp_unit   |     Td_dew | Td_dew_unit   |         v | v_unit   |       vol | vol_unit   |          x | x_unit   |         s | s_unit   | phase                |          O2 |          N2 |       water |       Water |         CO2 |          Ar |         CH4 |         H2O |
+|-------------------------------------+-----------+----------+-----------+----------+-----------+----------+-----------+----------+------------+--------------+------------+---------------+-----------+----------+-----------+------------+------------+----------+-----------+----------+----------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------|
+| condenser_recycle                   | 1.072e+01 | kg / s   | 6.950e-02 | bar      | 1.628e+02 | kJ / kg  | 3.887e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.080e-02 | m^3 / s  | 1.007e-03 | m^3 / kg   |  0.000e+00 | -        | 5.572e+02 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| cooling_water_in                    | 2.583e+02 | kg / s   | 3.000e+00 | bar      | 6.327e+01 | kJ / kg  | 1.500e+01 | C        | -1.185e+02 | K            |  1.185e+02 | K             | 2.585e-01 | m^3 / s  | 1.001e-03 | m^3 / kg   |  0.000e+00 | -        | 2.244e+02 | J / kgK  | l                    | nan         | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         |
+| cooling_water_out                   | 2.583e+02 | kg / s   | 2.950e+00 | bar      | 1.546e+02 | kJ / kg  | 3.684e+01 | C        | -9.611e+01 | K            |  9.611e+01 | K             | 2.600e-01 | m^3 / s  | 1.007e-03 | m^3 / kg   |  0.000e+00 | -        | 5.300e+02 | J / kgK  | l                    | nan         | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         |
+| evaporate_tank1_vapour_out          | 1.156e+01 | kg / s   | 4.820e+01 | bar      | 2.796e+03 | kJ / kg  | 2.617e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 4.738e-01 | m^3 / s  | 4.100e-02 | m^3 / kg   |  1.000e+00 | -        | 5.990e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporate_tank1_wator_in            | 1.156e+01 | kg / s   | 4.820e+01 | bar      | 1.022e+03 | kJ / kg  | 2.367e+02 | C        | -2.500e+01 | K            |  2.500e+01 | K             | 1.410e-02 | m^3 / s  | 1.220e-03 | m^3 / kg   |  0.000e+00 | -        | 2.668e+03 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporate_tank1_wator_out           | 1.156e+02 | kg / s   | 4.820e+01 | bar      | 1.143e+03 | kJ / kg  | 2.617e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.480e-01 | m^3 / s  | 1.280e-03 | m^3 / kg   |  1.222e-16 | -        | 2.900e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporate_tank2_vapour_out          | 5.786e-01 | kg / s   | 9.000e+00 | bar      | 2.773e+03 | kJ / kg  | 1.754e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.243e-01 | m^3 / s  | 2.149e-01 | m^3 / kg   |  1.000e+00 | -        | 6.621e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporate_tank2_wator_in            | 5.786e-01 | kg / s   | 9.000e+00 | bar      | 7.338e+02 | kJ / kg  | 1.733e+02 | C        | -2.007e+00 | K            |  2.007e+00 | K             | 6.472e-04 | m^3 / s  | 1.119e-03 | m^3 / kg   |  0.000e+00 | -        | 2.074e+03 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporate_tank2_wator_out           | 5.786e+00 | kg / s   | 9.000e+00 | bar      | 7.426e+02 | kJ / kg  | 1.754e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 6.487e-03 | m^3 / s  | 1.121e-03 | m^3 / kg   |  0.000e+00 | -        | 2.094e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporator1_gas_in                  | 8.136e+01 | kg / s   | 1.003e+00 | bar      | 9.119e+02 | kJ / kg  | 4.935e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.812e+02 | m^3 / s  | 2.227e+00 | m^3 / kg   |  0.000e+00 | -        | 7.785e+03 | J / kgK  | nan                  |   1.534e-01 |   7.413e-01 | nan         | nan         |   5.107e-02 |   1.266e-02 |   0.000e+00 |   4.149e-02 |
+| evaporator1_gas_out                 | 8.136e+01 | kg / s   | 1.003e+00 | bar      | 6.599e+02 | kJ / kg  | 2.667e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.276e+02 | m^3 / s  | 1.568e+00 | m^3 / kg   |  0.000e+00 | -        | 7.396e+03 | J / kgK  | nan                  |   1.534e-01 |   7.413e-01 | nan         | nan         |   5.107e-02 |   1.266e-02 |   0.000e+00 |   4.149e-02 |
+| evaporator1_steam_in                | 1.156e+02 | kg / s   | 4.820e+01 | bar      | 1.143e+03 | kJ / kg  | 2.617e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.480e-01 | m^3 / s  | 1.280e-03 | m^3 / kg   |  1.222e-16 | -        | 2.900e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporator1_steam_out               | 1.156e+02 | kg / s   | 4.820e+01 | bar      | 1.321e+03 | kJ / kg  | 2.617e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 6.406e-01 | m^3 / s  | 5.544e-03 | m^3 / kg   |  1.073e-01 | -        | 3.232e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporator2_gas_in                  | 8.136e+01 | kg / s   | 1.003e+00 | bar      | 5.820e+02 | kJ / kg  | 1.940e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.104e+02 | m^3 / s  | 1.357e+00 | m^3 / kg   |  0.000e+00 | -        | 7.241e+03 | J / kgK  | nan                  |   1.534e-01 |   7.413e-01 | nan         | nan         |   5.107e-02 |   1.266e-02 |   0.000e+00 |   4.149e-02 |
+| evaporator2_gas_out                 | 8.136e+01 | kg / s   | 1.003e+00 | bar      | 5.675e+02 | kJ / kg  | 1.803e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.072e+02 | m^3 / s  | 1.317e+00 | m^3 / kg   |  0.000e+00 | -        | 7.210e+03 | J / kgK  | nan                  |   1.534e-01 |   7.413e-01 | nan         | nan         |   5.107e-02 |   1.266e-02 |   0.000e+00 |   4.149e-02 |
+| evaporator2_steam_in                | 5.786e+00 | kg / s   | 9.000e+00 | bar      | 7.426e+02 | kJ / kg  | 1.754e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 6.487e-03 | m^3 / s  | 1.121e-03 | m^3 / kg   |  0.000e+00 | -        | 2.094e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| evaporator2_steam_out               | 5.786e+00 | kg / s   | 9.000e+00 | bar      | 9.465e+02 | kJ / kg  | 1.754e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.307e-01 | m^3 / s  | 2.259e-02 | m^3 / kg   |  1.004e-01 | -        | 2.549e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger1_2_ex_tb3_extract_steam   | 5.492e-01 | kg / s   | 1.500e+00 | bar      | 4.671e+02 | kJ / kg  | 1.113e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 5.781e-04 | m^3 / s  | 1.053e-03 | m^3 / kg   |  0.000e+00 | -        | 1.434e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger1_2_ex_tb4_extract_steam   | 4.958e-01 | kg / s   | 5.000e-01 | bar      | 3.405e+02 | kJ / kg  | 8.132e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 5.107e-04 | m^3 / s  | 1.030e-03 | m^3 / kg   |  0.000e+00 | -        | 1.091e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger1_ex_tb3_extract_steam_in  | 5.492e-01 | kg / s   | 1.500e+00 | bar      | 2.787e+03 | kJ / kg  | 1.570e+02 | C        |  4.566e+01 | K            | -4.566e+01 | K             | 7.183e-01 | m^3 / s  | 1.308e+00 | m^3 / kg   |  1.000e+00 | -        | 7.454e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger1_ex_tb3_main_steam_out    | 1.177e+01 | kg / s   | 1.500e+00 | bar      | 3.890e+02 | kJ / kg  | 9.283e+01 | C        | -1.852e+01 | K            |  1.852e+01 | K             | 1.221e-02 | m^3 / s  | 1.038e-03 | m^3 / kg   |  0.000e+00 | -        | 1.225e+03 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger1_ex_tb4_extract_steam_in  | 4.958e-01 | kg / s   | 5.000e-01 | bar      | 2.619e+03 | kJ / kg  | 8.132e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.588e+00 | m^3 / s  | 3.203e+00 | m^3 / kg   |  9.886e-01 | -        | 7.519e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger1_ex_tb4_main_steam_out    | 1.122e+01 | kg / s   | 1.750e+00 | bar      | 2.716e+02 | kJ / kg  | 6.484e+01 | C        | -5.120e+01 | K            |  5.120e+01 | K             | 1.144e-02 | m^3 / s  | 1.020e-03 | m^3 / kg   |  0.000e+00 | -        | 8.916e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger2_1_ex_tb3_main_steam      | 1.177e+01 | kg / s   | 1.700e+00 | bar      | 2.807e+02 | kJ / kg  | 6.702e+01 | C        | -4.812e+01 | K            |  4.812e+01 | K             | 1.201e-02 | m^3 / s  | 1.021e-03 | m^3 / kg   |  0.000e+00 | -        | 9.186e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger2_1_ex_tb4_main_steam      | 1.122e+01 | kg / s   | 1.950e+00 | bar      | 1.709e+02 | kJ / kg  | 4.076e+01 | C        | -7.865e+01 | K            |  7.865e+01 | K             | 1.131e-02 | m^3 / s  | 1.008e-03 | m^3 / kg   |  0.000e+00 | -        | 5.825e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger2_ex_tb3_extract_steam_out | 5.492e-01 | kg / s   | 1.500e+00 | bar      | 2.967e+02 | kJ / kg  | 7.085e+01 | C        | -4.050e+01 | K            |  4.050e+01 | K             | 5.619e-04 | m^3 / s  | 1.023e-03 | m^3 / kg   |  0.000e+00 | -        | 9.654e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger2_ex_tb3_main_steam_in     | 1.177e+01 | kg / s   | 1.750e+00 | bar      | 2.728e+02 | kJ / kg  | 6.512e+01 | C        | -5.092e+01 | K            |  5.092e+01 | K             | 1.200e-02 | m^3 / s  | 1.020e-03 | m^3 / kg   |  0.000e+00 | -        | 8.951e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger2_ex_tb4_extract_steam_out | 4.958e-01 | kg / s   | 5.000e-01 | bar      | 1.787e+02 | kJ / kg  | 4.266e+01 | C        | -3.866e+01 | K            |  3.866e+01 | K             | 5.002e-04 | m^3 / s  | 1.009e-03 | m^3 / kg   |  0.000e+00 | -        | 6.077e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| exchanger2_ex_tb4_main_steam_in     | 1.122e+01 | kg / s   | 2.000e+00 | bar      | 1.637e+02 | kJ / kg  | 3.905e+01 | C        | -8.116e+01 | K            |  8.116e+01 | K             | 1.130e-02 | m^3 / s  | 1.007e-03 | m^3 / kg   |  0.000e+00 | -        | 5.596e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| extract_deaerator                   | 3.671e-01 | kg / s   | 1.500e+00 | bar      | 2.972e+03 | kJ / kg  | 2.495e+02 | C        |  1.382e+02 | K            | -1.382e+02 | K             | 5.872e-01 | m^3 / s  | 1.600e+00 | m^3 / kg   |  1.000e+00 | -        | 7.843e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| extract_deaerator_splitter          | 1.213e+01 | kg / s   | 1.500e+00 | bar      | 4.671e+02 | kJ / kg  | 1.113e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.277e-02 | m^3 / s  | 1.053e-03 | m^3 / kg   |  0.000e+00 | -        | 1.434e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| extract_main_steam_tb3              | 5.492e-01 | kg / s   | 1.750e+00 | bar      | 2.967e+02 | kJ / kg  | 7.085e+01 | C        | -4.519e+01 | K            |  4.519e+01 | K             | 5.619e-04 | m^3 / s  | 1.023e-03 | m^3 / kg   |  0.000e+00 | -        | 9.654e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| extract_main_steam_tb4              | 4.958e-01 | kg / s   | 2.000e+00 | bar      | 1.789e+02 | kJ / kg  | 4.267e+01 | C        | -7.754e+01 | K            |  7.754e+01 | K             | 5.002e-04 | m^3 / s  | 1.009e-03 | m^3 / kg   |  0.000e+00 | -        | 6.078e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| extract_valve                       | 3.671e-01 | kg / s   | 4.000e+00 | bar      | 2.972e+03 | kJ / kg  | 2.536e+02 | C        |  1.100e+02 | K            | -1.100e+02 | K             | 2.201e-01 | m^3 / s  | 5.995e-01 | m^3 / kg   |  1.000e+00 | -        | 7.395e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| fuel1_air_compressor_combustion     | 7.986e+01 | kg / s   | 1.500e+01 | bar      | 6.901e+02 | kJ / kg  | 4.046e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.040e+01 | m^3 / s  | 1.302e-01 | m^3 / kg   |  0.000e+00 | -        | 6.928e+03 | J / kgK  | nan                  |   2.314e-01 |   7.553e-01 | nan         | nan         |   4.000e-04 |   1.290e-02 |   0.000e+00 |   0.000e+00 |
+| fuel1_air_source_compressor         | 7.986e+01 | kg / s   | 9.780e-01 | bar      | 2.885e+02 | kJ / kg  | 1.500e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 6.753e+01 | m^3 / s  | 8.456e-01 | m^3 / kg   |  0.000e+00 | -        | 6.835e+03 | J / kgK  | nan                  |   2.314e-01 |   7.553e-01 | nan         | nan         |   4.000e-04 |   1.290e-02 |   0.000e+00 |   0.000e+00 |
+| fuel1_compressor_combustion         | 1.401e+00 | kg / s   | 1.500e+01 | bar      | 1.126e+03 | kJ / kg  | 1.198e+02 | C        |  2.344e+02 | K            | -2.344e+02 | K             | 1.888e-01 | m^3 / s  | 1.348e-01 | m^3 / kg   | -1.000e+00 | -        | 5.911e+03 | J / kgK  | state not recognised |   0.000e+00 |   0.000e+00 | nan         | nan         |   0.000e+00 |   0.000e+00 |   1.000e+00 |   0.000e+00 |
+| fuel1_splitter_compressor           | 1.401e+00 | kg / s   | 4.500e+00 | bar      | 8.841e+02 | kJ / kg  | 1.500e+01 | C        |  1.547e+02 | K            | -1.547e+02 | K             | 4.609e-01 | m^3 / s  | 3.289e-01 | m^3 / kg   | -1.000e+00 | -        | 5.817e+03 | J / kgK  | state not recognised |   0.000e+00 |   0.000e+00 | nan         | nan         |   0.000e+00 |   0.000e+00 |   1.000e+00 |   0.000e+00 |
+| fuel2_splitter_valve                | 1.020e-01 | kg / s   | 4.500e+00 | bar      | 8.841e+02 | kJ / kg  | 1.500e+01 | C        |  1.547e+02 | K            | -1.547e+02 | K             | 3.355e-02 | m^3 / s  | 3.289e-01 | m^3 / kg   | -1.000e+00 | -        | 5.817e+03 | J / kgK  | state not recognised |   0.000e+00 |   0.000e+00 | nan         | nan         |   0.000e+00 |   0.000e+00 |   1.000e+00 |   0.000e+00 |
+| fuel2_valve_combustion              | 1.020e-01 | kg / s   | 4.000e+00 | bar      | 8.841e+02 | kJ / kg  | 1.477e+01 | C        |  1.565e+02 | K            | -1.565e+02 | K             | 3.775e-02 | m^3 / s  | 3.701e-01 | m^3 / kg   | -1.000e+00 | -        | 5.877e+03 | J / kgK  | state not recognised |   0.000e+00 |   0.000e+00 | nan         | nan         |   0.000e+00 |   0.000e+00 |   1.000e+00 |   0.000e+00 |
+| fuel_source_splitter                | 1.503e+00 | kg / s   | 4.500e+00 | bar      | 8.841e+02 | kJ / kg  | 1.500e+01 | C        |  1.547e+02 | K            | -1.547e+02 | K             | 4.944e-01 | m^3 / s  | 3.289e-01 | m^3 / kg   | -1.000e+00 | -        | 5.817e+03 | J / kgK  | state not recognised |   0.000e+00 |   0.000e+00 | nan         | nan         |   0.000e+00 |   0.000e+00 |   1.000e+00 |   0.000e+00 |
+| gas_deliver                         | 8.136e+01 | kg / s   | 1.003e+00 | bar      | 1.034e+03 | kJ / kg  | 5.993e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 2.062e+02 | m^3 / s  | 2.535e+00 | m^3 / kg   |  0.000e+00 | -        | 7.934e+03 | J / kgK  | nan                  |   1.534e-01 |   7.413e-01 | nan         | nan         |   5.107e-02 |   1.266e-02 |   0.000e+00 |   4.149e-02 |
+| gas_out                             | 8.136e+01 | kg / s   | 1.003e+00 | bar      | 5.656e+02 | kJ / kg  | 1.786e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.068e+02 | m^3 / s  | 1.312e+00 | m^3 / kg   |  0.000e+00 | -        | 7.205e+03 | J / kgK  | nan                  |   1.534e-01 |   7.413e-01 | nan         | nan         |   5.107e-02 |   1.266e-02 |   0.000e+00 |   4.149e-02 |
+| gas_turbine_in                      | 8.126e+01 | kg / s   | 1.500e+01 | bar      | 1.647e+03 | kJ / kg  | 1.110e+03 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 2.186e+01 | m^3 / s  | 2.690e-01 | m^3 / kg   |  0.000e+00 | -        | 7.711e+03 | J / kgK  | nan                  |   1.586e-01 |   7.423e-01 | nan         | nan         |   4.769e-02 |   1.268e-02 |   0.000e+00 |   3.872e-02 |
+| gas_turbine_out                     | 8.126e+01 | kg / s   | 1.003e+00 | bar      | 9.650e+02 | kJ / kg  | 5.473e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.935e+02 | m^3 / s  | 2.381e+00 | m^3 / kg   |  0.000e+00 | -        | 7.868e+03 | J / kgK  | nan                  |   1.586e-01 |   7.423e-01 | nan         | nan         |   4.769e-02 |   1.268e-02 |   0.000e+00 |   3.872e-02 |
+| main_steam1_deliver                 | 1.156e+01 | kg / s   | 4.800e+01 | bar      | 3.655e+03 | kJ / kg  | 5.943e+02 | C        |  3.329e+02 | K            | -3.329e+02 | K             | 9.415e-01 | m^3 / s  | 8.148e-02 | m^3 / kg   | -1.000e+00 | -        | 7.266e+03 | J / kgK  | state not recognised | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| main_steam1_recycle                 | 1.156e+01 | kg / s   | 4.840e+01 | bar      | 4.729e+02 | kJ / kg  | 1.119e+02 | C        | -1.500e+02 | K            |  1.500e+02 | K             | 1.214e-02 | m^3 / s  | 1.051e-03 | m^3 / kg   |  0.000e+00 | -        | 1.436e+03 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| main_steam1_splitter                | 1.156e+01 | kg / s   | 1.500e+00 | bar      | 4.671e+02 | kJ / kg  | 1.113e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.216e-02 | m^3 / s  | 1.053e-03 | m^3 / kg   |  0.000e+00 | -        | 1.434e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| main_steam2_recycle                 | 5.786e-01 | kg / s   | 9.100e+00 | bar      | 4.681e+02 | kJ / kg  | 1.114e+02 | C        | -6.438e+01 | K            |  6.438e+01 | K             | 6.089e-04 | m^3 / s  | 1.052e-03 | m^3 / kg   |  0.000e+00 | -        | 1.434e+03 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| main_steam2_splitter                | 5.786e-01 | kg / s   | 1.500e+00 | bar      | 4.671e+02 | kJ / kg  | 1.113e+02 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 6.091e-04 | m^3 / s  | 1.053e-03 | m^3 / kg   |  0.000e+00 | -        | 1.434e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| main_steam_turbine1                 | 1.156e+01 | kg / s   | 4.750e+01 | bar      | 3.655e+03 | kJ / kg  | 5.941e+02 | C        |  3.334e+02 | K            | -3.334e+02 | K             | 9.514e-01 | m^3 / s  | 8.234e-02 | m^3 / kg   | -1.000e+00 | -        | 7.270e+03 | J / kgK  | state not recognised | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| recycle_merge_extract_tb4           | 1.072e+01 | kg / s   | 2.000e+00 | bar      | 1.630e+02 | kJ / kg  | 3.888e+01 | C        | -8.133e+01 | K            |  8.133e+01 | K             | 1.080e-02 | m^3 / s  | 1.007e-03 | m^3 / kg   |  0.000e+00 | -        | 5.574e+02 | J / kgK  | l                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| recycle_pump                        | 1.072e+01 | kg / s   | 6.950e-02 | bar      | 1.628e+02 | kJ / kg  | 3.887e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 1.080e-02 | m^3 / s  | 1.007e-03 | m^3 / kg   |  0.000e+00 | -        | 5.572e+02 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine1_steam_out                  | 1.156e+01 | kg / s   | 9.000e+00 | bar      | 3.175e+03 | kJ / kg  | 3.569e+02 | C        |  1.815e+02 | K            | -1.815e+02 | K             | 3.676e+00 | m^3 / s  | 3.181e-01 | m^3 / kg   |  1.000e+00 | -        | 7.377e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine2_steam_in                   | 1.213e+01 | kg / s   | 9.000e+00 | bar      | 3.156e+03 | kJ / kg  | 3.478e+02 | C        |  1.725e+02 | K            | -1.725e+02 | K             | 3.801e+00 | m^3 / s  | 3.133e-01 | m^3 / kg   |  1.000e+00 | -        | 7.346e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine2_steam_out                  | 1.213e+01 | kg / s   | 4.000e+00 | bar      | 2.972e+03 | kJ / kg  | 2.536e+02 | C        |  1.100e+02 | K            | -1.100e+02 | K             | 7.275e+00 | m^3 / s  | 5.995e-01 | m^3 / kg   |  1.000e+00 | -        | 7.395e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine3_steam_in                   | 1.177e+01 | kg / s   | 4.000e+00 | bar      | 2.972e+03 | kJ / kg  | 2.536e+02 | C        |  1.100e+02 | K            | -1.100e+02 | K             | 7.055e+00 | m^3 / s  | 5.995e-01 | m^3 / kg   |  1.000e+00 | -        | 7.395e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine3_steam_out                  | 1.177e+01 | kg / s   | 1.500e+00 | bar      | 2.787e+03 | kJ / kg  | 1.570e+02 | C        |  4.566e+01 | K            | -4.566e+01 | K             | 1.539e+01 | m^3 / s  | 1.308e+00 | m^3 / kg   |  1.000e+00 | -        | 7.454e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine4_steam_in                   | 1.122e+01 | kg / s   | 1.500e+00 | bar      | 2.787e+03 | kJ / kg  | 1.570e+02 | C        |  4.566e+01 | K            | -4.566e+01 | K             | 1.467e+01 | m^3 / s  | 1.308e+00 | m^3 / kg   |  1.000e+00 | -        | 7.454e+03 | J / kgK  | g                    | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine4_steam_out                  | 1.122e+01 | kg / s   | 5.000e-01 | bar      | 2.619e+03 | kJ / kg  | 8.132e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 3.593e+01 | m^3 / s  | 3.203e+00 | m^3 / kg   |  9.886e-01 | -        | 7.519e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine5_steam_in                   | 1.072e+01 | kg / s   | 5.000e-01 | bar      | 2.619e+03 | kJ / kg  | 8.132e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 3.434e+01 | m^3 / s  | 3.203e+00 | m^3 / kg   |  9.886e-01 | -        | 7.519e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
+| turbine5_steam_out                  | 1.072e+01 | kg / s   | 6.950e-02 | bar      | 2.363e+03 | kJ / kg  | 3.887e+01 | C        |  0.000e+00 | K            |  0.000e+00 | K             | 2.024e+02 | m^3 / s  | 1.888e+01 | m^3 / kg   |  9.136e-01 | -        | 7.610e+03 | J / kgK  | tp                   | nan         | nan         |   1.000e+00 | nan         | nan         | nan         | nan         | nan         |
++-------------------------------------+-----------+----------+-----------+----------+-----------+----------+-----------+----------+------------+--------------+------------+---------------+-----------+----------+-----------+------------+------------+----------+-----------+----------+----------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+##### RESULTS (Nodes: Condenser: condenser) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 | 6.950e-02 |
+| hot_side---enthalpy (kJ / kg)  | 2.363e+03 | 2.322e+03 | 2.272e+03 | 2.212e+03 | 2.141e+03 | 2.054e+03 | 1.950e+03 | 1.950e+03 | 1.793e+03 | 1.596e+03 | 1.349e+03 | 1.039e+03 | 6.503e+02 | 1.628e+02 |
+| hot_side---temperature (C)     | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 | 3.887e+01 |
+| hot_side---differ number ()    | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 3.132e+01 |
+| cold_side---pressure (bar)     | 2.950e+00 | 2.954e+00 | 2.958e+00 | 2.962e+00 | 2.967e+00 | 2.971e+00 | 2.975e+00 | 2.975e+00 | 2.979e+00 | 2.983e+00 | 2.987e+00 | 2.992e+00 | 2.996e+00 | 3.000e+00 |
+| cold_side---enthalpy (kJ / kg) | 1.546e+02 | 1.529e+02 | 1.508e+02 | 1.483e+02 | 1.454e+02 | 1.418e+02 | 1.374e+02 | 1.374e+02 | 1.309e+02 | 1.228e+02 | 1.125e+02 | 9.963e+01 | 8.350e+01 | 6.327e+01 |
+| cold_side---temperature (C)    | 3.684e+01 | 3.643e+01 | 3.594e+01 | 3.535e+01 | 3.463e+01 | 3.377e+01 | 3.274e+01 | 3.274e+01 | 3.118e+01 | 2.922e+01 | 2.677e+01 | 2.369e+01 | 1.983e+01 | 1.500e+01 |
+| cold_side---differ number ()   | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.434e+00 | 4.433e+00 | 4.432e+00 | 4.429e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: Evaporator: evaporator1) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 |
+| hot_side---enthalpy (kJ / kg)  | 9.119e+02 | 8.332e+02 | 7.782e+02 | 7.398e+02 | 7.133e+02 | 6.949e+02 | 6.823e+02 | 6.823e+02 | 6.757e+02 | 6.706e+02 | 6.668e+02 | 6.639e+02 | 6.616e+02 | 6.599e+02 |
+| hot_side---temperature (C)     | 4.935e+02 | 4.240e+02 | 3.747e+02 | 3.399e+02 | 3.157e+02 | 2.989e+02 | 2.873e+02 | 2.873e+02 | 2.812e+02 | 2.765e+02 | 2.730e+02 | 2.703e+02 | 2.682e+02 | 2.667e+02 |
+| hot_side---differ number ()    | 5.568e+00 | 5.627e+00 | 5.671e+00 | 5.701e+00 | 5.723e+00 | 5.737e+00 | 5.747e+00 | 5.747e+00 | 5.753e+00 | 5.756e+00 | 5.759e+00 | 5.762e+00 | 5.763e+00 | 5.765e+00 |
+| cold_side---pressure (bar)     | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 | 4.820e+01 |
+| cold_side---enthalpy (kJ / kg) | 1.321e+03 | 1.265e+03 | 1.226e+03 | 1.199e+03 | 1.181e+03 | 1.168e+03 | 1.159e+03 | 1.159e+03 | 1.154e+03 | 1.151e+03 | 1.148e+03 | 1.146e+03 | 1.144e+03 | 1.143e+03 |
+| cold_side---temperature (C)    | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 | 2.617e+02 |
+| cold_side---differ number ()   | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.286e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: Evaporator: evaporator2) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 |
+| hot_side---enthalpy (kJ / kg)  | 5.820e+02 | 5.798e+02 | 5.779e+02 | 5.762e+02 | 5.746e+02 | 5.733e+02 | 5.721e+02 | 5.721e+02 | 5.711e+02 | 5.702e+02 | 5.694e+02 | 5.687e+02 | 5.681e+02 | 5.675e+02 |
+| hot_side---temperature (C)     | 1.940e+02 | 1.919e+02 | 1.901e+02 | 1.885e+02 | 1.871e+02 | 1.858e+02 | 1.847e+02 | 1.847e+02 | 1.837e+02 | 1.829e+02 | 1.822e+02 | 1.815e+02 | 1.809e+02 | 1.803e+02 |
+| hot_side---differ number ()    | 3.310e+00 | 3.310e+00 | 3.311e+00 | 3.311e+00 | 3.311e+00 | 3.312e+00 | 3.312e+00 | 3.312e+00 | 3.312e+00 | 3.312e+00 | 3.312e+00 | 3.313e+00 | 3.313e+00 | 3.313e+00 |
+| cold_side---pressure (bar)     | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 | 9.000e+00 |
+| cold_side---enthalpy (kJ / kg) | 9.465e+02 | 9.160e+02 | 8.889e+02 | 8.648e+02 | 8.433e+02 | 8.241e+02 | 8.070e+02 | 8.070e+02 | 7.933e+02 | 7.809e+02 | 7.698e+02 | 7.598e+02 | 7.507e+02 | 7.426e+02 |
+| cold_side---temperature (C)    | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 | 1.754e+02 |
+| cold_side---differ number ()   | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 4.235e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: ExtractHeatExchanger: extract_heat_exchanger1_turbine3) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 |
+| hot_side---enthalpy (kJ / kg)  | 2.787e+03 | 2.432e+03 | 2.308e+03 | 2.176e+03 | 2.036e+03 | 1.887e+03 | 1.729e+03 | 1.729e+03 | 1.551e+03 | 1.361e+03 | 1.158e+03 | 9.424e+02 | 7.123e+02 | 4.671e+02 |
+| hot_side---temperature (C)     | 1.570e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 | 1.113e+02 |
+| hot_side---differ number ()    | 3.493e+01 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 9.846e+00 |
+| cold_side---pressure (bar)     | 1.500e+00 | 1.517e+00 | 1.533e+00 | 1.550e+00 | 1.567e+00 | 1.583e+00 | 1.600e+00 | 1.600e+00 | 1.617e+00 | 1.633e+00 | 1.650e+00 | 1.667e+00 | 1.683e+00 | 1.700e+00 |
+| cold_side---enthalpy (kJ / kg) | 3.890e+02 | 3.724e+02 | 3.666e+02 | 3.605e+02 | 3.539e+02 | 3.470e+02 | 3.396e+02 | 3.396e+02 | 3.313e+02 | 3.224e+02 | 3.130e+02 | 3.029e+02 | 2.922e+02 | 2.807e+02 |
+| cold_side---temperature (C)    | 9.283e+01 | 8.889e+01 | 8.751e+01 | 8.604e+01 | 8.448e+01 | 8.283e+01 | 8.108e+01 | 8.108e+01 | 7.909e+01 | 7.698e+01 | 7.472e+01 | 7.232e+01 | 6.976e+01 | 6.702e+01 |
+| cold_side---differ number ()   | 2.736e+00 | 2.737e+00 | 2.737e+00 | 2.737e+00 | 2.738e+00 | 2.738e+00 | 2.738e+00 | 2.738e+00 | 2.738e+00 | 2.739e+00 | 2.739e+00 | 2.739e+00 | 2.739e+00 | 2.740e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: ExtractHeatExchanger: extract_heat_exchanger1_turbine4) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 |
+| hot_side---enthalpy (kJ / kg)  | 2.619e+03 | 2.502e+03 | 2.377e+03 | 2.242e+03 | 2.097e+03 | 1.941e+03 | 1.773e+03 | 1.773e+03 | 1.578e+03 | 1.368e+03 | 1.140e+03 | 8.941e+02 | 6.281e+02 | 3.405e+02 |
+| hot_side---temperature (C)     | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 | 8.132e+01 |
+| hot_side---differ number ()    | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 2.000e+00 | 1.213e+01 |
+| cold_side---pressure (bar)     | 1.750e+00 | 1.767e+00 | 1.783e+00 | 1.800e+00 | 1.817e+00 | 1.833e+00 | 1.850e+00 | 1.850e+00 | 1.867e+00 | 1.883e+00 | 1.900e+00 | 1.917e+00 | 1.933e+00 | 1.950e+00 |
+| cold_side---enthalpy (kJ / kg) | 2.716e+02 | 2.664e+02 | 2.609e+02 | 2.549e+02 | 2.485e+02 | 2.416e+02 | 2.342e+02 | 2.342e+02 | 2.256e+02 | 2.163e+02 | 2.062e+02 | 1.953e+02 | 1.836e+02 | 1.709e+02 |
+| cold_side---temperature (C)    | 6.484e+01 | 6.361e+01 | 6.228e+01 | 6.086e+01 | 5.933e+01 | 5.768e+01 | 5.591e+01 | 5.591e+01 | 5.385e+01 | 5.162e+01 | 4.922e+01 | 4.661e+01 | 4.380e+01 | 4.076e+01 |
+| cold_side---differ number ()   | 2.898e+00 | 2.898e+00 | 2.898e+00 | 2.899e+00 | 2.899e+00 | 2.899e+00 | 2.899e+00 | 2.899e+00 | 2.899e+00 | 2.899e+00 | 2.899e+00 | 2.900e+00 | 2.900e+00 | 2.900e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: HeatExchanger: extract_heat_exchanger2_turbine3) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 | 1.500e+00 |
+| hot_side---enthalpy (kJ / kg)  | 4.671e+02 | 4.341e+02 | 4.066e+02 | 3.838e+02 | 3.648e+02 | 3.490e+02 | 3.359e+02 | 3.359e+02 | 3.266e+02 | 3.186e+02 | 3.118e+02 | 3.060e+02 | 3.010e+02 | 2.967e+02 |
+| hot_side---temperature (C)     | 1.113e+02 | 1.035e+02 | 9.702e+01 | 9.159e+01 | 8.708e+01 | 8.332e+01 | 8.019e+01 | 8.019e+01 | 7.797e+01 | 7.607e+01 | 7.445e+01 | 7.305e+01 | 7.187e+01 | 7.085e+01 |
+| hot_side---differ number ()    | 3.056e+00 | 4.118e+00 | 4.122e+00 | 4.125e+00 | 4.127e+00 | 4.128e+00 | 4.130e+00 | 4.130e+00 | 4.130e+00 | 4.131e+00 | 4.132e+00 | 4.132e+00 | 4.133e+00 | 4.133e+00 |
+| cold_side---pressure (bar)     | 1.700e+00 | 1.704e+00 | 1.708e+00 | 1.712e+00 | 1.717e+00 | 1.721e+00 | 1.725e+00 | 1.725e+00 | 1.729e+00 | 1.733e+00 | 1.738e+00 | 1.742e+00 | 1.746e+00 | 1.750e+00 |
+| cold_side---enthalpy (kJ / kg) | 2.807e+02 | 2.792e+02 | 2.779e+02 | 2.768e+02 | 2.759e+02 | 2.752e+02 | 2.746e+02 | 2.746e+02 | 2.741e+02 | 2.738e+02 | 2.735e+02 | 2.732e+02 | 2.730e+02 | 2.728e+02 |
+| cold_side---temperature (C)    | 6.702e+01 | 6.666e+01 | 6.635e+01 | 6.609e+01 | 6.588e+01 | 6.571e+01 | 6.556e+01 | 6.556e+01 | 6.546e+01 | 6.537e+01 | 6.529e+01 | 6.523e+01 | 6.517e+01 | 6.512e+01 |
+| cold_side---differ number ()   | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 | 2.100e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: HeatExchanger: extract_heat_exchanger2_turbine4) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 | 5.000e-01 |
+| hot_side---enthalpy (kJ / kg)  | 3.405e+02 | 3.052e+02 | 2.769e+02 | 2.543e+02 | 2.361e+02 | 2.215e+02 | 2.098e+02 | 2.098e+02 | 2.021e+02 | 1.956e+02 | 1.901e+02 | 1.856e+02 | 1.818e+02 | 1.787e+02 |
+| hot_side---temperature (C)     | 8.132e+01 | 7.290e+01 | 6.615e+01 | 6.073e+01 | 5.638e+01 | 5.290e+01 | 5.011e+01 | 5.011e+01 | 4.825e+01 | 4.669e+01 | 4.540e+01 | 4.432e+01 | 4.341e+01 | 4.266e+01 |
+| hot_side---differ number ()    | 3.244e+00 | 4.492e+00 | 4.494e+00 | 4.496e+00 | 4.497e+00 | 4.498e+00 | 4.498e+00 | 4.498e+00 | 4.498e+00 | 4.499e+00 | 4.499e+00 | 4.499e+00 | 4.499e+00 | 4.499e+00 |
+| cold_side---pressure (bar)     | 1.950e+00 | 1.954e+00 | 1.958e+00 | 1.962e+00 | 1.967e+00 | 1.971e+00 | 1.975e+00 | 1.975e+00 | 1.979e+00 | 1.983e+00 | 1.988e+00 | 1.992e+00 | 1.996e+00 | 2.000e+00 |
+| cold_side---enthalpy (kJ / kg) | 1.709e+02 | 1.693e+02 | 1.681e+02 | 1.671e+02 | 1.663e+02 | 1.656e+02 | 1.651e+02 | 1.651e+02 | 1.648e+02 | 1.645e+02 | 1.642e+02 | 1.640e+02 | 1.639e+02 | 1.637e+02 |
+| cold_side---temperature (C)    | 4.076e+01 | 4.039e+01 | 4.009e+01 | 3.985e+01 | 3.966e+01 | 3.950e+01 | 3.938e+01 | 3.938e+01 | 3.929e+01 | 3.923e+01 | 3.917e+01 | 3.912e+01 | 3.908e+01 | 3.905e+01 |
+| cold_side---differ number ()   | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 | 2.110e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: HeatExchanger: main_heat_exchanger1) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 |
+| hot_side---enthalpy (kJ / kg)  | 1.034e+03 | 1.033e+03 | 1.032e+03 | 1.031e+03 | 1.029e+03 | 1.027e+03 | 1.024e+03 | 1.024e+03 | 1.017e+03 | 1.008e+03 | 9.947e+02 | 9.748e+02 | 9.468e+02 | 9.119e+02 |
+| hot_side---temperature (C)     | 5.993e+02 | 5.987e+02 | 5.978e+02 | 5.967e+02 | 5.952e+02 | 5.932e+02 | 5.905e+02 | 5.905e+02 | 5.852e+02 | 5.773e+02 | 5.656e+02 | 5.484e+02 | 5.240e+02 | 4.935e+02 |
+| hot_side---differ number ()    | 3.547e+00 | 3.547e+00 | 3.548e+00 | 3.548e+00 | 3.548e+00 | 3.549e+00 | 3.550e+00 | 3.550e+00 | 3.552e+00 | 3.554e+00 | 3.558e+00 | 3.564e+00 | 3.573e+00 | 3.584e+00 |
+| cold_side---pressure (bar)     | 4.800e+01 | 4.802e+01 | 4.803e+01 | 4.805e+01 | 4.807e+01 | 4.808e+01 | 4.810e+01 | 4.810e+01 | 4.812e+01 | 4.813e+01 | 4.815e+01 | 4.817e+01 | 4.818e+01 | 4.820e+01 |
+| cold_side---enthalpy (kJ / kg) | 3.655e+03 | 3.650e+03 | 3.643e+03 | 3.634e+03 | 3.621e+03 | 3.605e+03 | 3.583e+03 | 3.583e+03 | 3.539e+03 | 3.475e+03 | 3.379e+03 | 3.239e+03 | 3.041e+03 | 2.796e+03 |
+| cold_side---temperature (C)    | 5.943e+02 | 5.920e+02 | 5.890e+02 | 5.850e+02 | 5.796e+02 | 5.725e+02 | 5.630e+02 | 5.630e+02 | 5.443e+02 | 5.164e+02 | 4.752e+02 | 4.160e+02 | 3.379e+02 | 2.617e+02 |
+| cold_side---differ number ()   | 7.493e+00 | 7.494e+00 | 7.495e+00 | 7.496e+00 | 7.497e+00 | 7.498e+00 | 7.499e+00 | 7.499e+00 | 7.498e+00 | 7.486e+00 | 7.441e+00 | 7.280e+00 | 6.703e+00 | 3.458e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: HeatExchanger: main_heat_exchanger2) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 |
+| hot_side---enthalpy (kJ / kg)  | 6.599e+02 | 6.561e+02 | 6.520e+02 | 6.476e+02 | 6.428e+02 | 6.377e+02 | 6.322e+02 | 6.322e+02 | 6.256e+02 | 6.185e+02 | 6.106e+02 | 6.020e+02 | 5.925e+02 | 5.820e+02 |
+| hot_side---temperature (C)     | 2.667e+02 | 2.631e+02 | 2.593e+02 | 2.552e+02 | 2.508e+02 | 2.460e+02 | 2.409e+02 | 2.409e+02 | 2.348e+02 | 2.281e+02 | 2.208e+02 | 2.127e+02 | 2.038e+02 | 1.940e+02 |
+| hot_side---differ number ()    | 3.416e+00 | 3.417e+00 | 3.419e+00 | 3.420e+00 | 3.421e+00 | 3.423e+00 | 3.424e+00 | 3.424e+00 | 3.426e+00 | 3.428e+00 | 3.430e+00 | 3.433e+00 | 3.435e+00 | 3.438e+00 |
+| cold_side---pressure (bar)     | 4.820e+01 | 4.822e+01 | 4.823e+01 | 4.825e+01 | 4.827e+01 | 4.828e+01 | 4.830e+01 | 4.830e+01 | 4.832e+01 | 4.833e+01 | 4.835e+01 | 4.837e+01 | 4.838e+01 | 4.840e+01 |
+| cold_side---enthalpy (kJ / kg) | 1.022e+03 | 9.949e+02 | 9.660e+02 | 9.349e+02 | 9.014e+02 | 8.653e+02 | 8.263e+02 | 8.263e+02 | 7.802e+02 | 7.297e+02 | 6.743e+02 | 6.136e+02 | 5.466e+02 | 4.729e+02 |
+| cold_side---temperature (C)    | 2.367e+02 | 2.309e+02 | 2.247e+02 | 2.180e+02 | 2.106e+02 | 2.026e+02 | 1.939e+02 | 1.939e+02 | 1.835e+02 | 1.719e+02 | 1.592e+02 | 1.450e+02 | 1.293e+02 | 1.119e+02 |
+| cold_side---differ number ()   | 4.282e+00 | 4.305e+00 | 4.329e+00 | 4.353e+00 | 4.377e+00 | 4.401e+00 | 4.424e+00 | 4.424e+00 | 4.449e+00 | 4.473e+00 | 4.497e+00 | 4.518e+00 | 4.538e+00 | 4.555e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+##### RESULTS (Nodes: HeatExchanger: main_heat_exchanger3) #####
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+|                                |         0 |         1 |         2 |         3 |         4 |         5 |         6 |         7 |         8 |         9 |        10 |        11 |        12 |        13 |
+|--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+| hot_side---pressure (bar)      | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 | 1.003e+00 |
+| hot_side---enthalpy (kJ / kg)  | 5.675e+02 | 5.674e+02 | 5.674e+02 | 5.673e+02 | 5.673e+02 | 5.672e+02 | 5.671e+02 | 5.671e+02 | 5.670e+02 | 5.668e+02 | 5.666e+02 | 5.663e+02 | 5.660e+02 | 5.656e+02 |
+| hot_side---temperature (C)     | 1.803e+02 | 1.803e+02 | 1.803e+02 | 1.802e+02 | 1.801e+02 | 1.801e+02 | 1.800e+02 | 1.800e+02 | 1.798e+02 | 1.797e+02 | 1.795e+02 | 1.792e+02 | 1.789e+02 | 1.786e+02 |
+| hot_side---differ number ()    | 2.066e+00 | 2.066e+00 | 2.066e+00 | 2.066e+00 | 2.066e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 | 2.067e+00 |
+| cold_side---pressure (bar)     | 9.000e+00 | 9.008e+00 | 9.017e+00 | 9.025e+00 | 9.033e+00 | 9.042e+00 | 9.050e+00 | 9.050e+00 | 9.058e+00 | 9.067e+00 | 9.075e+00 | 9.083e+00 | 9.092e+00 | 9.100e+00 |
+| cold_side---enthalpy (kJ / kg) | 7.338e+02 | 7.280e+02 | 7.211e+02 | 7.130e+02 | 7.034e+02 | 6.920e+02 | 6.785e+02 | 6.785e+02 | 6.589e+02 | 6.348e+02 | 6.051e+02 | 5.686e+02 | 5.236e+02 | 4.681e+02 |
+| cold_side---temperature (C)    | 1.733e+02 | 1.720e+02 | 1.705e+02 | 1.686e+02 | 1.664e+02 | 1.638e+02 | 1.607e+02 | 1.607e+02 | 1.561e+02 | 1.505e+02 | 1.436e+02 | 1.351e+02 | 1.245e+02 | 1.114e+02 |
+| cold_side---differ number ()   | 4.268e+00 | 4.270e+00 | 4.273e+00 | 4.276e+00 | 4.280e+00 | 4.285e+00 | 4.290e+00 | 4.290e+00 | 4.297e+00 | 4.306e+00 | 4.315e+00 | 4.326e+00 | 4.337e+00 | 4.348e+00 |
++--------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+

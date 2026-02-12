@@ -1,0 +1,5 @@
+,pr,pr_unit,dp,dp_unit,zeta,zeta_unit
+extract_valve_turbine2,0.37720783569881555,-,2.491168657204738,bar,474150.026728496,(Pa*s)/(m^3*s)
+fuel_add_valve,0.21733333333333332,-,3.522,bar,42024004.90074743,(Pa*s)/(m^3*s)
+gas_drop_pressure_valve,0.975,-,0.025,bar,0.19338884606603088,(Pa*s)/(m^3*s)
+main_steam1_valve,0.9895833333333334,-,0.5,bar,5626.288636489202,(Pa*s)/(m^3*s)

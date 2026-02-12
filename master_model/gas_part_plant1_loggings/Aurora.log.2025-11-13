@@ -1,0 +1,1195 @@
+2025-11-13 06:57:29,231 - INFO - logger - Path for logging: gas_part_plant1_loggings/Aurora.log
+2025-11-13 06:57:29,257 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-13 06:57:29,263 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference to boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-13 06:57:29,265 - DEBUG - network - Default mass flow limits
+min: 0.001 kg / s
+max: 1000000000000.0 kg / s
+2025-11-13 06:57:29,267 - DEBUG - network - Default pressure limits
+min: 200000.0 Pa
+max: 30000000.0 Pa
+2025-11-13 06:57:29,270 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-13 06:57:29,271 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-13 06:57:29,272 - DEBUG - network - Setting pressure unit: bar.
+2025-11-13 06:57:29,273 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-13 06:57:29,274 - DEBUG - network - Setting temperature unit: C.
+2025-11-13 06:57:29,277 - DEBUG - connection - Created connection from fuel_source (out1) to fuel_splitter (in1).
+2025-11-13 06:57:29,278 - DEBUG - connection - Created connection from fuel_splitter (out1) to fuel_compressor (in1).
+2025-11-13 06:57:29,279 - DEBUG - connection - Created connection from fuel_compressor (out1) to fuel_combustion (in2).
+2025-11-13 06:57:29,280 - DEBUG - connection - Created connection from air_source (out1) to air_compressor (in1).
+2025-11-13 06:57:29,281 - DEBUG - connection - Created connection from air_compressor (out1) to fuel_combustion (in1).
+2025-11-13 06:57:29,282 - DEBUG - connection - Created connection from fuel_combustion (out1) to gas_turbine (in1).
+2025-11-13 06:57:29,283 - DEBUG - connection - Created connection from gas_turbine (out1) to gas_re_combustion (in1).
+2025-11-13 06:57:29,284 - DEBUG - connection - Created connection from fuel_splitter (out2) to fuel_add_valve (in1).
+2025-11-13 06:57:29,285 - DEBUG - connection - Created connection from fuel_add_valve (out1) to gas_re_combustion (in2).
+2025-11-13 06:57:29,286 - DEBUG - connection - Created connection from gas_re_combustion (out1) to gas_sink (in1).
+2025-11-13 06:57:29,286 - DEBUG - network - Added connection fuel_source_splitter to network.
+2025-11-13 06:57:29,288 - DEBUG - network - Added connection fuel1_splitter_compressor to network.
+2025-11-13 06:57:29,289 - DEBUG - network - Added connection fuel1_compressor_combustion to network.
+2025-11-13 06:57:29,289 - DEBUG - network - Added connection fuel1_air_source_compressor to network.
+2025-11-13 06:57:29,290 - DEBUG - network - Added connection fuel1_air_compressor_combustion to network.
+2025-11-13 06:57:29,291 - DEBUG - network - Added connection gas_turbine_in to network.
+2025-11-13 06:57:29,292 - DEBUG - network - Added connection gas_turbine_out to network.
+2025-11-13 06:57:29,293 - DEBUG - network - Added connection fuel2_splitter_valve to network.
+2025-11-13 06:57:29,294 - DEBUG - network - Added connection fuel2_valve_combustion to network.
+2025-11-13 06:57:29,295 - DEBUG - network - Added connection gas_out to network.
+2025-11-13 06:57:29,313 - INFO - network - ########----Network check successful----########
+2025-11-13 06:57:29,314 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: None
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-13 06:57:29,314 - DEBUG - network - Network information:
+ - Number of components: 10
+ - Number of connections: 10
+ - Number of busses: 0
+2025-11-13 06:57:29,326 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_air_source_compressor', 'fuel1_air_compressor_combustion'] from system variables.
+2025-11-13 06:57:29,326 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_splitter_compressor', 'fuel1_compressor_combustion'] from system variables.
+2025-11-13 06:57:29,327 - DEBUG - network - Removing 1 mass flow variables from ['fuel2_splitter_valve', 'fuel2_valve_combustion'] from system variables.
+2025-11-13 06:57:29,329 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-13 06:57:29,331 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-13 06:57:29,333 - DEBUG - base - The fuels for component fuel_combustion of type diabatic combustion chamber are: CH4, H2.
+2025-11-13 06:57:29,335 - DEBUG - base - The fuels for component gas_re_combustion of type diabatic combustion chamber are: CH4, H2.
+2025-11-13 06:57:29,336 - DEBUG - connection - The connection: fuel1_air_compressor_combustion has 0 equations.
+2025-11-13 06:57:29,337 - DEBUG - connection - The connection: fuel1_air_source_compressor has 0 equations.
+2025-11-13 06:57:29,338 - DEBUG - connection - The connection: fuel1_compressor_combustion has 0 equations.
+2025-11-13 06:57:29,338 - DEBUG - connection - The connection: fuel1_splitter_compressor has 0 equations.
+2025-11-13 06:57:29,339 - DEBUG - connection - The connection: fuel2_splitter_valve has 0 equations.
+2025-11-13 06:57:29,339 - DEBUG - connection - The connection: fuel2_valve_combustion has 0 equations.
+2025-11-13 06:57:29,340 - DEBUG - connection - The connection: fuel_source_splitter has 0 equations.
+2025-11-13 06:57:29,340 - DEBUG - connection - The connection: gas_out has 0 equations.
+2025-11-13 06:57:29,341 - DEBUG - connection - The connection: gas_turbine_in has 0 equations.
+2025-11-13 06:57:29,342 - DEBUG - connection - The connection: gas_turbine_out has 0 equations.
+2025-11-13 06:57:29,354 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 06:57:29,363 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 06:57:29,371 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 06:57:29,371 - DEBUG - component - The component: air_compressor of type Compressor has 1 equations.
+2025-11-13 06:57:29,371 - DEBUG - component - The component: air_source of type Source has 0 equations.
+2025-11-13 06:57:29,375 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 06:57:29,375 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 equations.
+2025-11-13 06:57:29,375 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 06:57:29,378 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 06:57:29,381 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 06:57:29,383 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 06:57:29,384 - DEBUG - component - The component: fuel_compressor of type Compressor has 1 equations.
+2025-11-13 06:57:29,384 - DEBUG - component - The component: fuel_source of type Source has 0 equations.
+2025-11-13 06:57:29,384 - DEBUG - component - The component: fuel_splitter of type Splitter has 1 equations.
+2025-11-13 06:57:29,384 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 06:57:29,385 - DEBUG - component - The component: gas_sink of type Sink has 0 equations.
+2025-11-13 06:57:29,387 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 06:57:29,388 - DEBUG - component - The component: gas_turbine of type Turbine has 1 equations.
+2025-11-13 06:57:29,388 - DEBUG - network - ------presolve_batch: 1------
+2025-11-13 06:57:29,391 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: air_compressor
+2025-11-13 06:57:29,393 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: fuel_compressor
+2025-11-13 06:57:29,393 - DEBUG - network - ------presolve_batch: 2------
+2025-11-13 06:57:29,394 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: fuel_combustion
+2025-11-13 06:57:29,394 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: fuel_splitter
+2025-11-13 06:57:29,395 - DEBUG - network - ------presolve_batch: 3------
+2025-11-13 06:57:29,395 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: gas_re_combustion
+2025-11-13 06:57:29,395 - DEBUG - network - ------presolve_batch: 4------
+2025-11-13 06:57:29,396 - DEBUG - network - Has removed 5 presolved equations totally.
+2025-11-13 06:57:29,396 - DEBUG - component - The component: air_compressor of type Compressor has 0 variables.
+2025-11-13 06:57:29,396 - DEBUG - component - The component: air_source of type Source has 0 variables.
+2025-11-13 06:57:29,397 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 variables.
+2025-11-13 06:57:29,397 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 06:57:29,397 - DEBUG - component - The component: fuel_compressor of type Compressor has 0 variables.
+2025-11-13 06:57:29,398 - DEBUG - component - The component: fuel_source of type Source has 0 variables.
+2025-11-13 06:57:29,398 - DEBUG - component - The component: fuel_splitter of type Splitter has 0 variables.
+2025-11-13 06:57:29,398 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 06:57:29,399 - DEBUG - component - The component: gas_sink of type Sink has 0 variables.
+2025-11-13 06:57:29,399 - DEBUG - component - The component: gas_turbine of type Turbine has 0 variables.
+2025-11-13 06:57:29,413 - INFO - network - ########----Network initialised----########
+2025-11-13 06:57:29,414 - DEBUG - network - ------Equation Summarization------
+2025-11-13 06:57:29,414 - DEBUG - network - Total number of equations: 3
+2025-11-13 06:57:29,414 - DEBUG - network - Number of connection equations: 0.
+2025-11-13 06:57:29,415 - DEBUG - network - Number of component equations: 8.
+2025-11-13 06:57:29,415 - DEBUG - network - Number of bus equations: 0.
+2025-11-13 06:57:29,415 - DEBUG - network - Number of user defined equations: 0.
+2025-11-13 06:57:29,416 - DEBUG - network - Number of presolved equations: 5.
+2025-11-13 06:57:29,416 - DEBUG - network - ------Variable Summarization------
+2025-11-13 06:57:29,416 - DEBUG - network - Total number of variables: 3.
+2025-11-13 06:57:29,416 - DEBUG - network - Number of component variables: 0.
+2025-11-13 06:57:29,417 - DEBUG - network - Number of connection variables: 3.
+2025-11-13 06:57:29,417 - DEBUG - network - Number of mass flow variables: 0.
+2025-11-13 06:57:29,417 - DEBUG - network - Number of pressure variables: 0.
+2025-11-13 06:57:29,417 - DEBUG - network - Number of enthalpy variables: 3.
+2025-11-13 06:57:29,418 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-13 06:57:29,418 - DEBUG - network - Number of fluid composition equations: 14.
+2025-11-13 06:57:29,418 - DEBUG - network - Number of fluid variables: 14.
+2025-11-13 06:57:29,419 - DEBUG - network - the variables list is:
+ [
+  0: <enthalpy objective> in connection: gas_out,
+  1: <enthalpy objective> in connection: gas_turbine_in,
+  2: <enthalpy objective> in connection: gas_turbine_out
+]
+the variables scale is:
+ [1000000. 1000000. 1000000.]
+the equations list is:
+ [
+  0: <component parameter>: eta of DiabaticCombustionChamber: fuel_combustion
+  1: <component parameter>: eta of DiabaticCombustionChamber: gas_re_combustion
+  2: <component parameter>: eta_s of Turbine: gas_turbine
+]
+the residual scale:
+ [10000000. 10000000.  1000000.]
+the fluid variables list is:
+ [
+  0: <fluid objective> in connection: gas_out:O2 fraction
+  1: <fluid objective> in connection: gas_out:CH4 fraction
+  2: <fluid objective> in connection: gas_out:CO2 fraction
+  3: <fluid objective> in connection: gas_out:Ar fraction
+  4: <fluid objective> in connection: gas_out:N2 fraction
+  5: <fluid objective> in connection: gas_out:H2O fraction
+  6: <fluid objective> in connection: gas_out:H2 fraction
+  7: <fluid objective> in connection: gas_turbine_in:O2 fraction
+  8: <fluid objective> in connection: gas_turbine_in:CH4 fraction
+  9: <fluid objective> in connection: gas_turbine_in:CO2 fraction
+  10: <fluid objective> in connection: gas_turbine_in:Ar fraction
+  11: <fluid objective> in connection: gas_turbine_in:N2 fraction
+  12: <fluid objective> in connection: gas_turbine_in:H2O fraction
+  13: <fluid objective> in connection: gas_turbine_in:H2 fraction
+]
+the fluid equations list is:
+ [
+  0: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----O2
+  1: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CH4
+  2: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CO2
+  3: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----Ar
+  4: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----N2
+  5: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2O
+  6: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2
+  7: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----O2
+  8: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CH4
+  9: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CO2
+  10: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----Ar
+  11: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----N2
+  12: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2O
+  13: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2
+]
+2025-11-13 06:57:29,419 - DEBUG - network - has no linear dependence in network topology
+2025-11-13 06:57:29,420 - DEBUG - network - the range of variables are: [
+  0: <enthalpy objective> in connection: gas_out------[0.001, 7.0],
+  1: <enthalpy objective> in connection: gas_turbine_in------[0.001, 7.0],
+  2: <enthalpy objective> in connection: gas_turbine_out------[0.001, 7.0]
+]
+2025-11-13 06:57:29,420 - INFO - network - Starting solver.
+2025-11-13 06:57:29,420 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-13 06:57:29,421 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 06:57:29,429 - DEBUG - network - the fluid calculation done in 3th iteration
+2025-11-13 06:57:29,438 - PROGRESS - network -  1     | 1.43e+00   | 64 %       | 0.00e+00   | 0.00e+00   | 1.68e-01   | 1.53e-01   | 0.00e+00   
+2025-11-13 06:57:29,440 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-13 06:57:29,449 - PROGRESS - network -  2     | 4.41e-04   | 100 %      | 0.00e+00   | 0.00e+00   | 6.24e-04   | 1.53e-01   | 0.00e+00   
+2025-11-13 06:57:29,449 - DEBUG - network - has found the solution in 0th iteration
+2025-11-13 06:57:29,450 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 06:57:29,450 - DEBUG - network - Total iterations: 2, Calculation time: 0.03 s, Iterations per second: 67.94
+2025-11-13 06:57:29,487 - INFO - network - Postprocessing complete.
+2025-11-13 06:57:29,488 - INFO - network - Calculation complete.
+2025-11-13 06:57:29,496 - RESULT - network - 
+##### RESULTS (Compressor) #####
++-----------------+----------+----------+-----------+----------+--------+
+|                 |        P |       pr |        dp |    eta_s |   igva |
+|-----------------+----------+----------+-----------+----------+--------|
+| air_compressor  | 3.21e+07 | 1.53e+01 | -1.40e+01 | 8.50e-01 |    nan |
+| fuel_compressor | 4.29e+05 | 3.33e+00 | -1.05e+01 | 8.50e-01 |    nan |
++-----------------+----------+----------+-----------+----------+--------+
+##### RESULTS (Valve) #####
++----------------+----------+----------+----------+
+|                |       pr |       dp |     zeta |
+|----------------+----------+----------+----------|
+| fuel_add_valve | 8.89e-01 | 5.00e-01 | 1.35e+07 |
++----------------+----------+----------+----------+
+##### RESULTS (DiabaticCombustionChamber) #####
++-------------------+----------+----------+----------+----------+----------+-----------+
+|                   |     lamb |       ti |       pr |       dp |      eta |    Q_loss |
+|-------------------+----------+----------+----------+----------+----------+-----------|
+| fuel_combustion   | 3.31e+00 | 7.12e+07 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -7.12e+05 |
+| gas_re_combustion | 3.17e+01 | 5.18e+06 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -5.18e+04 |
++-------------------+----------+----------+----------+----------+----------+-----------+
+##### RESULTS (Turbine) #####
++-------------+-----------+----------+----------+----------+
+|             |         P |       pr |       dp |    eta_s |
+|-------------+-----------+----------+----------+----------|
+| gas_turbine | -5.63e+07 | 7.33e-02 | 1.39e+01 | [94m8.80e-01[0m |
++-------------+-----------+----------+----------+----------+
+##### RESULTS (Connection) #####
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+|                                 |         m |         p |         h |         T |         x |   phase |
+|---------------------------------+-----------+-----------+-----------+-----------+-----------+---------|
+| fuel1_air_compressor_combustion | 7.986e+01 | [94m1.500e+01[0m | [94m6.901e+02[0m | 4.046e+02 | 0.000e+00 |     nan |
+| fuel1_air_source_compressor     | [94m7.986e+01[0m | [94m9.780e-01[0m | [94m2.885e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| fuel1_compressor_combustion     | [94m1.401e+00[0m | [94m1.500e+01[0m | [94m1.292e+03[0m | 1.262e+02 | 0.000e+00 |     nan |
+| fuel1_splitter_compressor       | 1.401e+00 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_splitter_valve            | 1.020e-01 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_valve_combustion          | [94m1.020e-01[0m | [94m4.000e+00[0m | 9.860e+02 | 1.487e+01 | 0.000e+00 |     nan |
+| fuel_source_splitter            | [94m1.503e+00[0m | [94m4.500e+00[0m | [94m9.860e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| gas_out                         | [94m8.136e+01[0m | [94m1.100e+00[0m | 1.038e+03 | 5.951e+02 | 0.000e+00 |     nan |
+| gas_turbine_in                  | [94m8.126e+01[0m | [94m1.500e+01[0m | 1.661e+03 | 1.113e+03 | 0.000e+00 |     nan |
+| gas_turbine_out                 | 8.126e+01 | [94m1.100e+00[0m | 9.677e+02 | 5.429e+02 | 0.000e+00 |     nan |
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+2025-11-13 16:16:07,568 - INFO - logger - Path for logging: gas_part_plant1_loggings\Aurora.log
+2025-11-13 16:16:07,579 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-13 16:16:07,695 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference to boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-13 16:16:07,695 - DEBUG - network - Default mass flow limits
+min: 0.001 kg / s
+max: 1000000000000.0 kg / s
+2025-11-13 16:16:07,695 - DEBUG - network - Default pressure limits
+min: 200000.0 Pa
+max: 30000000.0 Pa
+2025-11-13 16:16:07,695 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-13 16:16:07,695 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-13 16:16:07,695 - DEBUG - network - Setting pressure unit: bar.
+2025-11-13 16:16:07,695 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-13 16:16:07,695 - DEBUG - network - Setting temperature unit: C.
+2025-11-13 16:16:07,696 - DEBUG - connection - Created connection from fuel_source (out1) to fuel_splitter (in1).
+2025-11-13 16:16:07,697 - DEBUG - connection - Created connection from fuel_splitter (out1) to fuel_compressor (in1).
+2025-11-13 16:16:07,697 - DEBUG - connection - Created connection from fuel_compressor (out1) to fuel_combustion (in2).
+2025-11-13 16:16:07,697 - DEBUG - connection - Created connection from air_source (out1) to air_compressor (in1).
+2025-11-13 16:16:07,698 - DEBUG - connection - Created connection from air_compressor (out1) to fuel_combustion (in1).
+2025-11-13 16:16:07,698 - DEBUG - connection - Created connection from fuel_combustion (out1) to gas_turbine (in1).
+2025-11-13 16:16:07,699 - DEBUG - connection - Created connection from gas_turbine (out1) to gas_re_combustion (in1).
+2025-11-13 16:16:07,699 - DEBUG - connection - Created connection from fuel_splitter (out2) to fuel_add_valve (in1).
+2025-11-13 16:16:07,699 - DEBUG - connection - Created connection from fuel_add_valve (out1) to gas_re_combustion (in2).
+2025-11-13 16:16:07,700 - DEBUG - connection - Created connection from gas_re_combustion (out1) to gas_sink (in1).
+2025-11-13 16:16:07,700 - DEBUG - network - Added connection fuel_source_splitter to network.
+2025-11-13 16:16:07,703 - DEBUG - network - Added connection fuel1_splitter_compressor to network.
+2025-11-13 16:16:07,704 - DEBUG - network - Added connection fuel1_compressor_combustion to network.
+2025-11-13 16:16:07,704 - DEBUG - network - Added connection fuel1_air_source_compressor to network.
+2025-11-13 16:16:07,705 - DEBUG - network - Added connection fuel1_air_compressor_combustion to network.
+2025-11-13 16:16:07,705 - DEBUG - network - Added connection gas_turbine_in to network.
+2025-11-13 16:16:07,705 - DEBUG - network - Added connection gas_turbine_out to network.
+2025-11-13 16:16:07,706 - DEBUG - network - Added connection fuel2_splitter_valve to network.
+2025-11-13 16:16:07,706 - DEBUG - network - Added connection fuel2_valve_combustion to network.
+2025-11-13 16:16:07,706 - DEBUG - network - Added connection gas_out to network.
+2025-11-13 16:16:07,840 - INFO - network - ########----Network check successful----########
+2025-11-13 16:16:07,840 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: None
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-13 16:16:07,840 - DEBUG - network - Network information:
+ - Number of components: 10
+ - Number of connections: 10
+ - Number of busses: 0
+2025-11-13 16:16:07,851 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_air_source_compressor', 'fuel1_air_compressor_combustion'] from system variables.
+2025-11-13 16:16:07,851 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_splitter_compressor', 'fuel1_compressor_combustion'] from system variables.
+2025-11-13 16:16:07,851 - DEBUG - network - Removing 1 mass flow variables from ['fuel2_splitter_valve', 'fuel2_valve_combustion'] from system variables.
+2025-11-13 16:16:07,853 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-13 16:16:07,855 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-13 16:16:07,856 - DEBUG - base - The fuels for component fuel_combustion of type diabatic combustion chamber are: CH4, H2.
+2025-11-13 16:16:07,857 - DEBUG - base - The fuels for component gas_re_combustion of type diabatic combustion chamber are: CH4, H2.
+2025-11-13 16:16:07,857 - DEBUG - connection - The connection: fuel1_air_compressor_combustion has 0 equations.
+2025-11-13 16:16:07,857 - DEBUG - connection - The connection: fuel1_air_source_compressor has 0 equations.
+2025-11-13 16:16:07,857 - DEBUG - connection - The connection: fuel1_compressor_combustion has 0 equations.
+2025-11-13 16:16:07,857 - DEBUG - connection - The connection: fuel1_splitter_compressor has 0 equations.
+2025-11-13 16:16:07,858 - DEBUG - connection - The connection: fuel2_splitter_valve has 0 equations.
+2025-11-13 16:16:07,858 - DEBUG - connection - The connection: fuel2_valve_combustion has 0 equations.
+2025-11-13 16:16:07,858 - DEBUG - connection - The connection: fuel_source_splitter has 0 equations.
+2025-11-13 16:16:07,858 - DEBUG - connection - The connection: gas_out has 0 equations.
+2025-11-13 16:16:07,858 - DEBUG - connection - The connection: gas_turbine_in has 0 equations.
+2025-11-13 16:16:07,858 - DEBUG - connection - The connection: gas_turbine_out has 0 equations.
+2025-11-13 16:16:07,860 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:07,861 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:07,861 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:07,861 - DEBUG - component - The component: air_compressor of type Compressor has 1 equations.
+2025-11-13 16:16:07,861 - DEBUG - component - The component: air_source of type Source has 0 equations.
+2025-11-13 16:16:07,862 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 equations.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 16:16:07,862 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:07,862 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:07,862 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: fuel_compressor of type Compressor has 1 equations.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: fuel_source of type Source has 0 equations.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: fuel_splitter of type Splitter has 1 equations.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 16:16:07,862 - DEBUG - component - The component: gas_sink of type Sink has 0 equations.
+2025-11-13 16:16:07,863 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:07,863 - DEBUG - component - The component: gas_turbine of type Turbine has 1 equations.
+2025-11-13 16:16:07,863 - DEBUG - network - ------presolve_batch: 1------
+2025-11-13 16:16:07,865 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: air_compressor
+2025-11-13 16:16:07,866 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: fuel_compressor
+2025-11-13 16:16:07,866 - DEBUG - network - ------presolve_batch: 2------
+2025-11-13 16:16:07,866 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: fuel_combustion
+2025-11-13 16:16:07,866 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: fuel_splitter
+2025-11-13 16:16:07,866 - DEBUG - network - ------presolve_batch: 3------
+2025-11-13 16:16:07,866 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: gas_re_combustion
+2025-11-13 16:16:07,866 - DEBUG - network - ------presolve_batch: 4------
+2025-11-13 16:16:07,866 - DEBUG - network - Has removed 5 presolved equations totally.
+2025-11-13 16:16:07,866 - DEBUG - component - The component: air_compressor of type Compressor has 0 variables.
+2025-11-13 16:16:07,866 - DEBUG - component - The component: air_source of type Source has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: fuel_compressor of type Compressor has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: fuel_source of type Source has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: fuel_splitter of type Splitter has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: gas_sink of type Sink has 0 variables.
+2025-11-13 16:16:07,867 - DEBUG - component - The component: gas_turbine of type Turbine has 0 variables.
+2025-11-13 16:16:07,884 - INFO - network - ########----Network initialised----########
+2025-11-13 16:16:07,884 - DEBUG - network - ------Equation Summarization------
+2025-11-13 16:16:07,884 - DEBUG - network - Total number of equations: 3
+2025-11-13 16:16:07,884 - DEBUG - network - Number of connection equations: 0.
+2025-11-13 16:16:07,884 - DEBUG - network - Number of component equations: 8.
+2025-11-13 16:16:07,884 - DEBUG - network - Number of bus equations: 0.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of user defined equations: 0.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of presolved equations: 5.
+2025-11-13 16:16:07,885 - DEBUG - network - ------Variable Summarization------
+2025-11-13 16:16:07,885 - DEBUG - network - Total number of variables: 3.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of component variables: 0.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of connection variables: 3.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of mass flow variables: 0.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of pressure variables: 0.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of enthalpy variables: 3.
+2025-11-13 16:16:07,885 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-13 16:16:07,885 - DEBUG - network - Number of fluid composition equations: 14.
+2025-11-13 16:16:07,885 - DEBUG - network - Number of fluid variables: 14.
+2025-11-13 16:16:07,885 - DEBUG - network - the variables list is:
+ [
+  0: <enthalpy objective> in connection: gas_out,
+  1: <enthalpy objective> in connection: gas_turbine_in,
+  2: <enthalpy objective> in connection: gas_turbine_out
+]
+the variables scale is:
+ [1000000. 1000000. 1000000.]
+the equations list is:
+ [
+  0: <component parameter>: eta of DiabaticCombustionChamber: fuel_combustion
+  1: <component parameter>: eta of DiabaticCombustionChamber: gas_re_combustion
+  2: <component parameter>: eta_s of Turbine: gas_turbine
+]
+the residual scale:
+ [10000000. 10000000.  1000000.]
+the fluid variables list is:
+ [
+  0: <fluid objective> in connection: gas_out:N2 fraction
+  1: <fluid objective> in connection: gas_out:Ar fraction
+  2: <fluid objective> in connection: gas_out:H2 fraction
+  3: <fluid objective> in connection: gas_out:O2 fraction
+  4: <fluid objective> in connection: gas_out:CO2 fraction
+  5: <fluid objective> in connection: gas_out:CH4 fraction
+  6: <fluid objective> in connection: gas_out:H2O fraction
+  7: <fluid objective> in connection: gas_turbine_in:N2 fraction
+  8: <fluid objective> in connection: gas_turbine_in:Ar fraction
+  9: <fluid objective> in connection: gas_turbine_in:H2 fraction
+  10: <fluid objective> in connection: gas_turbine_in:O2 fraction
+  11: <fluid objective> in connection: gas_turbine_in:CO2 fraction
+  12: <fluid objective> in connection: gas_turbine_in:CH4 fraction
+  13: <fluid objective> in connection: gas_turbine_in:H2O fraction
+]
+the fluid equations list is:
+ [
+  0: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----N2
+  1: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----Ar
+  2: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2
+  3: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----O2
+  4: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CO2
+  5: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CH4
+  6: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2O
+  7: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----N2
+  8: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----Ar
+  9: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2
+  10: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----O2
+  11: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CO2
+  12: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CH4
+  13: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2O
+]
+2025-11-13 16:16:07,885 - DEBUG - network - has no linear dependence in network topology
+2025-11-13 16:16:07,885 - DEBUG - network - the range of variables are: [
+  0: <enthalpy objective> in connection: gas_out------[0.001, 7.0],
+  1: <enthalpy objective> in connection: gas_turbine_in------[0.001, 7.0],
+  2: <enthalpy objective> in connection: gas_turbine_out------[0.001, 7.0]
+]
+2025-11-13 16:16:07,885 - INFO - network - Starting solver.
+2025-11-13 16:16:07,885 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-13 16:16:07,885 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 16:16:08,259 - DEBUG - network - the fluid calculation done in 3th iteration
+2025-11-13 16:16:08,291 - PROGRESS - network -  1     | 1.43e+00   | 64 %       | 0.00e+00   | 0.00e+00   | 1.68e-01   | 1.53e-01   | 0.00e+00   
+2025-11-13 16:16:08,293 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-13 16:16:08,301 - PROGRESS - network -  2     | 4.41e-04   | 100 %      | 0.00e+00   | 0.00e+00   | 6.24e-04   | 1.53e-01   | 0.00e+00   
+2025-11-13 16:16:08,301 - DEBUG - network - has found the solution in 0th iteration
+2025-11-13 16:16:08,301 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 16:16:08,301 - DEBUG - network - Total iterations: 2, Calculation time: 0.42 s, Iterations per second: 4.81
+2025-11-13 16:16:08,338 - INFO - network - Postprocessing complete.
+2025-11-13 16:16:08,338 - INFO - network - Calculation complete.
+2025-11-13 16:16:08,344 - RESULT - network - 
+##### RESULTS (Compressor) #####
++-----------------+----------+----------+-----------+----------+--------+
+|                 |        P |       pr |        dp |    eta_s |   igva |
+|-----------------+----------+----------+-----------+----------+--------|
+| air_compressor  | 3.21e+07 | 1.53e+01 | -1.40e+01 | 8.50e-01 |    nan |
+| fuel_compressor | 4.29e+05 | 3.33e+00 | -1.05e+01 | 8.50e-01 |    nan |
++-----------------+----------+----------+-----------+----------+--------+
+##### RESULTS (Valve) #####
++----------------+----------+----------+----------+
+|                |       pr |       dp |     zeta |
+|----------------+----------+----------+----------|
+| fuel_add_valve | 8.89e-01 | 5.00e-01 | 1.35e+07 |
++----------------+----------+----------+----------+
+##### RESULTS (DiabaticCombustionChamber) #####
++-------------------+----------+----------+----------+----------+----------+-----------+
+|                   |     lamb |       ti |       pr |       dp |      eta |    Q_loss |
+|-------------------+----------+----------+----------+----------+----------+-----------|
+| fuel_combustion   | 3.31e+00 | 7.12e+07 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -7.12e+05 |
+| gas_re_combustion | 3.17e+01 | 5.18e+06 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -5.18e+04 |
++-------------------+----------+----------+----------+----------+----------+-----------+
+##### RESULTS (Turbine) #####
++-------------+-----------+----------+----------+----------+
+|             |         P |       pr |       dp |    eta_s |
+|-------------+-----------+----------+----------+----------|
+| gas_turbine | -5.63e+07 | 7.33e-02 | 1.39e+01 | [94m8.80e-01[0m |
++-------------+-----------+----------+----------+----------+
+##### RESULTS (Connection) #####
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+|                                 |         m |         p |         h |         T |         x |   phase |
+|---------------------------------+-----------+-----------+-----------+-----------+-----------+---------|
+| fuel1_air_compressor_combustion | 7.986e+01 | [94m1.500e+01[0m | [94m6.901e+02[0m | 4.046e+02 | 0.000e+00 |     nan |
+| fuel1_air_source_compressor     | [94m7.986e+01[0m | [94m9.780e-01[0m | [94m2.885e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| fuel1_compressor_combustion     | [94m1.401e+00[0m | [94m1.500e+01[0m | [94m1.292e+03[0m | 1.262e+02 | 0.000e+00 |     nan |
+| fuel1_splitter_compressor       | 1.401e+00 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_splitter_valve            | 1.020e-01 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_valve_combustion          | [94m1.020e-01[0m | [94m4.000e+00[0m | 9.860e+02 | 1.487e+01 | 0.000e+00 |     nan |
+| fuel_source_splitter            | [94m1.503e+00[0m | [94m4.500e+00[0m | [94m9.860e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| gas_out                         | [94m8.136e+01[0m | [94m1.100e+00[0m | 1.038e+03 | 5.951e+02 | 0.000e+00 |     nan |
+| gas_turbine_in                  | [94m8.126e+01[0m | [94m1.500e+01[0m | 1.661e+03 | 1.113e+03 | 0.000e+00 |     nan |
+| gas_turbine_out                 | 8.126e+01 | [94m1.100e+00[0m | 9.677e+02 | 5.429e+02 | 0.000e+00 |     nan |
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+2025-11-13 16:16:20,553 - INFO - logger - Path for logging: gas_part_plant1_loggings\Aurora.log
+2025-11-13 16:16:20,554 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-13 16:16:20,556 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference to boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-13 16:16:20,556 - DEBUG - network - Default mass flow limits
+min: 0.001 kg / s
+max: 1000000000000.0 kg / s
+2025-11-13 16:16:20,556 - DEBUG - network - Default pressure limits
+min: 200000.0 Pa
+max: 30000000.0 Pa
+2025-11-13 16:16:20,556 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-13 16:16:20,556 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-13 16:16:20,556 - DEBUG - network - Setting pressure unit: bar.
+2025-11-13 16:16:20,556 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-13 16:16:20,556 - DEBUG - network - Setting temperature unit: C.
+2025-11-13 16:16:20,557 - DEBUG - connection - Created connection from fuel_source (out1) to fuel_splitter (in1).
+2025-11-13 16:16:20,557 - DEBUG - connection - Created connection from fuel_splitter (out1) to fuel_compressor (in1).
+2025-11-13 16:16:20,558 - DEBUG - connection - Created connection from fuel_compressor (out1) to fuel_combustion (in2).
+2025-11-13 16:16:20,558 - DEBUG - connection - Created connection from air_source (out1) to air_compressor (in1).
+2025-11-13 16:16:20,558 - DEBUG - connection - Created connection from air_compressor (out1) to fuel_combustion (in1).
+2025-11-13 16:16:20,559 - DEBUG - connection - Created connection from fuel_combustion (out1) to gas_turbine (in1).
+2025-11-13 16:16:20,559 - DEBUG - connection - Created connection from gas_turbine (out1) to gas_re_combustion (in1).
+2025-11-13 16:16:20,559 - DEBUG - connection - Created connection from fuel_splitter (out2) to fuel_add_valve (in1).
+2025-11-13 16:16:20,559 - DEBUG - connection - Created connection from fuel_add_valve (out1) to gas_re_combustion (in2).
+2025-11-13 16:16:20,559 - DEBUG - connection - Created connection from gas_re_combustion (out1) to gas_sink (in1).
+2025-11-13 16:16:20,560 - DEBUG - network - Added connection fuel_source_splitter to network.
+2025-11-13 16:16:20,560 - DEBUG - network - Added connection fuel1_splitter_compressor to network.
+2025-11-13 16:16:20,561 - DEBUG - network - Added connection fuel1_compressor_combustion to network.
+2025-11-13 16:16:20,561 - DEBUG - network - Added connection fuel1_air_source_compressor to network.
+2025-11-13 16:16:20,561 - DEBUG - network - Added connection fuel1_air_compressor_combustion to network.
+2025-11-13 16:16:20,562 - DEBUG - network - Added connection gas_turbine_in to network.
+2025-11-13 16:16:20,562 - DEBUG - network - Added connection gas_turbine_out to network.
+2025-11-13 16:16:20,562 - DEBUG - network - Added connection fuel2_splitter_valve to network.
+2025-11-13 16:16:20,563 - DEBUG - network - Added connection fuel2_valve_combustion to network.
+2025-11-13 16:16:20,563 - DEBUG - network - Added connection gas_out to network.
+2025-11-13 16:16:20,579 - INFO - network - ########----Network check successful----########
+2025-11-13 16:16:20,579 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: None
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-13 16:16:20,579 - DEBUG - network - Network information:
+ - Number of components: 10
+ - Number of connections: 10
+ - Number of busses: 0
+2025-11-13 16:16:20,587 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_air_source_compressor', 'fuel1_air_compressor_combustion'] from system variables.
+2025-11-13 16:16:20,587 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_splitter_compressor', 'fuel1_compressor_combustion'] from system variables.
+2025-11-13 16:16:20,587 - DEBUG - network - Removing 1 mass flow variables from ['fuel2_splitter_valve', 'fuel2_valve_combustion'] from system variables.
+2025-11-13 16:16:20,588 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-13 16:16:20,589 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-13 16:16:20,590 - DEBUG - base - The fuels for component fuel_combustion of type diabatic combustion chamber are: CH4, H2.
+2025-11-13 16:16:20,591 - DEBUG - base - The fuels for component gas_re_combustion of type diabatic combustion chamber are: CH4, H2.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel1_air_compressor_combustion has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel1_air_source_compressor has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel1_compressor_combustion has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel1_splitter_compressor has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel2_splitter_valve has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel2_valve_combustion has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: fuel_source_splitter has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: gas_out has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: gas_turbine_in has 0 equations.
+2025-11-13 16:16:20,592 - DEBUG - connection - The connection: gas_turbine_out has 0 equations.
+2025-11-13 16:16:20,593 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:20,593 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:20,593 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:20,593 - DEBUG - component - The component: air_compressor of type Compressor has 1 equations.
+2025-11-13 16:16:20,593 - DEBUG - component - The component: air_source of type Source has 0 equations.
+2025-11-13 16:16:20,593 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:20,593 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 equations.
+2025-11-13 16:16:20,593 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 16:16:20,594 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:20,594 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:20,594 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:16:20,594 - DEBUG - component - The component: fuel_compressor of type Compressor has 1 equations.
+2025-11-13 16:16:20,594 - DEBUG - component - The component: fuel_source of type Source has 0 equations.
+2025-11-13 16:16:20,594 - DEBUG - component - The component: fuel_splitter of type Splitter has 1 equations.
+2025-11-13 16:16:20,594 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 16:16:20,594 - DEBUG - component - The component: gas_sink of type Sink has 0 equations.
+2025-11-13 16:16:20,594 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:16:20,595 - DEBUG - component - The component: gas_turbine of type Turbine has 1 equations.
+2025-11-13 16:16:20,595 - DEBUG - network - ------presolve_batch: 1------
+2025-11-13 16:16:20,597 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: air_compressor
+2025-11-13 16:16:20,598 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: fuel_compressor
+2025-11-13 16:16:20,598 - DEBUG - network - ------presolve_batch: 2------
+2025-11-13 16:16:20,598 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: fuel_combustion
+2025-11-13 16:16:20,598 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: fuel_splitter
+2025-11-13 16:16:20,598 - DEBUG - network - ------presolve_batch: 3------
+2025-11-13 16:16:20,598 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: gas_re_combustion
+2025-11-13 16:16:20,598 - DEBUG - network - ------presolve_batch: 4------
+2025-11-13 16:16:20,598 - DEBUG - network - Has removed 5 presolved equations totally.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: air_compressor of type Compressor has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: air_source of type Source has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: fuel_compressor of type Compressor has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: fuel_source of type Source has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: fuel_splitter of type Splitter has 0 variables.
+2025-11-13 16:16:20,598 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 16:16:20,599 - DEBUG - component - The component: gas_sink of type Sink has 0 variables.
+2025-11-13 16:16:20,599 - DEBUG - component - The component: gas_turbine of type Turbine has 0 variables.
+2025-11-13 16:16:20,611 - INFO - network - ########----Network initialised----########
+2025-11-13 16:16:20,611 - DEBUG - network - ------Equation Summarization------
+2025-11-13 16:16:20,611 - DEBUG - network - Total number of equations: 3
+2025-11-13 16:16:20,611 - DEBUG - network - Number of connection equations: 0.
+2025-11-13 16:16:20,611 - DEBUG - network - Number of component equations: 8.
+2025-11-13 16:16:20,611 - DEBUG - network - Number of bus equations: 0.
+2025-11-13 16:16:20,611 - DEBUG - network - Number of user defined equations: 0.
+2025-11-13 16:16:20,611 - DEBUG - network - Number of presolved equations: 5.
+2025-11-13 16:16:20,611 - DEBUG - network - ------Variable Summarization------
+2025-11-13 16:16:20,611 - DEBUG - network - Total number of variables: 3.
+2025-11-13 16:16:20,611 - DEBUG - network - Number of component variables: 0.
+2025-11-13 16:16:20,611 - DEBUG - network - Number of connection variables: 3.
+2025-11-13 16:16:20,612 - DEBUG - network - Number of mass flow variables: 0.
+2025-11-13 16:16:20,612 - DEBUG - network - Number of pressure variables: 0.
+2025-11-13 16:16:20,612 - DEBUG - network - Number of enthalpy variables: 3.
+2025-11-13 16:16:20,612 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-13 16:16:20,612 - DEBUG - network - Number of fluid composition equations: 14.
+2025-11-13 16:16:20,612 - DEBUG - network - Number of fluid variables: 14.
+2025-11-13 16:16:20,612 - DEBUG - network - the variables list is:
+ [
+  0: <enthalpy objective> in connection: gas_out,
+  1: <enthalpy objective> in connection: gas_turbine_in,
+  2: <enthalpy objective> in connection: gas_turbine_out
+]
+the variables scale is:
+ [1000000. 1000000. 1000000.]
+the equations list is:
+ [
+  0: <component parameter>: eta of DiabaticCombustionChamber: fuel_combustion
+  1: <component parameter>: eta of DiabaticCombustionChamber: gas_re_combustion
+  2: <component parameter>: eta_s of Turbine: gas_turbine
+]
+the residual scale:
+ [10000000. 10000000.  1000000.]
+the fluid variables list is:
+ [
+  0: <fluid objective> in connection: gas_out:CH4 fraction
+  1: <fluid objective> in connection: gas_out:H2 fraction
+  2: <fluid objective> in connection: gas_out:N2 fraction
+  3: <fluid objective> in connection: gas_out:H2O fraction
+  4: <fluid objective> in connection: gas_out:O2 fraction
+  5: <fluid objective> in connection: gas_out:CO2 fraction
+  6: <fluid objective> in connection: gas_out:Ar fraction
+  7: <fluid objective> in connection: gas_turbine_in:CH4 fraction
+  8: <fluid objective> in connection: gas_turbine_in:H2 fraction
+  9: <fluid objective> in connection: gas_turbine_in:N2 fraction
+  10: <fluid objective> in connection: gas_turbine_in:H2O fraction
+  11: <fluid objective> in connection: gas_turbine_in:O2 fraction
+  12: <fluid objective> in connection: gas_turbine_in:CO2 fraction
+  13: <fluid objective> in connection: gas_turbine_in:Ar fraction
+]
+the fluid equations list is:
+ [
+  0: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CH4
+  1: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2
+  2: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----N2
+  3: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----O2
+  4: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2O
+  5: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CO2
+  6: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----Ar
+  7: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CH4
+  8: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2
+  9: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----N2
+  10: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2O
+  11: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----O2
+  12: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CO2
+  13: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----Ar
+]
+2025-11-13 16:16:20,612 - DEBUG - network - has no linear dependence in network topology
+2025-11-13 16:16:20,612 - DEBUG - network - the range of variables are: [
+  0: <enthalpy objective> in connection: gas_out------[0.001, 7.0],
+  1: <enthalpy objective> in connection: gas_turbine_in------[0.001, 7.0],
+  2: <enthalpy objective> in connection: gas_turbine_out------[0.001, 7.0]
+]
+2025-11-13 16:16:20,612 - INFO - network - Starting solver.
+2025-11-13 16:16:20,612 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-13 16:16:20,612 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 16:16:20,628 - DEBUG - network - the fluid calculation done in 3th iteration
+2025-11-13 16:16:20,636 - PROGRESS - network -  1     | 1.43e+00   | 64 %       | 0.00e+00   | 0.00e+00   | 1.68e-01   | 1.53e-01   | 0.00e+00   
+2025-11-13 16:16:20,638 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-13 16:16:20,645 - PROGRESS - network -  2     | 4.41e-04   | 100 %      | 0.00e+00   | 0.00e+00   | 6.24e-04   | 1.53e-01   | 0.00e+00   
+2025-11-13 16:16:20,646 - DEBUG - network - has found the solution in 0th iteration
+2025-11-13 16:16:20,646 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 16:16:20,646 - DEBUG - network - Total iterations: 2, Calculation time: 0.03 s, Iterations per second: 58.54
+2025-11-13 16:16:20,684 - INFO - network - Postprocessing complete.
+2025-11-13 16:16:20,684 - INFO - network - Calculation complete.
+2025-11-13 16:16:20,691 - RESULT - network - 
+##### RESULTS (Compressor) #####
++-----------------+----------+----------+-----------+----------+--------+
+|                 |        P |       pr |        dp |    eta_s |   igva |
+|-----------------+----------+----------+-----------+----------+--------|
+| air_compressor  | 3.21e+07 | 1.53e+01 | -1.40e+01 | 8.50e-01 |    nan |
+| fuel_compressor | 4.29e+05 | 3.33e+00 | -1.05e+01 | 8.50e-01 |    nan |
++-----------------+----------+----------+-----------+----------+--------+
+##### RESULTS (Valve) #####
++----------------+----------+----------+----------+
+|                |       pr |       dp |     zeta |
+|----------------+----------+----------+----------|
+| fuel_add_valve | 8.89e-01 | 5.00e-01 | 1.35e+07 |
++----------------+----------+----------+----------+
+##### RESULTS (DiabaticCombustionChamber) #####
++-------------------+----------+----------+----------+----------+----------+-----------+
+|                   |     lamb |       ti |       pr |       dp |      eta |    Q_loss |
+|-------------------+----------+----------+----------+----------+----------+-----------|
+| fuel_combustion   | 3.31e+00 | 7.12e+07 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -7.12e+05 |
+| gas_re_combustion | 3.17e+01 | 5.18e+06 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -5.18e+04 |
++-------------------+----------+----------+----------+----------+----------+-----------+
+##### RESULTS (Turbine) #####
++-------------+-----------+----------+----------+----------+
+|             |         P |       pr |       dp |    eta_s |
+|-------------+-----------+----------+----------+----------|
+| gas_turbine | -5.63e+07 | 7.33e-02 | 1.39e+01 | [94m8.80e-01[0m |
++-------------+-----------+----------+----------+----------+
+##### RESULTS (Connection) #####
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+|                                 |         m |         p |         h |         T |         x |   phase |
+|---------------------------------+-----------+-----------+-----------+-----------+-----------+---------|
+| fuel1_air_compressor_combustion | 7.986e+01 | [94m1.500e+01[0m | [94m6.901e+02[0m | 4.046e+02 | 0.000e+00 |     nan |
+| fuel1_air_source_compressor     | [94m7.986e+01[0m | [94m9.780e-01[0m | [94m2.885e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| fuel1_compressor_combustion     | [94m1.401e+00[0m | [94m1.500e+01[0m | [94m1.292e+03[0m | 1.262e+02 | 0.000e+00 |     nan |
+| fuel1_splitter_compressor       | 1.401e+00 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_splitter_valve            | 1.020e-01 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_valve_combustion          | [94m1.020e-01[0m | [94m4.000e+00[0m | 9.860e+02 | 1.487e+01 | 0.000e+00 |     nan |
+| fuel_source_splitter            | [94m1.503e+00[0m | [94m4.500e+00[0m | [94m9.860e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| gas_out                         | [94m8.136e+01[0m | [94m1.100e+00[0m | 1.038e+03 | 5.951e+02 | 0.000e+00 |     nan |
+| gas_turbine_in                  | [94m8.126e+01[0m | [94m1.500e+01[0m | 1.661e+03 | 1.113e+03 | 0.000e+00 |     nan |
+| gas_turbine_out                 | 8.126e+01 | [94m1.100e+00[0m | 9.677e+02 | 5.429e+02 | 0.000e+00 |     nan |
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+2025-11-13 16:55:54,947 - INFO - logger - Path for logging: gas_part_plant1_loggings\Aurora.log
+2025-11-13 16:55:54,948 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-13 16:55:54,950 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference to boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-13 16:55:54,950 - DEBUG - network - Default mass flow limits
+min: 0.001 kg / s
+max: 1000000000000.0 kg / s
+2025-11-13 16:55:54,950 - DEBUG - network - Default pressure limits
+min: 200000.0 Pa
+max: 30000000.0 Pa
+2025-11-13 16:55:54,950 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-13 16:55:54,950 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-13 16:55:54,950 - DEBUG - network - Setting pressure unit: bar.
+2025-11-13 16:55:54,950 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-13 16:55:54,950 - DEBUG - network - Setting temperature unit: C.
+2025-11-13 16:55:54,950 - DEBUG - connection - Created connection from fuel_source (out1) to fuel_splitter (in1).
+2025-11-13 16:55:54,951 - DEBUG - connection - Created connection from fuel_splitter (out1) to fuel_compressor (in1).
+2025-11-13 16:55:54,951 - DEBUG - connection - Created connection from fuel_compressor (out1) to fuel_combustion (in2).
+2025-11-13 16:55:54,951 - DEBUG - connection - Created connection from air_source (out1) to air_compressor (in1).
+2025-11-13 16:55:54,951 - DEBUG - connection - Created connection from air_compressor (out1) to fuel_combustion (in1).
+2025-11-13 16:55:54,952 - DEBUG - connection - Created connection from fuel_combustion (out1) to gas_turbine (in1).
+2025-11-13 16:55:54,952 - DEBUG - connection - Created connection from gas_turbine (out1) to gas_re_combustion (in1).
+2025-11-13 16:55:54,952 - DEBUG - connection - Created connection from fuel_splitter (out2) to fuel_add_valve (in1).
+2025-11-13 16:55:54,953 - DEBUG - connection - Created connection from fuel_add_valve (out1) to gas_re_combustion (in2).
+2025-11-13 16:55:54,953 - DEBUG - connection - Created connection from gas_re_combustion (out1) to gas_sink (in1).
+2025-11-13 16:55:54,953 - DEBUG - network - Added connection fuel_source_splitter to network.
+2025-11-13 16:55:54,954 - DEBUG - network - Added connection fuel1_splitter_compressor to network.
+2025-11-13 16:55:54,954 - DEBUG - network - Added connection fuel1_compressor_combustion to network.
+2025-11-13 16:55:54,954 - DEBUG - network - Added connection fuel1_air_source_compressor to network.
+2025-11-13 16:55:54,955 - DEBUG - network - Added connection fuel1_air_compressor_combustion to network.
+2025-11-13 16:55:54,955 - DEBUG - network - Added connection gas_turbine_in to network.
+2025-11-13 16:55:54,955 - DEBUG - network - Added connection gas_turbine_out to network.
+2025-11-13 16:55:54,956 - DEBUG - network - Added connection fuel2_splitter_valve to network.
+2025-11-13 16:55:54,956 - DEBUG - network - Added connection fuel2_valve_combustion to network.
+2025-11-13 16:55:54,956 - DEBUG - network - Added connection gas_out to network.
+2025-11-13 16:55:54,971 - INFO - network - ########----Network check successful----########
+2025-11-13 16:55:54,971 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: None
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-13 16:55:54,971 - DEBUG - network - Network information:
+ - Number of components: 10
+ - Number of connections: 10
+ - Number of busses: 0
+2025-11-13 16:55:54,979 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_air_source_compressor', 'fuel1_air_compressor_combustion'] from system variables.
+2025-11-13 16:55:54,979 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_splitter_compressor', 'fuel1_compressor_combustion'] from system variables.
+2025-11-13 16:55:54,979 - DEBUG - network - Removing 1 mass flow variables from ['fuel2_splitter_valve', 'fuel2_valve_combustion'] from system variables.
+2025-11-13 16:55:54,981 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-13 16:55:54,982 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-13 16:55:54,983 - DEBUG - base - The fuels for component fuel_combustion of type diabatic combustion chamber are: H2, CH4.
+2025-11-13 16:55:54,984 - DEBUG - base - The fuels for component gas_re_combustion of type diabatic combustion chamber are: H2, CH4.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel1_air_compressor_combustion has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel1_air_source_compressor has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel1_compressor_combustion has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel1_splitter_compressor has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel2_splitter_valve has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel2_valve_combustion has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: fuel_source_splitter has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: gas_out has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: gas_turbine_in has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - connection - The connection: gas_turbine_out has 0 equations.
+2025-11-13 16:55:54,985 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:55:54,985 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:55:54,986 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:55:54,986 - DEBUG - component - The component: air_compressor of type Compressor has 1 equations.
+2025-11-13 16:55:54,986 - DEBUG - component - The component: air_source of type Source has 0 equations.
+2025-11-13 16:55:54,986 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:55:54,986 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 equations.
+2025-11-13 16:55:54,986 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 16:55:54,986 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:55:54,987 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:55:54,987 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 16:55:54,987 - DEBUG - component - The component: fuel_compressor of type Compressor has 1 equations.
+2025-11-13 16:55:54,987 - DEBUG - component - The component: fuel_source of type Source has 0 equations.
+2025-11-13 16:55:54,987 - DEBUG - component - The component: fuel_splitter of type Splitter has 1 equations.
+2025-11-13 16:55:54,987 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 16:55:54,987 - DEBUG - component - The component: gas_sink of type Sink has 0 equations.
+2025-11-13 16:55:54,987 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 16:55:54,987 - DEBUG - component - The component: gas_turbine of type Turbine has 1 equations.
+2025-11-13 16:55:54,987 - DEBUG - network - ------presolve_batch: 1------
+2025-11-13 16:55:54,989 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: air_compressor
+2025-11-13 16:55:54,991 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: fuel_compressor
+2025-11-13 16:55:54,991 - DEBUG - network - ------presolve_batch: 2------
+2025-11-13 16:55:54,991 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: fuel_combustion
+2025-11-13 16:55:54,991 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: fuel_splitter
+2025-11-13 16:55:54,991 - DEBUG - network - ------presolve_batch: 3------
+2025-11-13 16:55:54,991 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: gas_re_combustion
+2025-11-13 16:55:54,991 - DEBUG - network - ------presolve_batch: 4------
+2025-11-13 16:55:54,991 - DEBUG - network - Has removed 5 presolved equations totally.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: air_compressor of type Compressor has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: air_source of type Source has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: fuel_compressor of type Compressor has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: fuel_source of type Source has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: fuel_splitter of type Splitter has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: gas_sink of type Sink has 0 variables.
+2025-11-13 16:55:54,991 - DEBUG - component - The component: gas_turbine of type Turbine has 0 variables.
+2025-11-13 16:55:55,004 - INFO - network - ########----Network initialised----########
+2025-11-13 16:55:55,004 - DEBUG - network - ------Equation Summarization------
+2025-11-13 16:55:55,004 - DEBUG - network - Total number of equations: 3
+2025-11-13 16:55:55,004 - DEBUG - network - Number of connection equations: 0.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of component equations: 8.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of bus equations: 0.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of user defined equations: 0.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of presolved equations: 5.
+2025-11-13 16:55:55,004 - DEBUG - network - ------Variable Summarization------
+2025-11-13 16:55:55,004 - DEBUG - network - Total number of variables: 3.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of component variables: 0.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of connection variables: 3.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of mass flow variables: 0.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of pressure variables: 0.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of enthalpy variables: 3.
+2025-11-13 16:55:55,004 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-13 16:55:55,004 - DEBUG - network - Number of fluid composition equations: 14.
+2025-11-13 16:55:55,004 - DEBUG - network - Number of fluid variables: 14.
+2025-11-13 16:55:55,004 - DEBUG - network - the variables list is:
+ [
+  0: <enthalpy objective> in connection: gas_out,
+  1: <enthalpy objective> in connection: gas_turbine_in,
+  2: <enthalpy objective> in connection: gas_turbine_out
+]
+the variables scale is:
+ [1000000. 1000000. 1000000.]
+the equations list is:
+ [
+  0: <component parameter>: eta of DiabaticCombustionChamber: fuel_combustion
+  1: <component parameter>: eta of DiabaticCombustionChamber: gas_re_combustion
+  2: <component parameter>: eta_s of Turbine: gas_turbine
+]
+the residual scale:
+ [10000000. 10000000.  1000000.]
+the fluid variables list is:
+ [
+  0: <fluid objective> in connection: gas_out:H2 fraction
+  1: <fluid objective> in connection: gas_out:CH4 fraction
+  2: <fluid objective> in connection: gas_out:O2 fraction
+  3: <fluid objective> in connection: gas_out:H2O fraction
+  4: <fluid objective> in connection: gas_out:Ar fraction
+  5: <fluid objective> in connection: gas_out:CO2 fraction
+  6: <fluid objective> in connection: gas_out:N2 fraction
+  7: <fluid objective> in connection: gas_turbine_in:H2 fraction
+  8: <fluid objective> in connection: gas_turbine_in:CH4 fraction
+  9: <fluid objective> in connection: gas_turbine_in:O2 fraction
+  10: <fluid objective> in connection: gas_turbine_in:H2O fraction
+  11: <fluid objective> in connection: gas_turbine_in:Ar fraction
+  12: <fluid objective> in connection: gas_turbine_in:CO2 fraction
+  13: <fluid objective> in connection: gas_turbine_in:N2 fraction
+]
+the fluid equations list is:
+ [
+  0: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2
+  1: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CH4
+  2: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----O2
+  3: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----Ar
+  4: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2O
+  5: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CO2
+  6: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----N2
+  7: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2
+  8: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CH4
+  9: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----O2
+  10: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2O
+  11: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----Ar
+  12: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CO2
+  13: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----N2
+]
+2025-11-13 16:55:55,004 - DEBUG - network - has no linear dependence in network topology
+2025-11-13 16:55:55,005 - DEBUG - network - the range of variables are: [
+  0: <enthalpy objective> in connection: gas_out------[0.001, 7.0],
+  1: <enthalpy objective> in connection: gas_turbine_in------[0.001, 7.0],
+  2: <enthalpy objective> in connection: gas_turbine_out------[0.001, 7.0]
+]
+2025-11-13 16:55:55,005 - INFO - network - Starting solver.
+2025-11-13 16:55:55,005 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-13 16:55:55,005 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 16:55:55,021 - DEBUG - network - the fluid calculation done in 3th iteration
+2025-11-13 16:55:55,029 - PROGRESS - network -  1     | 1.43e+00   | 64 %       | 0.00e+00   | 0.00e+00   | 1.68e-01   | 1.53e-01   | 0.00e+00   
+2025-11-13 16:55:55,030 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-13 16:55:55,037 - PROGRESS - network -  2     | 4.41e-04   | 100 %      | 0.00e+00   | 0.00e+00   | 6.24e-04   | 1.53e-01   | 0.00e+00   
+2025-11-13 16:55:55,037 - DEBUG - network - has found the solution in 0th iteration
+2025-11-13 16:55:55,037 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 16:55:55,037 - DEBUG - network - Total iterations: 2, Calculation time: 0.03 s, Iterations per second: 61.60
+2025-11-13 16:55:55,071 - INFO - network - Postprocessing complete.
+2025-11-13 16:55:55,071 - INFO - network - Calculation complete.
+2025-11-13 16:55:55,078 - RESULT - network - 
+##### RESULTS (Compressor) #####
++-----------------+----------+----------+-----------+----------+--------+
+|                 |        P |       pr |        dp |    eta_s |   igva |
+|-----------------+----------+----------+-----------+----------+--------|
+| air_compressor  | 3.21e+07 | 1.53e+01 | -1.40e+01 | 8.50e-01 |    nan |
+| fuel_compressor | 4.29e+05 | 3.33e+00 | -1.05e+01 | 8.50e-01 |    nan |
++-----------------+----------+----------+-----------+----------+--------+
+##### RESULTS (Valve) #####
++----------------+----------+----------+----------+
+|                |       pr |       dp |     zeta |
+|----------------+----------+----------+----------|
+| fuel_add_valve | 8.89e-01 | 5.00e-01 | 1.35e+07 |
++----------------+----------+----------+----------+
+##### RESULTS (DiabaticCombustionChamber) #####
++-------------------+----------+----------+----------+----------+----------+-----------+
+|                   |     lamb |       ti |       pr |       dp |      eta |    Q_loss |
+|-------------------+----------+----------+----------+----------+----------+-----------|
+| fuel_combustion   | 3.31e+00 | 7.12e+07 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -7.12e+05 |
+| gas_re_combustion | 3.17e+01 | 5.18e+06 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -5.18e+04 |
++-------------------+----------+----------+----------+----------+----------+-----------+
+##### RESULTS (Turbine) #####
++-------------+-----------+----------+----------+----------+
+|             |         P |       pr |       dp |    eta_s |
+|-------------+-----------+----------+----------+----------|
+| gas_turbine | -5.63e+07 | 7.33e-02 | 1.39e+01 | [94m8.80e-01[0m |
++-------------+-----------+----------+----------+----------+
+##### RESULTS (Connection) #####
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+|                                 |         m |         p |         h |         T |         x |   phase |
+|---------------------------------+-----------+-----------+-----------+-----------+-----------+---------|
+| fuel1_air_compressor_combustion | 7.986e+01 | [94m1.500e+01[0m | [94m6.901e+02[0m | 4.046e+02 | 0.000e+00 |     nan |
+| fuel1_air_source_compressor     | [94m7.986e+01[0m | [94m9.780e-01[0m | [94m2.885e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| fuel1_compressor_combustion     | [94m1.401e+00[0m | [94m1.500e+01[0m | [94m1.292e+03[0m | 1.262e+02 | 0.000e+00 |     nan |
+| fuel1_splitter_compressor       | 1.401e+00 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_splitter_valve            | 1.020e-01 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_valve_combustion          | [94m1.020e-01[0m | [94m4.000e+00[0m | 9.860e+02 | 1.487e+01 | 0.000e+00 |     nan |
+| fuel_source_splitter            | [94m1.503e+00[0m | [94m4.500e+00[0m | [94m9.860e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| gas_out                         | [94m8.136e+01[0m | [94m1.100e+00[0m | 1.038e+03 | 5.951e+02 | 0.000e+00 |     nan |
+| gas_turbine_in                  | [94m8.126e+01[0m | [94m1.500e+01[0m | 1.661e+03 | 1.113e+03 | 0.000e+00 |     nan |
+| gas_turbine_out                 | 8.126e+01 | [94m1.100e+00[0m | 9.677e+02 | 5.429e+02 | 0.000e+00 |     nan |
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+2025-11-13 17:10:21,023 - INFO - logger - Path for logging: gas_part_plant1_loggings\Aurora.log
+2025-11-13 17:10:21,023 - INFO - logger - Used TESPy version: 0.1.1 - GCC's Nature
+2025-11-13 17:10:21,025 - DEBUG - network - Default unit specifications:
+mass flow: kg / s
+volumetric flow: m3 / s
+pressure: Pa
+enthalpy: J / kg
+temperature: K
+temperature difference to boiling point: K
+specific volume: m3 / kg
+vapor mass fraction: -
+entropy: J / kgK
+2025-11-13 17:10:21,025 - DEBUG - network - Default mass flow limits
+min: 0.001 kg / s
+max: 1000000000000.0 kg / s
+2025-11-13 17:10:21,025 - DEBUG - network - Default pressure limits
+min: 200000.0 Pa
+max: 30000000.0 Pa
+2025-11-13 17:10:21,025 - DEBUG - network - Default enthalpy limits
+min: 1000.0 J / kg
+max: 7000000.0 J / kg
+2025-11-13 17:10:21,025 - DEBUG - network - Setting mass flow unit: kg / s.
+2025-11-13 17:10:21,025 - DEBUG - network - Setting pressure unit: bar.
+2025-11-13 17:10:21,025 - DEBUG - network - Setting enthalpy unit: kJ / kg.
+2025-11-13 17:10:21,026 - DEBUG - network - Setting temperature unit: C.
+2025-11-13 17:10:21,026 - DEBUG - connection - Created connection from fuel_source (out1) to fuel_splitter (in1).
+2025-11-13 17:10:21,026 - DEBUG - connection - Created connection from fuel_splitter (out1) to fuel_compressor (in1).
+2025-11-13 17:10:21,027 - DEBUG - connection - Created connection from fuel_compressor (out1) to fuel_combustion (in2).
+2025-11-13 17:10:21,027 - DEBUG - connection - Created connection from air_source (out1) to air_compressor (in1).
+2025-11-13 17:10:21,027 - DEBUG - connection - Created connection from air_compressor (out1) to fuel_combustion (in1).
+2025-11-13 17:10:21,028 - DEBUG - connection - Created connection from fuel_combustion (out1) to gas_turbine (in1).
+2025-11-13 17:10:21,028 - DEBUG - connection - Created connection from gas_turbine (out1) to gas_re_combustion (in1).
+2025-11-13 17:10:21,028 - DEBUG - connection - Created connection from fuel_splitter (out2) to fuel_add_valve (in1).
+2025-11-13 17:10:21,028 - DEBUG - connection - Created connection from fuel_add_valve (out1) to gas_re_combustion (in2).
+2025-11-13 17:10:21,029 - DEBUG - connection - Created connection from gas_re_combustion (out1) to gas_sink (in1).
+2025-11-13 17:10:21,029 - DEBUG - network - Added connection fuel_source_splitter to network.
+2025-11-13 17:10:21,030 - DEBUG - network - Added connection fuel1_splitter_compressor to network.
+2025-11-13 17:10:21,030 - DEBUG - network - Added connection fuel1_compressor_combustion to network.
+2025-11-13 17:10:21,031 - DEBUG - network - Added connection fuel1_air_source_compressor to network.
+2025-11-13 17:10:21,031 - DEBUG - network - Added connection fuel1_air_compressor_combustion to network.
+2025-11-13 17:10:21,032 - DEBUG - network - Added connection gas_turbine_in to network.
+2025-11-13 17:10:21,032 - DEBUG - network - Added connection gas_turbine_out to network.
+2025-11-13 17:10:21,033 - DEBUG - network - Added connection fuel2_splitter_valve to network.
+2025-11-13 17:10:21,033 - DEBUG - network - Added connection fuel2_valve_combustion to network.
+2025-11-13 17:10:21,033 - DEBUG - network - Added connection gas_out to network.
+2025-11-13 17:10:21,048 - INFO - network - ########----Network check successful----########
+2025-11-13 17:10:21,048 - DEBUG - network - Solver properties:
+ - mode: design
+ - init_path: None
+ - design_path: None
+ - min_iter: 4
+ - max_iter: 50
+2025-11-13 17:10:21,048 - DEBUG - network - Network information:
+ - Number of components: 10
+ - Number of connections: 10
+ - Number of busses: 0
+2025-11-13 17:10:21,056 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_air_source_compressor', 'fuel1_air_compressor_combustion'] from system variables.
+2025-11-13 17:10:21,057 - DEBUG - network - Removing 1 mass flow variables from ['fuel1_splitter_compressor', 'fuel1_compressor_combustion'] from system variables.
+2025-11-13 17:10:21,057 - DEBUG - network - Removing 1 mass flow variables from ['fuel2_splitter_valve', 'fuel2_valve_combustion'] from system variables.
+2025-11-13 17:10:21,058 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2025-11-13 17:10:21,059 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2025-11-13 17:10:21,061 - DEBUG - base - The fuels for component fuel_combustion of type diabatic combustion chamber are: H2, CH4.
+2025-11-13 17:10:21,062 - DEBUG - base - The fuels for component gas_re_combustion of type diabatic combustion chamber are: H2, CH4.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel1_air_compressor_combustion has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel1_air_source_compressor has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel1_compressor_combustion has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel1_splitter_compressor has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel2_splitter_valve has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel2_valve_combustion has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: fuel_source_splitter has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: gas_out has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: gas_turbine_in has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - connection - The connection: gas_turbine_out has 0 equations.
+2025-11-13 17:10:21,063 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 17:10:21,063 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 17:10:21,064 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 17:10:21,064 - DEBUG - component - The component: air_compressor of type Compressor has 1 equations.
+2025-11-13 17:10:21,064 - DEBUG - component - The component: air_source of type Source has 0 equations.
+2025-11-13 17:10:21,064 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 17:10:21,064 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 equations.
+2025-11-13 17:10:21,064 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 17:10:21,064 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 17:10:21,065 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 17:10:21,065 - DEBUG - characteristics - Created characteristic map function.
+2025-11-13 17:10:21,065 - DEBUG - component - The component: fuel_compressor of type Compressor has 1 equations.
+2025-11-13 17:10:21,065 - DEBUG - component - The component: fuel_source of type Source has 0 equations.
+2025-11-13 17:10:21,065 - DEBUG - component - The component: fuel_splitter of type Splitter has 1 equations.
+2025-11-13 17:10:21,065 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 2 equations.
+2025-11-13 17:10:21,065 - DEBUG - component - The component: gas_sink of type Sink has 0 equations.
+2025-11-13 17:10:21,065 - DEBUG - characteristics - Created characteristic line function.
+2025-11-13 17:10:21,065 - DEBUG - component - The component: gas_turbine of type Turbine has 1 equations.
+2025-11-13 17:10:21,065 - DEBUG - network - ------presolve_batch: 1------
+2025-11-13 17:10:21,067 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: air_compressor
+2025-11-13 17:10:21,069 - DEBUG - network - Has pre_solved equation: <component parameter>: eta_s of Compressor: fuel_compressor
+2025-11-13 17:10:21,069 - DEBUG - network - ------presolve_batch: 2------
+2025-11-13 17:10:21,069 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: fuel_combustion
+2025-11-13 17:10:21,069 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: fuel_splitter
+2025-11-13 17:10:21,069 - DEBUG - network - ------presolve_batch: 3------
+2025-11-13 17:10:21,069 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of DiabaticCombustionChamber: gas_re_combustion
+2025-11-13 17:10:21,069 - DEBUG - network - ------presolve_batch: 4------
+2025-11-13 17:10:21,069 - DEBUG - network - Has removed 5 presolved equations totally.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: air_compressor of type Compressor has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: air_source of type Source has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: fuel_add_valve of type Valve has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: fuel_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: fuel_compressor of type Compressor has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: fuel_source of type Source has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: fuel_splitter of type Splitter has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: gas_re_combustion of type DiabaticCombustionChamber has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: gas_sink of type Sink has 0 variables.
+2025-11-13 17:10:21,069 - DEBUG - component - The component: gas_turbine of type Turbine has 0 variables.
+2025-11-13 17:10:21,083 - INFO - network - ########----Network initialised----########
+2025-11-13 17:10:21,083 - DEBUG - network - ------Equation Summarization------
+2025-11-13 17:10:21,083 - DEBUG - network - Total number of equations: 3
+2025-11-13 17:10:21,083 - DEBUG - network - Number of connection equations: 0.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of component equations: 8.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of bus equations: 0.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of user defined equations: 0.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of presolved equations: 5.
+2025-11-13 17:10:21,083 - DEBUG - network - ------Variable Summarization------
+2025-11-13 17:10:21,083 - DEBUG - network - Total number of variables: 3.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of component variables: 0.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of connection variables: 3.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of mass flow variables: 0.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of pressure variables: 0.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of enthalpy variables: 3.
+2025-11-13 17:10:21,083 - DEBUG - network - ------Fluid Module Summarization------
+2025-11-13 17:10:21,083 - DEBUG - network - Number of fluid composition equations: 14.
+2025-11-13 17:10:21,083 - DEBUG - network - Number of fluid variables: 14.
+2025-11-13 17:10:21,084 - DEBUG - network - the variables list is:
+ [
+  0: <enthalpy objective> in connection: gas_out,
+  1: <enthalpy objective> in connection: gas_turbine_in,
+  2: <enthalpy objective> in connection: gas_turbine_out
+]
+the variables scale is:
+ [1000000. 1000000. 1000000.]
+the equations list is:
+ [
+  0: <component parameter>: eta of DiabaticCombustionChamber: fuel_combustion
+  1: <component parameter>: eta of DiabaticCombustionChamber: gas_re_combustion
+  2: <component parameter>: eta_s of Turbine: gas_turbine
+]
+the residual scale:
+ [10000000. 10000000.  1000000.]
+the fluid variables list is:
+ [
+  0: <fluid objective> in connection: gas_out:H2O fraction
+  1: <fluid objective> in connection: gas_out:H2 fraction
+  2: <fluid objective> in connection: gas_out:N2 fraction
+  3: <fluid objective> in connection: gas_out:CO2 fraction
+  4: <fluid objective> in connection: gas_out:O2 fraction
+  5: <fluid objective> in connection: gas_out:CH4 fraction
+  6: <fluid objective> in connection: gas_out:Ar fraction
+  7: <fluid objective> in connection: gas_turbine_in:H2O fraction
+  8: <fluid objective> in connection: gas_turbine_in:H2 fraction
+  9: <fluid objective> in connection: gas_turbine_in:N2 fraction
+  10: <fluid objective> in connection: gas_turbine_in:CO2 fraction
+  11: <fluid objective> in connection: gas_turbine_in:O2 fraction
+  12: <fluid objective> in connection: gas_turbine_in:CH4 fraction
+  13: <fluid objective> in connection: gas_turbine_in:Ar fraction
+]
+the fluid equations list is:
+ [
+  0: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2O
+  1: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----H2
+  2: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----N2
+  3: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CO2
+  4: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----O2
+  5: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----CH4
+  6: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: fuel_combustion----Ar
+  7: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2O
+  8: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----H2
+  9: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----N2
+  10: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CO2
+  11: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----O2
+  12: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----CH4
+  13: fluid composition equation: stoichiometry_constraints of DiabaticCombustionChamber: gas_re_combustion----Ar
+]
+2025-11-13 17:10:21,084 - DEBUG - network - has no linear dependence in network topology
+2025-11-13 17:10:21,084 - DEBUG - network - the range of variables are: [
+  0: <enthalpy objective> in connection: gas_out------[0.001, 7.0],
+  1: <enthalpy objective> in connection: gas_turbine_in------[0.001, 7.0],
+  2: <enthalpy objective> in connection: gas_turbine_out------[0.001, 7.0]
+]
+2025-11-13 17:10:21,084 - INFO - network - Starting solver.
+2025-11-13 17:10:21,084 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | fluid      | component  
+2025-11-13 17:10:21,084 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 17:10:21,102 - DEBUG - network - the fluid calculation done in 3th iteration
+2025-11-13 17:10:21,109 - PROGRESS - network -  1     | 1.43e+00   | 64 %       | 0.00e+00   | 0.00e+00   | 1.68e-01   | 1.53e-01   | 0.00e+00   
+2025-11-13 17:10:21,111 - DEBUG - network - the fluid calculation done in 0th iteration
+2025-11-13 17:10:21,119 - PROGRESS - network -  2     | 4.41e-04   | 100 %      | 0.00e+00   | 0.00e+00   | 6.24e-04   | 1.53e-01   | 0.00e+00   
+2025-11-13 17:10:21,119 - DEBUG - network - has found the solution in 0th iteration
+2025-11-13 17:10:21,119 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------
+2025-11-13 17:10:21,119 - DEBUG - network - Total iterations: 2, Calculation time: 0.04 s, Iterations per second: 56.88
+2025-11-13 17:10:21,154 - INFO - network - Postprocessing complete.
+2025-11-13 17:10:21,154 - INFO - network - Calculation complete.
+2025-11-13 17:10:21,161 - RESULT - network - 
+##### RESULTS (Compressor) #####
++-----------------+----------+----------+-----------+----------+--------+
+|                 |        P |       pr |        dp |    eta_s |   igva |
+|-----------------+----------+----------+-----------+----------+--------|
+| air_compressor  | 3.21e+07 | 1.53e+01 | -1.40e+01 | 8.50e-01 |    nan |
+| fuel_compressor | 4.29e+05 | 3.33e+00 | -1.05e+01 | 8.50e-01 |    nan |
++-----------------+----------+----------+-----------+----------+--------+
+##### RESULTS (Valve) #####
++----------------+----------+----------+----------+
+|                |       pr |       dp |     zeta |
+|----------------+----------+----------+----------|
+| fuel_add_valve | 8.89e-01 | 5.00e-01 | 1.35e+07 |
++----------------+----------+----------+----------+
+##### RESULTS (DiabaticCombustionChamber) #####
++-------------------+----------+----------+----------+----------+----------+-----------+
+|                   |     lamb |       ti |       pr |       dp |      eta |    Q_loss |
+|-------------------+----------+----------+----------+----------+----------+-----------|
+| fuel_combustion   | 3.31e+00 | 7.12e+07 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -7.12e+05 |
+| gas_re_combustion | 3.17e+01 | 5.18e+06 | 1.00e+00 | 0.00e+00 | [94m9.90e-01[0m | -5.18e+04 |
++-------------------+----------+----------+----------+----------+----------+-----------+
+##### RESULTS (Turbine) #####
++-------------+-----------+----------+----------+----------+
+|             |         P |       pr |       dp |    eta_s |
+|-------------+-----------+----------+----------+----------|
+| gas_turbine | -5.63e+07 | 7.33e-02 | 1.39e+01 | [94m8.80e-01[0m |
++-------------+-----------+----------+----------+----------+
+##### RESULTS (Connection) #####
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
+|                                 |         m |         p |         h |         T |         x |   phase |
+|---------------------------------+-----------+-----------+-----------+-----------+-----------+---------|
+| fuel1_air_compressor_combustion | 7.986e+01 | [94m1.500e+01[0m | [94m6.901e+02[0m | 4.046e+02 | 0.000e+00 |     nan |
+| fuel1_air_source_compressor     | [94m7.986e+01[0m | [94m9.780e-01[0m | [94m2.885e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| fuel1_compressor_combustion     | [94m1.401e+00[0m | [94m1.500e+01[0m | [94m1.292e+03[0m | 1.262e+02 | 0.000e+00 |     nan |
+| fuel1_splitter_compressor       | 1.401e+00 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_splitter_valve            | 1.020e-01 | 4.500e+00 | 9.860e+02 | 1.500e+01 | 0.000e+00 |     nan |
+| fuel2_valve_combustion          | [94m1.020e-01[0m | [94m4.000e+00[0m | 9.860e+02 | 1.487e+01 | 0.000e+00 |     nan |
+| fuel_source_splitter            | [94m1.503e+00[0m | [94m4.500e+00[0m | [94m9.860e+02[0m | 1.500e+01 | 0.000e+00 |     nan |
+| gas_out                         | [94m8.136e+01[0m | [94m1.100e+00[0m | 1.038e+03 | 5.951e+02 | 0.000e+00 |     nan |
+| gas_turbine_in                  | [94m8.126e+01[0m | [94m1.500e+01[0m | 1.661e+03 | 1.113e+03 | 0.000e+00 |     nan |
+| gas_turbine_out                 | 8.126e+01 | [94m1.100e+00[0m | 9.677e+02 | 5.429e+02 | 0.000e+00 |     nan |
++---------------------------------+-----------+-----------+-----------+-----------+-----------+---------+
