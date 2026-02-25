@@ -1,14 +1,6 @@
 # -*- coding: utf-8
 
 """Module of class SolarCollector.
-
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location
-Aurora/components/heat_exchangers/solar_collector.py
-
-SPDX-License-Identifier: MIT
 """
 
 from Aurora.components.component import component_registry
@@ -25,34 +17,22 @@ class SolarCollector(SimpleHeatExchanger):
 
     **Mandatory Equations**
 
-    - :py:meth:`tespy.components.component.Component.fluid_func`
-    - :py:meth:`tespy.components.component.Component.mass_flow_func`
+    - :py:meth:`aurora.components.component.Component.fluid_func`
+    - :py:meth:`aurora.components.component.Component.mass_flow_func`
 
     **Optional Equations**
 
-    - :py:meth:`tespy.components.component.Component.pr_func`
-    - :py:meth:`tespy.components.component.Component.zeta_func`
-    - :py:meth:`tespy.components.heat_exchangers.simple.SimpleHeatExchanger.energy_balance_func`
-    - :py:meth:`tespy.components.heat_exchangers.simple.SimpleHeatExchanger.darcy_group_func`
-    - :py:meth:`tespy.components.heat_exchangers.simple.SimpleHeatExchanger.hw_group_func`
-    - :py:meth:`tespy.components.heat_exchangers.solar_collector.SolarCollector.energy_group_func`
+    - :py:meth:`aurora.components.component.Component.pr_func`
+    - :py:meth:`aurora.components.component.Component.zeta_func`
+    - :py:meth:`aurora.components.heat_exchangers.simple.SimpleHeatExchanger.energy_balance_func`
+    - :py:meth:`aurora.components.heat_exchangers.simple.SimpleHeatExchanger.darcy_group_func`
+    - :py:meth:`aurora.components.heat_exchangers.simple.SimpleHeatExchanger.hw_group_func`
+    - :py:meth:`aurora.components.heat_exchangers.solar_collector.SolarCollector.energy_group_func`
 
     Inlets/Outlets
 
     - in1
     - out1
-
-    Image
-
-    .. image:: /api/_images/SolarCollector.svg
-       :alt: flowsheet of the solar collector
-       :align: center
-       :class: only-light
-
-    .. image:: /api/_images/SolarCollector_darkmode.svg
-       :alt: flowsheet of the solar collector
-       :align: center
-       :class: only-dark
 
     Parameters
     ----------
@@ -134,52 +114,6 @@ class SolarCollector(SimpleHeatExchanger):
 
     energy_group : str, dict
         Parametergroup for energy balance of solarthermal collector.
-
-    Example
-    -------
-    The solar collector is used to calculate heat transferred to the heating
-    system from irradiance on a tilted plane. For instance, it is possible to
-    calculate the collector surface area required to transfer a specific amount
-    of heat at a given irradiance. The collector parameters are the linear and
-    the quadratic loss keyfigure as well as the optical effifiency.
-
-    >>> from Aurora.components import Sink, Source, SolarCollector
-    >>> from Aurora.connections import Connection
-    >>> from Aurora.networks import Network
-    >>> import shutil
-    >>> nw = Network()
-    >>> nw.set_attr(p_unit='bar', T_unit='C', h_unit='kJ / kg', iterinfo=False)
-    >>> so = Source('source')
-    >>> si = Sink('sink')
-    >>> sc = SolarCollector('solar collector')
-    >>> sc.component()
-    'solar collector'
-    >>> sc.set_attr(pr=0.95, Q=1e4, design=['pr', 'Q'], offdesign=['zeta'],
-    ...     Tamb=25, A='var', eta_opt=0.92, lkf_lin=1, lkf_quad=0.005, E=8e2)
-    >>> inc = Connection(so, 'out1', sc, 'in1')
-    >>> outg = Connection(sc, 'out1', si, 'in1')
-    >>> nw.add_conns(inc, outg)
-
-    The outlet temperature should be at 90 °C at a constant mass flow, which
-    is determined in the design calculation. In offdesign operation (at a
-    different irradiance) using the calculated surface area and mass flow, it
-    is possible to predict the outlet temperature. It would instead be
-    possible to calulate the change in mass flow required to hold the
-    specified outlet temperature, too.
-
-    >>> inc.set_attr(fluid={'H2O': 1}, T=40, p=3, offdesign=['m'])
-    >>> outg.set_attr(T=90, design=['T'])
-    >>> nw.solve('design')
-    >>> nw.save('tmp.json')
-    >>> round(sc.A.val, 1)
-    14.5
-    >>> sc.set_attr(A=sc.A.val, E=5e2, Tamb=20)
-    >>> nw.solve('offdesign', design_path='tmp.json')
-    >>> round(sc.Q.val, 1)
-    6083.8
-    >>> round(outg.T.val, 1)
-    70.5
-    >>> shutil.rmtree('./tmp.json', ignore_errors=True)
     """
 
     @staticmethod
@@ -192,7 +126,8 @@ class SolarCollector(SimpleHeatExchanger):
             del data[k]
 
         data.update({
-            'E': dc_cp(min_val=0), 'A': dc_cp(min_val=0),
+            'E': dc_cp(min_val=0),
+            'A': dc_cp(min_val=0),
             'eta_opt': dc_cp(min_val=0, max_val=1),
             'lkf_lin': dc_cp(min_val=0),
             'lkf_quad': dc_cp(min_val=0),
@@ -234,10 +169,10 @@ class SolarCollector(SimpleHeatExchanger):
 
         return (
             i.m.val_SI * (o.h.val_SI - i.h.val_SI)
-            - self.A.val * (
-                self.E.val * self.eta_opt.val
-                - (T_m - self.Tamb.val_SI) * self.lkf_lin.val
-                - self.lkf_quad.val * (T_m - self.Tamb.val_SI) ** 2
+            - self.A.val_SI * (
+                self.E.val_SI * self.eta_opt.val_SI
+                - (T_m - self.Tamb.val_SI) * self.lkf_lin.val_SI
+                - self.lkf_quad.val_SI * (T_m - self.Tamb.val_SI) ** 2
             )
         )
 
@@ -284,22 +219,22 @@ class SolarCollector(SimpleHeatExchanger):
         i = self.inl[0]
         o = self.outl[0]
         if self.is_variable(i.m, increment_filter):
-            self.jacobian[k, i.m.J_col] = o.h.val_SI - i.h.val_SI
+            self.network.jacobian[k, i.m.J_col] = o.h.val_SI - i.h.val_SI
         if self.is_variable(i.p, increment_filter):
-            self.jacobian[k, i.p.J_col] = self.numeric_deriv(f, 'p', i)
+            self.network.jacobian[k, i.p.J_col] = self.numeric_deriv(f, 'p', i)
         if self.is_variable(i.h, increment_filter):
-            self.jacobian[k, i.h.J_col] = self.numeric_deriv(f, 'h', i)
+            self.network.jacobian[k, i.h.J_col] = self.numeric_deriv(f, 'h', i)
         if self.is_variable(o.p, increment_filter):
-            self.jacobian[k, o.p.J_col] = self.numeric_deriv(f, 'p', o)
+            self.network.jacobian[k, o.p.J_col] = self.numeric_deriv(f, 'p', o)
         if self.is_variable(o.h, increment_filter):
-            self.jacobian[k, o.h.J_col] = self.numeric_deriv(f, 'h', o)
+            self.network.jacobian[k, o.h.J_col] = self.numeric_deriv(f, 'h', o)
         # custom variables for the energy-group
         for variable_name in self.energy_group.elements:
             parameter = self.get_attr(variable_name)
             if parameter == self.Tamb:
                 continue
             if parameter.is_var:
-                self.jacobian[k, parameter.J_col] = (
+                self.network.jacobian[k, parameter.J_col] = (
                     self.numeric_deriv(f, variable_name, None)
                 )
 
@@ -308,12 +243,12 @@ class SolarCollector(SimpleHeatExchanger):
         i = self.inl[0]
         o = self.outl[0]
 
-        self.Q.val = i.m.val_SI * (o.h.val_SI - i.h.val_SI)
-        self.pr.val = o.p.val_SI / i.p.val_SI
-        self.zeta.val = self.calc_zeta(i, o)
+        self.Q.val_SI = i.m.val_SI * (o.h.val_SI - i.h.val_SI)
+        self.pr.val_SI = o.p.val_SI / i.p.val_SI
+        self.zeta.val_SI = self.calc_zeta(i, o)
 
         if self.energy_group.is_set:
-            self.Q_loss.val = -(self.E.val * self.A.val - self.Q.val)
+            self.Q_loss.val_SI = -(self.E.val_SI * self.A.val_SI - self.Q.val_SI)
             self.Q_loss.is_result = True
         else:
             self.Q_loss.is_result = False

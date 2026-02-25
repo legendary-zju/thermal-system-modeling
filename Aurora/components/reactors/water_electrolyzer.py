@@ -1,14 +1,6 @@
 # -*- coding: utf-8
 
 """Module of class WaterElectrolyzer.
-
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location
-Aurora/components/reactors/water_electrolyzer.py
-
-SPDX-License-Identifier: MIT
 """
 
 from Aurora.components.component import Component
@@ -29,40 +21,28 @@ class WaterElectrolyzer(Component):
 
     **Mandatory Equations**
 
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.fluid_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.mass_flow_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.reactor_pressure_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.energy_balance_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.gas_temperature_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.fluid_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.mass_flow_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.reactor_pressure_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.energy_balance_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.gas_temperature_func`
 
     **Optional Equations**
 
     - cooling loop:
 
-      - :py:meth:`tespy.components.component.Component.zeta_func`
-      - :py:meth:`tespy.components.component.Component.pr_func`
+      - :py:meth:`aurora.components.component.Component.zeta_func`
+      - :py:meth:`aurora.components.component.Component.pr_func`
 
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.eta_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.eta_char_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.heat_func`
-    - :py:meth:`tespy.components.reactors.water_electrolyzer.WaterElectrolyzer.specific_energy_consumption_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.eta_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.eta_char_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.heat_func`
+    - :py:meth:`aurora.components.reactors.water_electrolyzer.WaterElectrolyzer.specific_energy_consumption_func`
 
     Inlets/Outlets
 
     - in1 (cooling inlet), in2 (feed water inlet)
     - out1 (cooling outlet), out2 (oxygen outlet), out3 (hydrogen outlet)
-
-    Image
-
-    .. image:: /api/_images/WaterElectrolyzer.svg
-       :alt: flowsheet of the water electrolyzer
-       :align: center
-       :class: only-light
-
-    .. image:: /api/_images/WaterElectrolyzer_darkmode.svg
-       :alt: flowsheet of the water electrolyzer
-       :align: center
-       :class: only-dark
 
     Parameters
     ----------
@@ -120,67 +100,6 @@ class WaterElectrolyzer(Component):
     composition built into its equations for the feed water inlet and the
     hydrogen and oxygen outlet. Thus, the user must not specify the fluid
     composition at these connections!
-
-    Example
-    -------
-    Create a water electrolyzer and compress the hydrogen, e.g. for a hydrogen
-    storage.
-
-    >>> from Aurora.components import (Sink, Source, Compressor,
-    ... WaterElectrolyzer)
-    >>> from Aurora.connections import Connection
-    >>> from Aurora.networks import Network
-    >>> import shutil
-    >>> nw = Network(T_unit='C', p_unit='bar', v_unit='l / s', iterinfo=False)
-    >>> fw = Source('feed water')
-    >>> oxy = Sink('oxygen sink')
-    >>> hydro = Sink('hydrogen sink')
-    >>> cw_cold = Source('cooling water source')
-    >>> cw_hot = Sink('cooling water sink')
-    >>> comp = Compressor('compressor', eta_s=0.9)
-    >>> el = WaterElectrolyzer('electrolyzer')
-    >>> el.component()
-    'water electrolyzer'
-
-    The electrolyzer should produce 100 l/s of hydrogen at an operating
-    pressure of 10 bars and an outlet temperature of 50 °C. The fluid
-    composition needs to be specified for the cooling liquid only. The storage
-    pressure is 25 bars. The electrolysis efficiency is at 80 % and the
-    compressor isentropic efficiency at 85 %. After designing the plant the
-    offdesign electrolysis efficiency is predicted by the characteristic line.
-    The default characteristic line can be found here: :py:mod:`tespy.data`.
-
-    >>> fw_el = Connection(fw, 'out1', el, 'in2')
-    >>> el_o = Connection(el, 'out2', oxy, 'in1')
-    >>> el_cmp = Connection(el, 'out3', comp, 'in1')
-    >>> cmp_h = Connection(comp, 'out1', hydro, 'in1')
-    >>> cw_el = Connection(cw_cold, 'out1', el, 'in1')
-    >>> el_cw = Connection(el, 'out1', cw_hot, 'in1')
-    >>> nw.add_conns(fw_el, el_o, el_cmp, cmp_h, cw_el, el_cw)
-    >>> fw_el.set_attr(p=10, T=15)
-    >>> cw_el.set_attr(p=5, T=15, fluid={'H2O': 1})
-    >>> el_cw.set_attr(T=45)
-    >>> cmp_h.set_attr(p=25)
-    >>> el_cmp.set_attr(v=100, T=50)
-    >>> el.set_attr(eta=0.8, pr=0.99, design=['eta', 'pr'],
-    ... offdesign=['eta_char', 'zeta'])
-    >>> comp.set_attr(eta_s=0.85)
-    >>> nw.solve('design')
-    >>> nw.save('tmp')
-    >>> round(el.e0 / el.P.val * el_cmp.m.val_SI, 1)
-    0.8
-    >>> P_design = el.P.val / 1e6
-    >>> round(P_design, 1)
-    13.2
-    >>> nw.solve('offdesign', design_path='tmp')
-    >>> round(el.eta.val, 1)
-    0.8
-    >>> el_cmp.set_attr(v=None)
-    >>> el.set_attr(P=P_design * 0.66)
-    >>> nw.solve('offdesign', design_path='tmp')
-    >>> round(el.eta.val, 2)
-    0.88
-    >>> shutil.rmtree('./tmp', ignore_errors=True)
     """
 
     @staticmethod

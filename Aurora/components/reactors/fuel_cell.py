@@ -1,14 +1,6 @@
 # -*- coding: utf-8
 
 """Module of class FuelCell.
-
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location
-Aurora/components/reactors/fuel_cell.py
-
-SPDX-License-Identifier: MIT
 """
 
 from Aurora.components.component import Component
@@ -26,32 +18,26 @@ class FuelCell(Component):
 
     **Mandatory Equations**
 
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.fluid_func`
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.mass_flow_func`
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.reactor_pressure_func`
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.energy_balance_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.fluid_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.mass_flow_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.reactor_pressure_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.energy_balance_func`
 
     **Optional Equations**
 
     - cooling loop:
 
-      - :py:meth:`tespy.components.component.Component.zeta_func`
-      - :py:meth:`tespy.components.component.Component.pr_func`
+      - :py:meth:`aurora.components.component.Component.zeta_func`
+      - :py:meth:`aurora.components.component.Component.pr_func`
 
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.eta_func`
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.heat_func`
-    - :py:meth:`tespy.components.reactors.fuel_cell.FuelCell.specific_energy_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.eta_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.heat_func`
+    - :py:meth:`aurora.components.reactors.fuel_cell.FuelCell.specific_energy_func`
 
     Inlets/Outlets
 
     - in1 (cooling inlet), in2 (oxygen inlet), in3 (hydrogen inlet)
     - out1 (cooling outlet), out2 (water outlet)
-
-    Image
-
-    .. image:: _images/FuelCell.svg
-       :alt: alternative text
-       :align: center
 
     Parameters
     ----------
@@ -105,48 +91,6 @@ class FuelCell(Component):
     built into its equations for the feed hydrogen and oxygen inlets as well
     as the water outlet. Thus, the user must not specify the fluid composition
     at these connections!
-
-    Example
-    -------
-    The example shows a simple adaptation of the fuel cell. It works with water
-    as cooling fluid.
-
-    >>> from Aurora.components import (Sink, Source, FuelCell)
-    >>> from Aurora.connections import Connection
-    >>> from Aurora.networks import Network
-    >>> from Aurora.tools import ComponentCharacteristics as dc_cc
-    >>> import shutil
-    >>> nw = Network(T_unit='C', p_unit='bar', v_unit='l / s', iterinfo=False)
-    >>> fc = FuelCell('fuel cell')
-    >>> fc.component()
-    'fuel cell'
-    >>> oxygen_source = Source('oxygen_source')
-    >>> hydrogen_source = Source('hydrogen_source')
-    >>> cw_source = Source('cw_source')
-    >>> cw_sink = Sink('cw_sink')
-    >>> water_sink = Sink('water_sink')
-    >>> cw_in = Connection(cw_source, 'out1', fc, 'in1')
-    >>> cw_out = Connection(fc, 'out1', cw_sink, 'in1')
-    >>> oxygen_in = Connection(oxygen_source, 'out1', fc, 'in2')
-    >>> hydrogen_in = Connection(hydrogen_source, 'out1', fc, 'in3')
-    >>> water_out = Connection(fc, 'out2', water_sink, 'in1')
-    >>> nw.add_conns(cw_in, cw_out, oxygen_in, hydrogen_in, water_out)
-
-    The fuel cell shall produce 200kW of electrical power and 200kW of heat
-    with an efficiency of 0.45. The thermodynamic parameters of the input
-    oxygen and hydrogen are given, the mass flow rates are calculated out of
-    the given power output. The cooling fluid is pure water.
-
-    >>> fc.set_attr(eta=0.45, P=-200e03, Q=-200e03, pr=0.9)
-    >>> cw_in.set_attr(T=25, p=1, m=1, fluid={'H2O': 1})
-    >>> oxygen_in.set_attr(T=25, p=1)
-    >>> hydrogen_in.set_attr(T=25)
-    >>> nw.solve('design')
-    >>> P_design = fc.P.val / 1e3
-    >>> round(P_design, 0)
-    -200.0
-    >>> round(fc.eta.val, 2)
-    0.45
     """
     @staticmethod
     def component():
