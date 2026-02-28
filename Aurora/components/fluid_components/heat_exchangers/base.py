@@ -55,6 +55,8 @@ class HeatExchanger(FluidComponent):
 
     - :py:class:`AURORA.components.heat_exchangers.condenser.Condenser`
     - :py:class:`AURORA.components.heat_exchangers.desuperheater.Desuperheater`
+    - :py:class:`AURORA.components.heat_exchangers.evaporator.Evaporator`
+    - :py:class:`AURORA.components.heat_exchangers.extract_heat_exchanger.ExtractHeatExchanger`
 
     **Mandatory Equations**
 
@@ -64,7 +66,7 @@ class HeatExchanger(FluidComponent):
 
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.energy_balance_hot_func`
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.kA_func`
-    - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.kA_char_func`
+    - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.KDTA_func`
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.DTU_func`
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.DTL_func`
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.eff_cold_func`
@@ -72,8 +74,8 @@ class HeatExchanger(FluidComponent):
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.eff_max_func`
     - hot side :py:meth:`AURORA.components.component.Component.pr_func`
     - cold side :py:meth:`AURORA.components.component.Component.pr_func`
-    - hot side :py:meth:`AURORA.components.component.Component.zeta_func`
-    - cold side :py:meth:`AURORA.components.component.Component.zeta_func`
+    - hot side :py:meth:`AURORA.components.component.Component.dp_func`
+    - cold side :py:meth:`AURORA.components.component.Component.dp_func`
 
     Inlets/Outlets
 
@@ -116,12 +118,10 @@ class HeatExchanger(FluidComponent):
         Outlet to inlet pressure ratio at cold side, :math:`pr/1`.
 
     dp1 : float, dict, :code:`"var"`
-        Inlet to outlet pressure delta at hot side, unit is the network's
-        pressure unit!.
+        Inlet to outlet pressure delta at hot side.
 
     dp2 : float, dict, :code:`"var"`
-        Inlet to outlet pressure delta at cold side, unit is the network's
-        pressure unit!.
+        Inlet to outlet pressure delta at cold side.
 
     zeta1 : float, dict, :code:`"var"`
         Geometry independent friction coefficient at hot side,
@@ -2069,8 +2069,8 @@ class HeatExchanger(FluidComponent):
 
         Parameters
         ----------
-        bus : tespy.connections.bus.Bus
-            TESPy bus object.
+        bus : aurora.connections.bus.Bus
+            AURORA bus object.
 
         Returns
         -------
@@ -2102,8 +2102,8 @@ class HeatExchanger(FluidComponent):
 
         Parameters
         ----------
-        bus : tespy.connections.bus.Bus
-            TESPy bus object.
+        bus : aurora.connections.bus.Bus
+            AURORA bus object.
 
         Returns
         -------
@@ -2120,8 +2120,8 @@ class HeatExchanger(FluidComponent):
 
         Parameters
         ----------
-        bus : tespy.connections.bus.Bus
-            TESPy bus object.
+        bus : aurora.connections.bus.Bus
+            AURORA bus object.
 
         Returns
         -------
@@ -2151,7 +2151,7 @@ class HeatExchanger(FluidComponent):
 
         Parameters
         ----------
-        c : tespy.connections.connection.Connection
+        c : aurora.connections.connection.Connection
             Connection to perform initialisation on.
 
         key : str
@@ -2185,7 +2185,7 @@ class HeatExchanger(FluidComponent):
 
         Parameters
         ----------
-        c : tespy.connections.connection.Connection
+        c : aurora.connections.connection.Connection
             Connection to perform initialisation on.
 
         key : str

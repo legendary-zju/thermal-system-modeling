@@ -1,13 +1,6 @@
 # -*- coding: utf-8
 
 """Module of class Separator.
-
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location Aurora/components/distributors/separator.py
-
-SPDX-License-Identifier: MIT
 """
 
 from Aurora.components.component import component_registry
@@ -29,27 +22,15 @@ class Separator(NodeBase):
 
     **Mandatory Equations**
 
-    - :py:meth:`tespy.components.distributors.base.NodeBase.mass_flow_func`
-    - :py:meth:`tespy.components.distributors.base.NodeBase.pressure_equality_func`
-    - :py:meth:`tespy.components.distributors.separator.Separator.fluid_func`
-    - :py:meth:`tespy.components.distributors.separator.Separator.energy_balance_func`
+    - :py:meth:`aurora.components.distributors.base.NodeBase.mass_flow_func`
+    - :py:meth:`aurora.components.distributors.base.NodeBase.pressure_equality_func`
+    - :py:meth:`aurora.components.distributors.separator.Separator.fluid_func`
+    - :py:meth:`aurora.components.distributors.separator.Separator.energy_balance_func`
 
     Inlets/Outlets
 
     - in1
     - specify number of outlets with :code:`num_out` (default value: 2)
-
-    Image
-
-    .. image:: /api/_images/Splitter.svg
-       :alt: flowsheet of the splitter
-       :align: center
-       :class: only-light
-
-    .. image:: /api/_images/Splitter_darkmode.svg
-       :alt: flowsheet of the splitter
-       :align: center
-       :class: only-dark
 
     Note
     ----
@@ -84,55 +65,6 @@ class Separator(NodeBase):
 
     num_out : float, dict
         Number of outlets for this component, default value: 2.
-
-    Example
-    -------
-    The separator is used to split up a single mass flow into a specified
-    number of different parts at identical pressure and temperature but
-    different fluid composition. Fluids can be separated from each other.
-
-    >>> from Aurora.components import Sink, Source, Separator
-    >>> from Aurora.connections import Connection
-    >>> from Aurora.networks import Network
-    >>> import shutil
-    >>> nw = Network(p_unit='bar', T_unit='C', iterinfo=False)
-    >>> so = Source('source')
-    >>> si1 = Sink('sink1')
-    >>> si2 = Sink('sink2')
-    >>> s = Separator('separator', num_out=2)
-    >>> s.component()
-    'separator'
-    >>> inc = Connection(so, 'out1', s, 'in1')
-    >>> outg1 = Connection(s, 'out1', si1, 'in1')
-    >>> outg2 = Connection(s, 'out2', si2, 'in1')
-    >>> nw.add_conns(inc, outg1, outg2)
-
-    An Air (simplified) mass flow of 5 kg/s is split up into two mass flows.
-    One mass flow of 1 kg/s containing 10 % oxygen and 90 % nitrogen leaves the
-    separator. It is possible to calculate the fluid composition of the second
-    mass flow. Specify starting values for the second mass flow fluid
-    composition for calculation stability.
-
-    >>> inc.set_attr(fluid={'O2': 0.23, 'N2': 0.77}, p=1, T=20, m=5)
-    >>> outg1.set_attr(fluid={'O2': 0.1, 'N2': 0.9}, m=1)
-    >>> outg2.set_attr(fluid0={'O2': 0.5, 'N2': 0.5})
-    >>> nw.solve('design')
-    >>> outg2.fluid.val['O2']
-    0.2625
-
-    In the same way, it is possible to specify one of the fluid components in
-    the second mass flow instead of the first mass flow. The solver will find
-    the mass flows matching the desired composition. 65 % of the mass flow
-    will leave the separator at the second outlet the case of 30 % oxygen
-    mass fraction for this outlet.
-
-    >>> outg1.set_attr(m=None)
-    >>> outg2.set_attr(fluid={'O2': 0.3})
-    >>> nw.solve('design')
-    >>> outg2.fluid.val['O2']
-    0.3
-    >>> round(outg2.m.val_SI / inc.m.val_SI, 2)
-    0.65
     """
 
     @staticmethod

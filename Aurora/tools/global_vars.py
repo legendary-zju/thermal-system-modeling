@@ -197,6 +197,42 @@ electromagnetic_property_data = {
         'latex_eq': r'0 = f - f_\mathrm{spec}',
         'documentation': {'float_fmt': '{:,.3f}'}
     },
+    'Ie': {
+        'text': 'optical intensity',
+        'SI_unit': 'W/m^2',
+        'units': {
+            'W/m^2': 1, 'lux': 1/683,
+        },
+        'type': 'ratio',
+        'equal': '',
+        'differ': 1e-4,
+        'latex_eq': r'0 = Ie - Ie_\mathrm{spec}',
+        'documentation': {'float_fmt': '{:,.3f}'}
+    },
+    'IB': {
+        'text': 'luminous intensity',
+        'SI_unit': 'cd',
+        'units': {
+            'cd': 1,
+        },
+        'type': 'ratio',
+        'equal': '',
+        'differ': 1e-4,
+        'latex_eq': r'0 = IB - IB_\mathrm{spec}',
+        'documentation': {'float_fmt': '{:,.3f}'}
+    },
+    'Im': {
+        'text': 'luminous flux',
+        'SI_unit': 'lm',
+        'units': {
+            'lm': 1,
+        },
+        'type': 'ratio',
+        'equal': '',
+        'differ': 1e-4,
+        'latex_eq': r'0 = Im - Im_\mathrm{spec}',
+        'documentation': {'float_fmt': '{:,.3f}'}
+    },
 
 }
 
@@ -548,9 +584,9 @@ space_time_property_data = {
 mathematical_property_data = {
     'n': {
         'text': 'differ number',
-        'SI_unit': '',
+        'SI_unit': '-',
         'units': {
-
+            '-': 1
         },
         'type': 'ratio',
         'equal': '',

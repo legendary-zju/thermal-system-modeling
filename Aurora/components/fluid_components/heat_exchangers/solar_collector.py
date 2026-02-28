@@ -8,6 +8,11 @@ from Aurora.components.fluid_components.heat_exchangers.simple import SimpleHeat
 from Aurora.tools.data_containers import ComponentProperties as dc_cp
 from Aurora.tools.data_containers import GroupedComponentProperties as dc_gcp
 from Aurora.tools.document_models import generate_latex_eq
+from Aurora.tools.global_vars import property_scale as ps
+from Aurora.tools.global_vars import fluid_property_data as fpd
+from Aurora.tools.global_vars import component_property_data as cpd
+from Aurora.tools.global_vars import electromagnetic_property_data as epd
+from Aurora.tools.global_vars import space_time_property_data as stpd
 
 
 @component_registry
@@ -95,19 +100,14 @@ class SolarCollector(SimpleHeatExchanger):
         :math:`E/\frac{\text{W}}{\text{m}^2}`.
 
     eta_opt : float, dict, :code:`"var"`
-        optical loss at surface cover,
+        optical loss coefficient at surface cover,
         :math:`\eta_{opt}`.
 
-    lkf_lin : float, dict, :code:`"var"`
-        Linear thermal loss key figure,
-        :math:`\alpha_1/\frac{\text{W}}{\text{K} \cdot \text{m}^2}`.
-
-    lkf_quad : float, dict, :code:`"var"`
-        Quadratic thermal loss key figure,
-        :math:`\alpha_2/\frac{\text{W}}{\text{K}^2 \cdot \text{m}^2}`.
-
-    A : float, dict, :code:`"var"`
+    fA : float, dict, :code:`"var"`
         Collector surface area :math:`A/\text{m}^2`.
+
+    hf : float
+        Heat flow rate, :math:`hf/\frac{\text{W}}{\text{K}}`.
 
     Tamb : float, dict
         Ambient temperature, provide parameter in network's temperature unit.
@@ -122,26 +122,47 @@ class SolarCollector(SimpleHeatExchanger):
 
     def get_parameters(self):
         data = super().get_parameters()
-        for k in ["kA_group", "kA_char_group", "kA", "kA_char"]:
+        for k in ["kA", "kA_char", "kA_fit", "exm"]:
             del data[k]
-
+        #
         data.update({
-            'E': dc_cp(min_val=0),
-            'A': dc_cp(min_val=0),
-            'eta_opt': dc_cp(min_val=0, max_val=1),
-            'lkf_lin': dc_cp(min_val=0),
-            'lkf_quad': dc_cp(min_val=0),
-            'Tamb': dc_cp(),
-            'Q_loss': dc_cp(max_val=0, val=0),
-            'energy_group': dc_gcp(
-                elements=['E', 'eta_opt', 'lkf_lin', 'lkf_quad', 'A', 'Tamb'],
-                num_eq=1, latex=self.energy_group_func_doc,
-                func=self.energy_group_func, deriv=self.energy_group_deriv
+            'E': dc_cp(
+                min_val=0,
+                is_property=True,
+                is_result=True,
+                property_data=epd['Ie'],
+                SI_unit=epd['Ie']['SI_unit'],
+            ),
+            'eta_opt': dc_cp(
+                min_val=0,
+                max_val=1,
+                is_property=True,
+                is_result=True,
+                property_data=cpd['eta'],
+                SI_unit=cpd['eta']['SI_unit'],
+            ),
+            'Q_loss': dc_cp(
+                max_val=0,
+                val=0,
+                is_result=True,
+                property_data=cpd['Q'],
+                SI_unit=cpd['Q']['SI_unit'],
+            ),
+            'energy': dc_gcp(
+                elements=['E', 'eta_opt', 'hf', 'fA', 'Tamb'],
+                num_eq=1,
+                is_set=True,
+                latex=self.energy_func_doc,
+                func=self.energy_func,
+                deriv=self.energy_deriv,
+                variables_columns=self.energy_variables_columns,
+                solve_isolated=self.energy_solve_isolated,
+                scale=ps['m']['scale'] * ps['h']['scale'],
             )
         })
         return data
 
-    def energy_group_func(self):
+    def energy_func(self):
         r"""
         Equation for solar collector energy balance.
 
@@ -164,19 +185,16 @@ class SolarCollector(SimpleHeatExchanger):
         """
         i = self.inl[0]
         o = self.outl[0]
-
-        T_m = 0.5 * (i.calc_T() + o.calc_T())
-
+        T_m = (i.calc_T() + o.calc_T()) / 2
         return (
             i.m.val_SI * (o.h.val_SI - i.h.val_SI)
-            - self.A.val_SI * (
+            - self.fA.val_SI * (
                 self.E.val_SI * self.eta_opt.val_SI
-                - (T_m - self.Tamb.val_SI) * self.lkf_lin.val_SI
-                - self.lkf_quad.val_SI * (T_m - self.Tamb.val_SI) ** 2
+                - (T_m - self.Tamb.val_SI) * self.hf.val_SI
             )
         )
 
-    def energy_group_func_doc(self, label):
+    def energy_func_doc(self, label):
         r"""
         Equation for solar collector energy balance.
 
@@ -203,7 +221,28 @@ class SolarCollector(SimpleHeatExchanger):
         )
         return generate_latex_eq(self, latex, label)
 
-    def energy_group_deriv(self, increment_filter, k):
+    def energy_variables_columns(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        variables_columns1 = [data.J_col for data in [i.m, i.h, o.h] if data.is_var]
+        variables_columns1.sort()
+        return [variables_columns1]
+
+    def energy_solve_isolated(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.m.is_var and not i.h.is_var and not o.h.is_var:
+            T_m = (i.calc_T() + o.calc_T()) / 2
+            i.m.val_SI = self.fA.val_SI * (
+                self.E.val_SI * self.eta_opt.val_SI
+                - (T_m - self.Tamb.val_SI) * self.hf.val_SI
+            ) / (o.h.val_SI - i.h.val_SI)
+            i.m.is_set = True
+            i.m.is_var = False
+            return True
+        return False
+
+    def energy_deriv(self, increment_filter, k):
         r"""
         Calculate partial derivatives of energy group function.
 
@@ -215,28 +254,24 @@ class SolarCollector(SimpleHeatExchanger):
         k : int
             Position of derivatives in Jacobian matrix (k-th equation).
         """
-        f = self.energy_group_func
+        f = self.energy_func
         i = self.inl[0]
         o = self.outl[0]
         if self.is_variable(i.m, increment_filter):
             self.network.jacobian[k, i.m.J_col] = o.h.val_SI - i.h.val_SI
-        if self.is_variable(i.p, increment_filter):
-            self.network.jacobian[k, i.p.J_col] = self.numeric_deriv(f, 'p', i)
         if self.is_variable(i.h, increment_filter):
             self.network.jacobian[k, i.h.J_col] = self.numeric_deriv(f, 'h', i)
-        if self.is_variable(o.p, increment_filter):
-            self.network.jacobian[k, o.p.J_col] = self.numeric_deriv(f, 'p', o)
         if self.is_variable(o.h, increment_filter):
             self.network.jacobian[k, o.h.J_col] = self.numeric_deriv(f, 'h', o)
         # custom variables for the energy-group
-        for variable_name in self.energy_group.elements:
-            parameter = self.get_attr(variable_name)
-            if parameter == self.Tamb:
-                continue
-            if parameter.is_var:
-                self.network.jacobian[k, parameter.J_col] = (
-                    self.numeric_deriv(f, variable_name, None)
-                )
+        # for variable_name in self.energy_group.elements:
+        #     parameter = self.get_attr(variable_name)
+        #     if parameter == self.Tamb:
+        #         continue
+        #     if parameter.is_var:
+        #         self.network.jacobian[k, parameter.J_col] = (
+        #             self.numeric_deriv(f, variable_name, None)
+        #         )
 
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""
@@ -245,10 +280,11 @@ class SolarCollector(SimpleHeatExchanger):
 
         self.Q.val_SI = i.m.val_SI * (o.h.val_SI - i.h.val_SI)
         self.pr.val_SI = o.p.val_SI / i.p.val_SI
+        self.dp.val_SI = i.p.val_SI - o.p.val_SI
         self.zeta.val_SI = self.calc_zeta(i, o)
 
         if self.energy_group.is_set:
-            self.Q_loss.val_SI = -(self.E.val_SI * self.A.val_SI - self.Q.val_SI)
+            self.Q_loss.val_SI = -(self.E.val_SI * self.fA.val_SI - self.Q.val_SI)
             self.Q_loss.is_result = True
         else:
             self.Q_loss.is_result = False

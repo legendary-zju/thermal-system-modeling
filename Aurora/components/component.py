@@ -112,6 +112,11 @@ class Component:
         self.nodes = pd.DataFrame(columns=list(range(self.nodes_num))).astype(object)
 
         # add container for components attributes
+        properties = self.set_properties().copy()
+        for key, value in kwargs.items():
+            if key in properties:
+                properties[key].val = value
+        self.__dict__.update(properties)
         self.parameters = self.get_parameters().copy()
         self.__dict__.update(self.parameters)  # add property of comp instance
         self.set_attr(**kwargs)  # update the value of property
@@ -426,6 +431,9 @@ class Component:
         """
         return 0
 
+    def set_properties(self):
+        return {}
+
     def get_parameters(self):  #
         return {}
 
@@ -523,9 +531,9 @@ class Component:
                 for e in data.elements:  # make sure all elements of grouped component properties be set
                     if not self.get_attr(e).is_set:  # make sure all elements used has been set
                         is_set = False
-                if is_set:
+                if is_set and data.is_set:
                     data.set_attr(is_set=True)
-                elif data.is_set:
+                elif data.is_set and not is_set:
                     start = (
                             'All parameters of the component group have to be '
                             'specified! This component group uses the following '

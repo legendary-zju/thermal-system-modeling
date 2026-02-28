@@ -103,16 +103,8 @@ class SimpleHeatExchanger(FluidComponent):
     ks : float, dict, :code:`"var"`
         Pipe's roughness, :math:`ks/\text{m}`.
 
-    darcy_group : str, dict
-        Parametergroup for pressure drop calculation based on pipes dimensions
-        using darcy weissbach equation.
-
     ks_HW : float, dict, :code:`"var"`
         Pipe's roughness, :math:`ks/\text{1}`.
-
-    hw_group : str, dict
-        Parametergroup for pressure drop calculation based on pipes dimensions
-        using hazen williams equation.
 
     kA : float, dict, :code:`"var"`
         Area independent heat transfer coefficient,
@@ -124,9 +116,14 @@ class SimpleHeatExchanger(FluidComponent):
     Tamb : float, dict
         Ambient temperature, provide parameter in network's temperature unit.
 
-    kA_group : str, dict
-        Parametergroup for heat transfer calculation from ambient temperature
-        and area independent heat transfer coefficient kA.
+    hf : float
+        Heat flow rate, :math:`hf/\frac{\text{W}}{\text{K}}`.
+
+    exm: float
+        fit coefficient, :math: .
+
+    fA : float
+        Surface area :math:`fA/\text{m}^2`.
 
     Example
     -------
