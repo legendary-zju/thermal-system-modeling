@@ -16,6 +16,8 @@ from .fluid_components.deaerators.deaerator_simple import DeaeratorSimple  # noq
 from .fluid_components.heat_exchangers.parabolic_trough import ParabolicTrough  # noqa: F401
 from .fluid_components.heat_exchangers.simple import SimpleHeatExchanger  # noqa: F401
 from .fluid_components.heat_exchangers.solar_collector import SolarCollector  # noqa: F401
+from .fluid_components.heat_exchangers.boiler_simple import BoilerSimple  # noqa: F401
+from .fluid_components.heat_exchangers.over_heater import OverHeater  # noqa: F401
 from .fluid_components.distributors.droplet_separator import DropletSeparator  # noqa: F401
 from .fluid_components.distributors.evaporate_tank import EvaporateTank  # noqa: F401
 from .fluid_components.distributors.drum import Drum  # noqa: F401

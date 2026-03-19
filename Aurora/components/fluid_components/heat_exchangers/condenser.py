@@ -47,7 +47,7 @@ class Condenser(HeatExchanger):
 
     - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.energy_balance_hot_func`
     - :py:meth:`AURORA.components.heat_exchangers.condenser.Condenser.kA_func`
-    - :py:meth:`AURORA.components.heat_exchangers.condenser.Condenser.kA_char_func`
+    - :py:meth:`AURORA.components.heat_exchangers.base.HeatExchanger.KDTA_func`
     - :py:meth:`AURORA.components.heat_exchangers.condenser.Condenser.DTU_func`
     - :py:meth:`AURORA.components.heat_exchangers.condenser.Condenser.DTL_func`
     - :py:meth:`AURORA.components.heat_exchangers.condenser.Condenser.supercooling_dT_func`

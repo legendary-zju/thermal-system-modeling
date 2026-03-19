@@ -135,6 +135,17 @@ class BoilerSimple(FluidComponent):
                 scale=ps['m']['scale'] * ps['h']['scale'],
                 var_scale=ps['m']['scale'] * ps['h']['scale']
             ),
+            'auto_distribute': dc_simple(
+                val=False,
+                func=self.auto_distribute_func,
+                variables_columns=self.auto_distribute_variables_columns,
+                solve_isolated=self.auto_distribute_solve_isolated,
+                deriv=self.auto_distribute_deriv,
+                tensor=self.auto_distribute_tensor,
+                latex=self.auto_distribute_func_doc,
+                num_eq=self.num_side.val,
+                scale=ps['m']['scale'] * ps['h']['scale'],
+            ),
         }
         for i in range(self.num_side.val):
             data.update({
@@ -147,7 +158,7 @@ class BoilerSimple(FluidComponent):
                     tensor=self.T_out_tensor,
                     latex=self.T_out_func_doc,
                     num_eq=1,
-                    func_params={"inconn": i, "outconn": i, },
+                    func_params={"outconn": i},
                     property_data=fpd['T'],
                     SI_unit=fpd['T']['SI_unit'],
                     scale=ps['DT']['scale'],
@@ -248,16 +259,29 @@ class BoilerSimple(FluidComponent):
         return 0.98
 
     def energy_balance_hot_func(self):
-        pass
+        q = 0
+        for i in range(self.num_side.val):
+            q += self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI)
+        return q - self.Q.val_SI
 
     def energy_balance_hot_variables_columns(self):
-        pass
+        variables_columns1 = [data.J_col for i in range(self.num_side.val)
+                              for data in [self.inl[i].m, self.inl[i].h, self.outl[i].h]
+                              if data.is_var]
+        variables_columns1.sort()
+        return [variables_columns1]
 
     def energy_balance_hot_solve_isolated(self):
-        pass
+        return False
 
     def energy_balance_hot_deriv(self, increment_filter, k):
-        pass
+        for i in range(self.num_side.val):
+            if self.is_variable(self.inl[i].m, increment_filter):
+                self.network.jacobian[k, self.inl[i].m.J_col] = self.outl[i].h.val_SI - self.inl[i].h.val_SI
+            if self.is_variable(self.inl[i].h, increment_filter):
+                self.network.jacobian[k, self.inl[i].h.J_col] = - self.inl[i].m.val_SI
+            if self.is_variable(self.outl[i].h, increment_filter):
+                self.network.jacobian[k, self.outl[i].h.J_col] = self.inl[i].m.val_SI
 
     def energy_balance_hot_tensor(self, increment_filter, k):
         pass
@@ -265,19 +289,93 @@ class BoilerSimple(FluidComponent):
     def energy_balance_hot_func_doc(self, label):
         pass
 
-    def T_out_func(self):
+    def auto_distribute_func(self):
+        residual = []
+        m_all = 0
+        for i in range(self.num_side.val):
+            m_all += self.inl[i].m.val_SI
+        for i in range(self.num_side.val):
+            residual += [self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI) - self.Q.design * self.inl[i].m.val_SI / m_all]
+        return residual
+
+    def auto_distribute_variables_columns(self):
+        variables_columns = []
+        for i in range(self.num_side.val):
+            variables_columnsi = []
+            variables_columnsi += [data.J_col for data in [self.inl[i].m, self.inl[i].h, self.outl[i].h] if data.is_var]
+            variables_columnsi.sort()
+            variables_columns.append(variables_columnsi)
+        return variables_columns
+
+    def auto_distribute_solve_isolated(self):
+        return False
+
+    def auto_distribute_deriv(self, increment_filter, k):
+        m_all = 0
+        for i in range(self.num_side.val):
+            m_all += self.inl[i].m.val_SI
+        for i in range(self.num_side.val):
+            if self.inl[i].m.is_var:
+                self.network.jacobian[k + i, self.inl[i].m.J_col] = ((self.outl[i].h.val_SI - self.inl[i].h.val_SI) -
+                                                                     self.Q.design * (m_all - self.inl[i].m.val_SI) / m_all ** 2)
+            if self.inl[i].h.is_var:
+                self.network.jacobian[k + i, self.inl[i].h.J_col] = - self.inl[i].m.val_SI
+            if self.outl[i].h.is_var:
+                self.network.jacobian[k + i, self.outl[i].h.J_col] = self.inl[i].m.val_SI
+
+    def auto_distribute_tensor(self, increment_filter, k):
         pass
 
-    def T_out_variables_columns(self):
+    def auto_distribute_func_doc(self, label):
         pass
 
-    def T_out_solve_isolated(self):
-        pass
+    def T_out_func(self, outconn):
+        i = outconn
+        return self.outl[i].calc_T() - self.get_attr(f'T_out{i + 1}').val_SI
 
-    def T_out_deriv(self, increment_filter, k):
-        pass
+    def T_out_variables_columns(self, outconn):
+        i = outconn
+        variables_columns1 = [data.J_col
+                              for data in [self.outl[i].h]
+                              if data.is_var]
+        variables_columns1.sort()
+        return [variables_columns1]
 
-    def T_out_tensor(self, increment_filter, k):
+    def T_out_solve_isolated(self, outconn):
+        i = outconn
+        if self.outl[i].p.is_set and not self.outl[i].h.is_set:
+            self.outl[i].h.val_SI = h_mix_pT(self.outl[i].p.val_SI,
+                                             self.get_attr(f'T_out{i + 1}').val_SI,
+                                             self.outl[i].fluid_data,
+                                             self.outl[i].mixing_rule)
+            self.outl[i].h.is_set = True
+            self.outl[i].h.is_var = False
+            self.get_attr(f'T_out{i + 1}').is_set = False
+            return True
+        elif not self.outl[i].p.is_set and self.outl[i].h.is_set:
+            self.outl[i].p.val_SI = p_mix_hT(self.outl[i].h.val_SI,
+                                             self.get_attr(f'T_out{i + 1}').val_SI,
+                                             self.outl[i].fluid_data,
+                                             self.outl[i].mixing_rule
+                                             )
+            self.outl[i].p.is_set = True
+            self.outl[i].p.is_var = False
+            self.get_attr(f'T_out{i + 1}').is_set = False
+            return True
+        elif self.outl[i].p.is_set and self.outl[i].h.is_set:
+            self.get_attr(f'T_out{i + 1}').is_set = False
+            return True
+        return False
+
+    def T_out_deriv(self, increment_filter, k, outconn):
+        i = outconn
+        if self.outl[i].h.is_var:
+            self.network.jacobian[k, self.outl[i].h.J_col] = dT_mix_pdh(self.outl[i].p.val_SI,
+                                                                        self.outl[i].h.val_SI,
+                                                                        self.outl[i].fluid_data,
+                                                                        self.outl[i].mixing_rule)
+
+    def T_out_tensor(self, increment_filter, k, outconn):
         pass
 
     def T_out_func_doc(self, label):

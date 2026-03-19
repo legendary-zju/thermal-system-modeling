@@ -762,8 +762,8 @@ class CombustionChamber(FluidComponent):
         # molar mass flow for fuel and oxygen
         n_fuel = {}  # molar number of each single element
         n_oxy_stoich = {}  # molar number of oxygen required for each fuel composition
-        n_h = 0  # number of element hydrogen
-        n_c = 0  # number of element carbon
+        n_h = 0  # number of element hydrogen of fuel
+        n_c = 0  # number of element carbon of fuel
         for f in self.fuel_list:
             n_fuel[f] = 0
             for i in inl:
