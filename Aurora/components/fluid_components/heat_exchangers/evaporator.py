@@ -70,6 +70,8 @@ class Evaporator(HeatExchanger):
                 T = 400 + 273.15  #
                 return h_mix_pT(c.p.val_SI, T, c.fluid_data, c.mixing_rule)
             else:  # steam side (be heated)
+                if c.p.val_SI > c.calc_p_critical():
+                    c.p.val_SI = c.calc_p_critical() - 1e1
                 return h_mix_pQ(c.p.val_SI, 1, c.fluid_data)
 
     def initialise_target(self, c, key):

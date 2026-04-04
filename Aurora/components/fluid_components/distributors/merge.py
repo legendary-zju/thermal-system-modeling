@@ -145,6 +145,13 @@ class Merge(NodeBase):
                     p_value_set_container.append(conn.p.val)
                 if conn.p.is_shared:
                     conn_p_shared_container.append(conn)
+            # contain all shared connection within the system
+            if conn_p_shared_container:
+                all_sys_conn_p_shared_list = list(set([c for c_shared in conn_p_shared_container
+                                                       for c in c_shared.p.shared_connection]
+                                                      + self.inl + self.outl))
+            else:
+                all_sys_conn_p_shared_list = self.inl + self.outl
             # simplify pressure objective
             if conn_p_shared_container:
                 for conn in set([c for c_shared in conn_p_shared_container for c in c_shared.p.shared_connection]
@@ -165,11 +172,12 @@ class Merge(NodeBase):
                     # set p value
                     outconn.p.val = p_value_set_container[0]
                     outconn.p.is_set = True
-            # posterior
-            for conn in self.inl + self.outl:
+            # pressure object posterior
+            for conn in all_sys_conn_p_shared_list:
                 conn.p.is_shared = True
                 if conn not in conn.p.shared_connection:
                     conn.p.shared_connection.append(conn)
+            #
             outconn.target.simplify_pressure_enthalpy_mass_topology(outconn)
 
     def spread_forward_pressure_values(self, inconni):

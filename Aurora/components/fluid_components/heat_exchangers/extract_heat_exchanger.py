@@ -42,6 +42,8 @@ class ExtractHeatExchanger(HeatExchanger):
             return 10e5 * 0.11
         elif key == 'h':
             if c.source_id == 'out1':  # saturated liquid
+                if c.p.val_SI > c.calc_p_critical():
+                    c.p.val_SI = c.calc_p_critical() - 1e1
                 return h_mix_pQ(c.p.val_SI, 0, c.fluid_data)
             else:
                 T = 100 + 273.15

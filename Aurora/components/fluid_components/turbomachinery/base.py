@@ -131,9 +131,9 @@ class Turbomachine(FluidComponent):
             elif outconn.p.is_set:
                 return outconn.p.val_SI / (outconn.p.val_SI + self.dp.val_SI)
         if self.__class__.__name__ in ['Turbine', 'SteamTurbine']:
-            factor = 0.2
+            factor = 0.9
         elif self.__class__.__name__ in ['Compressor', 'Pump']:
-            factor = 5
+            factor = 1.1
         else:
             factor = 1
         return factor

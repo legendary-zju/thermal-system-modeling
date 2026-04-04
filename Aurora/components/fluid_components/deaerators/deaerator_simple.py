@@ -69,6 +69,8 @@ class DeaeratorSimple(Merge):
         if key == 'p':
             return 5e5
         elif key == 'h':
+            if c.p.val_SI > c.calc_p_critical():
+                c.p.val_SI = c.calc_p_critical() - 1e1
             if c.target_id == 'in1':
                 return h_mix_pQ(c.p.val_SI, 0, c.fluid_data) * 0.95
             else:
@@ -102,6 +104,8 @@ class DeaeratorSimple(Merge):
         if key == 'p':
             return 2e5
         elif key == 'h':
+            if c.p.val_SI > c.calc_p_critical():
+                c.p.val_SI = c.calc_p_critical() - 1e1
             return h_mix_pQ(c.p.val_SI, 0, c.fluid_data)
 
     @staticmethod

@@ -172,6 +172,21 @@ class Condenser(HeatExchanger):
                 tensor=self.subcooling_tensor,
                 num_eq=1,
                 scale=ps['h']['scale']),
+            'DTU_sh': dc_cp(
+                min_val=0,
+                func=self.DTU_sh_func,
+                variables_columns=self.DTU_sh_variables_columns,
+                solve_isolated=self.DTU_sh_solve_isolated,
+                deriv=self.DTU_sh_deriv,
+                repair_matrix=self.DTU_sh_repair_matrix,
+                tensor=self.DTU_sh_tensor,
+                latex=None,
+                num_eq=1,
+                property_data=cpd['DT'],
+                SI_unit=cpd['DT']['SI_unit'],
+                scale=ps['DT']['scale'],
+                var_scale=ps['DT']['scale']
+            ),
             'supercooling_dT': dc_cp(
                 min_val=0,
                 func=self.supercooling_dT_func,
@@ -238,6 +253,8 @@ class Condenser(HeatExchanger):
             return 10e5 * 0.11
         elif key == 'h':
             if c.source_id == 'out1':  # saturated liquid
+                if c.p.val_SI > c.calc_p_critical():
+                    c.p.val_SI = c.calc_p_critical() - 1e1
                 return h_mix_pQ(c.p.val_SI, 0, c.fluid_data)
             else:
                 T = 100 + 273.15
@@ -691,6 +708,12 @@ class Condenser(HeatExchanger):
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""
         super().calc_parameters()
+        try:
+            i = self.inl[0]
+            o = self.outl[1]
+            self.DTU_sh.val_SI = i.calc_T_sat() - o.calc_T()
+        except ValueError:
+            self.DTU_sh.val_SI = np.nan
         if self.network.converged:
             self.fA.val_SI = self.KDTA.val_SI / self.hf2.val_SI
         else:

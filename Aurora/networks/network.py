@@ -2283,6 +2283,12 @@ class Network:
                 if len(cp.get_attr(self.specifications['lookup'][spec])) > 0:  # comp.spec_specifications
                     self.specifications[cls][spec].loc[cp.label] = (
                         cp.get_attr(self.specifications['lookup'][spec]))
+        ######------ check parameters state -----#####
+        for property in (self.node_mass_flow_objective_container +
+                         self.node_pressure_objective_container +
+                         self.node_enthalpy_objective_container):
+            if property.is_set:
+                property.is_var = False
         ######------ solve isolated equations in advance ------######
         self.num_presolved_eqs = 0
         presolve_equation_continue = True
@@ -3083,7 +3089,10 @@ class Network:
             # algorithm core
             try:
                 increment = np.linalg.inv(self.jacobian) @ self.residual
-                alpha = min(1, (2 * self.num_vars * self.algo_factor / norm(increment)) ** 0.5)
+                if self.mode == 'offdesign':
+                    alpha = min(1, (2 * self.num_vars * self.algo_factor / norm(increment)) ** 0.5)
+                else:
+                    alpha = 1
                 # hessian = self.jacobian.T @ self.jacobian + 0 * np.eye(self.num_vars)
                 # increment = np.zeros([self.num_vars])
                 # gradient = - self.jacobian.T @ self.residual
@@ -3364,7 +3373,7 @@ class Network:
                     np.nan,
                     variable_objective_.unit
                 ]
-                if self.sorted_variables_objective[i]['type'] == 'mass flow' and variable_objective_.design:
+                if self.sorted_variables_objective[i]['type'] == 'mass flow' and variable_objective_.design and self.mode == 'offdesign':
                     self.variables_vector[i] = variable_objective_.design / variable_objective_.scale + 1e-3
                 else:
                     self.variables_vector[i] = self.lb[i] + 1e-3
@@ -3377,7 +3386,7 @@ class Network:
                     convert_from_SI(variable_objective_.property_data, self.ub[i] * self.variables_scale[i], variable_objective_.unit),
                     variable_objective_.unit
                 ]
-                if self.sorted_variables_objective[i]['type'] == 'mass flow' and variable_objective_.design:
+                if self.sorted_variables_objective[i]['type'] == 'mass flow' and variable_objective_.design and self.mode == 'offdesign':
                     self.variables_vector[i] = variable_objective_.design / variable_objective_.scale - 1e-3
                 else:
                     self.variables_vector[i] = self.ub[i] - 1e-3

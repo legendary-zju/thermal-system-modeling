@@ -121,11 +121,26 @@ class EvaporateTank(Drum):
                     p_value_set_container.append(conn.p.val)
                 if conn.p.is_shared:
                     conn_p_shared_container.append(conn)
+            for conn in [self.outl[0], self.outl[2]]:
                 if conn.h.is_set:
                     conn_h_set_container.append(conn)
                     h_value_set_container.append(conn.h.val)
                 if conn.h.is_shared:
                     conn_h_shared_container.append(conn)
+            # contain all pressure shared connection within the system
+            if conn_p_shared_container:
+                all_sys_conn_p_shared_list = list(set([c for c_shared in conn_p_shared_container
+                                                        for c in c_shared.p.shared_connection]
+                                                        + self.inl + self.outl))
+            else:
+                all_sys_conn_p_shared_list = self.inl + self.outl
+            # contain all enthalpy shared connection within the system
+            if conn_h_shared_container:
+                all_sys_conn_h_shared_list = list(set([c for c_shared in conn_h_shared_container
+                                                        for c in c_shared.h.shared_connection]
+                                                        + [self.outl[0], self.outl[2]]))
+            else:
+                all_sys_conn_h_shared_list = [self.outl[0], self.outl[2]]
             # simplify pressure objective
             if conn_p_shared_container:
                 for conn in set([c for c_shared in conn_p_shared_container for c in c_shared.p.shared_connection]
@@ -172,15 +187,18 @@ class EvaporateTank(Drum):
                     outconn_main.h.val = h_value_set_container[0]
                     outconn_main.h.is_set = True
                     outconn_main.h.is_var = False
-            # posterior
-            for conn in self.inl + self.outl:
+            #
+            # pressure object posterior
+            for conn in all_sys_conn_p_shared_list:
                 conn.p.is_shared = True
                 if conn not in conn.p.shared_connection:
                     conn.p.shared_connection.append(conn)
-            for outconn in [self.outl[0], self.outl[2]]:
-                outconn.h.is_shared = True
-                if outconn not in outconn.h.shared_connection:
-                    outconn.h.shared_connection.append(outconn)
+            # enthalpy object posterior
+            for conn in all_sys_conn_h_shared_list:
+                conn.h.is_shared = True
+                if conn not in conn.h.shared_connection:
+                    conn.h.shared_connection.append(conn)
+            #
             for outconn in self.outl:
                 outconn.target.simplify_pressure_enthalpy_mass_topology(outconn)
 
@@ -510,6 +528,8 @@ class EvaporateTank(Drum):
         if key == 'p':  # 10e5  !!!
             return 10e5
         elif key == 'h':
+            if c.p.val_SI > c.calc_p_critical():
+                c.p.val_SI = c.calc_p_critical() - 1e1
             if c.source_id == 'out1' or c.source_id == 'out3':
                 return h_mix_pQ(c.p.val_SI, 0, c.fluid_data)
             else:

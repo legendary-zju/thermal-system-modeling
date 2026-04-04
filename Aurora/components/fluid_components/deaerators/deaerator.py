@@ -175,6 +175,14 @@ class Deaerator(NodeBase):
                     p_value_set_container.append(conn.p.val)
                 if conn.p.is_shared:
                     conn_p_shared_container.append(conn)
+            #
+            # contain all pressure shared connection within the system
+            if conn_p_shared_container:
+                all_sys_conn_p_shared_list = list(set([c for c_shared in conn_p_shared_container
+                                                        for c in c_shared.p.shared_connection]
+                                                        + self.outl))
+            else:
+                all_sys_conn_p_shared_list = self.outl
             # simplify pressure objective
             if conn_p_shared_container:
                 for conn in set([c for c_shared in conn_p_shared_container for c in c_shared.p.shared_connection]
@@ -197,10 +205,12 @@ class Deaerator(NodeBase):
                     outconn_main.p.is_set = True
                     outconn_main.p.is_var = False
             # posterior
-            for conn in self.outl:
+            # pressure object posterior
+            for conn in all_sys_conn_p_shared_list:
                 conn.p.is_shared = True
                 if conn not in conn.p.shared_connection:
                     conn.p.shared_connection.append(conn)
+            #
             for outconn in self.outl:
                 outconn.target.simplify_pressure_enthalpy_mass_topology(outconn)
 
@@ -470,6 +480,8 @@ class Deaerator(NodeBase):
         if key == 'p':  # 10e5
             return 10e5 * 1.5
         elif key == 'h':
+            if c.p.val_SI > c.calc_p_critical():
+                c.p.val_SI = c.calc_p_critical() - 1e1
             if c.source_id == 'out1':
                 return h_mix_pQ(c.p.val_SI, 0, c.fluid_data)
             elif c.source_id == 'out2':

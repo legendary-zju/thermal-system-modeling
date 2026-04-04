@@ -113,9 +113,10 @@ class Component:
 
         # add container for components attributes
         properties = self.set_properties().copy()
-        for key, value in kwargs.items():
-            if key in properties:
-                properties[key].val = value
+        for key, value in properties.items():
+            if key in kwargs:
+                properties[key].val = kwargs[key]
+                del kwargs[key]
         self.__dict__.update(properties)
         self.parameters = self.get_parameters().copy()
         self.__dict__.update(self.parameters)  # add property of comp instance

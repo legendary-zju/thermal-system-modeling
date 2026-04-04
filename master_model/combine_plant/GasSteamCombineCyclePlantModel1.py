@@ -434,8 +434,8 @@ class GasSteamCombineCyclePlant1:
         pr_charline_cos = CharLine(x=[0, 0.4, 0.6, 1, 1.2], y=[0.961, 0.974, 0.985, 1, 0.998])
         self.fuel1_air_compressor_combustion.set_attr(design=['p'])  # outlet of air compressor
         self.air_compressor.set_attr(offdesign=['pr'], pr_char=pr_charline_cos, pr_fit='charline')  # pr fit
+        # set other properties
         # self.set_off_design_80_()  #
-        # self.set_off_design_60_()
         # self.set_off_design_sat_()
         self.set_off_design_extract_()
 
@@ -452,31 +452,6 @@ class GasSteamCombineCyclePlant1:
         self.drain_liquid_deaerator.set_attr(m=0.056)  # drain of deaerator
         self.feed_water_post.set_attr(m=0.267)  # feed water
         self.gas_re_combustion.set_attr(T_out=609)
-
-    def set_off_design_60_(self):
-        self.fuel1_compressor_combustion.set_attr(m=0.937)  # fuel mass flow 0.937
-        self.fuel1_air_source_compressor.set_attr(m=64.1)  # air mass flow 64.1
-        self.turbine2_steam_out.set_attr(p=3.23)
-        self.turbine3_steam_out.set_attr(p=1.21)
-        self.turbine4_steam_out.set_attr(p=0.407)
-        self.turbine5_steam_out.set_attr(p=0.0346)  #
-        self.drain_liquid_tank1.set_attr(m=0.19)  # drain of tank1
-        self.drain_liquid_tank2.set_attr(m=0.001)  # drain of tank2
-        self.drain_liquid_deaerator.set_attr(m=0.056)  # drain of deaerator
-        self.feed_water_post.set_attr(m=0.247)  # feed water
-        self.gas_re_combustion.set_attr(T_out=600)
-
-    def set_off_design_40_(self):
-        self.fuel1_compressor_combustion.set_attr(m=0.937)  # fuel mass flow
-        self.fuel1_air_source_compressor.set_attr(m=64.1)  # air mass flow 70.76
-        self.turbine2_steam_out.set_attr(p=3.23)
-        self.turbine3_steam_out.set_attr(p=1.21)
-        self.turbine4_steam_out.set_attr(p=0.407)
-        self.turbine5_steam_out.set_attr(p=0.0346)  #
-        self.drain_liquid_tank1.set_attr(m=0.19)  # drain of tank1
-        self.drain_liquid_tank2.set_attr(m=0.001)  # drain of tank2
-        self.drain_liquid_deaerator.set_attr(m=0.056)  # drain of deaerator
-        self.feed_water_post.set_attr(m=0.247)  # feed water
 
     def set_off_design_sat_(self):
         self.turbine5_steam_out.set_attr(p=0.12)  #

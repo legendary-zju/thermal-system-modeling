@@ -193,6 +193,16 @@ class BoilerSimple(FluidComponent):
                     scale=ps['p']['scale'],
                     var_scale=ps['p']['scale']
                 ),
+                f'pr{i + 1}_fit': dc_fit(
+                    rule='constant',
+                    constant=self.pr_constant_func_,
+                    default=self.pr_default_func_,
+                ),
+                f'dp{i + 1}_fit': dc_fit(
+                    rule='constant',
+                    constant=self.dp_constant_func_,
+                    default=self.dp_default_func_,
+                ),
             })
         return data
 
@@ -262,7 +272,7 @@ class BoilerSimple(FluidComponent):
         q = 0
         for i in range(self.num_side.val):
             q += self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI)
-        return q - self.Q.val_SI
+        return -q - self.Q.val_SI
 
     def energy_balance_hot_variables_columns(self):
         variables_columns1 = [data.J_col for i in range(self.num_side.val)
@@ -277,11 +287,11 @@ class BoilerSimple(FluidComponent):
     def energy_balance_hot_deriv(self, increment_filter, k):
         for i in range(self.num_side.val):
             if self.is_variable(self.inl[i].m, increment_filter):
-                self.network.jacobian[k, self.inl[i].m.J_col] = self.outl[i].h.val_SI - self.inl[i].h.val_SI
+                self.network.jacobian[k, self.inl[i].m.J_col] = - self.outl[i].h.val_SI + self.inl[i].h.val_SI
             if self.is_variable(self.inl[i].h, increment_filter):
-                self.network.jacobian[k, self.inl[i].h.J_col] = - self.inl[i].m.val_SI
+                self.network.jacobian[k, self.inl[i].h.J_col] = self.inl[i].m.val_SI
             if self.is_variable(self.outl[i].h, increment_filter):
-                self.network.jacobian[k, self.outl[i].h.J_col] = self.inl[i].m.val_SI
+                self.network.jacobian[k, self.outl[i].h.J_col] = - self.inl[i].m.val_SI
 
     def energy_balance_hot_tensor(self, increment_filter, k):
         pass
@@ -295,7 +305,7 @@ class BoilerSimple(FluidComponent):
         for i in range(self.num_side.val):
             m_all += self.inl[i].m.val_SI
         for i in range(self.num_side.val):
-            residual += [self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI) - self.Q.design * self.inl[i].m.val_SI / m_all]
+            residual += [self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI) + self.Q.design * self.inl[i].m.val_SI / m_all]
         return residual
 
     def auto_distribute_variables_columns(self):
@@ -316,7 +326,7 @@ class BoilerSimple(FluidComponent):
             m_all += self.inl[i].m.val_SI
         for i in range(self.num_side.val):
             if self.inl[i].m.is_var:
-                self.network.jacobian[k + i, self.inl[i].m.J_col] = ((self.outl[i].h.val_SI - self.inl[i].h.val_SI) -
+                self.network.jacobian[k + i, self.inl[i].m.J_col] = ((self.outl[i].h.val_SI - self.inl[i].h.val_SI) +
                                                                      self.Q.design * (m_all - self.inl[i].m.val_SI) / m_all ** 2)
             if self.inl[i].h.is_var:
                 self.network.jacobian[k + i, self.inl[i].h.J_col] = - self.inl[i].m.val_SI
@@ -397,7 +407,7 @@ class BoilerSimple(FluidComponent):
         q = 0
         for i in range(self.num_side.val):
             q += self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI)
-        return q
+        return -q
 
     def bus_variables_columns(self, bus):
         variables_colmns1 = [data.J_col for i in range(self.num_side.val)
@@ -501,7 +511,7 @@ class BoilerSimple(FluidComponent):
         q = 0
         for i in range(self.num_side.val):
             q += self.inl[i].m.val_SI * (self.outl[i].h.val_SI - self.inl[i].h.val_SI)
-        return q
+        return -q
 
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""

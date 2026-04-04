@@ -200,7 +200,9 @@ class OverHeater(HeatExchanger):
             return 50e5
         elif key == 'h':
             if c.target_id == 'in1':
-                T = T_sat_p(c.p.val_SI, c.fluid_data, c.mixing_rule) + 40
+                if c.p.val_SI > c.calc_p_critical():
+                    c.p.val_SI = c.calc_p_critical() - 1e1
+                T = T_sat_p(c.p.val_SI, c.fluid_data, c.mixing_rule) + 140
             else:
                 T = 220 + 273.15
             return h_mix_pT(c.p.val_SI, T, c.fluid_data, c.mixing_rule)
@@ -208,34 +210,34 @@ class OverHeater(HeatExchanger):
     def DTNS_func(self):
         """
         Measure the degree of super-heating.
-        The temperature of inlet at hot side above the temperature of saturated vapour in same pressure.
+        The temperature of outlet at hot side above the temperature of saturated vapour in same pressure.
 
         Returns
         -------
         residual: float
 
         """
-        i = self.inl[0]
-        return i.calc_T() - T_sat_p(i.p.val_SI, i.fluid_data) - self.DTNS.val_SI
+        o = self.outl[0]
+        return o.calc_T() - T_sat_p(o.p.val_SI, o.fluid_data) - self.DTNS.val_SI
 
     def DTNS_variables_columns(self):
-        i = self.inl[0]
+        o = self.outl[0]
         variables_columns1 = []
-        variables_columns1 += [data.J_col for data in [i.h] if data.is_var]  # [i.p, i.h]
+        variables_columns1 += [data.J_col for data in [o.h] if data.is_var]  # [i.p, i.h]
         variables_columns1.sort()
         return [variables_columns1]
 
     def DTNS_solve_isolated(self):
-        i = self.inl[0]
-        if i.p.is_var and i.h.is_var:
+        o = self.outl[0]
+        if o.p.is_var and o.h.is_var:
             return False
-        elif i.p.is_var and not i.h.is_var:
+        elif o.p.is_var and not o.h.is_var:
             return False
-        elif i.h.is_var and not i.p.is_var:
-            T_i1 = T_sat_p(i.p.val_SI, i.fluid_data) + self.DTNS.val_SI
-            i.h.val_SI = h_mix_pT(i.p.val_SI, T_i1, i.fluid_data, i.mixing_rule)
-            i.h.is_set = True
-            i.h.is_var = False
+        elif o.h.is_var and not o.p.is_var:
+            T_i1 = T_sat_p(o.p.val_SI, o.fluid_data) + self.DTNS.val_SI
+            o.h.val_SI = h_mix_pT(o.p.val_SI, T_i1, o.fluid_data, o.mixing_rule)
+            o.h.is_set = True
+            o.h.is_var = False
             self.DTNS.is_set = False
             return True
         else:
@@ -243,18 +245,23 @@ class OverHeater(HeatExchanger):
             return True
 
     def DTNS_deriv(self, increment_filter, k):
-        i = self.inl[0]
-        if i.h.is_var:
-            self.network.jacobian[k, i.h.J_col] = dT_mix_pdh(i.p.val_SI, i.h.val_SI, i.fluid_data, i.mixing_rule)
+        o = self.outl[0]
+        if o.h.is_var:
+            self.network.jacobian[k, o.h.J_col] = dT_mix_pdh(o.p.val_SI, o.h.val_SI, o.fluid_data, o.mixing_rule)
 
     def DTNS_repair_matrix(self, property_):
-        i = self.inl[0]
-        if property_ == i.h:
-            h0 = h_mix_pQ(i.p.val_SI, 0, i.fluid_data)
-            h1 = h_mix_pQ(i.p.val_SI, 1, i.fluid_data)
-            return abs(i.calc_T() - T_sat_p(i.p.val_SI, i.fluid_data) - self.DTNS.val_SI) / max(
-                i.h.val_SI - h0, h1 - i.h.val_SI)
+        o = self.outl[0]
+        if property_ == o.h:
+            h0 = h_mix_pQ(o.p.val_SI, 0, o.fluid_data)
+            h1 = h_mix_pQ(o.p.val_SI, 1, o.fluid_data)
+            return abs(o.calc_T() - T_sat_p(o.p.val_SI, o.fluid_data) - self.DTNS.val_SI) / max(
+                o.h.val_SI - h0, h1 - o.h.val_SI)
         else:
             msg = f"variable: {property_.label} is not a valid property in DTNS_repair_matrix of {self.__class__.__name__}: {self.label}"
             raise ValueError(msg)
+
+    def calc_parameters(self):
+        r"""Postprocessing parameter calculation."""
+        super().calc_parameters()
+        self.DTNS.val_SI = self.outl[0].calc_T() - self.outl[0].calc_T_sat()
 
