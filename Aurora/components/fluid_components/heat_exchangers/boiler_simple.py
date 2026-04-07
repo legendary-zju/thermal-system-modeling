@@ -353,6 +353,8 @@ class BoilerSimple(FluidComponent):
 
     def T_out_solve_isolated(self, outconn):
         i = outconn
+        if self.outl[i].fluid.is_var:
+            return False
         if self.outl[i].p.is_set and not self.outl[i].h.is_set:
             self.outl[i].h.val_SI = h_mix_pT(self.outl[i].p.val_SI,
                                              self.get_attr(f'T_out{i + 1}').val_SI,

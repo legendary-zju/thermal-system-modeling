@@ -113,7 +113,7 @@ class OverHeater(HeatExchanger):
         Upper terminal temperature difference :math:`DT_\mathrm{U}/\text{K}`.
 
     DTNS : float, dict
-        Hot_inside temperature difference (referring to saturation
+        Hot_outside temperature difference (referring to saturation
         temprature of superheated vapour) :math:`DT_\mathrm{NS}/\text{K}`.
 
     DTN_min : float, dict
@@ -122,6 +122,10 @@ class OverHeater(HeatExchanger):
     kA : float, dict
         Area independent heat transfer coefficient,
         :math:`kA/\frac{\text{W}}{\text{K}}`.
+
+    KDTA : float, dict
+        Area independent heat transfer coefficient,
+        :math:`KDTA/\frac{\text{W}}{\text{K}}`.
 
     kA_char : AURORA.tools.data_containers.SimpleDataContainer
         Area independent heat transfer coefficient characteristic.

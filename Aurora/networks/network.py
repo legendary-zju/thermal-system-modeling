@@ -2286,7 +2286,10 @@ class Network:
         ######------ check parameters state -----#####
         for property in (self.node_mass_flow_objective_container +
                          self.node_pressure_objective_container +
-                         self.node_enthalpy_objective_container):
+                         self.node_enthalpy_objective_container +
+                         self.node_voltage_objective_container +
+                         self.node_electricity_objective_container +
+                         self.node_frequency_objective_container):
             if property.is_set:
                 property.is_var = False
         ######------ solve isolated equations in advance ------######
