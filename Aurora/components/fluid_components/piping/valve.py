@@ -122,6 +122,7 @@ class Valve(FluidComponent):
                     # set h value
                     inconn.h.val = h_value_set_container[0]
                     inconn.h.is_set = True
+                    inconn.h.is_var = False
             # enthalpy object posterior
             for conn in all_sys_conn_h_shared_list:
                 conn.h.is_shared = True

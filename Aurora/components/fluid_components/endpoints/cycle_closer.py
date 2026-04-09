@@ -217,6 +217,7 @@ class CycleCloser(FluidComponent):
                     # set p value
                     inconn.p.val = p_value_set_container[0]
                     inconn.p.is_set = True
+                    inconn.p.is_var = False
             # simplify enthalpy objective
             if conn_h_shared_container:
                 for conn in set([c for c_shared in conn_h_shared_container for c in c_shared.h.shared_connection]
@@ -236,6 +237,7 @@ class CycleCloser(FluidComponent):
                     # set h value
                     inconn.h.val = h_value_set_container[0]
                     inconn.h.is_set = True
+                    inconn.h.is_var = False
             # pressure object posterior
             for conn in all_sys_conn_p_shared_list:
                 conn.p.is_shared = True

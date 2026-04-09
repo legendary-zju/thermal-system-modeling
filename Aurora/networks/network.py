@@ -1935,6 +1935,7 @@ class Network:
         self.connections_pressure_initial_container = []
         mask = self.fluid_comps["object"].apply(lambda c: c.is_spread_pressure_initial_start())
         start_components = self.fluid_comps["object"].loc[mask]  # mask: Boolean Series
+        # initialize pressure
         for start in start_components:
             start.spread_pressure_initial_start()
         # spread enthalpy initial value
@@ -2091,7 +2092,7 @@ class Network:
                 conn = df.loc[c.label]  # single row of dataframe
                 for prop in self.variables_properties_connections_summar[c.connection_type()]:
                     data = c.get_attr(prop)
-                    if data.is_var:
+                    if data.is_var and not data.is_set:
                         data.val_SI = hlp.convert_to_SI(data.property_data, conn[prop], conn[prop + '_unit'])
                         data.initialized = True
                 if c.connection_type() == 'fluid':

@@ -235,6 +235,7 @@ class CombustionChamber(FluidComponent):
                     # set p value
                     outconn.p.val = p_value_set_container[0]
                     outconn.p.is_set = True
+                    outconn.p.is_var = False
             # pressure object posterior
             for conn in all_sys_conn_p_shared_list:
                 conn.p.is_shared = True
