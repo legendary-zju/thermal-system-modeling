@@ -69,6 +69,9 @@ The relative bias of design condition with commercial software is as follows:
 Another model is PureSteamPlant, which has complex topology constructure. The energy comes from the BoilerSimple. 
 The relative bias of design condition with commercial software is as follows: 
 <img src="master_model/pure_steam_plant/constructure_image/relative_bias_of_design.jpg" width="300">
+3. SolarThermalCombinePlant
+<img src="master_model/solar_thermal_hybrid_plant/constructure_image/solar_thermal_hybrid_plant_constructure_image.jpg" width="600">
+
 
 
 ## Explanation:

@@ -27,7 +27,7 @@ from Aurora.tools.helpers import AURORANetworkError
 
 import numpy as np
 
-class NuclearPlantPureSteamCyclePlant1:
+class PureSteamCyclePlant1:
     def __init__(self, name):
         self.name = name
 
@@ -251,9 +251,9 @@ class NuclearPlantPureSteamCyclePlant1:
         kA_charline2 = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
                                y=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
         kA_charline1_con = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                y=[0.56, 0.65, 0.76, 0.87, 0.98, 0.985, 0.99, 1, 1.14, 1.07])
+                                y=[0.56, 0.6, 0.65, 0.7, 0.72, 0.74, 0.78, 1, 0.8, 0.79])
         self.condenser.set_attr(design=['DTU_sh'], offdesign=['KDTA'],
-                                KDTA_fit='charline', KDTA_char2=kA_charline1) #
+                                KDTA_fit='charline', KDTA_char2=kA_charline1_con) #
         self.heatexchanger_a.set_attr(design=['DTL'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
                                       KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
@@ -275,55 +275,55 @@ class NuclearPlantPureSteamCyclePlant1:
         kA_charline1_e = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
                                 y=[0.1, 0.15, 0.18, 0.2, 0.26, 0.32, 0.4, 1, 0.4, 0.34])
         kA_charline2_e = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.1, 0.15, 0.18, 0.2, 0.26, 0.32, 0.4, 1, 0.4, 0.34])
+                                  y=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.84, 1, 0.84, 0.8])  #
         self.heatexchanger_e.set_attr(design=['DTU_sh'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)  #
+                                      KDTA_char1=kA_charline2_e, KDTA_char2=kA_charline1_e)  #
         kA_charline1_f = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.85, 0.96, 1, 0.96, 0.95])
         kA_charline2_f = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.85, 0.96, 1, 0.96, 0.95])
         self.heatexchanger_f.set_attr(design=['DTL'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
+                                      KDTA_char1=kA_charline2_f, KDTA_char2=kA_charline1_f)
         kA_charline1_g = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                y=[0.1, 0.15, 0.18, 0.2, 0.26, 0.32, 0.4, 1, 0.4, 0.34])
         kA_charline2_g = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.86, 1, 0.86, 0.8])  #
         self.heatexchanger_g.set_attr(design=['DTU_sh'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
+                                      KDTA_char1=kA_charline2_g, KDTA_char2=kA_charline1_g)
         kA_charline1_h = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.52, 0.62, 0.72, 0.82, 0.87, 0.2, 0.97, 1, 1.16, 1.15])
         kA_charline2_h = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.52, 0.62, 0.72, 0.82, 0.87, 0.2, 0.97, 1, 1.4, 1.5])
         self.heatexchanger_h.set_attr(design=['DTL'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
+                                      KDTA_char1=kA_charline2_h, KDTA_char2=kA_charline1_h)
         kA_charline1_i = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
                                 y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
         kA_charline2_i = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])  #
+                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.5])  #
         self.heatexchanger_i.set_attr(design=['DTU_sh'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
+                                      KDTA_char1=kA_charline2_i, KDTA_char2=kA_charline1)
         kA_charline1_j = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.52, 0.62, 0.72, 0.82, 0.87, 0.2, 0.97, 1, 1.16, 1.15])
         kA_charline2_j = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 0.6, 1, 0.6, 0.55])
+                                  y=[0.52, 0.62, 0.72, 0.82, 0.87, 0.92, 0.97, 1, 1.16, 1.15])
         self.heatexchanger_j.set_attr(design=['DTL'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
+                                      KDTA_char1=kA_charline2_j, KDTA_char2=kA_charline1_j)
         kA_charline1_k = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.1, 0.15, 0.18, 0.2, 0.26, 0.32, 0.4, 1, 0.4, 0.34])
+                                  y=[0.1, 0.15, 0.18, 0.2, 0.22, 0.24, 0.3, 0.98, 0.3, 0.24])
         kA_charline2_k = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                  y=[0.1, 0.15, 0.2, 0.26, 0.32, 0.4, 0.45, 1, 0.45, 0.4])
+                                  y=[0.1, 0.15, 0.18, 0.2, 0.22, 0.24, 0.3, 1, 0.3, 0.24])  #
         self.heatexchanger_k.set_attr(design=['DTU_sh'], offdesign=['KDTA'],
                                       KDTA_fit='charline', dp2_fit='default',
-                                      KDTA_char1=kA_charline2, KDTA_char2=kA_charline1)
+                                      KDTA_char1=kA_charline2_k, KDTA_char2=kA_charline1_k)
         # turbine
         tur_charline = CharLine(x=[0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1, 1.05, 1.1],
-                               y=[0.9, 0.92, 0.94, 0.96, 0.98, 0.99, 0.995, 1, 0.99, 0.98])
+                               y=[y+0.135 for y in [0.9, 0.92, 0.94, 0.96, 0.98, 0.99, 0.995, 1, 0.99, 0.98]])
         self.turbine1.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
         self.turbine2.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
         self.turbine3.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
@@ -342,9 +342,9 @@ class NuclearPlantPureSteamCyclePlant1:
     def set_off_design_1_(self):
         self.c1.set_attr(p=35.14)
         self.c9.set_attr(p=19.43)
-        self.c11.set_attr(p=9.05)
-        self.c13.set_attr(p=3.51)
-        self.c15.set_attr(p=1.198)
+        self.c11.set_attr(p=9.0)
+        self.c13.set_attr(p=3.44)
+        self.c15.set_attr(p=1.15)
         self.c17.set_attr(p=0.244)
         self.c19.set_attr(p=0.046)
         self.boiler.set_attr(T_out1=600, T_out2=600)
@@ -367,8 +367,8 @@ class NuclearPlantPureSteamCyclePlant1:
 
 
 if __name__ == '__main__':
-    pure_steam_plant_model1 = NuclearPlantPureSteamCyclePlant1('pure_steam_plant_model1')
-    pure_steam_plant_model1.solve(max_iter=150, mode='offdesign', algo_factor=0.001)
+    pure_steam_plant_model1 = PureSteamCyclePlant1('pure_steam_plant_model1')
+    pure_steam_plant_model1.solve(max_iter=150, mode='offdesign', algo_factor=0.01)
 
 
 
