@@ -4,6 +4,7 @@ from .fluid_components.endpoints.cycle_closer import CycleCloser  # noqa: F401
 from .fluid_components.endpoints.sink import Sink  # noqa: F401
 from .fluid_components.endpoints.source import Source  # noqa: F401
 from .fluid_components.endpoints.flow_amplifier import FlowAmplifier  # noqa: F401
+from .fluid_components.endpoints.heat_storage_tank import HeatStorageTank
 from .fluid_components.combustion.base import CombustionChamber  # noqa: F401
 from .fluid_components.combustion.diabatic import DiabaticCombustionChamber  # noqa: F401
 from .fluid_components.heat_exchangers.base import HeatExchanger  # noqa: F401
