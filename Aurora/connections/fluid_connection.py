@@ -441,11 +441,16 @@ class FluidConnection(Connection):
                     self.fluid.is_set.add(fluid)
                     if fluid in self.fluid.is_var:  # unset the fluid composition is var
                         self.fluid.is_var.remove(fluid)
-                    self.fluid.back_end[fluid] = back_end  # generate the fluid back_end dict
+                self.fluid.back_end[fluid] = back_end  # generate the fluid back_end dict
         elif key == "fluid0":
             self.fluid.val0.update(value)  # the value_type of fluid0 is dict
-        elif key == "fluid_engines":  # no checking ????
-            self.fluid.engine = value
+        elif key == "fluid_engines":  #
+            if isinstance(value, dict):
+                self.fluid.engine = value
+            else:
+                msg = f"The fluid engine '{value}' must be an instance of 'dict'."
+                logger.error(msg)
+                raise TypeError(msg)
         else:
             msg = f"Connections do not have an attribute named {key}"
             logger.error(msg)

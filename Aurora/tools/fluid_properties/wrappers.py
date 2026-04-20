@@ -13,8 +13,13 @@ SPDX-License-Identifier: MIT
 
 import CoolProp as CP
 import numpy as np
+from properties_reference_data import MOLTEN_SALT_REFERENCE_DATA as salt_data
+from properties_reference_data import molar_mass_dict
+from properties_reference_data import atomic_masses
+from properties_reference_data import compound_groups_masses as common_groups
 
 from Aurora.tools.global_vars import ERR
+from Aurora.tools import logger
 
 
 def wrapper_registry(type):
@@ -333,8 +338,333 @@ class CoolPropWrapper(FluidPropertyWrapper):
 
 
 @wrapper_registry
-class IAPWSWrapper(FluidPropertyWrapper):
+class MoltenSaltWrapper(FluidPropertyWrapper):
+    def __init__(self, fluid, back_end=None) -> None:
+        """Wrapper for fuse salt, which is used for heat storage tank.
 
+        Parameters
+        ----------
+        fluid : str
+            Name of the fluid
+        back_end : str, optional
+            Salt back end for the AbstractState object, by default "default"
+        """
+        try:
+            from salts import Salt
+            self.Salt = Salt
+        except ImportError:
+            raise ModuleNotFoundError(
+                "To use molten salt properties, you need to install the 'salts' package. "
+                "Run: pip install salts"
+            )
+        if back_end is None:
+            back_end = "default"
+        super().__init__(fluid, back_end)
+        # check the salt is contained
+        try:
+            self.salt_obj = self.Salt(fluid)
+        except ValueError as e:
+            available_salts = list(salt_data.keys())
+            raise ValueError(
+                f"Fluid '{fluid}' not found in Salts library. "
+                f"Available salts: {', '.join(available_salts)}"
+            ) from e
+        # set reference enthalpy of salt
+        self._setup_reference_enthalpy()
+        # set limited properties
+        self._set_constants()
+        # enthalpy calculation preprocess
+        self._setup_enthalpy_interpolation()
+
+    def _setup_reference_enthalpy(self):
+        """set reference enthalpy for salt"""
+        salt_name = self.fluid
+        # check whether salt has been set
+        if salt_name in salt_data:
+            ref_data = salt_data[salt_name]
+            self._T_ref = ref_data["T_ref"]  # K
+            self._h_ref = ref_data["h_ref"]  # J/kg
+        else:
+            try:
+                self._T_ref = self.salt_obj.T_melt  # molten temperature supplied by Salts
+                self._h_ref = 0.0
+                logger.warning(f"No reference enthalpy found for {salt_name}. "
+                               f"Using melting point {self._T_ref:.2f}K with h=0 J/kg")
+            except AttributeError:
+                self._T_ref = 500.0  # default reference temperature
+                self._h_ref = 0.0
+                logger.warning(f"Using default reference temperature {self._T_ref}K for {salt_name}, due to molten temperature could not be found.")
+
+    def _set_constants(self):
+        """set constant limited properties for salt"""
+        # set temperature range
+        self._T_min = self._T_ref  # set reference temperature as lower limit
+        self._T_max = 1200.0  #
+        # set pressure range
+        self._p_min = 0.0  # 0 Pa
+        self._p_max = 100e6  # 100 MPa
+        # salt has no crit properties
+        self._p_crit = 50e6  # 50 MPa
+        self._T_crit = 2000.0  # 2000K
+        # molar mass of salt
+        self._molar_mass = self._calculate_molar_mass()
+
+    def _calculate_molar_mass(self):
+        """calculate molar mass of salt"""
+        fluid_name = self.fluid
+        # be contained in dict
+        if fluid_name in molar_mass_dict:
+            return molar_mass_dict[fluid_name]
+        # try to analysis chemical construction
+        return self._parse_molar_mass_from_formula(fluid_name)
+
+    def _parse_molar_mass_from_formula(self, formula):
+        """calculate molar mass of salt based on chemical formula"""
+        try:
+            # simple analysis of chemical constructure
+            import re
+            # match elements and quantities
+            pattern = r'([A-Z][a-z]*)(\d*)'
+            matches = re.findall(pattern, formula)
+            molar_mass = 0.0
+            for element, count_str in matches:
+                if element in atomic_masses:
+                    # atomic
+                    count = 1 if count_str == '' else int(count_str)
+                    molar_mass += atomic_masses[element] * count
+                else:
+                    # compound groups
+                    if element in common_groups:
+                        count = 1 if count_str == '' else int(count_str)
+                        molar_mass += common_groups[element] * count
+                    else:
+                        # unknown element/group
+                        msg = f"{element} has not been identified at formula {formula}"
+                        logger.warning(msg)
+                        return 0.085  # default value
+            # convert unit
+            return molar_mass / 1000.0
+        # error
+        except Exception as e:
+            msg = f"{formula} has not been analysis, due to {e}"
+            logger.error(msg)
+            return 0.085  # default value
+
+    def _setup_enthalpy_interpolation(self):
+        """set enthalpy interpolation properties for salt"""
+        # generate temperature range
+        T_min_interp = max(self._T_min - 50, 273.15)  # above 0°C
+        T_max_interp = self._T_max
+        # generate temperature reference points
+        n_points = 500
+        # log distribution
+        T_array = np.logspace(np.log10(T_min_interp), np.log10(T_max_interp), n_points)
+        # set enthalpy list
+        h_array = np.zeros_like(T_array)
+        # calculate enthalpy by integration
+        for i, T in enumerate(T_array):
+            if i == 0:
+                # first point is reference enthalpy
+                h_array[i] = self._h_ref
+                continue
+            # integration：Δh = 0.5 * (cp(T_i) + cp(T_{i-1})) * (T_i - T_{i-1})
+            cp_i = self.salt_obj.specific_heat(T)
+            cp_prev = self.salt_obj.specific_heat(T_array[i - 1])
+            delta_h = 0.5 * (cp_i + cp_prev) * (T - T_array[i - 1])
+            h_array[i] = h_array[i - 1] + delta_h
+        #
+        # contain interpolation list
+        self._T_array = T_array
+        self._h_array = h_array
+        # generate interpolation function
+        from scipy import interpolate
+        self._h_from_T = interpolate.interp1d(
+            T_array, h_array, kind='cubic',
+            bounds_error=False, fill_value='extrapolate'
+        )
+        self._T_from_h = interpolate.interp1d(
+            h_array, T_array, kind='cubic',
+            bounds_error=False, fill_value='extrapolate'
+        )
+
+    def _calculate_enthalpy(self, T: float) -> float:
+        """calculate enthalpy for salt based on temperature"""
+        return float(self._h_from_T(T))
+
+    def _get_temperature_from_enthalpy(self, h: float) -> float:
+        """calculate temperature for salt based on enthalpy"""
+        return float(self._T_from_h(h))
+
+    def _is_below_T_critical(self, T: float) -> bool:
+        """check if temperature is below critical temperature"""
+        return T < self._T_crit
+
+    def _make_p_subcritical(self, p: float) -> float:
+        """guarantee that pressure is below critical pressure"""
+        if p > self._p_crit:
+            p = self._p_crit * 0.99
+        return p
+
+    def isentropic(self, p_1: float, h_1: float, p_2: float) -> float:
+        """The isentropic process is approximated as an isothermal process"""
+        T1 = self._get_temperature_from_enthalpy(h_1)
+        return self.h_pT(p_2, T1)
+
+    def T_ph(self, p: float, h: float) -> float:
+        """calculate temperature for salt based on enthalpy"""
+        # ignore the impact of pressure
+        return self._get_temperature_from_enthalpy(h)
+
+    def T_ps(self, p: float, s: float) -> float:
+        """calculate temperature for salt based on entropy"""
+        # s = cp * ln(T/T_ref) approximate
+        T0 = self._T_ref + 100
+        dT = 1
+        iter_ = 1
+        fact = 0.1
+        while True:
+            delta_s = s - self.s_pT(p, T0)
+            div = (self.s_pT(p, T0 + dT) - self.s_pT(p, T0)) / dT
+            alpha = min((2 * fact * div / delta_s) ** 0.5, 1)
+            T0 += alpha * delta_s / div
+            iter_ += 1
+            if abs(T0 - T0) < 0.01 or iter_ > 30:
+                break
+        return float(T0)
+
+    def h_pT(self, p: float, T: float) -> float:
+        """calculate enthalpy for salt based on temperature"""
+        # ignore the impact of pressure
+        return self._calculate_enthalpy(T)
+
+    def h_ps(self, p: float, s: float) -> float:
+        """calculate enthalpy for salt based on entropy"""
+        T = self.T_ps(p, s)
+        return self.h_pT(p, T)
+
+    def h_pQ(self, p: float, Q: float) -> float:
+        """calculate enthalpy for salt based on pressure and dryness fraction"""
+        # return saturated liquid enthalpy
+        T_sat = self.T_sat(p)
+        return self.h_pT(p, T_sat)
+
+    def h_QT(self, Q: float, T: float) -> float:
+        """calculate enthalpy for salt based on temperature and dryness fraction"""
+        # ignore dryness fraction
+        return self._calculate_enthalpy(T)
+
+    def p_hT(self, h: float, T: float) -> float:
+        """calculate pressure for salt based on temperature and enthalpy"""
+        msg = f"The pressure of salt is not determined by temperature and enthalpy"
+        raise ValueError(msg)
+
+    def p_hQ(self, h: float, Q: float) -> float:
+        """calculate pressure for salt based on enthalpy and dryness fraction"""
+        msg = f"The pressure of salt is not determined by enthalpy and dryness fraction"
+        raise ValueError(msg)
+
+    def s_QT(self, Q: float, T: float) -> float:
+        """calculate entropy for salt based on temperature and dryness fraction"""
+        # s = cp_avg * ln(T/T_ref)
+        T_ref = self._T_ref
+        cp = self.salt_obj.specific_heat(T)
+        s = cp * np.log(T / T_ref)
+        return s
+
+    def T_sat(self, p: float) -> float:
+        """calculate saturated temperature for salt based on pressure"""
+        # salt has no boiling phenomenon
+        return self._T_max
+
+    def p_sat(self, T: float) -> float:
+        """saturated pressure for salt based on temperature"""
+        # approximate 0
+        if T > self._T_max:
+            T = self._T_max * 0.99
+        return 100.0  # 100 Pa
+
+    def Q_ph(self, p: float, h: float) -> float:
+        """calculate dryness fraction for salt based on pressure and enthalpy"""
+        # liquid constantly
+        return 0
+
+    def phase_ph(self, p: float, h: float) -> str:
+        """judge phase for salt based on pressure and enthalpy"""
+        T = self._get_temperature_from_enthalpy(h)
+        if T < self._T_ref:
+            return "s"  # solid
+        else:
+            return "l"  # liquid
+
+    def d_ph(self, p: float, h: float) -> float:
+        """calculate density for salt based on pressure and enthalpy"""
+        # ignore the pressure impact
+        T = self._get_temperature_from_enthalpy(h)
+        return self.d_pT(p, T)
+
+    def d_pT(self, p: float, T: float) -> float:
+        """calculate density for salt based on pressure and temperature"""
+        # ignore the impact of pressure
+        return self.salt_obj.density(T)
+
+    def d_QT(self, Q: float, T: float) -> float:
+        """calculate density for salt based on temperature and dryness fraction"""
+        # ignore dryness fraction
+        return self.salt_obj.density(T)
+
+    def viscosity_ph(self, p: float, h: float) -> float:
+        """calculate viscosity for salt based on pressure and enthalpy"""
+        # ignore pressure
+        T = self._get_temperature_from_enthalpy(h)
+        return self.viscosity_pT(p, T)
+
+    def viscosity_pT(self, p: float, T: float) -> float:
+        """calculate viscosity for salt based on pressure and temperature"""
+        # ignore pressure
+        return self.salt_obj.dynamic_viscosity(T)
+
+    def s_ph(self, p: float, h: float) -> float:
+        """通过压力和焓值计算熵（近似）"""
+        T = self._get_temperature_from_enthalpy(h)
+        return self.s_pT(p, T)
+
+    def s_pT(self, p: float, T: float) -> float:
+        """calculate entropy for salt based on pressure and temperature"""
+        # s = ∫(cp/T)dT ≈ cp_avg * ln(T/T_ref)
+        T_ref = self._T_ref
+        cp = self.salt_obj.specific_heat(T)
+        # log distribution
+        if T > T_ref:
+            # integration
+            n_points = max(int(T - T_ref), 1)
+            T_range = np.linspace(T_ref, T, n_points)
+            cp_range = np.array([self.salt_obj.specific_heat(t) for t in T_range])
+            s = np.trapz(cp_range / T_range, T_range, dx=T_range[1] - T_range[0])
+        else:
+            s = cp * np.log(T / T_ref)
+        return s
+
+    def thermal_conductivity_pT(self, p: float, T: float) -> float:
+        """calculate thermal conductivity for salt based on temperature"""
+        return self.salt_obj.thermal_conductivity(T)
+
+    def thermal_conductivity_ph(self, p: float, h: float) -> float:
+        """calculate thermal conductivity for salt based on enthalpy"""
+        T = self._get_temperature_from_enthalpy(h)
+        return self.thermal_conductivity_pT(p, T)
+
+    def specific_heat_pT(self, p: float, T: float) -> float:
+        """calculate specific heat for salt based on pressure and temperature"""
+        return self.salt_obj.specific_heat(T)
+
+    def specific_heat_ph(self, p: float, h: float) -> float:
+        """calculate specific heat for salt based on enthalpy"""
+        T = self._get_temperature_from_enthalpy(h)
+        return self.specific_heat_pT(p, T)
+
+
+@wrapper_registry
+class IAPWSWrapper(FluidPropertyWrapper):
 
     def __init__(self, fluid, back_end=None) -> None:
         """Wrapper for iapws library calls
@@ -344,7 +674,7 @@ class IAPWSWrapper(FluidPropertyWrapper):
         fluid : str
             Name of the fluid
         back_end : str, optional
-            CoolProp back end for the AbstractState object, by default "IF97"
+            IAPWS back end for the AbstractState object, by default "IF97"
         """
         # avoid unncessary loading time if not used
         try:

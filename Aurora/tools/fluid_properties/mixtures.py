@@ -24,14 +24,12 @@ from .helpers import get_molar_fractions
 
 def h_mix_pT_ideal(p=None, T=None, fluid_data=None, **kwargs):
     molar_fractions = get_molar_fractions(fluid_data)
-
     h = 0
     for fluid, data in fluid_data.items():
-
         if _is_larger_than_precision(data["mass_fraction"]):
             pp = p * molar_fractions[fluid]
             h += data["wrapper"].h_pT(pp, T) * data["mass_fraction"]
-
+    # enthalpy
     return h
 
 

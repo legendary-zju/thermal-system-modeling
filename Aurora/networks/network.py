@@ -1011,7 +1011,7 @@ class Network:
                     c.fluid.engine[f] = engine
                 for f, back_end in back_ends.items():
                     c.fluid.back_end[f] = back_end
-                # generate fluid wrapper for all conns
+                # generate fluid wrapper for all connections
                 c._create_fluid_wrapper()
             connections_in_wrapper_branches += all_connections
         missing_wrappers = (

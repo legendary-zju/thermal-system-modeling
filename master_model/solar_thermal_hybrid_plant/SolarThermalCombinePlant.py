@@ -250,6 +250,7 @@ class SolarThermalCombinePlant1:
                                  self.l1_out, self.l2_out, self.l3_out, self.l4_out, self.heater_k_hot_in, self.heater_j_hot_in)
 
     def set_properties(self):
+        # component properties
         self.heatexchanger_a.set_attr(DTL=365)
         self.heatexchanger_b.set_attr(DTL=7)
         self.heatexchanger_c.set_attr(DTU=9)
@@ -265,6 +266,8 @@ class SolarThermalCombinePlant1:
         self.evaporator.set_attr(DTM=7.5)
         self.evaporator_drum.set_attr(Ki=10)
         self.steam_recycle_pump.set_attr(eta_s=0.8)
+        # connection properties
+
 
 
     def set_offdesign_properties(self):
