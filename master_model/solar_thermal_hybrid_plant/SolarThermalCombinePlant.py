@@ -43,15 +43,15 @@ class SolarThermalCombinePlant1:
         self.solar_collector4 = SolarCollector('solar_collector4')
         # heat exchanger
         self.heatexchanger_a = HeatExchanger('heatexchanger_a', nodes_num=40)
-        self.heatexchanger_b = ExtractHeatExchanger('heatexchanger_b', nodes_num=40)
-        self.heatexchanger_c = ExtractHeatExchanger('heatexchanger_c', nodes_num=40)
-        self.heatexchanger_d = OverHeater('heatexchanger_d', nodes_num=40)
-        self.heatexchanger_e = ExtractHeatExchanger('heatexchanger_e', nodes_num=40)
+        self.heatexchanger_b = HeatExchanger('heatexchanger_b', nodes_num=40)
+        self.heatexchanger_c = HeatExchanger('heatexchanger_c', nodes_num=40)
+        self.heatexchanger_d = HeatExchanger('heatexchanger_d', nodes_num=40)
+        self.heatexchanger_e = HeatExchanger('heatexchanger_e', nodes_num=40)
         self.heatexchanger_f = HeatExchanger('heatexchanger_f', nodes_num=40)
         self.heatexchanger_g = ExtractHeatExchanger('heatexchanger_g', nodes_num=40)
-        self.heatexchanger_h = HeatExchanger('heatexchanger_h', nodes_num=40)
+        self.heatexchanger_h = ExtractHeatExchanger('heatexchanger_h', nodes_num=40)
         self.heatexchanger_i = ExtractHeatExchanger('heatexchanger_i', nodes_num=40)
-        self.heatexchanger_j = HeatExchanger('heatexchanger_j', nodes_num=40)
+        self.heatexchanger_j = ExtractHeatExchanger('heatexchanger_j', nodes_num=40)
         self.heatexchanger_k = ExtractHeatExchanger('heatexchanger_k', nodes_num=40)
         # evaporator
         self.evaporator = Evaporator('evaporator', nodes_num=40)
@@ -76,7 +76,8 @@ class SolarThermalCombinePlant1:
         self.condense_pump = Pump('condense_pump')
         self.steam_recycle_pump = Pump('steam_recycle_pump')  # used for evaporate module
         self.water_recycle_pump = Pump('water_recycle_pump')  # used for deaerator
-        self.oil_recycle_pump = Pump('oil_recycle_pump')  # used for solar thermal cycle
+        self.oil_recycle_pump1 = Pump('oil_recycle_pump1')  # used for solar thermal cycle
+        self.oil_recycle_pump2 = Pump('oil_recycle_pump2')
         # heat storage tank
         self.hot_salt_tank = HeatStorageTank('hot_salt_tank')
         self.cold_salt_tank = HeatStorageTank('cold_salt_tank')
@@ -102,20 +103,20 @@ class SolarThermalCombinePlant1:
         self.steam_cycle_closer = CycleCloser('steam_cycle_closer')
         # distributor
         # merge
-        self.merge_8_10_11 = Merge('merge_8_10_11', num_in=2)
-        self.merge_13_14_21 = Merge('merge_13_14_21', num_in=2)
+        self.merge_7_9_10 = Merge('merge_7_9_10', num_in=2)
+        self.merge_12_13_21 = Merge('merge_12_13_21', num_in=2)
         self.merge_36_80_81 = Merge('merge_36_80_81', num_in=2)
-        self.merge_19_82_83 = Merge('merge_19_82_83', num_in=2)
+        self.merge_18_82_83 = Merge('merge_18_82_83', num_in=2)
         self.merge_67_68_69 = Merge('merge_67_68_69', num_in=2)
         self.merge_heater_k = Merge('merge_heater_k', num_in=2)
         self.merge_heater_j = Merge('merge_heater_j', num_in=2)
         self.merge_deaerator = Merge('merge_deaerator', num_in=2)
         self.merge_heater_h = Merge('merge_heater_h', num_in=2)
         # splitter
-        self.splitter_11_12_13 = Splitter('splitter_11_12_13', num_out=2)
+        self.splitter_10_11_12 = Splitter('splitter_10_11_12', num_out=2)
         self.splitter_21_22_23 = Splitter('splitter_21_22_23', num_out=2)
         self.splitter_20_81_82 = Splitter('splitter_20_81_82', num_out=2)
-        self.splitter_7_84_85 = Splitter('splitter_7_84_85', num_out=2)
+        self.splitter_6_84_85 = Splitter('splitter_6_84_85', num_out=2)
         self.splitter_h1 = Splitter('splitter_h1', num_out=2)
         self.splitter_42_47_48 = Splitter('splitter_42_47_48', num_out=2)
         self.splitter_l1 = Splitter('splitter_l1', num_out=2)
@@ -137,23 +138,24 @@ class SolarThermalCombinePlant1:
         self.c1 = Connection(self.air_source,'out1', self.air_compressor, 'in1', label='c1')
         self.c2 = Connection(self.fuel_source, 'out1', self.combustion, 'in2', label='c2')
         self.c3 = Connection(self.air_compressor, 'out1', self.combustion, 'in1', label='c3')
-        self.c5 = Connection(self.combustion, 'out1', self.gas_turbine, 'in1', label='c5')
-        self.c6 = Connection(self.gas_turbine, 'out1', self.heatexchanger_a, 'in1', label='c6')
-        self.c7 = Connection(self.splitter_7_84_85, 'out1', self.heatexchanger_a, 'in2', label='c7')
-        self.c8 = Connection(self.heatexchanger_a, 'out2', self.merge_8_10_11, 'in1', label='c8')
-        self.c9 = Connection(self.heatexchanger_a, 'out1', self.gas_sink, 'in1', label='c9')
-        self.c10 = Connection(self.af_solar_out, 'out1', self.merge_8_10_11, 'in2', label='c10')
-        self.c11 = Connection(self.merge_8_10_11, 'out1', self.splitter_11_12_13, 'in1', label='c11')
-        self.c12 = Connection(self.splitter_11_12_13, 'out2', self.heatexchanger_b, 'in1', label='c12')
-        self.c13 = Connection(self.splitter_11_12_13, 'out1', self.merge_13_14_21, 'in1', label='c13')
-        self.c14 = Connection(self.heatexchanger_c, 'out2', self.merge_13_14_21, 'in2', label='c14')
-        self.c15 = Connection(self.heatexchanger_b, 'out2', self.hot_salt_tank, 'in1', label='c15')
-        self.c16 = Connection(self.hot_salt_tank, 'out1', self.heatexchanger_c, 'in1', label='c16')
-        self.c17 = Connection(self.cold_salt_tank, 'out1', self.heatexchanger_b, 'in2', label='c17')
-        self.c18 = Connection(self.heatexchanger_c, 'out1', self.cold_salt_tank, 'in1', label='c18')
-        self.c19 = Connection(self.heatexchanger_b, 'out1', self.merge_19_82_83, 'in2', label='c19')
-        self.c20 = Connection(self.splitter_20_81_82, 'out2', self.heatexchanger_c, 'in2', label='c20')
-        self.c21 = Connection(self.merge_13_14_21, 'out1', self.splitter_21_22_23, 'in1', label='c21')
+        self.c4 = Connection(self.combustion, 'out1', self.gas_turbine, 'in1', label='c4')
+        self.c5 = Connection(self.gas_turbine, 'out1', self.heatexchanger_a, 'in1', label='c5')
+        self.c6 = Connection(self.splitter_6_84_85, 'out1', self.heatexchanger_a, 'in2', label='c6')
+        self.c7 = Connection(self.heatexchanger_a, 'out2', self.merge_7_9_10, 'in1', label='c7')
+        self.c8 = Connection(self.heatexchanger_a, 'out1', self.gas_sink, 'in1', label='c8')
+        self.c9 = Connection(self.af_solar_out, 'out1', self.merge_7_9_10, 'in2', label='c9')
+        self.c10 = Connection(self.merge_7_9_10, 'out1', self.splitter_10_11_12, 'in1', label='c10')
+        self.c11 = Connection(self.splitter_10_11_12, 'out2', self.heatexchanger_b, 'in1', label='c11')
+        self.c12 = Connection(self.splitter_10_11_12, 'out1', self.merge_12_13_21, 'in1', label='c12')
+        self.c13 = Connection(self.heatexchanger_c, 'out2', self.merge_12_13_21, 'in2', label='c13')
+        self.c14 = Connection(self.heatexchanger_b, 'out2', self.hot_salt_tank, 'in1', label='c14')
+        self.c15 = Connection(self.hot_salt_tank, 'out1', self.heatexchanger_c, 'in1', label='c15')
+        self.c16 = Connection(self.cold_salt_tank, 'out1', self.heatexchanger_b, 'in2', label='c16')
+        self.c17 = Connection(self.heatexchanger_c, 'out1', self.cold_salt_tank, 'in1', label='c17')
+        self.c18 = Connection(self.heatexchanger_b, 'out1', self.merge_18_82_83, 'in2', label='c18')
+        self.c19 = Connection(self.oil_recycle_pump2, 'out1', self.heatexchanger_c, 'in2', label='c19')
+        self.c20 = Connection(self.splitter_20_81_82, 'out2', self.oil_recycle_pump2, 'in1', label='c20')
+        self.c21 = Connection(self.merge_12_13_21, 'out1', self.splitter_21_22_23, 'in1', label='c21')
         self.c22 = Connection(self.splitter_21_22_23, 'out2', self.af_reheater_hot_in, 'in1', label='c22')
         self.c23 = Connection(self.splitter_21_22_23, 'out1', self.af_boiler_hot_in, 'in1', label='c23')
         self.c24 = Connection(self.af_boiler_hot_in, 'out1', self.heatexchanger_d, 'in1', label='c24')
@@ -224,35 +226,56 @@ class SolarThermalCombinePlant1:
         self.c79 = Connection(self.deaerator, 'out2', self.deaerator_drain, 'in1', label='c79')
         self.c80 = Connection(self.af_reheater_hot_out, 'out1', self.merge_36_80_81, 'in2', label='c80')
         self.c81 = Connection(self.merge_36_80_81, 'out1', self.splitter_20_81_82, 'in1', label='c81')
-        self.c82 = Connection(self.splitter_20_81_82, 'out1', self.merge_19_82_83, 'in1', label='c82')
-        self.c83 = Connection(self.merge_19_82_83, 'out1', self.oil_recycle_pump, 'in1', label='c83')
-        self.c84 = Connection(self.oil_recycle_pump, 'out1', self.oil_cycle_closer, 'in1', label='c84')
-        self.d84 = Connection(self.oil_cycle_closer, 'out1', self.splitter_7_84_85, 'in1', label='d84')
-        self.c85 = Connection(self.splitter_7_84_85, 'out2', self.af_solar_in, 'in1', label='c85')
+        self.c82 = Connection(self.splitter_20_81_82, 'out1', self.merge_18_82_83, 'in1', label='c82')
+        self.c83 = Connection(self.merge_18_82_83, 'out1', self.oil_recycle_pump1, 'in1', label='c83')
+        self.c84 = Connection(self.oil_recycle_pump1, 'out1', self.oil_cycle_closer, 'in1', label='c84')
+        self.d84 = Connection(self.oil_cycle_closer, 'out1', self.splitter_6_84_85, 'in1', label='d84')
+        self.c85 = Connection(self.splitter_6_84_85, 'out2', self.af_solar_in, 'in1', label='c85')
         self.c86 = Connection(self.af_solar_in, 'out1', self.solar_collector4, 'in1', label='c86')
         self.c87 = Connection(self.solar_collector4, 'out1', self.solar_collector3, 'in1', label='c87')
         self.c88 = Connection(self.solar_collector3, 'out1', self.solar_collector2, 'in1', label='c88')
         self.c89 = Connection(self.solar_collector2, 'out1', self.solar_collector1, 'in1', label='c89')
         self.c90 = Connection(self.solar_collector1, 'out1', self.af_solar_out, 'in1', label='c90')
         # add connection to network
-        self.nw.add_conns(self.c1, self.c2, self.c3, self.c5, self.c6, self.c7, self.c8, self.c9, self.c10, self.c11,
-                          self.c12, self.c13, self.c14, self.c15, self.c16, self.c17, self.c18, self.c19, self.c20, self.c21,
-                          self.c22, self.c23, self.c24, self.c25, self.c26, self.c27, self.c28, self.c29, self.c30, self.c31,
-                          self.c32, self.c33, self.c34, self.c35, self.c36, self.c37, self.c38, self.c39, self.c40, self.c41,
-                          self.c42, self.c43, self.c44, self.c45, self.c46, self.c47, self.c48, self.c49, self.c50, self.c51,
-                          self.c52, self.c53, self.c54, self.c55, self.c56, self.c57, self.c58, self.c59, self.c60, self.c61,
-                          self.c62, self.c63, self.c64, self.c65, self.c66, self.c67, self.c68, self.c69, self.c70, self.c71,
-                          self.c72, self.c73, self.c74, self.c75, self.c76, self.c77, self.c78, self.c79, self.c80, self.c81,
-                          self.c82, self.c83, self.c84, self.c85, self.c86, self.c87, self.c88, self.c89, self.c90, self.d54,
-                          self.d84, self.h1_out, self.heater_h_hot_in, self.deaerator_cold_in,
-                          self.l1_out, self.l2_out, self.l3_out, self.l4_out, self.heater_k_hot_in, self.heater_j_hot_in)
+        self.nw.add_conns(self.c1, self.c2, self.c3, self.c4, self.c5, self.c6, self.c7, self.c8, self.c9, self.c10, self.c11,
+                                 self.c12, self.c13, self.c14, self.c15, self.c16, self.c17, self.c18, self.c19, self.c20, self.c21,
+                                 self.c22, self.c23, self.c24, self.c25, self.c26, self.c27, self.c28, self.c29, self.c30, self.c31,
+                                 self.c32, self.c33, self.c34, self.c35, self.c36, self.c37, self.c38, self.c39, self.c40, self.c41,
+                                 self.c42, self.c43, self.c44, self.c45, self.c46, self.c47, self.c48, self.c49, self.c50, self.c51,
+                                 self.c52, self.c53, self.c54, self.c55, self.c56, self.c57, self.c58, self.c59, self.c60, self.c61,
+                                 self.c62, self.c63, self.c64, self.c65, self.c66, self.c67, self.c68, self.c69, self.c70, self.c71,
+                                 self.c72, self.c73, self.c74, self.c75, self.c76, self.c77, self.c78, self.c79, self.c80, self.c81,
+                                 self.c82, self.c83, self.c84, self.c85, self.c86, self.c87, self.c88, self.c89, self.c90, self.d54,
+                                 self.d84, self.h1_out, self.heater_h_hot_in, self.deaerator_cold_in,
+                                 self.l1_out, self.l2_out, self.l3_out, self.l4_out, self.heater_k_hot_in, self.heater_j_hot_in)
+
+    def set_properties(self):
+        self.heatexchanger_a.set_attr(DTL=365)
+        self.heatexchanger_b.set_attr(DTL=7)
+        self.heatexchanger_c.set_attr(DTU=9)
+        self.heatexchanger_d.set_attr(DTU=22)
+        self.heatexchanger_e.set_attr()
+        self.heatexchanger_f.set_attr(DTU=23)
+        self.heatexchanger_g.set_attr(DTU_sh=5)
+        self.heatexchanger_h.set_attr(DTU_sh=5)
+        self.heatexchanger_i.set_attr(DTU_sh=5)
+        self.heatexchanger_j.set_attr(DTU_sh=5)
+        self.heatexchanger_k.set_attr(DTU_sh=5)
+        self.condenser.set_attr(DTU_sh=5)
+        self.evaporator.set_attr(DTM=7.5)
+        self.evaporator_drum.set_attr(Ki=10)
+        self.steam_recycle_pump.set_attr(eta_s=0.8)
 
 
-
-
-
+    def set_offdesign_properties(self):
+        pass
 
     def info_module(self):
         logger.define_logging(
             logpath=f"{self.name}_loggings", log_the_path=True, log_the_version=True,
             screen_level=logging.INFO, file_level=logging.DEBUG)
+
+    def solve(self, logging=False):
+        if logging:
+            self.info_module()
+        pass
