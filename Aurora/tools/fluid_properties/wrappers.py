@@ -13,10 +13,10 @@ SPDX-License-Identifier: MIT
 
 import CoolProp as CP
 import numpy as np
-from properties_reference_data import MOLTEN_SALT_REFERENCE_DATA as salt_data
-from properties_reference_data import molar_mass_dict
-from properties_reference_data import atomic_masses
-from properties_reference_data import compound_groups_masses as common_groups
+from .properties_reference_data import MOLTEN_SALT_REFERENCE_DATA as salt_data
+from .properties_reference_data import molar_mass_dict
+from .properties_reference_data import atomic_masses
+from .properties_reference_data import compound_groups_masses as common_groups
 
 from Aurora.tools.global_vars import ERR
 from Aurora.tools import logger

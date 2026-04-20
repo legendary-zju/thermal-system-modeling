@@ -436,8 +436,8 @@ class GasSteamCombineCyclePlant1:
         self.air_compressor.set_attr(offdesign=['pr'], pr_char=pr_charline_cos, pr_fit='charline')  # pr fit
         # set other properties
         # self.set_off_design_80_()  #
-        # self.set_off_design_sat_()
-        self.set_off_design_extract_()
+        self.set_off_design_sat_()
+        # self.set_off_design_extract_()
 
     def set_off_design_80_(self):
         # 80% power of gas turbine
