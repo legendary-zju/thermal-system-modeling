@@ -92,6 +92,22 @@ compound_groups_masses = {
                     }
 
 Customized_Fluid = {
-    "NaNO3": {"T_molten": 579.15, "h_ref": 0.0, 'cp': None, 'viscosity': None, 'v': None},  #
-    "KNO3": {"T_molten": 607.15, "h_ref": 0.0, 'cp': None, 'viscosity': None, 'v': None},  #
+    "NaNO3": {"reference_point": {"T": 579.15, "h": 0.0, "s": 0.0, },
+              "T_molten": 579.15,
+              "h_ref": 0.0,
+              'cp': None,
+              'viscosity': None,
+              'v': None},  #
+    "KNO3": {"reference_point": {"T": 607.15, "h": 0.0, "s": 0.0, },
+             "T_molten": 607.15,
+             "h_ref": 0.0,
+             'cp': None,
+             'viscosity': None,
+             'v': None},  #
+    "oil1": {"reference_point": {"T": 273.15, "h": 0.0, "s": 0.0, },
+             "T_molten": 273.15,
+             "h_ref": 0.0,
+             'cp': None,
+             'viscosity': None,
+             'v': None},
 }

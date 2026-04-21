@@ -209,7 +209,7 @@ class Drum(DropletSeparator):
                 tensor=None,
                 property_data=cpd['ratio'],
                 SI_unit=cpd['ratio']['SI_unit'],
-                scale=ps['eff']['scale'],
+                scale=ps['m']['scale'],
                 var_scale=ps['eff']['scale']
         ),
         }

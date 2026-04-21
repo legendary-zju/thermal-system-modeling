@@ -154,6 +154,18 @@ class HeatStorageTank(FluidComponent):
                 scale=ps['DT']['scale'],
                 var_scale=ps['T']['scale']
             ),
+            'dm': dc_cp(
+                num_eq=1,
+                func=self.dm_func,
+                variables_columns=self.dm_variables_columns,
+                solve_isolated=self.dm_solve_isolated,
+                deriv=self.dm_deriv,
+                tensor=None,
+                property_data=fpd['m'],
+                SI_unit=fpd['m']['SI_unit'],
+                scale=ps['m']['scale'],
+                var_scale=ps['m']['scale']
+            ),
         }
 
     def Q_func(self):
@@ -312,6 +324,47 @@ class HeatStorageTank(FluidComponent):
 
     def T_out_func_doc(self, label):
         pass
+
+    def dm_func(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        return i.m.val_SI - o.m.val_SI - self.dm.val_SI
+
+    def dm_variables_columns(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        variables_columns1 = [data.J_col for data in [i.m, o.m] if data.is_var]
+        variables_columns1.sort()
+        return [variables_columns1]
+
+    def dm_solve_isolated(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.m.is_var and o.m.is_var:
+            return False
+        elif i.m.is_var and not o.m.is_var:
+            i.m.val_SI = o.m.val_SI + self.dm.val_SI
+            i.m.is_set = True
+            i.m.is_var = False
+            self.dm.is_set = False
+            return True
+        elif not i.m.is_var and o.m.is_var:
+            o.m.val_SI = i.m.val_SI - self.dm.val_SI
+            o.m.is_set = True
+            o.m.is_var = False
+            self.dm.is_set = False
+            return True
+        else:
+            self.dm.is_set = False
+            return True
+
+    def dm_deriv(self, increment_filter, k):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.m.is_var:
+            self.network.jacobian[k, i.m.J_col] = 1
+        if o.m.is_var:
+            self.network.jacobian[k, o.m.J_col] = - 1
 
     def initialise_source(self, c, key):
         r"""

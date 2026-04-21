@@ -101,6 +101,7 @@ class SolarThermalCombinePlant1:
         # cycle closer
         self.oil_cycle_closer = CycleCloser('oil_cycle_closer')
         self.steam_cycle_closer = CycleCloser('steam_cycle_closer')
+        self.salt_cycle_closer = CycleCloser('salt_cycle_closer')
         # distributor
         # merge
         self.merge_7_9_10 = Merge('merge_7_9_10', num_in=2)
@@ -149,7 +150,8 @@ class SolarThermalCombinePlant1:
         self.c12 = Connection(self.splitter_10_11_12, 'out1', self.merge_12_13_21, 'in1', label='c12')
         self.c13 = Connection(self.heatexchanger_c, 'out2', self.merge_12_13_21, 'in2', label='c13')
         self.c14 = Connection(self.heatexchanger_b, 'out2', self.hot_salt_tank, 'in1', label='c14')
-        self.c15 = Connection(self.hot_salt_tank, 'out1', self.heatexchanger_c, 'in1', label='c15')
+        self.c15 = Connection(self.hot_salt_tank, 'out1', self.salt_cycle_closer, 'in1', label='c15')
+        self.d15 = Connection(self.salt_cycle_closer, 'out1', self.heatexchanger_c, 'in1', label='d15')
         self.c16 = Connection(self.cold_salt_tank, 'out1', self.heatexchanger_b, 'in2', label='c16')
         self.c17 = Connection(self.heatexchanger_c, 'out1', self.cold_salt_tank, 'in1', label='c17')
         self.c18 = Connection(self.heatexchanger_b, 'out1', self.merge_18_82_83, 'in2', label='c18')
@@ -246,14 +248,17 @@ class SolarThermalCombinePlant1:
                                  self.c62, self.c63, self.c64, self.c65, self.c66, self.c67, self.c68, self.c69, self.c70, self.c71,
                                  self.c72, self.c73, self.c74, self.c75, self.c76, self.c77, self.c78, self.c79, self.c80, self.c81,
                                  self.c82, self.c83, self.c84, self.c85, self.c86, self.c87, self.c88, self.c89, self.c90, self.d54,
-                                 self.d84, self.h1_out, self.heater_h_hot_in, self.deaerator_cold_in,
+                                 self.d84, self.d15, self.h1_out, self.heater_h_hot_in, self.deaerator_cold_in,
                                  self.l1_out, self.l2_out, self.l3_out, self.l4_out, self.heater_k_hot_in, self.heater_j_hot_in)
 
     def set_properties(self):
         # component properties
-        self.heatexchanger_a.set_attr(DTL=365)
-        self.heatexchanger_b.set_attr(DTL=7)
-        self.heatexchanger_c.set_attr(DTU=9)
+        # salt cycle mass conservation
+        self.salt_cycle_closer.set_attr(mass_conservation=True)
+        # heat exchanger
+        self.heatexchanger_a.set_attr(dp1=0.02, dp2=0.002, DTL=365)
+        self.heatexchanger_b.set_attr(dp1=0.01, dp2=0.01, DTL=7)
+        self.heatexchanger_c.set_attr(dp1=0.1, dp2=0.5, DTU=9)
         self.heatexchanger_d.set_attr(DTU=22)
         self.heatexchanger_e.set_attr()
         self.heatexchanger_f.set_attr(DTU=23)
@@ -264,9 +269,40 @@ class SolarThermalCombinePlant1:
         self.heatexchanger_k.set_attr(DTU_sh=5)
         self.condenser.set_attr(DTU_sh=5)
         self.evaporator.set_attr(DTM=7.5)
+        # vapour tank
         self.evaporator_drum.set_attr(Ki=10)
+        # mass amplifier
+        self.af_solar_in.set_attr(Ki=156)
+        self.af_solar_out.set_attr(Ki=1/156)
+        self.af_boiler_hot_in.set_attr(Ki=2)
+        self.af_boiler_hot_out.set_attr(Ki=1/2)
+        self.af_boiler_cold_in.set_attr(Ki=2)
+        self.af_boiler_cold_out.set_attr(Ki=1/2)
+        self.af_reheater_hot_in.set_attr(Ki=2)
+        self.af_reheater_hot_out.set_attr(Ki=1/2)
+        self.af_reheater_cold_in.set_attr(Ki=2)
+        self.af_reheater_cold_out.set_attr(Ki=1/2)
+        # pump
         self.steam_recycle_pump.set_attr(eta_s=0.8)
+        self.oil_recycle_pump1.set_attr(eta_s=0.8)
+        self.oil_recycle_pump2.set_attr(eta_s=0.8)
+        self.condense_pump.set_attr(eta_s=0.8)
+        # turbine
+        self.hp_turbine1.set_attr(eta_s=0.88)
+        self.hp_turbine2.set_attr(eta_s=0.88)
+        self.lp_turbine1.set_attr(eta_s=0.88)
+        self.lp_turbine2.set_attr(eta_s=0.88)
+        self.lp_turbine3.set_attr(eta_s=0.88)
+        self.lp_turbine4.set_attr(eta_s=0.88)
+        self.lp_turbine5.set_attr(eta_s=0.88)
         # connection properties
+        self.c44.set_attr(p=100)
+        self.c45.set_attr(p=40)
+        self.c41.set_attr(p=16.5)
+        self.c57.set_attr(p=6)
+        self.c59.set_attr(p=2.5)
+        self.c61.set_attr(p=1.2)
+        self.c63.set_attr(p=0.6)
 
 
 

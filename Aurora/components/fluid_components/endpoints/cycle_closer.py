@@ -9,6 +9,7 @@ from Aurora.components.component import Component
 from Aurora.components.fluid_components.fluid_component import FluidComponent
 from Aurora.components.component import component_registry
 from Aurora.tools.data_containers import ComponentProperties as dc_cp
+from Aurora.tools.data_containers import SimpleDataContainer as dc_sim
 from Aurora.tools.data_containers import Constraints as dc_cons
 from Aurora.tools.global_vars import property_scale as ps
 from Aurora.tools.global_vars import fluid_property_data as fpd
@@ -64,8 +65,8 @@ class CycleCloser(FluidComponent):
     def component():
         return 'cycle closer'
 
-    @staticmethod
-    def get_parameters():
+
+    def get_parameters(self):
         return {
             'mass_deviation': dc_cp(
                 val=0,
@@ -73,14 +74,28 @@ class CycleCloser(FluidComponent):
                 is_result=True,
                 property_data=fpd['m'],
                 SI_unit=fpd['m']['SI_unit'],
-                scale=ps['m']['scale']),
+                scale=ps['m']['scale']
+            ),
             'fluid_deviation': dc_cp(
                 val=0,
                 max_val=1e-5,
                 is_result=True,
                 property_data=cpd['ratio'],
                 SI_unit=cpd['ratio']['SI_unit'],
-                scale=ps['fluid']['scale']),
+                scale=ps['fluid']['scale']
+            ),
+            'mass_conservation': dc_sim(
+                is_set=False,
+                val=False,
+                num_eq=1,
+                func=self.mass_conservation_func,
+                variables_columns=self.mass_conservation_variables_columns,
+                solve_isolated=self.mass_conservation_solve_isolated,
+                deriv=self.mass_conservation_deriv,
+                tensor=None,
+                scale=ps['m']['scale'],
+                var_scale=ps['m']['scale']
+            ),
         }
 
     @staticmethod
@@ -250,6 +265,47 @@ class CycleCloser(FluidComponent):
                     conn.h.shared_connection.append(conn)
             #
             outconn.target.simplify_pressure_enthalpy_mass_topology(outconn)
+
+    def mass_conservation_func(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        return i.m.val_SI - o.m.val_SI
+
+    def mass_conservation_variables_columns(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        variables_columns1 = [data.J_col for data in [i.m, o.m] if data.is_var]
+        variables_columns1.sort()
+        return [variables_columns1]
+
+    def mass_conservation_solve_isolated(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.m.is_var and o.m.is_var:
+            return False
+        elif i.m.is_var and not o.m.is_var:
+            i.m.val_SI = o.m.val_SI
+            i.m.is_set = True
+            i.m.is_var = False
+            self.mass_conservation.is_set = False
+            return True
+        elif not i.m.is_var and o.m.is_var:
+            o.m.val_SI = i.m.val_SI
+            o.m.is_set = True
+            o.m.is_var = False
+            self.mass_conservation.is_set = False
+            return True
+        else:
+            self.mass_conservation.is_set = False
+            return True
+
+    def mass_conservation_deriv(self, increment_filter, k):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.m.is_var:
+            self.network.jacobian[k, i.m.J_col] = 1
+        if o.m.is_var:
+            self.network.jacobian[k, o.m.J_col] = - 1
 
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""
