@@ -1,6 +1,6 @@
-2026-04-22 22:12:13,103 - INFO - logger - Path for logging: pure_steam_plant_model1_loggings\Aurora.log
-2026-04-22 22:12:13,106 - INFO - logger - Used AURORA version: 0.1.1 - GCC's Nature
-2026-04-22 22:12:13,123 - DEBUG - network - Default unit specifications:
+2026-04-21 20:17:24,774 - INFO - logger - Path for logging: pure_steam_plant_model1_loggings\Aurora.log
+2026-04-21 20:17:24,775 - INFO - logger - Used AURORA version: 0.1.1 - GCC's Nature
+2026-04-21 20:17:24,778 - DEBUG - network - Default unit specifications:
 mass flow: kg / s
 pressure: Pa
 enthalpy: J / kg
@@ -20,199 +20,199 @@ luminous intensity: cd
 luminous flux: lm
 spatial size: m
 time size: s
-2026-04-22 22:12:13,123 - DEBUG - network - Default mass flow limits
+2026-04-21 20:17:24,778 - DEBUG - network - Default mass flow limits
 min: 1e-05 kg / s
 max: 1000000000000.0 kg / s
-2026-04-22 22:12:13,124 - DEBUG - network - Default pressure limits
+2026-04-21 20:17:24,780 - DEBUG - network - Default pressure limits
 min: 100000.0 Pa
 max: 30000000.0 Pa
-2026-04-22 22:12:13,124 - DEBUG - network - Default enthalpy limits
+2026-04-21 20:17:24,780 - DEBUG - network - Default enthalpy limits
 min: 1000.0 J / kg
 max: 7000000.0 J / kg
-2026-04-22 22:12:13,124 - DEBUG - network - Default voltage limits
+2026-04-21 20:17:24,780 - DEBUG - network - Default voltage limits
 min: -1000000000000.0 V
 max: 1000000000000.0 V
-2026-04-22 22:12:13,124 - DEBUG - network - Default electricity limits
+2026-04-21 20:17:24,780 - DEBUG - network - Default electricity limits
 min: -1000000000000.0 A
 max: 1000000000000.0 A
-2026-04-22 22:12:13,124 - DEBUG - network - Default frequency limits
+2026-04-21 20:17:24,780 - DEBUG - network - Default frequency limits
 min: 1e-05 Hz
 max: 1000000000000.0 Hz
-2026-04-22 22:12:13,124 - DEBUG - network - Setting fluid property pressure unit: bar.
-2026-04-22 22:12:13,124 - DEBUG - network - Setting fluid property temperature unit: C.
-2026-04-22 22:12:13,124 - DEBUG - network - Setting fluid property enthalpy unit: kJ / kg.
-2026-04-22 22:12:13,124 - DEBUG - network - Setting fluid property mass flow unit: kg / s.
-2026-04-22 22:12:13,151 - DEBUG - connection - Created connection from boiler (out1) to turbine2 (in1).
-2026-04-22 22:12:13,151 - DEBUG - connection - Created connection from boiler (out2) to boiler_splitter (in1).
-2026-04-22 22:12:13,152 - DEBUG - connection - Created connection from boiler_splitter (out1) to valve_3_4 (in1).
-2026-04-22 22:12:13,152 - DEBUG - connection - Created connection from valve_3_4 (out1) to merge_4_5_65 (in1).
-2026-04-22 22:12:13,152 - DEBUG - connection - Created connection from valve_5_6 (out1) to merge_4_5_65 (in2).
-2026-04-22 22:12:13,153 - DEBUG - connection - Created connection from turbine1_splitter (out1) to valve_5_6 (in1).
-2026-04-22 22:12:13,153 - DEBUG - connection - Created connection from boiler_splitter (out2) to turbine1 (in1).
-2026-04-22 22:12:13,153 - DEBUG - connection - Created connection from turbine1 (out1) to turbine1_splitter (in1).
-2026-04-22 22:12:13,153 - DEBUG - connection - Created connection from turbine1_splitter (out2) to split_8_61_64 (in1).
-2026-04-22 22:12:13,154 - DEBUG - connection - Created connection from turbine2 (out1) to turbine2_splitter (in1).
-2026-04-22 22:12:13,154 - DEBUG - connection - Created connection from turbine2_splitter (out1) to turbine3 (in1).
-2026-04-22 22:12:13,154 - DEBUG - connection - Created connection from turbine2_splitter (out2) to heatexchanger_d (in1).
-2026-04-22 22:12:13,155 - DEBUG - connection - Created connection from turbine3 (out1) to turbine3_splitter (in1).
-2026-04-22 22:12:13,155 - DEBUG - connection - Created connection from turbine3_splitter (out1) to turbine4 (in1).
-2026-04-22 22:12:13,155 - DEBUG - connection - Created connection from turbine3_splitter (out2) to split_12_48_49 (in1).
-2026-04-22 22:12:13,155 - DEBUG - connection - Created connection from turbine4 (out1) to turbine4_splitter (in1).
-2026-04-22 22:12:13,156 - DEBUG - connection - Created connection from turbine4_splitter (out1) to turbine5 (in1).
-2026-04-22 22:12:13,156 - DEBUG - connection - Created connection from turbine4_splitter (out2) to heatexchanger_e (in1).
-2026-04-22 22:12:13,156 - DEBUG - connection - Created connection from turbine5 (out1) to turbine5_splitter (in1).
-2026-04-22 22:12:13,157 - DEBUG - connection - Created connection from turbine5_splitter (out1) to turbine6 (in1).
-2026-04-22 22:12:13,157 - DEBUG - connection - Created connection from turbine5_splitter (out2) to split_16_38_39 (in1).
-2026-04-22 22:12:13,157 - DEBUG - connection - Created connection from turbine6 (out1) to turbine6_splitter (in1).
-2026-04-22 22:12:13,158 - DEBUG - connection - Created connection from turbine6_splitter (out1) to turbine7 (in1).
-2026-04-22 22:12:13,158 - DEBUG - connection - Created connection from turbine6_splitter (out2) to heater_i_merge (in1).
-2026-04-22 22:12:13,158 - DEBUG - connection - Created connection from turbine7 (out1) to condense_merge (in1).
-2026-04-22 22:12:13,158 - DEBUG - connection - Created connection from condense_merge (out1) to condenser (in1).
-2026-04-22 22:12:13,158 - DEBUG - connection - Created connection from condenser (out2) to cooling_water_sink (in1).
-2026-04-22 22:12:13,158 - DEBUG - connection - Created connection from cooling_water_source (out1) to condenser (in2).
-2026-04-22 22:12:13,160 - DEBUG - connection - Created connection from condenser (out1) to condense_pump (in1).
-2026-04-22 22:12:13,160 - DEBUG - connection - Created connection from condense_pump (out1) to heatexchanger_k (in2).
-2026-04-22 22:12:13,160 - DEBUG - connection - Created connection from merge_25_26_24 (out1) to condense_merge (in2).
-2026-04-22 22:12:13,161 - DEBUG - connection - Created connection from valve_25_30 (out1) to merge_25_26_24 (in1).
-2026-04-22 22:12:13,161 - DEBUG - connection - Created connection from valve_26_27 (out1) to merge_25_26_24 (in2).
-2026-04-22 22:12:13,161 - DEBUG - connection - Created connection from heatexchanger_k (out1) to valve_26_27 (in1).
-2026-04-22 22:12:13,162 - DEBUG - connection - Created connection from merge_39_40_28 (out1) to heatexchanger_k (in1).
-2026-04-22 22:12:13,162 - DEBUG - connection - Created connection from heatexchanger_k (out2) to heatexchanger_j (in2).
-2026-04-22 22:12:13,162 - DEBUG - connection - Created connection from heatexchanger_j (out1) to valve_25_30 (in1).
-2026-04-22 22:12:13,163 - DEBUG - connection - Created connection from heatexchanger_i (out1) to heatexchanger_j (in1).
-2026-04-22 22:12:13,163 - DEBUG - connection - Created connection from heatexchanger_j (out2) to heatexchanger_i (in2).
-2026-04-22 22:12:13,163 - DEBUG - connection - Created connection from heatexchanger_i (out2) to heatexchanger_h (in2).
-2026-04-22 22:12:13,163 - DEBUG - connection - Created connection from valve_34_35 (out1) to heater_i_merge (in2).
-2026-04-22 22:12:13,164 - DEBUG - connection - Created connection from heater_i_merge (out1) to heatexchanger_i (in1).
-2026-04-22 22:12:13,164 - DEBUG - connection - Created connection from heatexchanger_h (out1) to valve_34_35 (in1).
-2026-04-22 22:12:13,164 - DEBUG - connection - Created connection from heatexchanger_g (out1) to heatexchanger_h (in1).
-2026-04-22 22:12:13,164 - DEBUG - connection - Created connection from heatexchanger_h (out2) to heatexchanger_g (in2).
-2026-04-22 22:12:13,165 - DEBUG - connection - Created connection from split_16_38_39 (out1) to heater_g_merge (in1).
-2026-04-22 22:12:13,165 - DEBUG - connection - Created connection from heater_g_merge (out1) to heatexchanger_g (in1).
-2026-04-22 22:12:13,165 - DEBUG - connection - Created connection from split_16_38_39 (out2) to merge_39_40_28 (in2).
-2026-04-22 22:12:13,166 - DEBUG - connection - Created connection from merge_47_65_40 (out1) to merge_39_40_28 (in1).
-2026-04-22 22:12:13,166 - DEBUG - connection - Created connection from heatexchanger_g (out2) to heatexchanger_f (in2).
-2026-04-22 22:12:13,166 - DEBUG - connection - Created connection from valve_42_43 (out1) to heater_g_merge (in2).
-2026-04-22 22:12:13,167 - DEBUG - connection - Created connection from heatexchanger_f (out1) to valve_42_43 (in1).
-2026-04-22 22:12:13,167 - DEBUG - connection - Created connection from heatexchanger_e (out1) to heatexchanger_f (in1).
-2026-04-22 22:12:13,167 - DEBUG - connection - Created connection from heatexchanger_f (out2) to heatexchanger_e (in2).
-2026-04-22 22:12:13,167 - DEBUG - connection - Created connection from heatexchanger_e (out2) to deaerator_merge (in2).
-2026-04-22 22:12:13,168 - DEBUG - connection - Created connection from valve_47_48 (out1) to merge_47_65_40 (in2).
-2026-04-22 22:12:13,168 - DEBUG - connection - Created connection from split_12_48_49 (out2) to valve_47_48 (in1).
-2026-04-22 22:12:13,168 - DEBUG - connection - Created connection from split_12_48_49 (out1) to valve_49_50 (in1).
-2026-04-22 22:12:13,169 - DEBUG - connection - Created connection from valve_49_50 (out1) to deaerator (in2).
-2026-04-22 22:12:13,169 - DEBUG - connection - Created connection from valve_51_53 (out1) to deaerator_merge (in1).
-2026-04-22 22:12:13,169 - DEBUG - connection - Created connection from deaerator_merge (out1) to deaerator (in1).
-2026-04-22 22:12:13,170 - DEBUG - connection - Created connection from deaerator (out1) to recycle_pump (in1).
-2026-04-22 22:12:13,170 - DEBUG - connection - Created connection from deaerator (out2) to deaerator_sink (in1).
-2026-04-22 22:12:13,170 - DEBUG - connection - Created connection from heatexchanger_a (out1) to valve_51_53 (in1).
-2026-04-22 22:12:13,170 - DEBUG - connection - Created connection from recycle_pump (out1) to heatexchanger_a (in2).
-2026-04-22 22:12:13,170 - DEBUG - connection - Created connection from heatexchanger_b (out1) to heatexchanger_a (in1).
-2026-04-22 22:12:13,171 - DEBUG - connection - Created connection from heatexchanger_a (out2) to heatexchanger_b (in2).
-2026-04-22 22:12:13,171 - DEBUG - connection - Created connection from heater_b_merge (out1) to heatexchanger_b (in1).
-2026-04-22 22:12:13,171 - DEBUG - connection - Created connection from heatexchanger_d (out1) to heater_b_merge (in1).
-2026-04-22 22:12:13,172 - DEBUG - connection - Created connection from valve_58_60 (out1) to heater_b_merge (in2).
-2026-04-22 22:12:13,172 - DEBUG - connection - Created connection from heatexchanger_b (out2) to heatexchanger_c (in2).
-2026-04-22 22:12:13,172 - DEBUG - connection - Created connection from heatexchanger_c (out1) to valve_58_60 (in1).
-2026-04-22 22:12:13,173 - DEBUG - connection - Created connection from split_8_61_64 (out2) to heatexchanger_c (in1).
-2026-04-22 22:12:13,173 - DEBUG - connection - Created connection from heatexchanger_c (out2) to heatexchanger_d (in2).
-2026-04-22 22:12:13,173 - DEBUG - connection - Created connection from heatexchanger_d (out2) to boiler (in2).
-2026-04-22 22:12:13,174 - DEBUG - connection - Created connection from split_8_61_64 (out1) to boiler (in1).
-2026-04-22 22:12:13,174 - DEBUG - connection - Created connection from merge_4_5_65 (out1) to cycle_closer (in1).
-2026-04-22 22:12:13,174 - DEBUG - connection - Created connection from cycle_closer (out1) to merge_47_65_40 (in1).
-2026-04-22 22:12:13,175 - DEBUG - network - Added connection c1 to network.
-2026-04-22 22:12:13,177 - DEBUG - network - Added connection c2 to network.
-2026-04-22 22:12:13,178 - DEBUG - network - Added connection c3 to network.
-2026-04-22 22:12:13,178 - DEBUG - network - Added connection c4 to network.
-2026-04-22 22:12:13,179 - DEBUG - network - Added connection c5 to network.
-2026-04-22 22:12:13,179 - DEBUG - network - Added connection c6 to network.
-2026-04-22 22:12:13,180 - DEBUG - network - Added connection c7 to network.
-2026-04-22 22:12:13,181 - DEBUG - network - Added connection c8 to network.
-2026-04-22 22:12:13,181 - DEBUG - network - Added connection c9 to network.
-2026-04-22 22:12:13,181 - DEBUG - network - Added connection c10 to network.
-2026-04-22 22:12:13,182 - DEBUG - network - Added connection c11 to network.
-2026-04-22 22:12:13,182 - DEBUG - network - Added connection c12 to network.
-2026-04-22 22:12:13,183 - DEBUG - network - Added connection c13 to network.
-2026-04-22 22:12:13,183 - DEBUG - network - Added connection c14 to network.
-2026-04-22 22:12:13,183 - DEBUG - network - Added connection c15 to network.
-2026-04-22 22:12:13,184 - DEBUG - network - Added connection c16 to network.
-2026-04-22 22:12:13,184 - DEBUG - network - Added connection c17 to network.
-2026-04-22 22:12:13,185 - DEBUG - network - Added connection c18 to network.
-2026-04-22 22:12:13,185 - DEBUG - network - Added connection c19 to network.
-2026-04-22 22:12:13,185 - DEBUG - network - Added connection c20 to network.
-2026-04-22 22:12:13,186 - DEBUG - network - Added connection c21 to network.
-2026-04-22 22:12:13,186 - DEBUG - network - Added connection c22 to network.
-2026-04-22 22:12:13,187 - DEBUG - network - Added connection c23 to network.
-2026-04-22 22:12:13,187 - DEBUG - network - Added connection c24 to network.
-2026-04-22 22:12:13,187 - DEBUG - network - Added connection c25 to network.
-2026-04-22 22:12:13,188 - DEBUG - network - Added connection c26 to network.
-2026-04-22 22:12:13,188 - DEBUG - network - Added connection c27 to network.
-2026-04-22 22:12:13,188 - DEBUG - network - Added connection c28 to network.
-2026-04-22 22:12:13,189 - DEBUG - network - Added connection c29 to network.
-2026-04-22 22:12:13,189 - DEBUG - network - Added connection c30 to network.
-2026-04-22 22:12:13,190 - DEBUG - network - Added connection c31 to network.
-2026-04-22 22:12:13,190 - DEBUG - network - Added connection c32 to network.
-2026-04-22 22:12:13,190 - DEBUG - network - Added connection c33 to network.
-2026-04-22 22:12:13,191 - DEBUG - network - Added connection c34 to network.
-2026-04-22 22:12:13,191 - DEBUG - network - Added connection c35 to network.
-2026-04-22 22:12:13,192 - DEBUG - network - Added connection c36 to network.
-2026-04-22 22:12:13,192 - DEBUG - network - Added connection c37 to network.
-2026-04-22 22:12:13,193 - DEBUG - network - Added connection c38 to network.
-2026-04-22 22:12:13,193 - DEBUG - network - Added connection c39 to network.
-2026-04-22 22:12:13,193 - DEBUG - network - Added connection c40 to network.
-2026-04-22 22:12:13,194 - DEBUG - network - Added connection c41 to network.
-2026-04-22 22:12:13,194 - DEBUG - network - Added connection c42 to network.
-2026-04-22 22:12:13,194 - DEBUG - network - Added connection c43 to network.
-2026-04-22 22:12:13,195 - DEBUG - network - Added connection c44 to network.
-2026-04-22 22:12:13,195 - DEBUG - network - Added connection c45 to network.
-2026-04-22 22:12:13,196 - DEBUG - network - Added connection c46 to network.
-2026-04-22 22:12:13,196 - DEBUG - network - Added connection c47 to network.
-2026-04-22 22:12:13,196 - DEBUG - network - Added connection c48 to network.
-2026-04-22 22:12:13,197 - DEBUG - network - Added connection c49 to network.
-2026-04-22 22:12:13,197 - DEBUG - network - Added connection c50 to network.
-2026-04-22 22:12:13,197 - DEBUG - network - Added connection c51 to network.
-2026-04-22 22:12:13,198 - DEBUG - network - Added connection c52 to network.
-2026-04-22 22:12:13,198 - DEBUG - network - Added connection c53 to network.
-2026-04-22 22:12:13,198 - DEBUG - network - Added connection c54 to network.
-2026-04-22 22:12:13,199 - DEBUG - network - Added connection c55 to network.
-2026-04-22 22:12:13,199 - DEBUG - network - Added connection c56 to network.
-2026-04-22 22:12:13,199 - DEBUG - network - Added connection c57 to network.
-2026-04-22 22:12:13,200 - DEBUG - network - Added connection c58 to network.
-2026-04-22 22:12:13,200 - DEBUG - network - Added connection c59 to network.
-2026-04-22 22:12:13,200 - DEBUG - network - Added connection c60 to network.
-2026-04-22 22:12:13,200 - DEBUG - network - Added connection c61 to network.
-2026-04-22 22:12:13,201 - DEBUG - network - Added connection c62 to network.
-2026-04-22 22:12:13,201 - DEBUG - network - Added connection c63 to network.
-2026-04-22 22:12:13,201 - DEBUG - network - Added connection c64 to network.
-2026-04-22 22:12:13,202 - DEBUG - network - Added connection c65 to network.
-2026-04-22 22:12:13,202 - DEBUG - network - Added connection deaerator_drain to network.
-2026-04-22 22:12:13,202 - DEBUG - network - Added connection d65 to network.
-2026-04-22 22:12:13,203 - DEBUG - network - Added connection turbine1_out to network.
-2026-04-22 22:12:13,203 - DEBUG - network - Added connection turbine2_out to network.
-2026-04-22 22:12:13,203 - DEBUG - network - Added connection turbine3_out to network.
-2026-04-22 22:12:13,204 - DEBUG - network - Added connection turbine4_out to network.
-2026-04-22 22:12:13,204 - DEBUG - network - Added connection turbine5_out to network.
-2026-04-22 22:12:13,204 - DEBUG - network - Added connection turbine6_out to network.
-2026-04-22 22:12:13,205 - DEBUG - network - Added connection condenser_hot_in to network.
-2026-04-22 22:12:13,205 - DEBUG - network - Added connection heater_i_hot_in to network.
-2026-04-22 22:12:13,206 - DEBUG - network - Added connection heater_g_hot_in to network.
-2026-04-22 22:12:13,206 - DEBUG - network - Added connection heater_b_hot_in to network.
-2026-04-22 22:12:13,207 - DEBUG - network - Added connection deaerator_cold_in to network.
-2026-04-22 22:12:13,397 - DEBUG - network - Removing 6 mass flow variables from ['c52', 'c54', 'c56', 'c59', 'c62', 'c63', 'c2'] from system variables.
-2026-04-22 22:12:13,397 - DEBUG - network - Removing 1 mass flow variables from ['c3', 'c4'] from system variables.
-2026-04-22 22:12:13,397 - DEBUG - network - Removing 1 mass flow variables from ['c6', 'c5'] from system variables.
-2026-04-22 22:12:13,397 - DEBUG - network - Removing 1 mass flow variables from ['c48', 'c47'] from system variables.
-2026-04-22 22:12:13,397 - DEBUG - network - Removing 0 mass flow variables from ['deaerator_drain'] from system variables.
-2026-04-22 22:12:13,398 - INFO - network - ########----Simplify Fluid System Successful----########
-2026-04-22 22:12:13,409 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
-2026-04-22 22:12:13,423 - INFO - network - ########----Network check successful----########
-2026-04-22 22:12:13,423 - DEBUG - network - Solver properties:
+2026-04-21 20:17:24,780 - DEBUG - network - Setting fluid property pressure unit: bar.
+2026-04-21 20:17:24,780 - DEBUG - network - Setting fluid property temperature unit: C.
+2026-04-21 20:17:24,780 - DEBUG - network - Setting fluid property enthalpy unit: kJ / kg.
+2026-04-21 20:17:24,780 - DEBUG - network - Setting fluid property mass flow unit: kg / s.
+2026-04-21 20:17:24,801 - DEBUG - connection - Created connection from boiler (out1) to turbine2 (in1).
+2026-04-21 20:17:24,801 - DEBUG - connection - Created connection from boiler (out2) to boiler_splitter (in1).
+2026-04-21 20:17:24,801 - DEBUG - connection - Created connection from boiler_splitter (out1) to valve_3_4 (in1).
+2026-04-21 20:17:24,802 - DEBUG - connection - Created connection from valve_3_4 (out1) to merge_4_5_65 (in1).
+2026-04-21 20:17:24,802 - DEBUG - connection - Created connection from valve_5_6 (out1) to merge_4_5_65 (in2).
+2026-04-21 20:17:24,802 - DEBUG - connection - Created connection from turbine1_splitter (out1) to valve_5_6 (in1).
+2026-04-21 20:17:24,803 - DEBUG - connection - Created connection from boiler_splitter (out2) to turbine1 (in1).
+2026-04-21 20:17:24,803 - DEBUG - connection - Created connection from turbine1 (out1) to turbine1_splitter (in1).
+2026-04-21 20:17:24,804 - DEBUG - connection - Created connection from turbine1_splitter (out2) to split_8_61_64 (in1).
+2026-04-21 20:17:24,804 - DEBUG - connection - Created connection from turbine2 (out1) to turbine2_splitter (in1).
+2026-04-21 20:17:24,804 - DEBUG - connection - Created connection from turbine2_splitter (out1) to turbine3 (in1).
+2026-04-21 20:17:24,805 - DEBUG - connection - Created connection from turbine2_splitter (out2) to heatexchanger_d (in1).
+2026-04-21 20:17:24,805 - DEBUG - connection - Created connection from turbine3 (out1) to turbine3_splitter (in1).
+2026-04-21 20:17:24,805 - DEBUG - connection - Created connection from turbine3_splitter (out1) to turbine4 (in1).
+2026-04-21 20:17:24,806 - DEBUG - connection - Created connection from turbine3_splitter (out2) to split_12_48_49 (in1).
+2026-04-21 20:17:24,806 - DEBUG - connection - Created connection from turbine4 (out1) to turbine4_splitter (in1).
+2026-04-21 20:17:24,806 - DEBUG - connection - Created connection from turbine4_splitter (out1) to turbine5 (in1).
+2026-04-21 20:17:24,807 - DEBUG - connection - Created connection from turbine4_splitter (out2) to heatexchanger_e (in1).
+2026-04-21 20:17:24,807 - DEBUG - connection - Created connection from turbine5 (out1) to turbine5_splitter (in1).
+2026-04-21 20:17:24,807 - DEBUG - connection - Created connection from turbine5_splitter (out1) to turbine6 (in1).
+2026-04-21 20:17:24,808 - DEBUG - connection - Created connection from turbine5_splitter (out2) to split_16_38_39 (in1).
+2026-04-21 20:17:24,808 - DEBUG - connection - Created connection from turbine6 (out1) to turbine6_splitter (in1).
+2026-04-21 20:17:24,809 - DEBUG - connection - Created connection from turbine6_splitter (out1) to turbine7 (in1).
+2026-04-21 20:17:24,809 - DEBUG - connection - Created connection from turbine6_splitter (out2) to heater_i_merge (in1).
+2026-04-21 20:17:24,810 - DEBUG - connection - Created connection from turbine7 (out1) to condense_merge (in1).
+2026-04-21 20:17:24,810 - DEBUG - connection - Created connection from condense_merge (out1) to condenser (in1).
+2026-04-21 20:17:24,810 - DEBUG - connection - Created connection from condenser (out2) to cooling_water_sink (in1).
+2026-04-21 20:17:24,810 - DEBUG - connection - Created connection from cooling_water_source (out1) to condenser (in2).
+2026-04-21 20:17:24,811 - DEBUG - connection - Created connection from condenser (out1) to condense_pump (in1).
+2026-04-21 20:17:24,811 - DEBUG - connection - Created connection from condense_pump (out1) to heatexchanger_k (in2).
+2026-04-21 20:17:24,812 - DEBUG - connection - Created connection from merge_25_26_24 (out1) to condense_merge (in2).
+2026-04-21 20:17:24,812 - DEBUG - connection - Created connection from valve_25_30 (out1) to merge_25_26_24 (in1).
+2026-04-21 20:17:24,812 - DEBUG - connection - Created connection from valve_26_27 (out1) to merge_25_26_24 (in2).
+2026-04-21 20:17:24,812 - DEBUG - connection - Created connection from heatexchanger_k (out1) to valve_26_27 (in1).
+2026-04-21 20:17:24,813 - DEBUG - connection - Created connection from merge_39_40_28 (out1) to heatexchanger_k (in1).
+2026-04-21 20:17:24,813 - DEBUG - connection - Created connection from heatexchanger_k (out2) to heatexchanger_j (in2).
+2026-04-21 20:17:24,813 - DEBUG - connection - Created connection from heatexchanger_j (out1) to valve_25_30 (in1).
+2026-04-21 20:17:24,814 - DEBUG - connection - Created connection from heatexchanger_i (out1) to heatexchanger_j (in1).
+2026-04-21 20:17:24,814 - DEBUG - connection - Created connection from heatexchanger_j (out2) to heatexchanger_i (in2).
+2026-04-21 20:17:24,814 - DEBUG - connection - Created connection from heatexchanger_i (out2) to heatexchanger_h (in2).
+2026-04-21 20:17:24,815 - DEBUG - connection - Created connection from valve_34_35 (out1) to heater_i_merge (in2).
+2026-04-21 20:17:24,815 - DEBUG - connection - Created connection from heater_i_merge (out1) to heatexchanger_i (in1).
+2026-04-21 20:17:24,815 - DEBUG - connection - Created connection from heatexchanger_h (out1) to valve_34_35 (in1).
+2026-04-21 20:17:24,816 - DEBUG - connection - Created connection from heatexchanger_g (out1) to heatexchanger_h (in1).
+2026-04-21 20:17:24,816 - DEBUG - connection - Created connection from heatexchanger_h (out2) to heatexchanger_g (in2).
+2026-04-21 20:17:24,817 - DEBUG - connection - Created connection from split_16_38_39 (out1) to heater_g_merge (in1).
+2026-04-21 20:17:24,817 - DEBUG - connection - Created connection from heater_g_merge (out1) to heatexchanger_g (in1).
+2026-04-21 20:17:24,817 - DEBUG - connection - Created connection from split_16_38_39 (out2) to merge_39_40_28 (in2).
+2026-04-21 20:17:24,817 - DEBUG - connection - Created connection from merge_47_65_40 (out1) to merge_39_40_28 (in1).
+2026-04-21 20:17:24,818 - DEBUG - connection - Created connection from heatexchanger_g (out2) to heatexchanger_f (in2).
+2026-04-21 20:17:24,818 - DEBUG - connection - Created connection from valve_42_43 (out1) to heater_g_merge (in2).
+2026-04-21 20:17:24,818 - DEBUG - connection - Created connection from heatexchanger_f (out1) to valve_42_43 (in1).
+2026-04-21 20:17:24,819 - DEBUG - connection - Created connection from heatexchanger_e (out1) to heatexchanger_f (in1).
+2026-04-21 20:17:24,819 - DEBUG - connection - Created connection from heatexchanger_f (out2) to heatexchanger_e (in2).
+2026-04-21 20:17:24,819 - DEBUG - connection - Created connection from heatexchanger_e (out2) to deaerator_merge (in2).
+2026-04-21 20:17:24,820 - DEBUG - connection - Created connection from valve_47_48 (out1) to merge_47_65_40 (in2).
+2026-04-21 20:17:24,820 - DEBUG - connection - Created connection from split_12_48_49 (out2) to valve_47_48 (in1).
+2026-04-21 20:17:24,820 - DEBUG - connection - Created connection from split_12_48_49 (out1) to valve_49_50 (in1).
+2026-04-21 20:17:24,821 - DEBUG - connection - Created connection from valve_49_50 (out1) to deaerator (in2).
+2026-04-21 20:17:24,821 - DEBUG - connection - Created connection from valve_51_53 (out1) to deaerator_merge (in1).
+2026-04-21 20:17:24,822 - DEBUG - connection - Created connection from deaerator_merge (out1) to deaerator (in1).
+2026-04-21 20:17:24,822 - DEBUG - connection - Created connection from deaerator (out1) to recycle_pump (in1).
+2026-04-21 20:17:24,840 - DEBUG - connection - Created connection from deaerator (out2) to deaerator_sink (in1).
+2026-04-21 20:17:24,840 - DEBUG - connection - Created connection from heatexchanger_a (out1) to valve_51_53 (in1).
+2026-04-21 20:17:24,841 - DEBUG - connection - Created connection from recycle_pump (out1) to heatexchanger_a (in2).
+2026-04-21 20:17:24,841 - DEBUG - connection - Created connection from heatexchanger_b (out1) to heatexchanger_a (in1).
+2026-04-21 20:17:24,841 - DEBUG - connection - Created connection from heatexchanger_a (out2) to heatexchanger_b (in2).
+2026-04-21 20:17:24,842 - DEBUG - connection - Created connection from heater_b_merge (out1) to heatexchanger_b (in1).
+2026-04-21 20:17:24,842 - DEBUG - connection - Created connection from heatexchanger_d (out1) to heater_b_merge (in1).
+2026-04-21 20:17:24,842 - DEBUG - connection - Created connection from valve_58_60 (out1) to heater_b_merge (in2).
+2026-04-21 20:17:24,843 - DEBUG - connection - Created connection from heatexchanger_b (out2) to heatexchanger_c (in2).
+2026-04-21 20:17:24,843 - DEBUG - connection - Created connection from heatexchanger_c (out1) to valve_58_60 (in1).
+2026-04-21 20:17:24,843 - DEBUG - connection - Created connection from split_8_61_64 (out2) to heatexchanger_c (in1).
+2026-04-21 20:17:24,844 - DEBUG - connection - Created connection from heatexchanger_c (out2) to heatexchanger_d (in2).
+2026-04-21 20:17:24,844 - DEBUG - connection - Created connection from heatexchanger_d (out2) to boiler (in2).
+2026-04-21 20:17:24,844 - DEBUG - connection - Created connection from split_8_61_64 (out1) to boiler (in1).
+2026-04-21 20:17:24,845 - DEBUG - connection - Created connection from merge_4_5_65 (out1) to cycle_closer (in1).
+2026-04-21 20:17:24,845 - DEBUG - connection - Created connection from cycle_closer (out1) to merge_47_65_40 (in1).
+2026-04-21 20:17:24,846 - DEBUG - network - Added connection c1 to network.
+2026-04-21 20:17:24,846 - DEBUG - network - Added connection c2 to network.
+2026-04-21 20:17:24,847 - DEBUG - network - Added connection c3 to network.
+2026-04-21 20:17:24,847 - DEBUG - network - Added connection c4 to network.
+2026-04-21 20:17:24,848 - DEBUG - network - Added connection c5 to network.
+2026-04-21 20:17:24,848 - DEBUG - network - Added connection c6 to network.
+2026-04-21 20:17:24,849 - DEBUG - network - Added connection c7 to network.
+2026-04-21 20:17:24,849 - DEBUG - network - Added connection c8 to network.
+2026-04-21 20:17:24,850 - DEBUG - network - Added connection c9 to network.
+2026-04-21 20:17:24,850 - DEBUG - network - Added connection c10 to network.
+2026-04-21 20:17:24,851 - DEBUG - network - Added connection c11 to network.
+2026-04-21 20:17:24,851 - DEBUG - network - Added connection c12 to network.
+2026-04-21 20:17:24,851 - DEBUG - network - Added connection c13 to network.
+2026-04-21 20:17:24,851 - DEBUG - network - Added connection c14 to network.
+2026-04-21 20:17:24,852 - DEBUG - network - Added connection c15 to network.
+2026-04-21 20:17:24,852 - DEBUG - network - Added connection c16 to network.
+2026-04-21 20:17:24,853 - DEBUG - network - Added connection c17 to network.
+2026-04-21 20:17:24,853 - DEBUG - network - Added connection c18 to network.
+2026-04-21 20:17:24,854 - DEBUG - network - Added connection c19 to network.
+2026-04-21 20:17:24,854 - DEBUG - network - Added connection c20 to network.
+2026-04-21 20:17:24,854 - DEBUG - network - Added connection c21 to network.
+2026-04-21 20:17:24,855 - DEBUG - network - Added connection c22 to network.
+2026-04-21 20:17:24,855 - DEBUG - network - Added connection c23 to network.
+2026-04-21 20:17:24,856 - DEBUG - network - Added connection c24 to network.
+2026-04-21 20:17:24,856 - DEBUG - network - Added connection c25 to network.
+2026-04-21 20:17:24,856 - DEBUG - network - Added connection c26 to network.
+2026-04-21 20:17:24,857 - DEBUG - network - Added connection c27 to network.
+2026-04-21 20:17:24,857 - DEBUG - network - Added connection c28 to network.
+2026-04-21 20:17:24,858 - DEBUG - network - Added connection c29 to network.
+2026-04-21 20:17:24,858 - DEBUG - network - Added connection c30 to network.
+2026-04-21 20:17:24,858 - DEBUG - network - Added connection c31 to network.
+2026-04-21 20:17:24,859 - DEBUG - network - Added connection c32 to network.
+2026-04-21 20:17:24,859 - DEBUG - network - Added connection c33 to network.
+2026-04-21 20:17:24,860 - DEBUG - network - Added connection c34 to network.
+2026-04-21 20:17:24,860 - DEBUG - network - Added connection c35 to network.
+2026-04-21 20:17:24,860 - DEBUG - network - Added connection c36 to network.
+2026-04-21 20:17:24,861 - DEBUG - network - Added connection c37 to network.
+2026-04-21 20:17:24,861 - DEBUG - network - Added connection c38 to network.
+2026-04-21 20:17:24,862 - DEBUG - network - Added connection c39 to network.
+2026-04-21 20:17:24,862 - DEBUG - network - Added connection c40 to network.
+2026-04-21 20:17:24,863 - DEBUG - network - Added connection c41 to network.
+2026-04-21 20:17:24,863 - DEBUG - network - Added connection c42 to network.
+2026-04-21 20:17:24,863 - DEBUG - network - Added connection c43 to network.
+2026-04-21 20:17:24,864 - DEBUG - network - Added connection c44 to network.
+2026-04-21 20:17:24,864 - DEBUG - network - Added connection c45 to network.
+2026-04-21 20:17:24,865 - DEBUG - network - Added connection c46 to network.
+2026-04-21 20:17:24,865 - DEBUG - network - Added connection c47 to network.
+2026-04-21 20:17:24,865 - DEBUG - network - Added connection c48 to network.
+2026-04-21 20:17:24,866 - DEBUG - network - Added connection c49 to network.
+2026-04-21 20:17:24,866 - DEBUG - network - Added connection c50 to network.
+2026-04-21 20:17:24,867 - DEBUG - network - Added connection c51 to network.
+2026-04-21 20:17:24,867 - DEBUG - network - Added connection c52 to network.
+2026-04-21 20:17:24,868 - DEBUG - network - Added connection c53 to network.
+2026-04-21 20:17:24,868 - DEBUG - network - Added connection c54 to network.
+2026-04-21 20:17:24,868 - DEBUG - network - Added connection c55 to network.
+2026-04-21 20:17:24,869 - DEBUG - network - Added connection c56 to network.
+2026-04-21 20:17:24,869 - DEBUG - network - Added connection c57 to network.
+2026-04-21 20:17:24,870 - DEBUG - network - Added connection c58 to network.
+2026-04-21 20:17:24,870 - DEBUG - network - Added connection c59 to network.
+2026-04-21 20:17:24,870 - DEBUG - network - Added connection c60 to network.
+2026-04-21 20:17:24,871 - DEBUG - network - Added connection c61 to network.
+2026-04-21 20:17:24,871 - DEBUG - network - Added connection c62 to network.
+2026-04-21 20:17:24,872 - DEBUG - network - Added connection c63 to network.
+2026-04-21 20:17:24,872 - DEBUG - network - Added connection c64 to network.
+2026-04-21 20:17:24,872 - DEBUG - network - Added connection c65 to network.
+2026-04-21 20:17:24,873 - DEBUG - network - Added connection deaerator_drain to network.
+2026-04-21 20:17:24,873 - DEBUG - network - Added connection d65 to network.
+2026-04-21 20:17:24,874 - DEBUG - network - Added connection turbine1_out to network.
+2026-04-21 20:17:24,874 - DEBUG - network - Added connection turbine2_out to network.
+2026-04-21 20:17:24,875 - DEBUG - network - Added connection turbine3_out to network.
+2026-04-21 20:17:24,875 - DEBUG - network - Added connection turbine4_out to network.
+2026-04-21 20:17:24,875 - DEBUG - network - Added connection turbine5_out to network.
+2026-04-21 20:17:24,876 - DEBUG - network - Added connection turbine6_out to network.
+2026-04-21 20:17:24,876 - DEBUG - network - Added connection condenser_hot_in to network.
+2026-04-21 20:17:24,877 - DEBUG - network - Added connection heater_i_hot_in to network.
+2026-04-21 20:17:24,877 - DEBUG - network - Added connection heater_g_hot_in to network.
+2026-04-21 20:17:24,878 - DEBUG - network - Added connection heater_b_hot_in to network.
+2026-04-21 20:17:24,878 - DEBUG - network - Added connection deaerator_cold_in to network.
+2026-04-21 20:17:25,068 - DEBUG - network - Removing 6 mass flow variables from ['c52', 'c54', 'c56', 'c59', 'c62', 'c63', 'c2'] from system variables.
+2026-04-21 20:17:25,068 - DEBUG - network - Removing 1 mass flow variables from ['c3', 'c4'] from system variables.
+2026-04-21 20:17:25,068 - DEBUG - network - Removing 1 mass flow variables from ['c6', 'c5'] from system variables.
+2026-04-21 20:17:25,068 - DEBUG - network - Removing 1 mass flow variables from ['c48', 'c47'] from system variables.
+2026-04-21 20:17:25,068 - DEBUG - network - Removing 0 mass flow variables from ['deaerator_drain'] from system variables.
+2026-04-21 20:17:25,069 - INFO - network - ########----Simplify Fluid System Successful----########
+2026-04-21 20:17:25,080 - DEBUG - network - Updated fluid property SI values and fluid mass fraction for user specified connection parameters.
+2026-04-21 20:17:25,094 - INFO - network - ########----Network check successful----########
+2026-04-21 20:17:25,094 - DEBUG - network - Solver properties:
  - mode: offdesign
  - init_path: pure_steam_plant_model1_design_
  - design_path: pure_steam_plant_model1_design_
  - min_iter: 4
  - max_iter: 150
-2026-04-22 22:12:13,423 - DEBUG - network - Network information:
+2026-04-21 20:17:25,094 - DEBUG - network - Network information:
  - Number of components: 56
  - Number of fluid components: 56
  - Number of electric components: 0
@@ -220,276 +220,276 @@ max: 1000000000000.0 Hz
  - Number of fluid connections: 78
  - Number of electric connections: 0
  - Number of busses: 0
-2026-04-22 22:12:13,434 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,436 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,437 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,438 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,440 - DEBUG - network - Could not find component 'boiler_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,440 - DEBUG - network - Could not find component 'condense_merge' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,441 - DEBUG - network - Could not find component 'deaerator_merge' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,441 - DEBUG - network - Could not find component 'heater_b_merge' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,441 - DEBUG - network - Could not find component 'heater_g_merge' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,441 - DEBUG - network - Could not find component 'heater_i_merge' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,442 - DEBUG - network - Could not find component 'merge_25_26_24' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'merge_39_40_28' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'merge_47_65_40' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'merge_4_5_65' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'split_12_48_49' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'split_16_38_39' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'split_8_61_64' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'turbine1_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'turbine2_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'turbine3_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'turbine4_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,443 - DEBUG - network - Could not find component 'turbine5_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,444 - DEBUG - network - Could not find component 'turbine6_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
-2026-04-22 22:12:13,444 - DEBUG - network - Done reading design point information for components.
-2026-04-22 22:12:13,448 - DEBUG - network - Done reading design point information for connections.
-2026-04-22 22:12:13,448 - DEBUG - network - Switched connections from design to offdesign.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component condenser.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_a.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_b.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_c.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_d.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_e.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_f.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_g.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_h.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_i.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_j.
-2026-04-22 22:12:13,448 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_k.
-2026-04-22 22:12:13,448 - DEBUG - network - Switched components from design to offdesign.
-2026-04-22 22:12:13,460 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,462 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,463 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,464 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-2026-04-22 22:12:13,469 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
-2026-04-22 22:12:13,470 - INFO - network - ########-----Initializing variables bounds-----########
-2026-04-22 22:12:13,471 - DEBUG - connection - The connection: c1 has 0 equations.
-2026-04-22 22:12:13,471 - DEBUG - connection - The connection: c10 has 0 equations.
-2026-04-22 22:12:13,471 - DEBUG - connection - The connection: c11 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c12 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c13 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c14 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c15 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c16 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c17 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c18 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c19 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c2 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c20 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c21 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c22 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c23 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c24 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c25 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c26 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c27 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c28 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c29 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c3 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c30 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c31 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c32 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c33 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c34 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c35 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c36 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c37 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c38 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c39 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c4 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c40 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c41 has 0 equations.
-2026-04-22 22:12:13,472 - DEBUG - connection - The connection: c42 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c43 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c44 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c45 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c46 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c47 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c48 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c49 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c5 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c50 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c51 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c52 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c53 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c54 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c55 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c56 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c57 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c58 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c59 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c6 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c60 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c61 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c62 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c63 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c64 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c65 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c7 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c8 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: c9 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: condenser_hot_in has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: d65 has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: deaerator_cold_in has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: deaerator_drain has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: heater_b_hot_in has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: heater_g_hot_in has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: heater_i_hot_in has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: turbine1_out has 0 equations.
-2026-04-22 22:12:13,473 - DEBUG - connection - The connection: turbine2_out has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - connection - The connection: turbine3_out has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - connection - The connection: turbine4_out has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - connection - The connection: turbine5_out has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - connection - The connection: turbine6_out has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: boiler of type BoilerSimple has 2 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: boiler_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: condense_merge of type Merge has 2 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: condense_pump of type Pump has 1 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: condenser of type Condenser has 3 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: cooling_water_sink of type Sink has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: cooling_water_source of type Source has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: cycle_closer of type CycleCloser has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: deaerator of type Deaerator has 6 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: deaerator_merge of type Merge has 2 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: deaerator_sink of type Sink has 0 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heater_b_merge of type Merge has 2 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heater_g_merge of type Merge has 2 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heater_i_merge of type Merge has 2 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_a of type HeatExchanger has 3 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_b of type ExtractHeatExchanger has 4 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_c of type ExtractHeatExchanger has 4 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_d of type OverHeater has 3 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_e of type ExtractHeatExchanger has 4 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_f of type HeatExchanger has 3 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_g of type ExtractHeatExchanger has 4 equations.
-2026-04-22 22:12:13,474 - DEBUG - component - The component: heatexchanger_h of type HeatExchanger has 3 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: heatexchanger_i of type ExtractHeatExchanger has 4 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: heatexchanger_j of type HeatExchanger has 3 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: heatexchanger_k of type ExtractHeatExchanger has 4 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: merge_25_26_24 of type Merge has 2 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: merge_39_40_28 of type Merge has 2 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: merge_47_65_40 of type Merge has 2 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: merge_4_5_65 of type Merge has 2 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: recycle_pump of type Pump has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: split_12_48_49 of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: split_16_38_39 of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: split_8_61_64 of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine1 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine1_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine2 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine2_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine3 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine3_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine4 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine4_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine5 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine5_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine6 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine6_splitter of type Splitter has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: turbine7 of type Turbine has 1 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: valve_25_30 of type Valve has 0 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: valve_26_27 of type Valve has 0 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: valve_34_35 of type Valve has 0 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: valve_3_4 of type Valve has 0 equations.
-2026-04-22 22:12:13,475 - DEBUG - component - The component: valve_42_43 of type Valve has 0 equations.
-2026-04-22 22:12:13,476 - DEBUG - component - The component: valve_47_48 of type Valve has 0 equations.
-2026-04-22 22:12:13,476 - DEBUG - component - The component: valve_49_50 of type Valve has 0 equations.
-2026-04-22 22:12:13,476 - DEBUG - component - The component: valve_51_53 of type Valve has 0 equations.
-2026-04-22 22:12:13,476 - DEBUG - component - The component: valve_58_60 of type Valve has 0 equations.
-2026-04-22 22:12:13,476 - DEBUG - component - The component: valve_5_6 of type Valve has 0 equations.
-2026-04-22 22:12:13,501 - DEBUG - network - ------presolve_batch: 1------
-2026-04-22 22:12:13,501 - DEBUG - network - Has pre_solved equation: <component parameter>: T_out1 of BoilerSimple: boiler
-2026-04-22 22:12:13,501 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: boiler_splitter
-2026-04-22 22:12:13,501 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: condenser
-2026-04-22 22:12:13,501 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_b
-2026-04-22 22:12:13,502 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_c
-2026-04-22 22:12:13,502 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_e
-2026-04-22 22:12:13,502 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_g
-2026-04-22 22:12:13,502 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_i
-2026-04-22 22:12:13,503 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_k
-2026-04-22 22:12:13,503 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Merge: merge_4_5_65
-2026-04-22 22:12:13,503 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: turbine1_splitter
-2026-04-22 22:12:13,503 - DEBUG - network - ------presolve_batch: 2------
-2026-04-22 22:12:13,503 - DEBUG - network - Has pre_solved equation: <component parameter>: T_out2 of BoilerSimple: boiler
-2026-04-22 22:12:13,503 - DEBUG - network - ------presolve_batch: 3------
-2026-04-22 22:12:13,503 - DEBUG - network - Has removed 12 pre_solved equations totally.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: boiler of type BoilerSimple has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: boiler_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: condense_merge of type Merge has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: condense_pump of type Pump has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: condenser of type Condenser has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: cooling_water_sink of type Sink has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: cooling_water_source of type Source has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: cycle_closer of type CycleCloser has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: deaerator of type Deaerator has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: deaerator_merge of type Merge has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: deaerator_sink of type Sink has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heater_b_merge of type Merge has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heater_g_merge of type Merge has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heater_i_merge of type Merge has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heatexchanger_a of type HeatExchanger has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heatexchanger_b of type ExtractHeatExchanger has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heatexchanger_c of type ExtractHeatExchanger has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heatexchanger_d of type OverHeater has 0 variables.
-2026-04-22 22:12:13,503 - DEBUG - component - The component: heatexchanger_e of type ExtractHeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: heatexchanger_f of type HeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: heatexchanger_g of type ExtractHeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: heatexchanger_h of type HeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: heatexchanger_i of type ExtractHeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: heatexchanger_j of type HeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: heatexchanger_k of type ExtractHeatExchanger has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: merge_25_26_24 of type Merge has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: merge_39_40_28 of type Merge has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: merge_47_65_40 of type Merge has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: merge_4_5_65 of type Merge has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: recycle_pump of type Pump has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: split_12_48_49 of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: split_16_38_39 of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: split_8_61_64 of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine1 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine1_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine2 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine2_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine3 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine3_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine4 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine4_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine5 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine5_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine6 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine6_splitter of type Splitter has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: turbine7 of type Turbine has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_25_30 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_26_27 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_34_35 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_3_4 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_42_43 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_47_48 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_49_50 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_51_53 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_58_60 of type Valve has 0 variables.
-2026-04-22 22:12:13,504 - DEBUG - component - The component: valve_5_6 of type Valve has 0 variables.
-2026-04-22 22:12:13,570 - INFO - network - ########----Network initialised----########
-2026-04-22 22:12:13,570 - DEBUG - network - ------Equation Summarization------
-2026-04-22 22:12:13,570 - DEBUG - network - Total number of equations: 75
-2026-04-22 22:12:13,570 - DEBUG - network - Number of connection equations: 0.
-2026-04-22 22:12:13,570 - DEBUG - network - Number of component equations: 87.
-2026-04-22 22:12:13,570 - DEBUG - network - Number of bus equations: 0.
-2026-04-22 22:12:13,570 - DEBUG - network - Number of user defined equations: 0.
-2026-04-22 22:12:13,570 - DEBUG - network - Number of presolved equations: 12.
-2026-04-22 22:12:13,571 - DEBUG - network - ------Variable Summarization------
-2026-04-22 22:12:13,571 - DEBUG - network - Total number of variables: 75.
-2026-04-22 22:12:13,571 - DEBUG - network - Number of component variables: 0.
-2026-04-22 22:12:13,571 - DEBUG - network - Number of connection variables: 75.
-2026-04-22 22:12:13,571 - DEBUG - network - Number of mass flow variables: 25.
-2026-04-22 22:12:13,571 - DEBUG - network - Number of pressure variables: 13.
-2026-04-22 22:12:13,571 - DEBUG - network - Number of enthalpy variables: 37.
-2026-04-22 22:12:13,571 - DEBUG - network - ------Fluid Module Summarization------
-2026-04-22 22:12:13,571 - DEBUG - network - Number of fluid composition equations: 0.
-2026-04-22 22:12:13,571 - DEBUG - network - Number of fluid variables: 0.
-2026-04-22 22:12:13,623 - DEBUG - network - 
+2026-04-21 20:17:25,122 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,125 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,126 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,127 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,131 - DEBUG - network - Could not find component 'boiler_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,131 - DEBUG - network - Could not find component 'condense_merge' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,132 - DEBUG - network - Could not find component 'deaerator_merge' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,132 - DEBUG - network - Could not find component 'heater_b_merge' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,132 - DEBUG - network - Could not find component 'heater_g_merge' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,132 - DEBUG - network - Could not find component 'heater_i_merge' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'merge_25_26_24' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'merge_39_40_28' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'merge_47_65_40' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'merge_4_5_65' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'split_12_48_49' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'split_16_38_39' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'split_8_61_64' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'turbine1_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'turbine2_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'turbine3_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,134 - DEBUG - network - Could not find component 'turbine4_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,135 - DEBUG - network - Could not find component 'turbine5_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,135 - DEBUG - network - Could not find component 'turbine6_splitter' in design case file. This is is critical only to components, which need to load design values from this case.
+2026-04-21 20:17:25,135 - DEBUG - network - Done reading design point information for components.
+2026-04-21 20:17:25,143 - DEBUG - network - Done reading design point information for connections.
+2026-04-21 20:17:25,143 - DEBUG - network - Switched connections from design to offdesign.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component condenser.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_a.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_b.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_c.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_d.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_e.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_f.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_g.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_h.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_i.
+2026-04-21 20:17:25,143 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_j.
+2026-04-21 20:17:25,144 - DEBUG - network - Set component attributes KDTA to design value at component heatexchanger_k.
+2026-04-21 20:17:25,144 - DEBUG - network - Switched components from design to offdesign.
+2026-04-21 20:17:25,168 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,170 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,171 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,172 - WARNING - warnings - FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+2026-04-21 20:17:25,178 - DEBUG - network - Generic fluid property specification complete in the final of initialization.
+2026-04-21 20:17:25,178 - INFO - network - ########-----Initializing variables bounds-----########
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c1 has 0 equations.
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c10 has 0 equations.
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c11 has 0 equations.
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c12 has 0 equations.
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c13 has 0 equations.
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c14 has 0 equations.
+2026-04-21 20:17:25,180 - DEBUG - connection - The connection: c15 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c16 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c17 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c18 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c19 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c2 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c20 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c21 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c22 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c23 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c24 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c25 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c26 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c27 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c28 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c29 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c3 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c30 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c31 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c32 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c33 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c34 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c35 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c36 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c37 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c38 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c39 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c4 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c40 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c41 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c42 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c43 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c44 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c45 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c46 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c47 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c48 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c49 has 0 equations.
+2026-04-21 20:17:25,181 - DEBUG - connection - The connection: c5 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c50 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c51 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c52 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c53 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c54 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c55 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c56 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c57 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c58 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c59 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c6 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c60 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c61 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c62 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c63 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c64 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c65 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c7 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c8 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: c9 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: condenser_hot_in has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: d65 has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: deaerator_cold_in has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: deaerator_drain has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: heater_b_hot_in has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: heater_g_hot_in has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: heater_i_hot_in has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: turbine1_out has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: turbine2_out has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: turbine3_out has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: turbine4_out has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: turbine5_out has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - connection - The connection: turbine6_out has 0 equations.
+2026-04-21 20:17:25,182 - DEBUG - component - The component: boiler of type BoilerSimple has 2 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: boiler_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: condense_merge of type Merge has 2 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: condense_pump of type Pump has 1 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: condenser of type Condenser has 3 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: cooling_water_sink of type Sink has 0 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: cooling_water_source of type Source has 0 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: cycle_closer of type CycleCloser has 0 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: deaerator of type Deaerator has 6 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: deaerator_merge of type Merge has 2 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: deaerator_sink of type Sink has 0 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heater_b_merge of type Merge has 2 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heater_g_merge of type Merge has 2 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heater_i_merge of type Merge has 2 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_a of type HeatExchanger has 3 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_b of type ExtractHeatExchanger has 4 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_c of type ExtractHeatExchanger has 4 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_d of type OverHeater has 3 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_e of type ExtractHeatExchanger has 4 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_f of type HeatExchanger has 3 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_g of type ExtractHeatExchanger has 4 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_h of type HeatExchanger has 3 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_i of type ExtractHeatExchanger has 4 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_j of type HeatExchanger has 3 equations.
+2026-04-21 20:17:25,183 - DEBUG - component - The component: heatexchanger_k of type ExtractHeatExchanger has 4 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: merge_25_26_24 of type Merge has 2 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: merge_39_40_28 of type Merge has 2 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: merge_47_65_40 of type Merge has 2 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: merge_4_5_65 of type Merge has 2 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: recycle_pump of type Pump has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: split_12_48_49 of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: split_16_38_39 of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: split_8_61_64 of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine1 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine1_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine2 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine2_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine3 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine3_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine4 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine4_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine5 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine5_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine6 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine6_splitter of type Splitter has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: turbine7 of type Turbine has 1 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_25_30 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_26_27 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_34_35 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_3_4 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_42_43 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_47_48 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_49_50 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_51_53 of type Valve has 0 equations.
+2026-04-21 20:17:25,184 - DEBUG - component - The component: valve_58_60 of type Valve has 0 equations.
+2026-04-21 20:17:25,185 - DEBUG - component - The component: valve_5_6 of type Valve has 0 equations.
+2026-04-21 20:17:25,216 - DEBUG - network - ------presolve_batch: 1------
+2026-04-21 20:17:25,216 - DEBUG - network - Has pre_solved equation: <component parameter>: T_out1 of BoilerSimple: boiler
+2026-04-21 20:17:25,216 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: boiler_splitter
+2026-04-21 20:17:25,216 - DEBUG - network - Has pre_solved equation: <component parameter>: subcooling of Condenser: condenser
+2026-04-21 20:17:25,216 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_b
+2026-04-21 20:17:25,217 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_c
+2026-04-21 20:17:25,217 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_e
+2026-04-21 20:17:25,217 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_g
+2026-04-21 20:17:25,217 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_i
+2026-04-21 20:17:25,218 - DEBUG - network - Has pre_solved equation: <component parameter>: saturated_cooling of ExtractHeatExchanger: heatexchanger_k
+2026-04-21 20:17:25,218 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Merge: merge_4_5_65
+2026-04-21 20:17:25,218 - DEBUG - network - Has pre_solved equation: <component constraint>: mass_flow_constraints of Splitter: turbine1_splitter
+2026-04-21 20:17:25,218 - DEBUG - network - ------presolve_batch: 2------
+2026-04-21 20:17:25,218 - DEBUG - network - Has pre_solved equation: <component parameter>: T_out2 of BoilerSimple: boiler
+2026-04-21 20:17:25,218 - DEBUG - network - ------presolve_batch: 3------
+2026-04-21 20:17:25,218 - DEBUG - network - Has removed 12 pre_solved equations totally.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: boiler of type BoilerSimple has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: boiler_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: condense_merge of type Merge has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: condense_pump of type Pump has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: condenser of type Condenser has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: cooling_water_sink of type Sink has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: cooling_water_source of type Source has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: cycle_closer of type CycleCloser has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: deaerator of type Deaerator has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: deaerator_merge of type Merge has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: deaerator_sink of type Sink has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: heater_b_merge of type Merge has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: heater_g_merge of type Merge has 0 variables.
+2026-04-21 20:17:25,218 - DEBUG - component - The component: heater_i_merge of type Merge has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_a of type HeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_b of type ExtractHeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_c of type ExtractHeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_d of type OverHeater has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_e of type ExtractHeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_f of type HeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_g of type ExtractHeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_h of type HeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_i of type ExtractHeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_j of type HeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: heatexchanger_k of type ExtractHeatExchanger has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: merge_25_26_24 of type Merge has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: merge_39_40_28 of type Merge has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: merge_47_65_40 of type Merge has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: merge_4_5_65 of type Merge has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: recycle_pump of type Pump has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: split_12_48_49 of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: split_16_38_39 of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: split_8_61_64 of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine1 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine1_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine2 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine2_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine3 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine3_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine4 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine4_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine5 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine5_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine6 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine6_splitter of type Splitter has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: turbine7 of type Turbine has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: valve_25_30 of type Valve has 0 variables.
+2026-04-21 20:17:25,219 - DEBUG - component - The component: valve_26_27 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_34_35 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_3_4 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_42_43 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_47_48 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_49_50 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_51_53 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_58_60 of type Valve has 0 variables.
+2026-04-21 20:17:25,220 - DEBUG - component - The component: valve_5_6 of type Valve has 0 variables.
+2026-04-21 20:17:25,298 - INFO - network - ########----Network initialised----########
+2026-04-21 20:17:25,298 - DEBUG - network - ------Equation Summarization------
+2026-04-21 20:17:25,298 - DEBUG - network - Total number of equations: 75
+2026-04-21 20:17:25,298 - DEBUG - network - Number of connection equations: 0.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of component equations: 87.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of bus equations: 0.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of user defined equations: 0.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of presolved equations: 12.
+2026-04-21 20:17:25,298 - DEBUG - network - ------Variable Summarization------
+2026-04-21 20:17:25,298 - DEBUG - network - Total number of variables: 75.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of component variables: 0.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of connection variables: 75.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of mass flow variables: 25.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of pressure variables: 13.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of enthalpy variables: 37.
+2026-04-21 20:17:25,298 - DEBUG - network - ------Fluid Module Summarization------
+2026-04-21 20:17:25,298 - DEBUG - network - Number of fluid composition equations: 0.
+2026-04-21 20:17:25,298 - DEBUG - network - Number of fluid variables: 0.
+2026-04-21 20:17:25,354 - DEBUG - network - 
 ##### VARIABLES #####
 +----+--------------------------------------------------------+-------------+-------------+---------+-----------+
 |    | label                                                  |   min value |   max value | unit    |     scale |
@@ -660,7 +660,7 @@ max: 1000000000000.0 Hz
 | label   | fluid composition   |
 |---------+---------------------|
 +---------+---------------------+
-2026-04-22 22:12:13,641 - DEBUG - network - 
+2026-04-21 20:17:25,374 - DEBUG - network - 
 ##### TEMPERATURE BOUNDS #####
 +-------------------+-------------+-------------+--------+
 |                   |   min value |   max value | unit   |
@@ -729,96 +729,96 @@ max: 1000000000000.0 Hz
 | turbine5_out      |   2.742e+00 |   1.707e+03 | C      |
 | turbine6_out      |   2.742e+00 |   1.707e+03 | C      |
 +-------------------+-------------+-------------+--------+
-2026-04-22 22:12:13,643 - DEBUG - network - has no linear dependence in network topology
-2026-04-22 22:12:13,644 - INFO - network - Starting solver.
-2026-04-22 22:12:13,647 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | voltage    | electricity | frequency  | fluid      | component  
-2026-04-22 22:12:13,647 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------
-2026-04-22 22:12:15,103 - DEBUG - network - matrix value: -176645651597.86746
-2026-04-22 22:12:15,115 - PROGRESS - network -  1     | 1.40e+01   | 53 %       | 4.98e+01   | 2.71e-02   | 7.78e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:16,504 - DEBUG - network - matrix value: -195479863671.92215
-2026-04-22 22:12:16,508 - PROGRESS - network -  2     | 1.36e+01   | 54 %       | 3.06e+01   | 4.28e-02   | 1.25e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:17,880 - DEBUG - network - matrix value: -227329334840.2875
-2026-04-22 22:12:17,883 - PROGRESS - network -  3     | 1.30e+01   | 54 %       | 2.92e+01   | 4.26e-02   | 1.23e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:19,256 - DEBUG - network - matrix value: -256410272201.54614
-2026-04-22 22:12:19,259 - PROGRESS - network -  4     | 1.23e+01   | 54 %       | 2.79e+01   | 4.23e-02   | 1.22e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:20,670 - DEBUG - network - matrix value: -282406307072.33856
-2026-04-22 22:12:20,674 - PROGRESS - network -  5     | 1.17e+01   | 54 %       | 2.66e+01   | 4.20e-02   | 1.21e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:22,086 - DEBUG - network - matrix value: -306640941941.0835
-2026-04-22 22:12:22,089 - PROGRESS - network -  6     | 1.10e+01   | 55 %       | 2.54e+01   | 4.15e-02   | 1.20e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:23,503 - DEBUG - network - matrix value: -329789256204.5583
-2026-04-22 22:12:23,506 - PROGRESS - network -  7     | 1.04e+01   | 55 %       | 2.42e+01   | 4.10e-02   | 1.19e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:24,868 - DEBUG - network - matrix value: -352240210686.90546
-2026-04-22 22:12:24,871 - PROGRESS - network -  8     | 9.74e+00   | 55 %       | 2.30e+01   | 4.04e-02   | 1.17e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:26,283 - DEBUG - network - matrix value: -374231462141.6177
-2026-04-22 22:12:26,286 - PROGRESS - network -  9     | 9.12e+00   | 56 %       | 2.19e+01   | 3.97e-02   | 1.15e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:27,697 - DEBUG - network - matrix value: -395903603115.11774
-2026-04-22 22:12:27,700 - PROGRESS - network -  10    | 8.50e+00   | 56 %       | 2.08e+01   | 3.89e-02   | 1.13e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:29,115 - DEBUG - network - matrix value: -417341657937.7151
-2026-04-22 22:12:29,119 - PROGRESS - network -  11    | 7.89e+00   | 56 %       | 1.97e+01   | 3.81e-02   | 1.11e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:30,521 - DEBUG - network - matrix value: -438594510873.9747
-2026-04-22 22:12:30,523 - PROGRESS - network -  12    | 7.30e+00   | 57 %       | 1.86e+01   | 3.72e-02   | 1.08e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:31,906 - DEBUG - network - matrix value: -459671334824.332
-2026-04-22 22:12:31,909 - PROGRESS - network -  13    | 6.72e+00   | 57 %       | 1.76e+01   | 3.61e-02   | 1.05e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:33,388 - DEBUG - network - matrix value: -480554622598.9277
-2026-04-22 22:12:33,390 - PROGRESS - network -  14    | 6.15e+00   | 57 %       | 1.66e+01   | 3.50e-02   | 1.02e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:34,848 - DEBUG - network - matrix value: -501205783293.836
-2026-04-22 22:12:34,852 - PROGRESS - network -  15    | 5.60e+00   | 58 %       | 1.57e+01   | 3.38e-02   | 9.88e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:36,344 - DEBUG - network - matrix value: -521568933223.3827
-2026-04-22 22:12:36,351 - PROGRESS - network -  16    | 5.07e+00   | 58 %       | 1.47e+01   | 3.26e-02   | 9.53e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:38,308 - DEBUG - network - matrix value: -541576156310.59985
-2026-04-22 22:12:38,314 - PROGRESS - network -  17    | 4.56e+00   | 59 %       | 1.38e+01   | 3.12e-02   | 9.16e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:39,728 - DEBUG - network - matrix value: -561148829700.8293
-2026-04-22 22:12:39,732 - PROGRESS - network -  18    | 4.07e+00   | 59 %       | 1.29e+01   | 2.98e-02   | 8.77e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:41,203 - DEBUG - network - matrix value: -580201567569.0757
-2026-04-22 22:12:41,207 - PROGRESS - network -  19    | 3.60e+00   | 60 %       | 1.20e+01   | 2.83e-02   | 8.36e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:42,825 - DEBUG - network - matrix value: -598645257542.6428
-2026-04-22 22:12:42,828 - PROGRESS - network -  20    | 3.16e+00   | 61 %       | 1.11e+01   | 2.67e-02   | 7.92e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:44,293 - DEBUG - network - matrix value: -616388361946.2031
-2026-04-22 22:12:44,296 - PROGRESS - network -  21    | 2.73e+00   | 61 %       | 1.02e+01   | 2.51e-02   | 7.47e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:45,756 - DEBUG - network - matrix value: -633339150738.0275
-2026-04-22 22:12:45,763 - PROGRESS - network -  22    | 2.34e+00   | 62 %       | 9.36e+00   | 2.34e-02   | 6.99e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:47,224 - DEBUG - network - matrix value: -649406470516.1188
-2026-04-22 22:12:47,227 - PROGRESS - network -  23    | 1.97e+00   | 63 %       | 8.51e+00   | 2.16e-02   | 6.50e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:49,216 - DEBUG - network - matrix value: -664502118599.8464
-2026-04-22 22:12:49,218 - PROGRESS - network -  24    | 1.62e+00   | 64 %       | 7.66e+00   | 1.98e-02   | 5.99e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:50,660 - DEBUG - network - matrix value: -678539499245.4163
-2026-04-22 22:12:50,664 - PROGRESS - network -  25    | 1.31e+00   | 65 %       | 6.83e+00   | 1.78e-02   | 5.46e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:52,111 - DEBUG - network - matrix value: -691434565528.1984
-2026-04-22 22:12:52,114 - PROGRESS - network -  26    | 1.02e+00   | 66 %       | 5.99e+00   | 1.59e-02   | 4.91e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:53,568 - DEBUG - network - matrix value: -752554733658.8512
-2026-04-22 22:12:53,572 - PROGRESS - network -  27    | 7.70e-01   | 67 %       | 5.18e+00   | 1.38e-02   | 4.33e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:54,963 - DEBUG - network - matrix value: -763959524359.8184
-2026-04-22 22:12:54,966 - PROGRESS - network -  28    | 5.49e-01   | 69 %       | 4.34e+00   | 1.17e-02   | 3.74e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:56,389 - DEBUG - network - matrix value: -773289014294.3481
-2026-04-22 22:12:56,391 - PROGRESS - network -  29    | 3.61e-01   | 71 %       | 3.49e+00   | 9.54e-03   | 3.13e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:57,856 - DEBUG - network - matrix value: -781359195240.5542
-2026-04-22 22:12:57,859 - PROGRESS - network -  30    | 2.07e-01   | 74 %       | 2.62e+00   | 7.27e-03   | 2.48e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:12:59,268 - DEBUG - network - matrix value: -787412880755.0511
-2026-04-22 22:12:59,272 - PROGRESS - network -  31    | 8.97e-02   | 78 %       | 1.70e+00   | 4.82e-03   | 1.77e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:13:00,693 - DEBUG - network - matrix value: -792232361405.0659
-2026-04-22 22:13:00,696 - PROGRESS - network -  32    | 1.14e-02   | 88 %       | 2.16e-01   | 6.76e-04   | 3.73e-03   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:13:02,102 - DEBUG - network - matrix value: -791355832225.6597
-2026-04-22 22:13:02,105 - PROGRESS - network -  33    | 9.67e-04   | 100 %      | 6.43e-03   | 3.84e-06   | 2.44e-04   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
-2026-04-22 22:13:02,105 - DEBUG - network - has found the solution in 0th iteration
-2026-04-22 22:13:02,105 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------
-2026-04-22 22:13:02,105 - DEBUG - network - Total iterations: 33, Calculation time: 48.46 s, Iterations per second: 0.68
-2026-04-22 22:13:05,552 - DEBUG - base - The KDTA calculation of ExtractHeatExchanger: heatexchanger_k has not converged after 41 iterations.
-2026-04-22 22:13:06,453 - INFO - network - Postprocessing complete.
-2026-04-22 22:13:06,454 - INFO - network - Calculation complete.
-2026-04-22 22:13:06,454 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 600.0000000000001 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,457 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 599.999999998664 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,458 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.7999380743973145 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,460 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 71248181.09572667 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,463 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.0 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,464 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.0 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,465 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 1487008.7168010462 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,465 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.05008382947538048 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,470 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 6281324.720858569 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,470 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.04985918544262648 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,476 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 145257.0486477288 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,477 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.04980162605959922 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,479 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.9988000000000002 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-2026-04-22 22:13:06,552 - RESULT - network - 
+2026-04-21 20:17:25,380 - DEBUG - network - has no linear dependence in network topology
+2026-04-21 20:17:25,380 - INFO - network - Starting solver.
+2026-04-21 20:17:25,384 - PROGRESS - network -  iter  | residual   | progress   | massflow   | pressure   | enthalpy   | voltage    | electricity | frequency  | fluid      | component  
+2026-04-21 20:17:25,384 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------
+2026-04-21 20:17:27,230 - DEBUG - network - matrix value: -176645651597.86746
+2026-04-21 20:17:27,319 - PROGRESS - network -  1     | 1.40e+01   | 53 %       | 4.98e+01   | 2.71e-02   | 7.78e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:28,775 - DEBUG - network - matrix value: -195479863671.92215
+2026-04-21 20:17:28,779 - PROGRESS - network -  2     | 1.36e+01   | 54 %       | 3.06e+01   | 4.28e-02   | 1.25e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:30,220 - DEBUG - network - matrix value: -227329334840.2875
+2026-04-21 20:17:30,223 - PROGRESS - network -  3     | 1.30e+01   | 54 %       | 2.92e+01   | 4.26e-02   | 1.23e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:31,660 - DEBUG - network - matrix value: -256410272201.54614
+2026-04-21 20:17:31,663 - PROGRESS - network -  4     | 1.23e+01   | 54 %       | 2.79e+01   | 4.23e-02   | 1.22e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:33,111 - DEBUG - network - matrix value: -282406307072.33856
+2026-04-21 20:17:33,114 - PROGRESS - network -  5     | 1.17e+01   | 54 %       | 2.66e+01   | 4.20e-02   | 1.21e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:34,572 - DEBUG - network - matrix value: -306640941941.0835
+2026-04-21 20:17:34,576 - PROGRESS - network -  6     | 1.10e+01   | 55 %       | 2.54e+01   | 4.15e-02   | 1.20e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:36,106 - DEBUG - network - matrix value: -329789256204.5583
+2026-04-21 20:17:36,109 - PROGRESS - network -  7     | 1.04e+01   | 55 %       | 2.42e+01   | 4.10e-02   | 1.19e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:37,606 - DEBUG - network - matrix value: -352240210686.90546
+2026-04-21 20:17:37,609 - PROGRESS - network -  8     | 9.74e+00   | 55 %       | 2.30e+01   | 4.04e-02   | 1.17e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:39,096 - DEBUG - network - matrix value: -374231462141.6177
+2026-04-21 20:17:39,099 - PROGRESS - network -  9     | 9.12e+00   | 56 %       | 2.19e+01   | 3.97e-02   | 1.15e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:40,826 - DEBUG - network - matrix value: -395903603115.11774
+2026-04-21 20:17:40,829 - PROGRESS - network -  10    | 8.50e+00   | 56 %       | 2.08e+01   | 3.89e-02   | 1.13e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:42,491 - DEBUG - network - matrix value: -417341657937.7151
+2026-04-21 20:17:42,495 - PROGRESS - network -  11    | 7.89e+00   | 56 %       | 1.97e+01   | 3.81e-02   | 1.11e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:44,321 - DEBUG - network - matrix value: -438594510873.9747
+2026-04-21 20:17:44,326 - PROGRESS - network -  12    | 7.30e+00   | 57 %       | 1.86e+01   | 3.72e-02   | 1.08e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:46,334 - DEBUG - network - matrix value: -459671334824.332
+2026-04-21 20:17:46,339 - PROGRESS - network -  13    | 6.72e+00   | 57 %       | 1.76e+01   | 3.61e-02   | 1.05e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:48,080 - DEBUG - network - matrix value: -480554622598.9277
+2026-04-21 20:17:48,085 - PROGRESS - network -  14    | 6.15e+00   | 57 %       | 1.66e+01   | 3.50e-02   | 1.02e-01   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:49,753 - DEBUG - network - matrix value: -501205783293.836
+2026-04-21 20:17:49,757 - PROGRESS - network -  15    | 5.60e+00   | 58 %       | 1.57e+01   | 3.38e-02   | 9.88e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:51,307 - DEBUG - network - matrix value: -521568933223.3827
+2026-04-21 20:17:51,310 - PROGRESS - network -  16    | 5.07e+00   | 58 %       | 1.47e+01   | 3.26e-02   | 9.53e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:52,955 - DEBUG - network - matrix value: -541576156310.59985
+2026-04-21 20:17:52,958 - PROGRESS - network -  17    | 4.56e+00   | 59 %       | 1.38e+01   | 3.12e-02   | 9.16e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:54,491 - DEBUG - network - matrix value: -561148829700.8293
+2026-04-21 20:17:54,495 - PROGRESS - network -  18    | 4.07e+00   | 59 %       | 1.29e+01   | 2.98e-02   | 8.77e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:56,688 - DEBUG - network - matrix value: -580201567569.0757
+2026-04-21 20:17:56,691 - PROGRESS - network -  19    | 3.60e+00   | 60 %       | 1.20e+01   | 2.83e-02   | 8.36e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:58,377 - DEBUG - network - matrix value: -598645257542.6428
+2026-04-21 20:17:58,379 - PROGRESS - network -  20    | 3.16e+00   | 61 %       | 1.11e+01   | 2.67e-02   | 7.92e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:17:59,939 - DEBUG - network - matrix value: -616388361946.2031
+2026-04-21 20:17:59,942 - PROGRESS - network -  21    | 2.73e+00   | 61 %       | 1.02e+01   | 2.51e-02   | 7.47e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:01,495 - DEBUG - network - matrix value: -633339150738.0275
+2026-04-21 20:18:01,500 - PROGRESS - network -  22    | 2.34e+00   | 62 %       | 9.36e+00   | 2.34e-02   | 6.99e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:03,111 - DEBUG - network - matrix value: -649406470516.1188
+2026-04-21 20:18:03,114 - PROGRESS - network -  23    | 1.97e+00   | 63 %       | 8.51e+00   | 2.16e-02   | 6.50e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:04,629 - DEBUG - network - matrix value: -664502118599.8464
+2026-04-21 20:18:04,632 - PROGRESS - network -  24    | 1.62e+00   | 64 %       | 7.66e+00   | 1.98e-02   | 5.99e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:06,381 - DEBUG - network - matrix value: -678539499245.4163
+2026-04-21 20:18:06,384 - PROGRESS - network -  25    | 1.31e+00   | 65 %       | 6.83e+00   | 1.78e-02   | 5.46e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:08,092 - DEBUG - network - matrix value: -691434565528.1984
+2026-04-21 20:18:08,096 - PROGRESS - network -  26    | 1.02e+00   | 66 %       | 5.99e+00   | 1.59e-02   | 4.91e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:09,645 - DEBUG - network - matrix value: -752554733658.8512
+2026-04-21 20:18:09,649 - PROGRESS - network -  27    | 7.70e-01   | 67 %       | 5.18e+00   | 1.38e-02   | 4.33e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:11,616 - DEBUG - network - matrix value: -763959524359.8184
+2026-04-21 20:18:11,620 - PROGRESS - network -  28    | 5.49e-01   | 69 %       | 4.34e+00   | 1.17e-02   | 3.74e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:13,115 - DEBUG - network - matrix value: -773289014294.3481
+2026-04-21 20:18:13,117 - PROGRESS - network -  29    | 3.61e-01   | 71 %       | 3.49e+00   | 9.54e-03   | 3.13e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:14,729 - DEBUG - network - matrix value: -781359195240.5542
+2026-04-21 20:18:14,732 - PROGRESS - network -  30    | 2.07e-01   | 74 %       | 2.62e+00   | 7.27e-03   | 2.48e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:16,436 - DEBUG - network - matrix value: -787412880755.0511
+2026-04-21 20:18:16,441 - PROGRESS - network -  31    | 8.97e-02   | 78 %       | 1.70e+00   | 4.82e-03   | 1.77e-02   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:17,995 - DEBUG - network - matrix value: -792232361405.0659
+2026-04-21 20:18:17,999 - PROGRESS - network -  32    | 1.14e-02   | 88 %       | 2.16e-01   | 6.76e-04   | 3.73e-03   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:19,732 - DEBUG - network - matrix value: -791355832225.6597
+2026-04-21 20:18:19,735 - PROGRESS - network -  33    | 9.67e-04   | 100 %      | 6.43e-03   | 3.84e-06   | 2.44e-04   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   | 0.00e+00   
+2026-04-21 20:18:19,735 - DEBUG - network - has found the solution in 0th iteration
+2026-04-21 20:18:19,735 - PROGRESS - network - -------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------
+2026-04-21 20:18:19,735 - DEBUG - network - Total iterations: 33, Calculation time: 54.35 s, Iterations per second: 0.61
+2026-04-21 20:18:23,084 - DEBUG - base - The KDTA calculation of ExtractHeatExchanger: heatexchanger_k has not converged after 41 iterations.
+2026-04-21 20:18:24,059 - INFO - network - Postprocessing complete.
+2026-04-21 20:18:24,059 - INFO - network - Calculation complete.
+2026-04-21 20:18:24,060 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 600.0000000000001 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,073 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 599.999999998664 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,074 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.7999380743973145 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,076 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 71248181.09572667 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,078 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.0 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,079 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.0 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,080 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 1487008.7168010462 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,081 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.05008382947538048 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,086 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 6281324.720858569 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,086 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.04985918544262648 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,093 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 145257.0486477288 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,094 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.04980162605959922 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,096 - WARNING - warnings - FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[94m 0.9988000000000002 [0m' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+2026-04-21 20:18:24,176 - RESULT - network - 
 ##### RESULTS (BoilerSimple) #####
 +--------+-----------+----------+----------+---------------+----------+------------+----------+------------+----------+---------------+----------+------------+----------+------------+
 |        |         Q | Q_unit   |   T_out1 | T_out1_unit   |      pr1 | pr1_unit   |      dp1 | dp1_unit   |   T_out2 | T_out2_unit   |      pr2 | pr2_unit   |      dp2 | dp2_unit   |

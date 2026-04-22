@@ -117,7 +117,7 @@ class FreeFluidEngine:
         while True:
             delta_h = h - self.enthalpy(p, T)
             div = (self.enthalpy(p, T + dT) - self.enthalpy(p, T)) / dT
-            alpha = min((2 * fact * div / delta_h) ** 0.5, 1)
+            alpha = min(abs(2 * fact * div / delta_h) ** 0.5, 1)
             T += alpha * delta_h / div
             iter_ += 1
             if abs(delta_h) < 1 or iter_ > 30:
@@ -133,7 +133,7 @@ class FreeFluidEngine:
         while True:
             delta_s = s - self.entropy(p, T)
             div = (self.entropy(p, T + dT) - self.entropy(p, T)) / dT
-            alpha = min((2 * fact * div / delta_s) ** 0.5, 1)
+            alpha = min(abs(2 * fact * div / delta_s) ** 0.5, 1)
             T += alpha * delta_s / div
             iter_ += 1
             if abs(delta_s) < 0.01 or iter_ > 30:
@@ -169,7 +169,7 @@ class FreeFluidEngine:
         while True:
             delta_h = h - self.enthalpy(p, T)
             div = (self.enthalpy(p + dp, T) - self.enthalpy(p, T)) / dp
-            alpha = min((2 * fact * div / delta_h) ** 0.5, 1)
+            alpha = min(abs(2 * fact * div / delta_h) ** 0.5, 1)
             p += alpha * delta_h / div
             iter_ += 1
             if abs(delta_h) < 1 or iter_ > 30:
