@@ -1,16 +1,9 @@
 # -*- coding: utf-8
 
 """Module for thermodynamic analyses.
-
 The analyses module provides thermodynamic analysis tools for your simulation.
 Different analysis classes are available:
-
 - :py:class:`Aurora.tools.analyses.ExergyAnalysis`
-
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location Aurora/tools/analyses.py
 
 SPDX-License-Identifier: MIT
 """

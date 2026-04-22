@@ -419,6 +419,7 @@ class HeatStorageTank(FluidComponent):
         self.Q.val_SI = i.m.val_SI * i.h.val_SI - o.m.val_SI * o.h.val_SI
         self.T_in.val_SI = i.calc_T()
         self.T_out.val_SI = o.calc_T()
+        self.dm.val_SI = i.m.val_SI - o.m.val_SI
 
 
 

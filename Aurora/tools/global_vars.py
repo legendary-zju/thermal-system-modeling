@@ -1,11 +1,6 @@
 # -*- coding: utf-8
 
 """Module for global variables used by other modules of the Aurora package.
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location Aurora/tools/global_vars.py
-
 SPDX-License-Identifier: MIT
 """
 import math

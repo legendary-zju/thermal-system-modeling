@@ -252,23 +252,23 @@ class SolarThermalCombinePlant1:
                                  self.l1_out, self.l2_out, self.l3_out, self.l4_out, self.heater_k_hot_in, self.heater_j_hot_in)
 
     def set_properties(self):
-        # component properties
+        ## component properties
         # salt cycle mass conservation
         self.salt_cycle_closer.set_attr(mass_conservation=True)
         # heat exchanger
         self.heatexchanger_a.set_attr(dp1=0.02, dp2=0.002, DTL=365)
-        self.heatexchanger_b.set_attr(dp1=0.01, dp2=0.01, DTL=7)
-        self.heatexchanger_c.set_attr(dp1=0.1, dp2=0.5, DTU=9)
-        self.heatexchanger_d.set_attr(DTU=22)
-        self.heatexchanger_e.set_attr()
-        self.heatexchanger_f.set_attr(DTU=23)
-        self.heatexchanger_g.set_attr(DTU_sh=5)
-        self.heatexchanger_h.set_attr(DTU_sh=5)
-        self.heatexchanger_i.set_attr(DTU_sh=5)
-        self.heatexchanger_j.set_attr(DTU_sh=5)
-        self.heatexchanger_k.set_attr(DTU_sh=5)
-        self.condenser.set_attr(DTU_sh=5)
-        self.evaporator.set_attr(DTM=7.5)
+        self.heatexchanger_b.set_attr(dp1=0.01, dp2=0, DTL=7)
+        self.heatexchanger_c.set_attr(dp1=0, dp2=0.5, DTU=9)
+        self.heatexchanger_d.set_attr(dp1=1.6, dp2=0.5, DTU=22)
+        self.heatexchanger_e.set_attr(dp1=1.6, dp2=0.5)
+        self.heatexchanger_f.set_attr(dp1=1.6, dp2=0.5, DTU=23)
+        self.heatexchanger_g.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
+        self.heatexchanger_h.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
+        self.heatexchanger_i.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
+        self.heatexchanger_j.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
+        self.heatexchanger_k.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
+        self.condenser.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
+        self.evaporator.set_attr(dp1=0, dp2=0.002, DTM=7.5)
         # vapour tank
         self.evaporator_drum.set_attr(Ki=10)
         # mass amplifier
@@ -295,14 +295,35 @@ class SolarThermalCombinePlant1:
         self.lp_turbine3.set_attr(eta_s=0.88)
         self.lp_turbine4.set_attr(eta_s=0.88)
         self.lp_turbine5.set_attr(eta_s=0.88)
-        # connection properties
-        self.c44.set_attr(p=100)
+        # heat storage tank
+        self.cold_salt_tank.set_attr(T_out=292)
+        ## connection properties
+        # cooling water
+        self.c66.set_attr(p=2, T=30, fluid={'water': 1})
+        # steam module
+        self.c44.set_attr(p=100, fluid={'water': 1})
         self.c45.set_attr(p=40)
         self.c41.set_attr(p=16.5)
         self.c57.set_attr(p=6)
         self.c59.set_attr(p=2.5)
         self.c61.set_attr(p=1.2)
         self.c63.set_attr(p=0.6)
+        self.c64.set_attr(p=0.08)
+        # solar thermal module
+        self.c84.set_attr(p=35, fluid={"Biphenyl": 0.265, "DiphenylEther": 0.735})
+        self.c9.set_attr(m=1100)
+        self.c7.set_attr(T=393)
+        self.c21.set_attr(m=550)  # !!
+        self.c81.set_attr(T=296)
+        # gas cycle
+        self.c1.set_attr(p=1, T=20)
+        self.c2.set_attr(p=1, T=20)
+        self.c5.set_attr(p=0.9)
+        # salt cycle
+        self.c14.set_attr(m=953, p=1, fluid={"NaNO3": 0.6, "KNO3": 0.4})
+        self.c15.set_attr(m=0.1)
+        self.c18.set_attr(T=299)
+        self.c19.set_attr(p=21)
 
 
 

@@ -1,11 +1,6 @@
 # -*- coding: utf-8
 
 """Module for fluid property mixture routines.
-
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location
 Aurora/tools/fluid_properties/mixtures.py
 
 SPDX-License-Identifier: MIT

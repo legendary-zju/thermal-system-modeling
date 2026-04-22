@@ -6,11 +6,6 @@ The characteristics module provides the integration of characteristic lines
 and characteristic maps. The user can create custom characteristic lines or
 maps with individual data.
 
-
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location Aurora/tools/characteristics.py
-
 SPDX-License-Identifier: MIT
 """
 import json

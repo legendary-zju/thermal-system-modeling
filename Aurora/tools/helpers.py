@@ -2,10 +2,6 @@
 
 """Module for helper functions used by several other modules.
 
-This file is part of project TESPy (github.com/oemof/Aurora). It's copyrighted
-by the contributors recorded in the version control history of the file,
-available from its original location Aurora/tools/helpers.py
-
 SPDX-License-Identifier: MIT
 """
 
