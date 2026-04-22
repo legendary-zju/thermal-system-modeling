@@ -320,7 +320,7 @@ class SolarThermalCombinePlant1:
         self.c2.set_attr(p=1, T=20)
         self.c5.set_attr(p=0.9)
         # salt cycle
-        self.c14.set_attr(m=953, p=1, fluid={"NaNO3": 0.6, "KNO3": 0.4})
+        self.c14.set_attr(m=953, p=1, fluid={"Solar Salt": 1})
         self.c15.set_attr(m=0.1)
         self.c18.set_attr(T=299)
         self.c19.set_attr(p=21)
