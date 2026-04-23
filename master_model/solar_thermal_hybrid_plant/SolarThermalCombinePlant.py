@@ -269,6 +269,11 @@ class SolarThermalCombinePlant1:
         self.heatexchanger_k.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
         self.condenser.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
         self.evaporator.set_attr(dp1=0, dp2=0.002, DTM=7.5)
+        # solar collector  need to be adjusted !!!!!
+        self.solar_collector1.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
+        self.solar_collector2.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
+        self.solar_collector3.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
+        self.solar_collector4.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
         # vapour tank
         self.evaporator_drum.set_attr(Ki=10)
         # mass amplifier

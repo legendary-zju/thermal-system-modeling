@@ -6,5 +6,6 @@ h = salt_engine.h_pT(1e5, 700)
 T = salt_engine.T_ph(1e5, h)
 p = salt_engine.p_hT(h, T)
 d = salt_engine.d_ph(p, h)
-msg = f"pressure: {p},  temperature: {T},  enthalpy: {h},  d: {d}"
+s = salt_engine.s_ph(p, h)
+msg = f"pressure: {p},  temperature: {T},  enthalpy: {h},  density: {d},   entropy: {s}"
 print(msg)

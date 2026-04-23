@@ -162,10 +162,10 @@ class FreeFluidEngine:
 
     def p_hT(self, h, T):
         """calculate pressure of fluid based on enthalpy and temperature"""
-        p = (self.p_min + self.p_max) / 2
+        p = 1e6
         dp = 1e1
         iter_ = 1
-        fact = 0.1
+        fact = 1e4
         while True:
             delta_h = h - self.enthalpy(p, T)
             div = (self.enthalpy(p + dp, T) - self.enthalpy(p, T)) / dp
