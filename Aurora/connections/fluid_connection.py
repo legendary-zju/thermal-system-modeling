@@ -14,7 +14,7 @@ from Aurora.tools.data_containers import FluidProperties as dc_prop
 from Aurora.tools.data_containers import ReferencedFluidProperties as dc_ref
 from Aurora.tools.data_containers import SimpleDataContainer as dc_simple
 from Aurora.tools.fluid_properties import CoolPropWrapper
-from Aurora.tools.fluid_properties import MoltenSaltWrapper
+from Aurora.tools.fluid_properties import ThermalConductingMediumWrapper
 from Aurora.tools.fluid_properties import Q_mix_ph
 
 from Aurora.tools.fluid_properties import T_sat_p
@@ -70,7 +70,7 @@ from Aurora.tools.global_vars import min_derive
 from Aurora.tools.global_vars import fluid_property_data as fpd
 from Aurora.tools.global_vars import electromagnetic_property_data as epd
 from Aurora.tools.global_vars import property_scale as ps
-from Aurora.tools.fluid_properties.properties_reference_data import MOLTEN_SALT_REFERENCE_DATA as salt_data
+from Aurora.tools.fluid_properties.properties_reference_data import Customized_Fluid as customized_fluid
 from Aurora.tools.helpers import AURORAConnectionError
 from Aurora.tools.helpers import AURORANetworkError
 from Aurora.tools.helpers import convert_from_SI
@@ -477,8 +477,8 @@ class FluidConnection(Connection):
             if fluid in self.fluid.wrapper:
                 continue
             if fluid not in self.fluid.engine:
-                if fluid in salt_data.keys():
-                    self.fluid.engine[fluid] = MoltenSaltWrapper
+                if fluid in customized_fluid.keys():
+                    self.fluid.engine[fluid] = ThermalConductingMediumWrapper
                 else:
                     self.fluid.engine[fluid] = CoolPropWrapper
 

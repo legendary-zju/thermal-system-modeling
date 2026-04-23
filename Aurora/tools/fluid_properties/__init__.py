@@ -55,5 +55,5 @@ from .functions import viscosity_mix_ph  # noqa: F401
 from .functions import viscosity_mix_pT  # noqa: F401
 from .helpers import single_fluid  # noqa: F401
 from .wrappers import CoolPropWrapper  # noqa: F401
-from .wrappers import MoltenSaltWrapper  # noqa: F401
+from .wrappers import ThermalConductingMediumWrapper  # noqa: F401
 from .wrappers import IAPWSWrapper  # noqa: F401

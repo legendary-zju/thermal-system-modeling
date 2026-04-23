@@ -315,7 +315,7 @@ class SolarThermalCombinePlant1:
         self.c63.set_attr(p=0.6)
         self.c64.set_attr(p=0.08)
         # solar thermal module
-        self.c84.set_attr(p=35, fluid={"Biphenyl": 0.265, "DiphenylEther": 0.735})
+        self.c84.set_attr(p=35, fluid={'DowthermA': 1})
         self.c9.set_attr(m=1100)
         self.c7.set_attr(T=393)
         self.c21.set_attr(m=550)  # !!

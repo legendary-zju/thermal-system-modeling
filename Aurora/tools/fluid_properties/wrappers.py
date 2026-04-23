@@ -336,7 +336,7 @@ class CoolPropWrapper(FluidPropertyWrapper):
 
 
 @wrapper_registry
-class MoltenSaltWrapper(FluidPropertyWrapper):
+class ThermalConductingMediumWrapper(FluidPropertyWrapper):
     def __init__(self, fluid, back_end=None) -> None:
         """Wrapper for fuse salt, which is used for heat storage tank.
 
@@ -349,7 +349,7 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
         """
         try:
             from Aurora.tools.fluid_properties.free_fluid_engine import FreeFluidEngine
-            self.Salt = FreeFluidEngine
+            self.Medium = FreeFluidEngine
         except ImportError:
             raise ModuleNotFoundError(
                 "Has no Fluid Engine been found."
@@ -359,7 +359,7 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
         super().__init__(fluid, back_end)
         # check the salt is contained
         try:
-            self.salt_obj = self.Salt(fluid)
+            self.engine = self.Medium(fluid)
         except ValueError as e:
             available_salts = list(salt_data.keys())
             raise ValueError(
@@ -372,16 +372,16 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
     def _set_constants(self):
         """set constant limited properties for salt"""
         # set temperature range
-        self._T_min = self.salt_obj.T_min
-        self._T_max = self.salt_obj.T_max
+        self._T_min = self.engine.T_min
+        self._T_max = self.engine.T_max
         # set pressure range
-        self._p_min = self.salt_obj.p_min
-        self._p_max = self.salt_obj.p_max
+        self._p_min = self.engine.p_min
+        self._p_max = self.engine.p_max
         # salt has no crit properties
-        self._p_crit = self.salt_obj.p_crit
-        self._T_crit = self.salt_obj.T_crit
+        self._p_crit = self.engine.p_crit
+        self._T_crit = self.engine.T_crit
         # molar mass of salt
-        self._molar_mass = self.salt_obj.molar_mass
+        self._molar_mass = self.engine.molar_mass
 
     def _is_below_T_critical(self, T: float) -> bool:
         """check if temperature is below critical temperature"""
@@ -401,16 +401,16 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
     def T_ph(self, p: float, h: float) -> float:
         """calculate temperature for salt based on enthalpy"""
         # ignore the impact of pressure
-        return self.salt_obj.T_ph(p, h)
+        return self.engine.T_ph(p, h)
 
     def T_ps(self, p: float, s: float) -> float:
         """calculate temperature for salt based on entropy"""
-        return self.salt_obj.T_ps(p, s)
+        return self.engine.T_ps(p, s)
 
     def h_pT(self, p: float, T: float) -> float:
         """calculate enthalpy for salt based on temperature"""
         # ignore the impact of pressure
-        return self.salt_obj.h_pT(p, T)
+        return self.engine.h_pT(p, T)
 
     def h_ps(self, p: float, s: float) -> float:
         """calculate enthalpy for salt based on entropy"""
@@ -419,16 +419,16 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
     def h_pQ(self, p: float, Q: float) -> float:
         """calculate enthalpy for salt based on pressure and dryness fraction"""
         # return saturated liquid enthalpy
-        return self.salt_obj.h_pQ(p, Q)
+        return self.engine.h_pQ(p, Q)
 
     def h_QT(self, Q: float, T: float) -> float:
         """calculate enthalpy for salt based on temperature and dryness fraction"""
         # ignore dryness fraction
-        return self.salt_obj.h_QT(Q, T)
+        return self.engine.h_QT(Q, T)
 
     def p_hT(self, h: float, T: float) -> float:
         """calculate pressure for salt based on temperature and enthalpy"""
-        return self.salt_obj.p_hT(h, T)
+        return self.engine.p_hT(h, T)
 
     def p_hQ(self, h: float, Q: float) -> float:
         """calculate pressure for salt based on enthalpy and dryness fraction"""
@@ -437,17 +437,17 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
 
     def s_QT(self, Q: float, T: float) -> float:
         """calculate entropy for salt based on temperature and dryness fraction"""
-        p = self.salt_obj.p_sat(T)
-        return self.salt_obj.entropy(p, T)
+        p = self.engine.p_sat(T)
+        return self.engine.entropy(p, T)
 
     def T_sat(self, p: float) -> float:
         """calculate saturated temperature for salt based on pressure"""
         # salt has no boiling phenomenon
-        return self.salt_obj.T_sat(p)
+        return self.engine.T_sat(p)
 
     def p_sat(self, T: float) -> float:
         """saturated pressure for salt based on temperature"""
-        return self.salt_obj.p_sat(T)
+        return self.engine.p_sat(T)
 
     def Q_ph(self, p: float, h: float) -> float:
         """calculate dryness fraction for salt based on pressure and enthalpy"""
@@ -461,39 +461,39 @@ class MoltenSaltWrapper(FluidPropertyWrapper):
     def d_ph(self, p: float, h: float) -> float:
         """calculate density for salt based on pressure and enthalpy"""
         # ignore the pressure impact
-        T = self.salt_obj.T_ph(p, h)
+        T = self.engine.T_ph(p, h)
         return self.d_pT(p, T)
 
     def d_pT(self, p: float, T: float) -> float:
         """calculate density for salt based on pressure and temperature"""
         # ignore the impact of pressure
-        return self.salt_obj.density(p, T)
+        return self.engine.density(p, T)
 
     def d_QT(self, Q: float, T: float) -> float:
         """calculate density for salt based on temperature and dryness fraction"""
         # ignore dryness fraction
-        p = self.salt_obj.p_sat(T)
-        return self.salt_obj.density(p, T)
+        p = self.engine.p_sat(T)
+        return self.engine.density(p, T)
 
     def viscosity_ph(self, p: float, h: float) -> float:
         """calculate viscosity for salt based on pressure and enthalpy"""
         # ignore pressure
-        T = self.salt_obj.T_ph(p, h)
+        T = self.engine.T_ph(p, h)
         return self.viscosity_pT(p, T)
 
     def viscosity_pT(self, p: float, T: float) -> float:
         """calculate viscosity for salt based on pressure and temperature"""
         # ignore pressure
-        return self.salt_obj.viscosity(p, T)
+        return self.engine.viscosity(p, T)
 
     def s_ph(self, p: float, h: float) -> float:
         """通过压力和焓值计算熵（近似）"""
-        T = self.salt_obj.T_ph(p, h)
+        T = self.engine.T_ph(p, h)
         return self.s_pT(p, T)
 
     def s_pT(self, p: float, T: float) -> float:
         """calculate entropy for salt based on pressure and temperature"""
-        s = self.salt_obj.entropy(p, T)
+        s = self.engine.entropy(p, T)
         return s
 
 
