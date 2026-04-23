@@ -260,7 +260,7 @@ class SolarThermalCombinePlant1:
         self.heatexchanger_b.set_attr(dp1=0.01, dp2=0, DTL=7)
         self.heatexchanger_c.set_attr(dp1=0, dp2=0.5, DTU=9)
         self.heatexchanger_d.set_attr(dp1=1.6, dp2=0.5, DTU=22)
-        self.heatexchanger_e.set_attr(dp1=1.6, dp2=0.5)
+        self.heatexchanger_e.set_attr(dp1=1.6, dp2=0.5, DTU=10.5)  # !!!
         self.heatexchanger_f.set_attr(dp1=1.6, dp2=0.5, DTU=23)
         self.heatexchanger_g.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
         self.heatexchanger_h.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
@@ -270,12 +270,16 @@ class SolarThermalCombinePlant1:
         self.condenser.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
         self.evaporator.set_attr(dp1=0, dp2=0.002, DTM=7.5)
         # solar collector  need to be adjusted !!!!!
-        self.solar_collector1.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
-        self.solar_collector2.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
-        self.solar_collector3.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
-        self.solar_collector4.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000)
+        self.solar_collector1.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
+        self.solar_collector2.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
+        self.solar_collector3.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
+        self.solar_collector4.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
+        # combustion
+        self.combustion.set_attr(dp=0, eta=0.99)
         # vapour tank
         self.evaporator_drum.set_attr(Ki=10)
+        # deaerator
+        self.deaerator.set_attr(dp1=0, dp2=0)
         # mass amplifier
         self.af_solar_in.set_attr(Ki=156)
         self.af_solar_out.set_attr(Ki=1/156)
@@ -292,6 +296,8 @@ class SolarThermalCombinePlant1:
         self.oil_recycle_pump1.set_attr(eta_s=0.8)
         self.oil_recycle_pump2.set_attr(eta_s=0.8)
         self.condense_pump.set_attr(eta_s=0.8)
+        # compressor
+        self.air_compressor.set_attr(eta_s=0.85)
         # turbine
         self.hp_turbine1.set_attr(eta_s=0.88)
         self.hp_turbine2.set_attr(eta_s=0.88)
@@ -300,8 +306,10 @@ class SolarThermalCombinePlant1:
         self.lp_turbine3.set_attr(eta_s=0.88)
         self.lp_turbine4.set_attr(eta_s=0.88)
         self.lp_turbine5.set_attr(eta_s=0.88)
+        self.gas_turbine.set_attr(eta_s=0.88)
         # heat storage tank
         self.cold_salt_tank.set_attr(T_out=292)
+        self.hot_salt_tank.set_attr(T_out=384)
         ## connection properties
         # cooling water
         self.c66.set_attr(p=2, T=30, fluid={'water': 1})
@@ -314,33 +322,63 @@ class SolarThermalCombinePlant1:
         self.c61.set_attr(p=1.2)
         self.c63.set_attr(p=0.6)
         self.c64.set_attr(p=0.08)
+        self.c79.set_attr(m=0)  # deaerator drain
+        self.c31.set_attr(m=0)  # evaporate tank drain
         # solar thermal module
         self.c84.set_attr(p=35, fluid={'DowthermA': 1})
-        self.c9.set_attr(m=1100)
-        self.c7.set_attr(T=393)
+        self.c9.set_attr(m=1100)  # !!
+        self.c7.set_attr(T=393, m=50)
+        self.c18.set_attr(T=299)
+        self.c19.set_attr(p=21, m=1)
         self.c21.set_attr(m=550)  # !!
         self.c81.set_attr(T=296)
         # gas cycle
-        self.c1.set_attr(p=1, T=20)
-        self.c2.set_attr(p=1, T=20)
+        self.c1.set_attr(m=50, p=1, T=20, fluid={"Ar": 0.0129, "N2": 0.7553, "CO2": 0.0004, "O2": 0.2314})
+        self.c2.set_attr(m=2, p=1, T=20, fluid={"CH4": 1})
+        self.c3.set_attr(p=15)
         self.c5.set_attr(p=0.9)
         # salt cycle
         self.c14.set_attr(m=953, p=1, fluid={"Solar Salt": 1})
-        self.c15.set_attr(m=0.1)
-        self.c18.set_attr(T=299)
-        self.c19.set_attr(p=21)
-
-
+        self.c15.set_attr(m=1)
 
     def set_offdesign_properties(self):
         pass
 
+    def set_default_properties(self):
+        """set default properties at design/offdesign condition"""
+        self.set_properties()
+        self.set_offdesign_properties()
+
+    def set_other_at_main_file(self):
+        """set other properties at main file"""
+        self.c1.set_attr(m=10)
+        self.c2.set_attr(m=2)
+        self.c14.set_attr(m=3)
+        self.c15.set_attr(m=4)
+
+    def set_other_at_optimal_file(self):
+        """set other properties at optimal file"""
+        pass
+
     def info_module(self):
+        """set logger module"""
         logger.define_logging(
             logpath=f"{self.name}_loggings", log_the_path=True, log_the_version=True,
             screen_level=logging.INFO, file_level=logging.DEBUG)
 
-    def solve(self, logging=False):
+    def solve(self, logging=False, mode='design', max_iter=50, algo_factor=0.1):
         if logging:
             self.info_module()
-        pass
+        self.nw.solve(mode=mode, max_iter=max_iter, algo_factor=algo_factor,
+                      plot_iteration=False, print_results=True,
+                      # design_path=f"{self.name}_design_",
+                      # init_path=f"{self.name}_design_"
+                      )
+        # self.nw.save(f"{self.name}_design_")
+        # self.nw.save_csv(f"{self.name}_design_csv_")
+        # self.nw.save_csv(f"{self.name}_offdesign_csv_")
+
+if __name__ == '__main__':
+    solar_thermal_combine_plant = SolarThermalCombinePlant1("solar_thermal_combine_plant")
+    solar_thermal_combine_plant.set_default_properties()
+    solar_thermal_combine_plant.solve(logging=True, mode='design', max_iter=150, algo_factor=0.1)
