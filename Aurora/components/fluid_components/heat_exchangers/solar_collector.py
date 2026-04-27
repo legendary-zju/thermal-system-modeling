@@ -263,15 +263,6 @@ class SolarCollector(SimpleHeatExchanger):
             self.network.jacobian[k, i.h.J_col] = self.numeric_deriv(f, 'h', i)
         if self.is_variable(o.h, increment_filter):
             self.network.jacobian[k, o.h.J_col] = self.numeric_deriv(f, 'h', o)
-        # custom variables for the energy-group
-        # for variable_name in self.energy_group.elements:
-        #     parameter = self.get_attr(variable_name)
-        #     if parameter == self.Tamb:
-        #         continue
-        #     if parameter.is_var:
-        #         self.network.jacobian[k, parameter.J_col] = (
-        #             self.numeric_deriv(f, variable_name, None)
-        #         )
 
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""
@@ -283,7 +274,7 @@ class SolarCollector(SimpleHeatExchanger):
         self.dp.val_SI = i.p.val_SI - o.p.val_SI
         self.zeta.val_SI = self.calc_zeta(i, o)
 
-        if self.energy_group.is_set:
+        if self.energy.is_set:
             self.Q_loss.val_SI = -(self.E.val_SI * self.fA.val_SI - self.Q.val_SI)
             self.Q_loss.is_result = True
         else:

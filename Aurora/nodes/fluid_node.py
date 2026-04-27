@@ -177,14 +177,20 @@ class FluidNode(Node):
         if len(self.fluid.val.items()) > 1:
             self.x.val_SI = np.nan
         else:
-            if self.p.val_SI > p_crit_(self.fluid_reference.fluid_data):
+            try:
+                if self.p.val_SI > p_crit_(self.fluid_reference.fluid_data):
+                    self.x.val_SI = np.nan
+                h_0 = h_mix_pQ(self.p.val_SI, 0, self.fluid_reference.fluid_data)
+                h_1 = h_mix_pQ(self.p.val_SI, 1, self.fluid_reference.fluid_data)
+                if self.h.val_SI >= h_0 - ERR and self.h.val_SI <= h_1 + ERR:
+                    self.x.val_SI = Q_mix_ph(self.p.val_SI, self.h.val_SI, self.fluid_reference.fluid_data)
+                else:
+                    self.x.val_SI = np.nan
+            except ValueError as e:
                 self.x.val_SI = np.nan
-            h_0 = h_mix_pQ(self.p.val_SI, 0, self.fluid_reference.fluid_data)
-            h_1 = h_mix_pQ(self.p.val_SI, 1, self.fluid_reference.fluid_data)
-            if self.h.val_SI >= h_0 - ERR and self.h.val_SI <= h_1 + ERR:
-                self.x.val_SI = Q_mix_ph(self.p.val_SI, self.h.val_SI, self.fluid_reference.fluid_data)
-            else:
-                self.x.val_SI = np.nan
+                msg = (f"Has something wrong in dryness calculation at node within "
+                       f"the component-{self.component.__class__.__name__}: {self.component.label}, due to: {e}")
+                logger.error(msg)
 
     def calc_properties(self):
         """Calculate fluid properties"""

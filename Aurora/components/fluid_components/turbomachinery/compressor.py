@@ -210,6 +210,23 @@ class Compressor(Turbomachine):
         pass
 
     def eta_s_solve_isolated(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.fluid.is_var:
+            return False
+        if i.p.is_set and o.p.is_set and i.h.is_set and not o.h.is_set and self.eta_s_fit.rule in ['constant', 'static']:
+            isen_dh = isentropic(
+                    i.p.val_SI,
+                    i.h.val_SI,
+                    o.p.val_SI,
+                    i.fluid_data,
+                    i.mixing_rule,
+                    T0=None
+                ) - i.h.val_SI
+            o.h.val_SI = isen_dh / self.eta_s.val_SI + i.h.val_SI
+            o.h.is_set = True
+            o.h.is_var = False
+            return True
         return False
 
     def eta_s_func_doc(self, label):

@@ -1036,12 +1036,15 @@ class Network:
         # fluid composition is a single variable in each main branch
         for branch in self.massflow_branches:  # massflow_branches: plot construction list of all branch dict
             num_massflow_specs = 0
+            main_conn = branch["connections"][0]
             # statistical analysis massflow set
             for c in branch["connections"]:
                 # number of specifications cannot exceed 1
                 num_massflow_specs += c.m.is_set  #
                 if c.m.is_set:
                     main_conn = c
+                if not np.isnan(c.m.val0):
+                    main_conn.m.val0 = c.m.val0
                 # self reference is not allowed
                 if c.m_ref.is_set:
                     if c.m_ref.ref.obj in branch["connections"]:
@@ -1952,7 +1955,7 @@ class Network:
             mass_flow_.append(data)
             if data.is_var and not data.initialized:
                 for branch_data in self.fluid_wrapper_branches.values():
-                    if c in branch_data["connections"]:
+                    if c in branch_data["connections"] and np.isnan(c.get_attr('m').val0):
                         c.get_attr('m').val0 = float(np.random.uniform(min(branch_data["massflow"]),
                                                                        max(branch_data["massflow"])))
 
@@ -2122,6 +2125,9 @@ class Network:
         -------
 
         """
+        ######
+        for comp in self.fluid_comps['object']:
+            comp.initial_enthalpy()
         ###### pre initialize property values ######
         for c in self.fluid_conns['object']:
             if not c.good_starting_values:
@@ -3077,6 +3083,7 @@ class Network:
                 self.set_fluid_variables()
                 if fluid_iter > 40:
                     logger.debug(f"the fluid calculation failed due to touching max iterations")
+                    fluid_iteration = False
                 fluid_iter += 1
             for c in self.fluid_conns['object']:
                 c.build_fluid_data()
@@ -3086,36 +3093,51 @@ class Network:
             # correct the matrix structure
             matrix_value = np.linalg.det(self.jacobian)
             logger.debug(f"matrix value: {matrix_value}")
-            if abs(matrix_value) < 1e-3:
+            if abs(matrix_value) < 5e-3:
                 self.repair_matrix_()
                 repaired_matrix_value = np.linalg.det(self.jacobian)
                 logger.debug(f"repaired matrix value: {repaired_matrix_value}")
             # algorithm core
             try:
-                increment = np.linalg.inv(self.jacobian) @ self.residual
+                condition_number = np.linalg.cond(self.jacobian)
+                increment = np.linalg.solve(self.jacobian, self.residual)
                 if self.mode == 'offdesign':
                     alpha = min(1, (2 * self.num_vars * self.algo_factor / norm(increment)) ** 0.5)
                 else:
-                    alpha = 1
-                # hessian = self.jacobian.T @ self.jacobian + 0 * np.eye(self.num_vars)
-                # increment = np.zeros([self.num_vars])
-                # gradient = - self.jacobian.T @ self.residual
-                # direction = - gradient
-                # for _ in range(self.num_vars):
-                #     alpha_k = ((self.residual.T @ self.jacobian @ direction - increment.T @ hessian @ direction) /
-                #                (direction.T @ hessian @ direction))
-                #     increment = increment + alpha_k * direction
-                #     gradient = hessian @ increment - self.jacobian.T @ self.residual
-                #     belta_k = ((gradient.T @ hessian @ direction) /
-                #                (direction.T @ hessian @ direction))
-                #     direction = - gradient + belta_k * direction
-                #     if np.any(np.isnan(increment)):
-                #         raise ValueError
+                    if condition_number > 1e10:
+                        increment_norm = norm(increment)
+                        if increment_norm > 10000:
+                            alpha = 5000 / increment_norm
+                        elif increment_norm > 100:
+                            alpha = 0.5
+                        else:
+                            alpha = min(1.0, 10.0 / (increment_norm + 1e-10))
+                    else:
+                        alpha = 1
                 self.increment = -increment * alpha
             except (ValueError, np.linalg.LinAlgError) as e:
-                #
                 logger.debug(f"singular matrix constructure: {e}")
-                self.increment = np.random.uniform(-5, 5, self.num_vars)
+                try:
+                    # deal with singularity
+                    U, s, Vh = np.linalg.svd(self.jacobian, full_matrices=False)
+                    # truncate small singular values
+                    s_inv = np.zeros_like(s)
+                    threshold = 1e-10 * s[0]  # 相对阈值
+                    s_inv[s > threshold] = 1.0 / s[s > threshold]
+                    increment = Vh.T @ np.diag(s_inv) @ U.T @ self.residual + np.random.uniform(-0.05, 0.05,
+                                                                                                self.num_vars)
+                    increment_norm = norm(increment)
+                    if increment_norm > 10000:
+                        alpha = 5000 / increment_norm
+                    elif increment_norm > 100:
+                        alpha = 0.5
+                    else:
+                        alpha = min(1.0, 10.0 / (increment_norm + 1e-10))
+                    self.increment = -increment * alpha
+                except (ValueError, np.linalg.LinAlgError) as e:
+                    logger.debug(f"Invalid matrix: {e}")
+                    self.increment = np.random.uniform(-5, 5, self.num_vars)
+            # update
             self.increment_history.append(self.increment.copy())
             self.residual_history.append(self.residual.copy())
             self.norm_residual_history.append(norm(self.residual.copy()))
@@ -3123,6 +3145,13 @@ class Network:
                 if ((max(self.norm_residual_history[-9:]) - min(self.norm_residual_history[-9:]))/ max(self.norm_residual_history[-9:])) < 0.01:
                     logger.debug(f"the iteration has not progressed, re_just")
                     self.increment = np.random.uniform(-5, 5, self.num_vars)
+            if (len(self.norm_residual_history) > 4
+                    and self.norm_residual_history[-1] > 1e2
+                    and self.norm_residual_history[-4] > self.norm_residual_history[-3]
+                    and self.norm_residual_history[-3] < self.norm_residual_history[-2]
+                    and self.norm_residual_history[-2] > self.norm_residual_history[-1]):
+                logger.debug(f"the iteration has not progressed, re_just")
+                self.increment = np.random.uniform(-10, 10, self.num_vars)
             self.variables_vector += self.increment
             self.check_feasibility()
             self.correct_attracting_basin_()
@@ -3803,7 +3832,10 @@ class Network:
         dump["Bus"] = self._save_busses()
         dump = self._nested_dict_of_dataframes_to_dict(dump)
         with open(json_file_path, "w") as f:
-            json.dump(dump, f)
+            json.dump(dump, f,
+                      indent=4,
+                      ensure_ascii=False,
+                      sort_keys=False)
 
     def save_csv(self, folder_path):
         """Export the results in multiple csv files in a folder structure

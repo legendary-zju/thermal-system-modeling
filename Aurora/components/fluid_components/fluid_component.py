@@ -925,6 +925,9 @@ class FluidComponent(Component):
     def constraints_h_generate(self):
         return
 
+    def initial_enthalpy(self):
+        return
+
     def pressure_equality_func(self):
         r"""
         Residual Equation for pressure equality.

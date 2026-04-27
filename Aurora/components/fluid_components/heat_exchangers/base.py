@@ -715,6 +715,18 @@ class HeatExchanger(FluidComponent):
         pass
 
     def energy_balance_solve_isolated(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.m.is_set and i.m.val_SI == 0.0:
+            o.m.is_set = True
+            o.m.is_var = False
+            o.m.val_SI = i.m.val_SI
+            return True
+        elif o.m.is_set and o.m.val_SI == 0.0:
+            i.m.is_set = True
+            i.m.is_var = False
+            i.m.val_SI = o.m.val_SI
+            return True
         return False
 
     def energy_balance_func_doc(self, label):
@@ -906,43 +918,49 @@ class HeatExchanger(FluidComponent):
         o2 = self.outl[1]
         if len(i2.fluid.val) > 1 and len(i1.fluid.val) > 1:
             return np.nan
-        h_mid_l = h_mix_pQ((i2.p.val_SI + o2.p.val_SI) / 2, 0, i2.fluid_data)
-        if o2.h.val_SI > h_mid_l > i2.h.val_SI:
-            # temperature of saturated liquid point in cold side
-            T_lower = T_sat_p((i2.p.val_SI + o2.p.val_SI) / 2, i2.fluid_data, mixing_rule=i2.mixing_rule)
-            # enthalpy of corresponding point in hot side
-            h_mid_u = o1.h.val_SI + ((h_mid_l - i2.h.val_SI) * i2.m.val_SI / o1.m.val_SI)
-            if h_mid_u < i1.h.val_SI:
-                T_uper = T_mix_ph((o1.p.val_SI + i1.p.val_SI) / 2, h_mid_u, o1.fluid_data, o1.mixing_rule,
-                                  T0=o1.T.val_SI)
-            else:
-                T_uper = T_mix_ph(i1.p.val_SI, i1.h.val_SI, o1.fluid_data, o1.mixing_rule, T0=o1.T.val_SI)
-            delta_T = T_uper - T_lower
-        elif "H2O" in i1.fluid.val or 'wator' in i1.fluid.val:
-            logger.debug(f"the mid point above range of {self.__class__.__name__}: {self.label}")
-            if "H2O" in i1.fluid.val:
-                fluid_c = "H2O"
-            else:
-                fluid_c = 'wator'
-            fluid_dict = {fluid_c: {
-                "wrapper": i1.fluid.wrapper[fluid_c],
-                "mass_fraction": 1}}
-            T_wator_sat = T_sat_p(i1.p.val_SI, fluid_dict, mixing_rule=i1.mixing_rule)
-            h_mid_u = h_mix_pT(i1.p.val_SI, T_wator_sat, i1.fluid_data, i1.mixing_rule)
-            if i1.h.val_SI > h_mid_u > o1.h.val_SI:
-                h_mid_l = o2.h.val_SI - (i1.h.val_SI - h_mid_u) * i1.m.val_SI / o2.m.val_SI
-                T_uper = T_wator_sat
-                if h_mid_l > i2.h.val_SI:
-                    T_lower = T_mix_ph((i2.p.val_SI + o2.p.val_SI) / 2, h_mid_l, i2.fluid_data, i2.mixing_rule,
-                                       T0=i2.T.val_SI)
+        try:
+            h_mid_l = h_mix_pQ((i2.p.val_SI + o2.p.val_SI) / 2, 0, i2.fluid_data)
+            if o2.h.val_SI > h_mid_l > i2.h.val_SI:
+                # temperature of saturated liquid point in cold side
+                T_lower = T_sat_p((i2.p.val_SI + o2.p.val_SI) / 2, i2.fluid_data, mixing_rule=i2.mixing_rule)
+                # enthalpy of corresponding point in hot side
+                h_mid_u = o1.h.val_SI + ((h_mid_l - i2.h.val_SI) * i2.m.val_SI / o1.m.val_SI)
+                if h_mid_u < i1.h.val_SI:
+                    T_uper = T_mix_ph((o1.p.val_SI + i1.p.val_SI) / 2, h_mid_u, o1.fluid_data, o1.mixing_rule,
+                                      T0=o1.T.val_SI)
                 else:
-                    T_lower = T_mix_ph(i2.p.val_SI, i2.h.val_SI, i2.fluid_data, i2.mixing_rule, T0=i2.T.val_SI)
+                    T_uper = T_mix_ph(i1.p.val_SI, i1.h.val_SI, o1.fluid_data, o1.mixing_rule, T0=o1.T.val_SI)
                 delta_T = T_uper - T_lower
+            elif "H2O" in i1.fluid.val or 'wator' in i1.fluid.val:
+                logger.debug(f"the mid point above range of {self.__class__.__name__}: {self.label}")
+                if "H2O" in i1.fluid.val:
+                    fluid_c = "H2O"
+                else:
+                    fluid_c = 'wator'
+                fluid_dict = {fluid_c: {
+                    "wrapper": i1.fluid.wrapper[fluid_c],
+                    "mass_fraction": 1}}
+                T_wator_sat = T_sat_p(i1.p.val_SI, fluid_dict, mixing_rule=i1.mixing_rule)
+                h_mid_u = h_mix_pT(i1.p.val_SI, T_wator_sat, i1.fluid_data, i1.mixing_rule)
+                if i1.h.val_SI > h_mid_u > o1.h.val_SI:
+                    h_mid_l = o2.h.val_SI - (i1.h.val_SI - h_mid_u) * i1.m.val_SI / o2.m.val_SI
+                    T_uper = T_wator_sat
+                    if h_mid_l > i2.h.val_SI:
+                        T_lower = T_mix_ph((i2.p.val_SI + o2.p.val_SI) / 2, h_mid_l, i2.fluid_data, i2.mixing_rule,
+                                           T0=i2.T.val_SI)
+                    else:
+                        T_lower = T_mix_ph(i2.p.val_SI, i2.h.val_SI, i2.fluid_data, i2.mixing_rule, T0=i2.T.val_SI)
+                    delta_T = T_uper - T_lower
+                else:
+                    delta_T = np.nan
             else:
                 delta_T = np.nan
-        else:
-            delta_T = np.nan
-        return delta_T
+            return delta_T
+        except ValueError as e:
+            msg = f"Has something wrong in DTM calculation at {self.__class__.__name__}: {self.label} due to: {e}"
+            logger.error(msg)
+            return np.nan
+
 
     def DTM_func(self):
         """
@@ -2212,6 +2230,20 @@ class HeatExchanger(FluidComponent):
             else:
                 T = 220 + 273.15
             return h_mix_pT(c.p.val_SI, T, c.fluid_data, c.mixing_rule)
+
+    def initial_enthalpy(self):
+        i1 = self.inl[0]
+        i2 = self.inl[1]
+        o1 = self.outl[0]
+        o2 = self.outl[1]
+        if i1.h.is_var and not o1.h.is_var:
+            i1.h.val_SI = min(o1.h.val_SI + 1e4, o1.h.val_SI * 1.1)
+        elif not i1.h.is_var and o1.h.is_var:
+            o1.h.val_SI = max(i1.h.val_SI - 1e4, i1.h.val_SI * 0.9)
+        if i2.h.is_var and not o2.h.is_var:
+            i2.h.val_SI = max(o2.h.val_SI - 1e4, o2.h.val_SI * 0.9)
+        elif not i2.h.is_var and o2.h.is_var:
+            o2.h.val_SI = min(i2.h.val_SI + 1e4, i2.h.val_SI * 1.1)
     
     def boundary_check(self):
         i1 = self.inl[0]

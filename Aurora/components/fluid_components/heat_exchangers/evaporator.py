@@ -365,7 +365,14 @@ class Evaporator(HeatExchanger):
             # enthalpy of corresponding point in hot side
             h_mid_u1 = o1.h.val_SI + ((h_mid_l - i2.h.val_SI) * i2.m.val_SI / o1.m.val_SI)
             h_mid_u2 = i1.h.val_SI - ((o2.h.val_SI - h_mid_l) * i2.m.val_SI / o1.m.val_SI)
-            h_mid_u = (h_mid_u1 + h_mid_u2) / 2
+            if h_mid_u1 > o1.h.min_val and h_mid_u2 > i1.h.min_val:
+                h_mid_u = (h_mid_u1 + h_mid_u2) / 2
+            elif h_mid_u1 > o1.h.min_val and not h_mid_u2 > i1.h.min_val:
+                h_mid_u = (h_mid_u1 + o1.h.min_val) / 2
+            elif not h_mid_u1 > o1.h.min_val and h_mid_u2 > i1.h.min_val:
+                h_mid_u = (i1.h.min_val + h_mid_u2) / 2
+            else:
+                h_mid_u = (i1.h.val_SI + o1.h.val_SI) / 2
             T_uper = T_mix_ph((o1.p.val_SI + i1.p.val_SI) / 2, h_mid_u, o1.fluid_data, o1.mixing_rule, T0=o1.T.val_SI)
             delta_T = T_uper - T_lower
             return self.DTM.val_SI - delta_T
@@ -432,8 +439,10 @@ class Evaporator(HeatExchanger):
                     fluid_c = "H2O"
                 elif 'h2o' in i1.fluid.val:
                     fluid_c = "h2o"
-                else:
+                elif 'water' in i1.fluid.val:
                     fluid_c = 'water'
+                else:
+                    return -abs(self.DTM_func()) / (i1.h.val_SI - o1.h.val_SI)
                 fluid_dict = {fluid_c: {
                     "wrapper": i1.fluid.wrapper[fluid_c],
                     "mass_fraction": 1}}
@@ -446,8 +455,10 @@ class Evaporator(HeatExchanger):
                     fluid_c = "H2O"
                 elif 'h2o' in o1.fluid.val:
                     fluid_c = "h2o"
-                else:
+                elif 'water' in o1.fluid.val:
                     fluid_c = 'water'
+                else:
+                    return -abs(self.DTM_func()) / (i1.h.val_SI - o1.h.val_SI)
                 fluid_dict = {fluid_c: {
                     "wrapper": o1.fluid.wrapper[fluid_c],
                     "mass_fraction": 1}}

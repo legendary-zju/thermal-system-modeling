@@ -107,3 +107,20 @@ def check_refprop_integration():
 
 
 check_refprop_integration()
+
+print("获取REFPROP中所有流体列表...")
+try:
+    # 获取所有流体（可能很多）
+    all_fluids = CP.get_global_param_string("REFPROP_fluid_list")
+    fluids_list = all_fluids.split(',')
+
+    print(f"REFPROP中有 {len(fluids_list)} 种流体")
+
+    # 搜索包含'phenyl'或'biphenyl'的流体
+    print("\n搜索包含'phenyl'或'biphenyl'的流体:")
+    for fluid in fluids_list:
+        fluid_lower = fluid.lower()
+        if 'phenyl' in fluid_lower or 'biphenyl' in fluid_lower or 'diphenyl' in fluid_lower:
+            print(f"  {fluid}")
+except Exception as e:
+    print(f"获取流体列表失败: {e}")

@@ -17,7 +17,7 @@ from Aurora.components import Compressor
 from Aurora.components import Turbine
 from Aurora.components import SolarCollector
 from Aurora.connections import Bus
-from Aurora.connections import Connection
+from Aurora.connections import Connection, Ref
 from Aurora.networks import Network
 from Aurora.connections import Bus
 
@@ -98,6 +98,10 @@ class SolarThermalCombinePlant1:
         self.valve_76_77 = Valve('valve_76_77')
         self.valve_73_74 = Valve('valve_73_74')
         self.valve_69_71 = Valve('valve_69_71')
+        self.valve_7 = Valve('valve_7')
+        self.valve_9 = Valve('valve_9')
+        self.valve_36 = Valve('valve_36')
+        self.valve_80 = Valve('valve_80')
         # cycle closer
         self.oil_cycle_closer = CycleCloser('oil_cycle_closer')
         self.steam_cycle_closer = CycleCloser('steam_cycle_closer')
@@ -142,9 +146,11 @@ class SolarThermalCombinePlant1:
         self.c4 = Connection(self.combustion, 'out1', self.gas_turbine, 'in1', label='c4')
         self.c5 = Connection(self.gas_turbine, 'out1', self.heatexchanger_a, 'in1', label='c5')
         self.c6 = Connection(self.splitter_6_84_85, 'out1', self.heatexchanger_a, 'in2', label='c6')
-        self.c7 = Connection(self.heatexchanger_a, 'out2', self.merge_7_9_10, 'in1', label='c7')
+        self.c7 = Connection(self.heatexchanger_a, 'out2', self.valve_7, 'in1', label='c7')
+        self.d7 = Connection(self.valve_7, 'out1', self.merge_7_9_10, 'in1', label='d7')
         self.c8 = Connection(self.heatexchanger_a, 'out1', self.gas_sink, 'in1', label='c8')
-        self.c9 = Connection(self.af_solar_out, 'out1', self.merge_7_9_10, 'in2', label='c9')
+        self.c9 = Connection(self.af_solar_out, 'out1', self.valve_9, 'in1', label='c9')
+        self.d9 = Connection(self.valve_9, 'out1', self.merge_7_9_10, 'in2', label='d9')
         self.c10 = Connection(self.merge_7_9_10, 'out1', self.splitter_10_11_12, 'in1', label='c10')
         self.c11 = Connection(self.splitter_10_11_12, 'out2', self.heatexchanger_b, 'in1', label='c11')
         self.c12 = Connection(self.splitter_10_11_12, 'out1', self.merge_12_13_21, 'in1', label='c12')
@@ -172,7 +178,8 @@ class SolarThermalCombinePlant1:
         self.c33 = Connection(self.evaporator, 'out1', self.heatexchanger_e, 'in1', label='c33')
         self.c34 = Connection(self.heatexchanger_e, 'out1', self.af_boiler_hot_out, 'in1', label='c34')
         self.c35 = Connection(self.af_boiler_cold_in, 'out1', self.heatexchanger_e, 'in2', label='c35')
-        self.c36 = Connection(self.af_boiler_hot_out, 'out1', self.merge_36_80_81, 'in1', label='c36')
+        self.c36 = Connection(self.af_boiler_hot_out, 'out1', self.valve_36, 'in1', label='c36')
+        self.d36 = Connection(self.valve_36, 'out1',  self.merge_36_80_81, 'in1', label='d36')
         self.c37 = Connection(self.af_reheater_hot_in, 'out1', self.heatexchanger_f, 'in1', label='c37')
         self.c38 = Connection(self.af_reheater_cold_in, 'out1', self.heatexchanger_f, 'in2', label='c38')
         self.c39 = Connection(self.heatexchanger_f, 'out1', self.af_reheater_hot_out, 'in1', label='c39')
@@ -226,7 +233,8 @@ class SolarThermalCombinePlant1:
         self.c77 = Connection(self.heatexchanger_i, 'out1', self.valve_76_77, 'in1', label='c77')
         self.c78 = Connection(self.heatexchanger_i, 'out2', self.merge_deaerator, 'in1', label='c78')
         self.c79 = Connection(self.deaerator, 'out2', self.deaerator_drain, 'in1', label='c79')
-        self.c80 = Connection(self.af_reheater_hot_out, 'out1', self.merge_36_80_81, 'in2', label='c80')
+        self.c80 = Connection(self.af_reheater_hot_out, 'out1', self.valve_80, 'in1', label='c80')
+        self.d80 = Connection(self.valve_80, 'out1', self.merge_36_80_81, 'in2', label='d80')
         self.c81 = Connection(self.merge_36_80_81, 'out1', self.splitter_20_81_82, 'in1', label='c81')
         self.c82 = Connection(self.splitter_20_81_82, 'out1', self.merge_18_82_83, 'in1', label='c82')
         self.c83 = Connection(self.merge_18_82_83, 'out1', self.oil_recycle_pump1, 'in1', label='c83')
@@ -248,7 +256,8 @@ class SolarThermalCombinePlant1:
                                  self.c62, self.c63, self.c64, self.c65, self.c66, self.c67, self.c68, self.c69, self.c70, self.c71,
                                  self.c72, self.c73, self.c74, self.c75, self.c76, self.c77, self.c78, self.c79, self.c80, self.c81,
                                  self.c82, self.c83, self.c84, self.c85, self.c86, self.c87, self.c88, self.c89, self.c90, self.d54,
-                                 self.d84, self.d15, self.h1_out, self.heater_h_hot_in, self.deaerator_cold_in,
+                                 self.d84, self.d15, self.d7, self.d9, self.d36, self.d80,
+                                 self.h1_out, self.heater_h_hot_in, self.deaerator_cold_in,
                                  self.l1_out, self.l2_out, self.l3_out, self.l4_out, self.heater_k_hot_in, self.heater_j_hot_in)
 
     def set_properties(self):
@@ -256,9 +265,9 @@ class SolarThermalCombinePlant1:
         # salt cycle mass conservation
         self.salt_cycle_closer.set_attr(mass_conservation=True)
         # heat exchanger
-        self.heatexchanger_a.set_attr(dp1=0.02, dp2=0.002, DTL=365)
-        self.heatexchanger_b.set_attr(dp1=0.01, dp2=0, DTL=7)
-        self.heatexchanger_c.set_attr(dp1=0, dp2=0.5, DTU=9)
+        self.heatexchanger_a.set_attr(dp1=0.02, dp2=0.002, DTL=6)
+        self.heatexchanger_b.set_attr(dp1=6, dp2=0, DTL=7)
+        self.heatexchanger_c.set_attr(dp2=0, DTU=9)
         self.heatexchanger_d.set_attr(dp1=1.6, dp2=0.5, DTU=22)
         self.heatexchanger_e.set_attr(dp1=1.6, dp2=0.5, DTU=10.5)  # !!!
         self.heatexchanger_f.set_attr(dp1=1.6, dp2=0.5, DTU=23)
@@ -270,10 +279,10 @@ class SolarThermalCombinePlant1:
         self.condenser.set_attr(dp1=0, dp2=0.05, DTU_sh=5)
         self.evaporator.set_attr(dp1=0, dp2=0.002, DTM=7.5)
         # solar collector  need to be adjusted !!!!!
-        self.solar_collector1.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
-        self.solar_collector2.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
-        self.solar_collector3.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
-        self.solar_collector4.set_attr(dp=0, eta_opt=0.40, fA=1175, E=1000, hf=0, Tamb=25)
+        self.solar_collector1.set_attr(D=0.2, L=4, dp=0, eta_opt=0.40, fA=890, E=1000, hf=0, Tamb=25)
+        self.solar_collector2.set_attr(D=0.2, L=4, dp=0, eta_opt=0.40, fA=890, E=1000, hf=0, Tamb=25)
+        self.solar_collector3.set_attr(D=0.2, L=4, dp=0, eta_opt=0.40, fA=890, E=1000, hf=0, Tamb=25)
+        self.solar_collector4.set_attr(D=0.2, L=4, dp=0, eta_opt=0.40, fA=890, E=1000, hf=0, Tamb=25)
         # combustion
         self.combustion.set_attr(dp=0, eta=0.99)
         # vapour tank
@@ -293,11 +302,12 @@ class SolarThermalCombinePlant1:
         self.af_reheater_cold_out.set_attr(Ki=1/2)
         # pump
         self.steam_recycle_pump.set_attr(eta_s=0.8)
+        self.water_recycle_pump.set_attr(eta_s=0.8)
         self.oil_recycle_pump1.set_attr(eta_s=0.8)
-        self.oil_recycle_pump2.set_attr(eta_s=0.8)
+        self.oil_recycle_pump2.set_attr(eta_s=0.88)
         self.condense_pump.set_attr(eta_s=0.8)
         # compressor
-        self.air_compressor.set_attr(eta_s=0.85)
+        self.air_compressor.set_attr(eta_s=0.8)
         # turbine
         self.hp_turbine1.set_attr(eta_s=0.88)
         self.hp_turbine2.set_attr(eta_s=0.88)
@@ -308,8 +318,9 @@ class SolarThermalCombinePlant1:
         self.lp_turbine5.set_attr(eta_s=0.88)
         self.gas_turbine.set_attr(eta_s=0.88)
         # heat storage tank
-        self.cold_salt_tank.set_attr(T_out=292)
-        self.hot_salt_tank.set_attr(T_out=384)
+        self.cold_salt_tank.set_attr(T_out=292, T_in=297)
+        self.hot_salt_tank.set_attr(T_out=384, T_in=389)
+
         ## connection properties
         # cooling water
         self.c66.set_attr(p=2, T=30, fluid={'water': 1})
@@ -317,6 +328,7 @@ class SolarThermalCombinePlant1:
         self.c44.set_attr(p=100, fluid={'water': 1})
         self.c45.set_attr(p=40)
         self.c41.set_attr(p=16.5)
+        self.c48.set_attr(m=Ref(self.c47, 0.09, 0))
         self.c57.set_attr(p=6)
         self.c59.set_attr(p=2.5)
         self.c61.set_attr(p=1.2)
@@ -325,21 +337,22 @@ class SolarThermalCombinePlant1:
         self.c79.set_attr(m=0)  # deaerator drain
         self.c31.set_attr(m=0)  # evaporate tank drain
         # solar thermal module
-        self.c84.set_attr(p=35, fluid={'DowthermA': 1})
+        # {"Biphenyl": 0.265, "DiphenylEther": 0.735}, {'DowthermA': 1},  {"MD4M": 1}
         self.c9.set_attr(m=1100)  # !!
-        self.c7.set_attr(T=393, m=50)
-        self.c18.set_attr(T=299)
-        self.c19.set_attr(p=21, m=1)
-        self.c21.set_attr(m=550)  # !!
-        self.c81.set_attr(T=296)
+        # self.c21.set_attr(T=393)
+        self.c22.set_attr(m=Ref(self.c21, 0.11, 0))
+        # self.c81.set_attr(T=295)
         # gas cycle
-        self.c1.set_attr(m=50, p=1, T=20, fluid={"Ar": 0.0129, "N2": 0.7553, "CO2": 0.0004, "O2": 0.2314})
-        self.c2.set_attr(m=2, p=1, T=20, fluid={"CH4": 1})
+        self.c1.set_attr(m=400, p=1, T=20, fluid={"Ar": 0.0129, "N2": 0.7553, "CO2": 0.0004, "O2": 0.2314})
+        self.c2.set_attr(m=11.5, p=1, T=20, fluid={"CH4": 1})
         self.c3.set_attr(p=15)
         self.c5.set_attr(p=0.9)
+        self.c6.set_attr(p=35, fluid={'DowthermA': 1})
         # salt cycle
         self.c14.set_attr(m=953, p=1, fluid={"Solar Salt": 1})
-        self.c15.set_attr(m=1)
+        self.c15.set_attr(m=10)  # !!
+        self.c19.set_attr(p=20)
+
 
     def set_offdesign_properties(self):
         pass
@@ -351,10 +364,10 @@ class SolarThermalCombinePlant1:
 
     def set_other_at_main_file(self):
         """set other properties at main file"""
-        self.c1.set_attr(m=10)
-        self.c2.set_attr(m=2)
-        self.c14.set_attr(m=3)
-        self.c15.set_attr(m=4)
+        self.c1.set_attr()
+        self.c2.set_attr()
+        self.c14.set_attr()
+        self.c15.set_attr()
 
     def set_other_at_optimal_file(self):
         """set other properties at optimal file"""
@@ -371,8 +384,8 @@ class SolarThermalCombinePlant1:
             self.info_module()
         self.nw.solve(mode=mode, max_iter=max_iter, algo_factor=algo_factor,
                       plot_iteration=False, print_results=True,
-                      # design_path=f"{self.name}_design_",
-                      # init_path=f"{self.name}_design_"
+                      design_path=f"{self.name}_design_",
+                      init_path=f"{self.name}_design_"
                       )
         # self.nw.save(f"{self.name}_design_")
         # self.nw.save_csv(f"{self.name}_design_csv_")

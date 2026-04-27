@@ -15,6 +15,7 @@ from Aurora.tools.global_vars import property_scale as ps
 from Aurora.tools.global_vars import component_property_data as cpd
 from Aurora.tools.document_models import generate_latex_eq
 from Aurora.tools.fluid_properties import isentropic
+from Aurora.tools.fluid_properties.functions import h_mix_pQ
 
 
 @component_registry
@@ -182,6 +183,23 @@ class Pump(Turbomachine):
         pass
 
     def eta_s_solve_isolated(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if i.fluid.is_var:
+            return False
+        if i.p.is_set and o.p.is_set and i.h.is_set and not o.h.is_set and self.eta_s_fit.rule in ['constant', 'static']:
+            isen_dh = isentropic(
+                i.p.val_SI,
+                i.h.val_SI,
+                o.p.val_SI,
+                i.fluid_data,
+                i.mixing_rule,
+                T0=None
+            ) - i.h.val_SI
+            o.h.val_SI = isen_dh / self.eta_s.val_SI + i.h.val_SI
+            o.h.is_set = True
+            o.h.is_var = False
+            return True
         return False
 
     def eta_s_func_doc(self, label):
@@ -330,6 +348,14 @@ class Pump(Turbomachine):
             return 1e5
         elif key == 'h':
             return 2.9e5
+
+    def bounds_h_generate(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        if not o.p.is_var:
+            if o.p.val_SI < o.calc_p_critical():
+                o.h.max_val = h_mix_pQ(o.p.val_SI, 1, o.fluid_data, o.mixing_rule) * 1.05
+                i.h.max_val = h_mix_pQ(o.p.val_SI, 1, o.fluid_data, o.mixing_rule) * 1.05
 
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""

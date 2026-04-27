@@ -286,7 +286,7 @@ class SimpleHeatExchanger(FluidComponent):
             ),
             'ks_HW': dc_cp(
                 val=10,
-                min_val=1e-1,
+                min_val=1e-7,
                 max_val=1e3,
                 d=1e-2,
                 is_property=True,
