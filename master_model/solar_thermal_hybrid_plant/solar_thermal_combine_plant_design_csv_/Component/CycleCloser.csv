@@ -1,0 +1,4 @@
+,mass_deviation,mass_deviation_unit,fluid_deviation,fluid_deviation_unit
+oil_cycle_closer,0.0,kg / s,0.0,-
+salt_cycle_closer,0.0,kg / s,0.0,-
+steam_cycle_closer,1.4210854715202004e-14,kg / s,0.0,-

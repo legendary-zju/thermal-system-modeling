@@ -1,0 +1,3 @@
+,Q,Q_unit,T_in,T_in_unit,T_out,T_out_unit,dm,dm_unit
+cold_salt_tank,-438076327.99999994,W,297.0,C,292.0,C,-943.0,kg / s
+hot_salt_tank,681323606.4,W,389.0,C,384.0,C,943.0,kg / s

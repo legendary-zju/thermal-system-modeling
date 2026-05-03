@@ -349,13 +349,21 @@ class Pump(Turbomachine):
         elif key == 'h':
             return 2.9e5
 
+    def bounds_p_generate(self):
+        i = self.inl[0]
+        o = self.outl[0]
+        i.p.max_val = i.calc_p_critical()
+        o.p.max_val = o.calc_p_critical()
+
     def bounds_h_generate(self):
         i = self.inl[0]
         o = self.outl[0]
+        if not i.p.is_var:
+            if i.p.val_SI < i.calc_p_critical():
+                i.h.max_val = h_mix_pQ(i.p.val_SI, 1, i.fluid_data, i.mixing_rule) * 1.05
         if not o.p.is_var:
             if o.p.val_SI < o.calc_p_critical():
                 o.h.max_val = h_mix_pQ(o.p.val_SI, 1, o.fluid_data, o.mixing_rule) * 1.05
-                i.h.max_val = h_mix_pQ(o.p.val_SI, 1, o.fluid_data, o.mixing_rule) * 1.05
 
     def calc_parameters(self):
         r"""Postprocessing parameter calculation."""

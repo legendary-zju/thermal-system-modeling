@@ -1,0 +1,5 @@
+,Q,Q_unit,pr,pr_unit,dp,dp_unit,zeta,zeta_unit,D,D_unit,L,L_unit,ks,ks_unit,ks_HW,ks_HW_unit,Tamb,Tamb_unit,hf,hf_unit,fA,fA_unit,E,E_unit,eta_opt,eta_opt_unit,Q_loss,Q_loss_unit
+solar_collector1,355999.9999999998,W,1.0,-,0.0,bar,0.0,(Pa*s)/(m^3*s),0.2,m,4.0,m,0.0,m,0.0,m,25.0,C,0.0,W/m^2*K,890.0,m^2,1000.0,W/m^2,0.4,-,-534000.0000000002,W
+solar_collector2,355999.9999999982,W,1.0,-,0.0,bar,0.0,(Pa*s)/(m^3*s),0.2,m,4.0,m,0.0,m,0.0,m,25.0,C,0.0,W/m^2*K,890.0,m^2,1000.0,W/m^2,0.4,-,-534000.0000000019,W
+solar_collector3,355999.99999999657,W,1.0,-,0.0,bar,0.0,(Pa*s)/(m^3*s),0.2,m,4.0,m,0.0,m,0.0,m,25.0,C,0.0,W/m^2*K,890.0,m^2,1000.0,W/m^2,0.4,-,-534000.0000000035,W
+solar_collector4,356000.00000000146,W,1.0,-,0.0,bar,0.0,(Pa*s)/(m^3*s),0.2,m,4.0,m,0.0,m,0.0,m,25.0,C,0.0,W/m^2*K,890.0,m^2,1000.0,W/m^2,0.4,-,-533999.9999999986,W

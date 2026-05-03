@@ -198,7 +198,7 @@ class Network:
         }
         # iterated value range
         self.m_range_SI = [1e-5, 1e12]  # !!!!
-        self.p_range_SI = [1e5, 300e5]  # [2e2, 300e5]
+        self.p_range_SI = [1e3, 300e5]  # [2e2, 300e5]
         self.h_range_SI = [1e3, 7e6]  # [1e3, 7e6]
         self.T_range_SI = [2e2, 2e3]
         self.U_range_SI = [-1e12, 1e12]

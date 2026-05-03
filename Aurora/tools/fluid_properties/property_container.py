@@ -163,14 +163,18 @@ class FluidPropertyContainer:
         # interpolation
         try:
             if len(parameters) == 1:  # 1D interpolation
-                return float(self._interpolator(args[0]))
+                value = float(self._interpolator(args[0]))
+                return value
             elif len(parameters) == 2:  # 2D interpolation
                 if isinstance(self._interpolator, RegularGridInterpolator):
-                    return float(self._interpolator(args))
+                    value = float(self._interpolator(args))
+                    return value
                 else:
-                    return float(self._interpolator(args[0], args[1]))
+                    value = float(self._interpolator(args[0], args[1]))
+                    return value
             else:  # nD interpolation
-                return float(self._interpolator(args))
+                value = float(self._interpolator(args))
+                return value
         except (ValueError, TypeError) as e:
             fallback_method = self.intro.get('fallback_method', 'nearest')
             if fallback_method == 'nearest':

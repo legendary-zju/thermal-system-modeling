@@ -301,12 +301,12 @@ Customized_Fluid = {
         "p_triple": 101325.0,
         "delta_h_fusion": 161000.0,  # 混合盐的熔化潜热
         "delta_h_vaporization": 1500000.0,
-        "T_crit": 2300.0,
+        "T_crit": 799,
         "p_crit": 42.0e6,
         "T_min": 450.0,
         "T_max": 850.0,  # 推荐运行上限
-        "p_min": 1.0,
-        "p_max": 100.0e6,
+        "p_min": 1e3,
+        "p_max": 5e7,
         "molar_mass": 91.0/1000,  # 平均摩尔质量
         "density_ref": 1850.0,
         # composition
@@ -485,12 +485,12 @@ Customized_Fluid = {
         "p_triple": 101325.0,
         "delta_h_fusion": 116000.0,  # 熔化潜热 (J/kg)
         "delta_h_vaporization": 310000.0,  # 汽化潜热 (J/kg)
-        "T_crit": 773.15,  # 临界温度 (500°C)
+        "T_crit": 693.15,  # 临界温度 (500°C)
         "p_crit": 3.0e6,  # 临界压力 (3.0 MPa)
         "T_min": 285.15,  # 最低温度 (略低于熔点)
         "T_max": 693.15,  # 最高推荐运行温度 (400°C)
-        "p_min": 100.0,  # 最低压力 (0.1 kPa)
-        "p_max": 20.0e6,  # 最高压力 (20 MPa)
+        "p_min": 1e3,  # 最低压力 (1 kPa)
+        "p_max": 5e7,  # 最高压力 (20 MPa)
         "molar_mass": 166.0/1000,  # 平均摩尔质量 (kg/mol)
         "density_ref": 1060.0,  # 参考密度 @300K (kg/m³)
         # composition

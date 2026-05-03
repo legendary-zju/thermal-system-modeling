@@ -1,0 +1,11 @@
+,Ki,Ki_unit
+af_boiler_cold_in,2.0,-
+af_boiler_cold_out,0.5,-
+af_boiler_hot_in,2.0,-
+af_boiler_hot_out,0.5,-
+af_reheater_cold_in,2.0,-
+af_reheater_cold_out,0.5,-
+af_reheater_hot_in,2.0,-
+af_reheater_hot_out,0.5,-
+af_solar_in,156.0,-
+af_solar_out,0.00641025641025641,-
