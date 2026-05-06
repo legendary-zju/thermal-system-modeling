@@ -356,22 +356,42 @@ class SolarThermalCombinePlant1:
 
     def set_offdesign_properties(self):
         # heat exchanger
-        kA_charline1 = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                y=[0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1, 1.04, 1.07])
-        kA_charline2 = CharLine(x=[0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2],
-                                y=[0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1, 1.04, 1.07])
+        kA_charline1 = CharLine(x=[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1,
+                                   1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9,
+                                   2, 3, 4, 5, 6, 7, 8, 9,
+                                   10, 20, 30, 40, 50, 60, 70, 80, 90,
+                                   100],
+                                y=[0.15, 0.25, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1,
+                                   1.04, 1.07, 1.1, 1.13, 1.15, 1.18, 1.2, 1.22, 1.24,
+                                   1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3,
+                                   3.25, 6, 8.25, 10.5, 12.75, 15, 17.25, 19.5, 21.75,
+                                   24])
+        kA_charline2 = CharLine(x=[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1,
+                                   1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9,
+                                   2, 3, 4, 5, 6, 7, 8, 9,
+                                   10, 20, 30, 40, 50, 60, 70, 80, 90,
+                                   100],
+                                y=[0.15, 0.25, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1,
+                                   1.04, 1.07, 1.1, 1.13, 1.15, 1.18, 1.2, 1.22, 1.24,
+                                   1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3,
+                                   3.25, 6, 8.25, 10.5, 12.75, 15, 17.25, 19.5, 21.75,
+                                   24])
         self.heatexchanger_a.set_attr(design=['DTL'], offdesign=['KDTA'],
                                       KDTA_fit='charline',
                                       dp1_fit='default', dp2_fit='default',
                                       KDTA_char1=kA_charline1, KDTA_char2=kA_charline2)
         self.heatexchanger_b.set_attr(design=['DTL'], offdesign=['KDTA'],
                                       KDTA_fit='charline',
-                                      dp1_fit='default', dp2_fit='default',
-                                      KDTA_char1=kA_charline1, KDTA_char2=kA_charline2)
+                                      # dp1_fit='default',
+                                      KDTA_char1=kA_charline1, KDTA_char2=kA_charline2,
+                                      # design_path='salt_cycle_design_'
+                                      )
         self.heatexchanger_c.set_attr(design=['DTU'], offdesign=['KDTA'],
                                       KDTA_fit='charline',
-                                      dp1_fit='default', dp2_fit='default',
-                                      KDTA_char1=kA_charline1, KDTA_char2=kA_charline2)
+                                      # dp2_fit='default',
+                                      KDTA_char1=kA_charline1, KDTA_char2=kA_charline2,
+                                      # design_path='salt_cycle_design_'
+                                      )
         self.heatexchanger_d.set_attr(design=['DTU'], offdesign=['KDTA'],
                                       KDTA_fit='charline',
                                       dp1_fit='default', dp2_fit='default',
@@ -413,8 +433,8 @@ class SolarThermalCombinePlant1:
                                       dp1_fit='default', dp2_fit='default',
                                       KDTA_char1=kA_charline1, KDTA_char2=kA_charline2)
         # turbine
-        tur_charline = CharLine(x=[0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1, 1.05, 1.1],
-                                y=[0.9, 0.92, 0.94, 0.96, 0.98, 0.99, 0.995, 1, 0.99, 0.98])
+        tur_charline = CharLine(x=[0, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1, 1.05, 1.1],
+                                y=[0.8, 0.9, 0.92, 0.94, 0.96, 0.98, 0.99, 0.995, 1, 0.99, 0.98])
         self.hp_turbine1.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
         self.hp_turbine2.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
         self.lp_turbine1.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
@@ -424,8 +444,8 @@ class SolarThermalCombinePlant1:
         self.lp_turbine5.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
         self.gas_turbine.set_attr(eta_s_char=tur_charline, eta_s_fit='charline')
         # pump
-        pump_charline = CharLine(x=[0.5, 0.6, 0.7, 0.8, 1, 1.1],
-                                 y=[0.92, 0.94, 0.96, 0.98, 1, 0.98])
+        pump_charline = CharLine(x=[0, 0.5, 0.6, 0.7, 0.8, 1, 1.1, 1.2, 1.6, 2, 2.5, 10],
+                                 y=[0.82, 0.92, 0.94, 0.96, 0.98, 1, 0.98, 0.96, 0.94, 0.92, 0.9, 0.88])
         self.oil_recycle_pump1.set_attr(eta_s_char=pump_charline, eta_s_fit='charline')
         self.oil_recycle_pump2.set_attr(eta_s_char=pump_charline, eta_s_fit='charline')
         self.steam_recycle_pump.set_attr(eta_s_char=pump_charline, eta_s_fit='charline')
@@ -443,10 +463,20 @@ class SolarThermalCombinePlant1:
 
     def set_other_at_main_file(self):
         """set other properties at main file"""
-        self.c1.set_attr()
-        self.c2.set_attr()
-        # self.c14.set_attr(m=800)
-        self.c15.set_attr(m=11)
+        self.c1.set_attr(m=400 * 0.6)
+        self.c2.set_attr(m=12 * 1.06 * 0.6)
+        self.c9.set_attr(m=1100 * 0.09)
+        self.set_solar_collector(E=100)
+        # self.c9.set_attr(design=['m'])
+        # self.c21.set_attr(m=976)
+        self.c14.set_attr(m=240)
+        self.c15.set_attr(m=20)
+
+    def set_solar_collector(self, E):
+        self.solar_collector1.set_attr(eta_opt=0.40, E=E, hf=0, Tamb=25)
+        self.solar_collector2.set_attr(eta_opt=0.40, E=E, hf=0, Tamb=25)
+        self.solar_collector3.set_attr(eta_opt=0.40, E=E, hf=0, Tamb=25)
+        self.solar_collector4.set_attr(eta_opt=0.40, E=E, hf=0, Tamb=25)
 
     def set_other_at_optimal_file(self, E=None):
         """set other properties at optimal file"""
@@ -467,9 +497,10 @@ class SolarThermalCombinePlant1:
         self.nw.solve(mode=mode, max_iter=max_iter, algo_factor=algo_factor,
                       plot_iteration=False, print_results=True,
                       design_path=f"{self.name}_design_1",
-                      init_path=f"{self.name}_design_1"
+                      init_path=f"{self.name}_offdesign_7_2",
                       )
         # self.nw.save(f"{self.name}_design_")
+        self.nw.save(f"{self.name}_offdesign_7_3")
         # self.nw.save_csv(f"{self.name}_design_csv_")
         # self.nw.save_csv(f"{self.name}_offdesign_csv_")
 

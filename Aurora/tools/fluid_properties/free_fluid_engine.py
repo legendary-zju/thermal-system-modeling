@@ -94,6 +94,16 @@ class FreeFluidEngine:
         s = Customized_Fluid[self.fluid]['entropy'](p=p, T=T)
         return s
 
+    def temperature(self, p, h):
+        """calculate temperature of fluid based on pressure and enthalpy"""  # has not completed
+        min_enthalpy = self.enthalpy(p=p, T=self.T_min)
+        max_enthalpy = self.enthalpy(p=p, T=self.T_max)
+        if h < min_enthalpy or h > max_enthalpy:
+            msg = f"the enthalpy: {h} above the range: [{min_enthalpy}, {max_enthalpy}] at fluid engine {self.fluid}"
+            raise ValueError(msg)
+        T = Customized_Fluid[self.fluid]['temperature'](p=p, h=h)
+        return T
+
     def density(self, p, T):
         """calculate density of fluid based on pressure and temperature"""
         d = Customized_Fluid[self.fluid]['density'](p=p, T=T)
@@ -110,15 +120,24 @@ class FreeFluidEngine:
 
     def T_ph(self, p, h):
         """calculate temperature of fluid based on pressure and enthalpy"""
+        min_enthalpy = self.enthalpy(p=p, T=self.T_min)
+        max_enthalpy = self.enthalpy(p=p, T=self.T_max)
+        if h < min_enthalpy or h > max_enthalpy:
+            msg = f"The enthalpy: {h} above the range: [{min_enthalpy}, {max_enthalpy}] at fluid engine {self.fluid}"
+            raise ValueError(msg)
         T = self.T_melt + 150
         dT = 1
         iter_ = 1
-        fact = 0.1
+        fact = 1
         while True:
             delta_h = h - self.enthalpy(p, T)
             div = (self.enthalpy(p, T + dT) - self.enthalpy(p, T)) / dT
             alpha = min(abs(2 * fact * div / (delta_h + 1e-4)) ** 0.5, 1)
             T += alpha * delta_h / div
+            if T > self.T_max:
+                T = self.T_max - 1e-1
+            elif T < self.T_min:
+                T = self.T_min + 1e-1
             iter_ += 1
             if abs(delta_h) < 1e1 or iter_ > 100:
                 break
@@ -126,15 +145,24 @@ class FreeFluidEngine:
 
     def T_ps(self, p, s):
         """calculate temperature of fluid based on pressure and entropy"""
+        min_entropy = self.entropy(p=p, T=self.T_min)
+        max_entropy = self.entropy(p=p, T=self.T_max)
+        if s < min_entropy or s > max_entropy:
+            msg = f"The entropy: {s} above the range: [{min_entropy}, {max_entropy}] at fluid engine {self.fluid}"
+            raise ValueError(msg)
         T = self.T_melt + 150
         dT = 1
         iter_ = 1
-        fact = 0.1
+        fact = 1
         while True:
             delta_s = s - self.entropy(p, T)
             div = (self.entropy(p, T + dT) - self.entropy(p, T)) / dT
             alpha = min(abs(2 * fact * div / (delta_s + 1e-6)) ** 0.5, 1)
             T += alpha * delta_s / div
+            if T > self.T_max:
+                T = self.T_max - 1e-1
+            elif T < self.T_min:
+                T = self.T_min + 1e-1
             iter_ += 1
             if abs(delta_s) < 0.01 or iter_ > 100:
                 break

@@ -162,16 +162,16 @@ oil_recycle_pump2.set_attr(eta_s=0.8)
 c9.set_attr(m=1100)
 c21.set_attr(T=393)  # can't be set with c11.T together
 # gas cycle
-c1.set_attr(m=235, p=1, T=20, fluid={"Ar": 0.0129, "N2": 0.7553, "CO2": 0.0004, "O2": 0.2314})  # 400
-c2.set_attr(m=6.75625, p=1, T=20, fluid={"CH4": 1})  # 11.5
+c1.set_attr(m=400, p=1, T=20, fluid={"Ar": 0.0129, "N2": 0.7553, "CO2": 0.0004, "O2": 0.2314})  # 400
+c2.set_attr(m=11.5, p=1, T=20, fluid={"CH4": 1})  # 11.5
 c3.set_attr(p=15)
 c5.set_attr(p=0.9)
 c6.set_attr(p=35, fluid={'DowthermA': 1})  # !!
 # salt cycle
 # c11.set_attr(T=393)  #  'DowthermA'  MD4M
-c14.set_attr(p=1, m=953, fluid={"Solar Salt": 1})  #
+c14.set_attr(p=1, m=450, fluid={"Solar Salt": 1})  # m=953
 c19.set_attr(p=21)  #  'DowthermA'  MD4M
-c15.set_attr(m=10)  # m=
+c15.set_attr(m=450)  # m=10
 c81.set_attr(T=295)
 
 
@@ -181,5 +181,5 @@ nw.solve(mode='design', max_iter=100, algo_factor=0.01,
         init_path="salt_testing_design_",
         # design_path="salt_testing_design_"
         )
-# nw.save(f"salt_testing_design_2")
+# nw.save(f"salt_testing_design_3")
 

@@ -3100,6 +3100,7 @@ class Network:
             # algorithm core
             try:
                 condition_number = np.linalg.cond(self.jacobian)
+                logger.debug(f"matrix condition number: {condition_number}")
                 increment = np.linalg.solve(self.jacobian, self.residual)
                 if self.mode == 'offdesign':
                     alpha = min(1, (2 * self.num_vars * self.algo_factor / norm(increment)) ** 0.5)
@@ -3124,8 +3125,9 @@ class Network:
                     s_inv = np.zeros_like(s)
                     threshold = 1e-10 * s[0]  # 相对阈值
                     s_inv[s > threshold] = 1.0 / s[s > threshold]
-                    increment = Vh.T @ np.diag(s_inv) @ U.T @ self.residual + np.random.uniform(-0.05, 0.05,
-                                                                                                self.num_vars)
+                    increment = Vh.T @ np.diag(s_inv) @ U.T @ self.residual # + np.random.uniform(-0.05, 0.05, self.num_vars)
+                    msg = f"S-U matrix deal due to singular values"
+                    logger.debug(msg)
                     increment_norm = norm(increment)
                     if increment_norm > 10000:
                         alpha = 5000 / increment_norm
