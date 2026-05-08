@@ -463,14 +463,14 @@ class SolarThermalCombinePlant1:
 
     def set_other_at_main_file(self):
         """set other properties at main file"""
-        self.c1.set_attr(m=400 * 0.6)
-        self.c2.set_attr(m=12 * 1.06 * 0.6)
-        self.c9.set_attr(m=1100 * 0.09)
-        self.set_solar_collector(E=100)
+        self.c1.set_attr(m=400 * 0.8)
+        self.c2.set_attr(m=12 * 1.06 * 0.8)
+        self.c9.set_attr(m=1100 * 0.5)
+        self.set_solar_collector(E=500)
         # self.c9.set_attr(design=['m'])
         # self.c21.set_attr(m=976)
-        self.c14.set_attr(m=240)
-        self.c15.set_attr(m=20)
+        self.c14.set_attr(m=650)
+        self.c15.set_attr(m=10)
 
     def set_solar_collector(self, E):
         self.solar_collector1.set_attr(eta_opt=0.40, E=E, hf=0, Tamb=25)
@@ -497,10 +497,10 @@ class SolarThermalCombinePlant1:
         self.nw.solve(mode=mode, max_iter=max_iter, algo_factor=algo_factor,
                       plot_iteration=False, print_results=True,
                       design_path=f"{self.name}_design_1",
-                      init_path=f"{self.name}_offdesign_7_2",
+                      init_path=f"{self.name}_offdesign_2",
                       )
         # self.nw.save(f"{self.name}_design_")
-        self.nw.save(f"{self.name}_offdesign_7_3")
+        self.nw.save(f"{self.name}_offdesign_2_0")
         # self.nw.save_csv(f"{self.name}_design_csv_")
         # self.nw.save_csv(f"{self.name}_offdesign_csv_")
 
