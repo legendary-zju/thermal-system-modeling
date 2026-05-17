@@ -62,6 +62,8 @@
 1. GasSteamCombinePlant
 <img src="master_model/combine_plant/constructure_image/combine_plant_constructure.jpg" width="600">
 The thermal model in my paper is in GasSteamCombineCyclePlantModel1.py at combine_plant of master_model, which is a gas-steam combine cycle.
+The properties set are as follows:
+<img src="master_model/combine_plant/constructure_image/data.png" width="300">
 The relative bias of design condition with commercial software is as follows:
 <img src="master_model/combine_plant/constructure_image/relative_bias_of_design.jpg" width="300">
 2. PureSteamPlant
